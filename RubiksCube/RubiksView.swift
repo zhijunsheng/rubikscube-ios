@@ -73,14 +73,21 @@ class RubiksView: UIView {
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
         m14.stroke()
 
-        let n15 = UIBezierPath(roundedRect: CGRect(x: originX + gap, y: originY + gap, width: side - gap * 2, height: side - gap * 2), cornerRadius: 4)
-        #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1).setFill()
-        n15.fill()
+        for f in 0..<3 {
+            for i in 0..<3 {
+                drawRoundSquare(x: originX + gap + side * CGFloat(i), y: originY + gap + side * CGFloat(f))
+            }
+        }
+        
         
         
     }
     
-
+    func drawRoundSquare(x: CGFloat, y: CGFloat) {
+        let n15 = UIBezierPath(roundedRect: CGRect(x: x, y: y, width: side - gap * 2, height: side - gap * 2), cornerRadius: 8)
+        #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1).setFill()
+        n15.fill()
     }
+}
 
 
