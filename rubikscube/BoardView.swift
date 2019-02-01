@@ -13,64 +13,71 @@ import UIKit
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
+    
+
+        let leftSquare = UIBezierPath()
         
-        let path2 = UIBezierPath()
-        let path3 = UIBezierPath()
-        let path4 = UIBezierPath()
-        let path5 = UIBezierPath()
+        leftSquare.move(to: CGPoint(x: 100, y: 150))
+        leftSquare.addLine(to: CGPoint(x: 120, y: 150))
+        leftSquare.addLine(to: CGPoint(x: 120, y: 170))
+        leftSquare.addLine(to: CGPoint(x: 100, y: 170))
+        leftSquare.addLine(to: CGPoint(x: 100, y: 148))
         
-        path2.move(to: CGPoint(x: 100, y: 150))
-        path2.addLine(to: CGPoint(x: 120, y: 150))
-        path2.addLine(to: CGPoint(x: 120, y: 170))
-        path2.addLine(to: CGPoint(x: 100, y: 170))
-        path2.addLine(to: CGPoint(x: 100, y: 148))
+        leftSquare.move(to: CGPoint(x: 120, y: 150))
+        leftSquare.addLine(to: CGPoint(x: 120, y: 170))
         
-        path2.move(to: CGPoint(x: 120, y: 150))
-        path2.addLine(to: CGPoint(x: 120, y: 170))
-        
-        path2.stroke()
+        leftSquare.stroke()
         
         UIColor.red.setFill()
-        path2.fill()
+        leftSquare.fill()
         
-        path3.move(to: CGPoint(x: 120, y: 150))
-        path3.addLine(to: CGPoint(x: 140, y: 150))
-        path3.addLine(to: CGPoint(x: 140, y: 170))
-        path3.addLine(to: CGPoint(x: 120, y: 170))
-        path3.addLine(to: CGPoint(x: 120, y: 150))
         
-        path3.stroke()
+        let rightSquare = UIBezierPath()
+
+        rightSquare.move(to: CGPoint(x: 120, y: 150))
+        rightSquare.addLine(to: CGPoint(x: 140, y: 150))
+        rightSquare.addLine(to: CGPoint(x: 140, y: 170))
+        rightSquare.addLine(to: CGPoint(x: 120, y: 170))
+        rightSquare.addLine(to: CGPoint(x: 120, y: 150))
+        
+        rightSquare.stroke()
         
         UIColor.red.setFill()
-        path3.fill()
+        rightSquare.fill()
         
-        path4.move(to: CGPoint(x: 99, y: 149))
-        path4.addLine(to: CGPoint(x: 113, y: 140))
-        path4.addLine(to: CGPoint(x: 132, y: 140))
-        path4.addLine(to: CGPoint(x: 119, y: 149))
         
-        UIColor.blue.setFill()
-        path4.fill()
-        
-        path4.move(to: CGPoint(x: 119, y: 149))
-        path4.addLine(to: CGPoint(x: 132, y: 140))
-        path4.addLine(to: CGPoint(x: 152, y: 140))
-        path4.addLine(to: CGPoint(x: 140, y: 149))
+        let parallelogram = UIBezierPath()
+
+        parallelogram.move(to: CGPoint(x: 99, y: 149))
+        parallelogram.addLine(to: CGPoint(x: 113, y: 140))
+        parallelogram.addLine(to: CGPoint(x: 132, y: 140))
+        parallelogram.addLine(to: CGPoint(x: 119, y: 149))
         
         UIColor.blue.setFill()
-        path4.fill()
+        parallelogram.fill()
+    
+        parallelogram.move(to: CGPoint(x: 119, y: 149))
+        parallelogram.addLine(to: CGPoint(x: 132, y: 140))
+        parallelogram.addLine(to: CGPoint(x: 152, y: 140))
+        parallelogram.addLine(to: CGPoint(x: 140, y: 149))
         
-        path4.stroke()
+        UIColor.blue.setFill()
+        parallelogram.fill()
         
-        path5.move(to: CGPoint(x: 152, y: 140))
-        path5.addLine(to: CGPoint(x: 152, y: 160))
-        path5.addLine(to: CGPoint(x: 140, y: 170))
-        path5.addLine(to: CGPoint(x: 140, y: 150))
+        parallelogram.stroke()
+        
+        
+        let yellowParallelogram = UIBezierPath()
+
+        yellowParallelogram.move(to: CGPoint(x: 152, y: 140))
+        yellowParallelogram.addLine(to: CGPoint(x: 152, y: 160))
+        yellowParallelogram.addLine(to: CGPoint(x: 140, y: 170))
+        yellowParallelogram.addLine(to: CGPoint(x: 140, y: 150))
         
         UIColor.yellow.setFill()
-        path5.fill()
+        yellowParallelogram.fill()
         
-        path5.stroke()
+        yellowParallelogram.stroke()
 
     }
  }
