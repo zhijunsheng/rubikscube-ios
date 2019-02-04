@@ -12,8 +12,8 @@
 		0725AF7C2202550B00AB1E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7A2202550B00AB1E6F /* Main.storyboard */; };
 		0725AF7E2202550E00AB1E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7D2202550E00AB1E6F /* Assets.xcassets */; };
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
-		0725AF8C2202550E00AB1E6F /* rubikscubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725AF8B2202550E00AB1E6F /* rubikscubeTests.swift */; };
 		D139BD112204EB9E00DE9611 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D139BD102204EB9E00DE9611 /* BoardView.swift */; };
+		D169D08F2208D9A500E4A494 /* FunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D08E2208D9A500E4A494 /* FunctionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +35,9 @@
 		0725AF802202550E00AB1E6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0725AF822202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0725AF8B2202550E00AB1E6F /* rubikscubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rubikscubeTests.swift; sourceTree = "<group>"; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D139BD102204EB9E00DE9611 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		D169D08E2208D9A500E4A494 /* FunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 		0725AF8A2202550E00AB1E6F /* rubikscubeTests */ = {
 			isa = PBXGroup;
 			children = (
-				0725AF8B2202550E00AB1E6F /* rubikscubeTests.swift */,
+				D169D08E2208D9A500E4A494 /* FunctionTests.swift */,
 				0725AF8D2202550E00AB1E6F /* Info.plist */,
 			);
 			path = rubikscubeTests;
@@ -210,7 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0725AF8C2202550E00AB1E6F /* rubikscubeTests.swift in Sources */,
+				D169D08F2208D9A500E4A494 /* FunctionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
