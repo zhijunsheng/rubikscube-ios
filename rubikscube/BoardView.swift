@@ -14,21 +14,22 @@ import UIKit
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
     
-        let cellSideValue: CGFloat = 50
-        let cubeOriginX: CGFloat = 100
-        let cubeOriginY: CGFloat = 150
+        let cellSideValue: CGFloat = 45
+        let cubeOriginX: CGFloat = 31
+        let cubeOriginY: CGFloat = 03
         
-        drawSquare(originX: cubeOriginX, originY: cubeOriginY, cellSide: cellSideValue, cellColor: UIColor.blue)
-        drawSquare(originX: cubeOriginX + cellSideValue, originY: cubeOriginY, cellSide: cellSideValue, cellColor: UIColor.blue)
-        drawSquare(originX: cubeOriginX + cellSideValue * 2, originY: cubeOriginY, cellSide: cellSideValue, cellColor: UIColor.blue)
+        for i in 0..<3 {
+            drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(i), originY: cubeOriginY, cellSide: cellSideValue, cellColor: UIColor.blue)
+        }
         
-        drawSquare(originX: cubeOriginX, originY: cubeOriginY + cellSideValue, cellSide: cellSideValue, cellColor: UIColor.blue)
-        drawSquare(originX: cubeOriginX + cellSideValue, originY: cubeOriginY + cellSideValue, cellSide: cellSideValue, cellColor: UIColor.blue)
-        drawSquare(originX: cubeOriginX + cellSideValue * 2, originY: cubeOriginY + cellSideValue, cellSide: cellSideValue, cellColor: UIColor.blue)
+        for i in 0..<3 {
+            drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(i), originY: cubeOriginY + cellSideValue, cellSide: cellSideValue, cellColor: UIColor.blue)
+        }
         
-        drawSquare(originX: cubeOriginX, originY: cubeOriginY + cellSideValue * 2, cellSide: cellSideValue, cellColor: UIColor.blue)
-        drawSquare(originX: cubeOriginX + cellSideValue, originY: cubeOriginY + cellSideValue * 2, cellSide: cellSideValue, cellColor: UIColor.blue)
-        drawSquare(originX: cubeOriginX + cellSideValue * 2, originY: cubeOriginY + cellSideValue * 2, cellSide: cellSideValue, cellColor: UIColor.blue)
+        for i in 0..<3 {
+            drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(i), originY: cubeOriginY + cellSideValue * 2, cellSide: cellSideValue, cellColor: UIColor.blue)
+        }
+
         /*
         let rightSquare = UIBezierPath()
 
