@@ -10,25 +10,19 @@ import UIKit
 
  class BoardView: UIView {
     
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
+    let cellSideValue: CGFloat = 60
+    let cubeOriginX: CGFloat = 35
+    let cubeOriginY: CGFloat = 40
     
-        let cellSideValue: CGFloat = 45
-        let cubeOriginX: CGFloat = 31
-        let cubeOriginY: CGFloat = 03
-        
+    
+    override func draw(_ rect: CGRect) {
+
         for i in 0..<3 {
-            drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(i), originY: cubeOriginY, cellSide: cellSideValue, cellColor: UIColor.blue)
+            for j in 0..<3 {
+                drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(i), originY: cubeOriginY + cellSideValue * CGFloat(j), cellSide: cellSideValue, cellColor: UIColor.blue)
+            }
         }
-        
-        for i in 0..<3 {
-            drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(i), originY: cubeOriginY + cellSideValue, cellSide: cellSideValue, cellColor: UIColor.blue)
-        }
-        
-        for i in 0..<3 {
-            drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(i), originY: cubeOriginY + cellSideValue * 2, cellSide: cellSideValue, cellColor: UIColor.blue)
-        }
+
 
         /*
         let rightSquare = UIBezierPath()
