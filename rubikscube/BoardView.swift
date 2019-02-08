@@ -14,15 +14,21 @@ import UIKit
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
     
-        drawSquare(originX: 100, originY: 150, cellSide: 50, cellColor: UIColor.blue)
-        drawSquare(originX: 120, originY: 150, cellSide: 50, cellColor: UIColor.blue)
-        drawSquare(originX: 140, originY: 150, cellSide: 50, cellColor: UIColor.red)
-        drawSquare(originX: 100, originY: 170, cellSide: 50, cellColor: UIColor.blue)
-        drawSquare(originX: 120, originY: 170, cellSide: 50, cellColor: UIColor.blue)
-        drawSquare(originX: 140, originY: 170, cellSide: 50, cellColor: UIColor.blue)
-        drawSquare(originX: 100, originY: 190, cellSide: 50, cellColor: UIColor.blue)
-        drawSquare(originX: 120, originY: 190, cellSide: 50, cellColor: UIColor.blue)
-        drawSquare(originX: 140, originY: 190, cellSide: 50, cellColor: UIColor.blue)
+        let cellSideValue: CGFloat = 50
+        let cubeOriginX: CGFloat = 100
+        let cubeOriginY: CGFloat = 150
+        
+        drawSquare(originX: cubeOriginX, originY: cubeOriginY, cellSide: cellSideValue, cellColor: UIColor.blue)
+        drawSquare(originX: cubeOriginX + cellSideValue, originY: cubeOriginY, cellSide: cellSideValue, cellColor: UIColor.blue)
+        drawSquare(originX: cubeOriginX + cellSideValue * 2, originY: cubeOriginY, cellSide: cellSideValue, cellColor: UIColor.blue)
+        
+        drawSquare(originX: cubeOriginX, originY: cubeOriginY + cellSideValue, cellSide: cellSideValue, cellColor: UIColor.blue)
+        drawSquare(originX: cubeOriginX + cellSideValue, originY: cubeOriginY + cellSideValue, cellSide: cellSideValue, cellColor: UIColor.blue)
+        drawSquare(originX: cubeOriginX + cellSideValue * 2, originY: cubeOriginY + cellSideValue, cellSide: cellSideValue, cellColor: UIColor.blue)
+        
+        drawSquare(originX: cubeOriginX, originY: cubeOriginY + cellSideValue * 2, cellSide: cellSideValue, cellColor: UIColor.blue)
+        drawSquare(originX: cubeOriginX + cellSideValue, originY: cubeOriginY + cellSideValue * 2, cellSide: cellSideValue, cellColor: UIColor.blue)
+        drawSquare(originX: cubeOriginX + cellSideValue * 2, originY: cubeOriginY + cellSideValue * 2, cellSide: cellSideValue, cellColor: UIColor.blue)
         /*
         let rightSquare = UIBezierPath()
 
@@ -74,6 +80,7 @@ import UIKit
     }
 
     
+//    drawSquare(originX: 100, originY: 150, cellSide: 50, cellColor: UIColor.blue)
     func drawSquare(originX: CGFloat, originY: CGFloat, cellSide: CGFloat, cellColor: UIColor) {
         
         let leftSquare = UIBezierPath()
