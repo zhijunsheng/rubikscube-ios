@@ -21,23 +21,18 @@ import UIKit
     
     override func draw(_ rect: CGRect) {
 
-        for i in 0..<3 {
-            for j in 0..<3 {
-                drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(i), originY: cubeOriginY + cellSideValue * CGFloat(j), cellSide: cellSideValue, cellColor: UIColor.blue)
-            }
-        }
+        for column in 0..<3 {
+            for row in 0..<3 {
+                drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(column), originY: cubeOriginY + cellSideValue * CGFloat(row), cellSide: cellSideValue, cellColor: UIColor.blue)
+                drawParallogram(originX: cubeoriginX2 + cellSideValue * CGFloat(column) + 13 * CGFloat(row), originY: cubeoriginY2 - 10 * CGFloat(row), cellSide2: cellSideValue, cellColor2: UIColor.red)
 
-        
-        for x in 0..<3 {
-            parallogramRow(originX2: cubeoriginX2 + cellSideValue * CGFloat(x), originY2: cubeoriginY2, cellSide2: cellSideValue, cellColor2: UIColor.red)
+            }
         }
         
         for a in 0..<3 {
             rightParallelogram(originX3: cubeoriginX3 + cellSideValue * CGFloat(a), originY3: cubeoriginY3, cellSide3: cellSideValue, cellColor3: UIColor.white)
         }
     }
-    
-// Square
 
     
     func drawSquare(originX: CGFloat, originY: CGFloat, cellSide: CGFloat, cellColor: UIColor) {
@@ -58,29 +53,15 @@ import UIKit
         
     }
     
-    // Parallelogram
     
-    
-    func parallogramRow(originX2: CGFloat, originY2: CGFloat, cellSide2: CGFloat, cellColor2: UIColor) {
+    func drawParallogram(originX: CGFloat, originY: CGFloat, cellSide2: CGFloat, cellColor2: UIColor) {
        
         let parallelogram = UIBezierPath()
         
-        parallelogram.move(to: CGPoint(x: originX2, y: originY2))
-        parallelogram.addLine(to: CGPoint(x: originX2 + 13, y: originY2 - 10))
-        parallelogram.addLine(to: CGPoint(x: originX2 + cellSide2 + 13, y: originY2 - 10))
-        parallelogram.addLine(to: CGPoint(x: originX2 + cellSide2, y: originY2))
-        parallelogram.close()
-       
-        parallelogram.move(to: CGPoint(x: originX2 + 13, y: originY2 - 10))
-        parallelogram.addLine(to: CGPoint(x: originX2 + 26, y: originY2 - 20))
-        parallelogram.addLine(to: CGPoint(x: originX2 + cellSide2 + 26, y: originY2 - 20))
-        parallelogram.addLine(to: CGPoint(x: originX2 + cellSide2 + 13, y: originY2 - 10))
-        parallelogram.close()
-        
-        parallelogram.move(to: CGPoint(x: originX2 + 26, y: originY2 - 20))
-        parallelogram.addLine(to: CGPoint(x: originX2 + 38, y: originY2 - 30))
-        parallelogram.addLine(to: CGPoint(x: originX2 + cellSide2 + 38, y: originY2 - 30))
-        parallelogram.addLine(to: CGPoint(x: originX2 + cellSide2 + 26, y: originY2 - 20))
+        parallelogram.move(to: CGPoint(x: originX, y: originY))
+        parallelogram.addLine(to: CGPoint(x: originX + 13, y: originY - 10))
+        parallelogram.addLine(to: CGPoint(x: originX + cellSide2 + 13, y: originY - 10))
+        parallelogram.addLine(to: CGPoint(x: originX + cellSide2, y: originY))
         parallelogram.close()
         
         cellColor2.setFill()
