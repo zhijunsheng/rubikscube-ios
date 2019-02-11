@@ -10,13 +10,11 @@ import UIKit
 
  class BoardView: UIView {
     
-    let cellSideValue: CGFloat = 60
     let cubeOriginX: CGFloat = 45
-    let cubeOriginY: CGFloat = 45
-    let cubeoriginX2: CGFloat = 45
-    let cubeoriginY2: CGFloat = 45
-    let cubeoriginX3: CGFloat = 225
-    let cubeoriginY3: CGFloat = 45
+    let cubeOriginY: CGFloat = 75
+    let cubeOriginX3: CGFloat = 225 // TODO
+    let cubeOriginY3: CGFloat = 45 // TODO
+    let cellSideValue: CGFloat = 60
     
     
     override func draw(_ rect: CGRect) {
@@ -24,13 +22,13 @@ import UIKit
         for column in 0..<3 {
             for row in 0..<3 {
                 drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(column), originY: cubeOriginY + cellSideValue * CGFloat(row), cellSide: cellSideValue, cellColor: UIColor.blue)
-                drawParallogram(originX: cubeoriginX2 + cellSideValue * CGFloat(column) + 13 * CGFloat(row), originY: cubeoriginY2 - 10 * CGFloat(row), cellSide2: cellSideValue, cellColor2: UIColor.red)
+                drawParallogram(originX: cubeOriginX + cellSideValue * CGFloat(column) + 13 * CGFloat(row), originY: cubeOriginY - 10 * CGFloat(row), cellSide2: cellSideValue, cellColor2: UIColor.red)
 
             }
         }
         
         for a in 0..<3 {
-            rightParallelogram(originX3: cubeoriginX3 + cellSideValue * CGFloat(a), originY3: cubeoriginY3, cellSide3: cellSideValue, cellColor3: UIColor.white)
+            rightParallelogram(originX3: cubeOriginX3 + cellSideValue * CGFloat(a), originY3: cubeOriginY3, cellSide3: cellSideValue, cellColor3: UIColor.white)
         }
     }
 
@@ -72,7 +70,7 @@ import UIKit
         
     }
 
-    // Right Parallelogram
+    // TODO
     
     
     func rightParallelogram(originX3: CGFloat, originY3: CGFloat, cellSide3: CGFloat, cellColor3: UIColor) {
