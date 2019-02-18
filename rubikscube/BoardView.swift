@@ -10,40 +10,24 @@ import UIKit
 
  class BoardView: UIView {
     
-    let cubeOriginX: CGFloat =  30
+    let cubeOriginX: CGFloat = 30
     let cubeOriginY: CGFloat = 90
-    
     let cellSideValue: CGFloat = 50
+    
     override func draw(_ rect: CGRect) {
 
         for column in 0..<3 {
             for row in 0..<3 {
                 drawSquare(originX: cubeOriginX + cellSideValue * CGFloat(column), originY: cubeOriginY + cellSideValue * CGFloat(row), cellSide: cellSideValue, cellColor: UIColor.white)
-               
+
                 drawParallogram(originX: cubeOriginX + cellSideValue * CGFloat(column) + 13 * CGFloat(row), originY: cubeOriginY - 10 * CGFloat(row), cellSide: cellSideValue, cellColor: UIColor.blue)
                 
                 rightParallelogram(originX: cubeOriginX + cellSideValue * 3 + 13 * CGFloat(row), originY: cubeOriginY - cellSideValue * CGFloat(column) + cellSideValue * 3 - 10 * CGFloat(row), cellSide: cellSideValue, cellColor: UIColor.red)
-//                rightParallelogram(originX: cubeOriginX + cellSideValue * 3, originY: cubeOriginY - cellSideValue * CGFloat(1) + cellSideValue * 3, cellSide: cellSideValue, cellColor: UIColor.white)
-//                rightParallelogram(originX: cubeOriginX + cellSideValue * 3, originY: cubeOriginY - cellSideValue * CGFloat(2) + cellSideValue * 3, cellSide: cellSideValue, cellColor: UIColor.white)
             }
         }
-//
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3, originY: cubeOriginY - cellSideValue * CGFloat(0) + cellSideValue * 3, cellSide: cellSideValue, cellColor: UIColor.white)
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3, originY: cubeOriginY - cellSideValue * CGFloat(1) + cellSideValue * 3, cellSide: cellSideValue, cellColor: UIColor.white)
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3, originY: cubeOriginY - cellSideValue * CGFloat(2) + cellSideValue * 3, cellSide: cellSideValue, cellColor: UIColor.white)
-//
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3 + 13, originY: cubeOriginY - cellSideValue * CGFloat(0) + cellSideValue * 3 - 10, cellSide: cellSideValue, cellColor: UIColor.white)
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3 + 13, originY: cubeOriginY - cellSideValue * CGFloat(1) + cellSideValue * 3 - 10, cellSide: cellSideValue, cellColor: UIColor.white)
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3 + 13, originY: cubeOriginY - cellSideValue * CGFloat(2) + cellSideValue * 3 - 10, cellSide: cellSideValue, cellColor: UIColor.white)
-//
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3 + 26, originY: cubeOriginY - cellSideValue * CGFloat(0) + cellSideValue * 3 - 20, cellSide: cellSideValue, cellColor: UIColor.white)
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3 + 26, originY: cubeOriginY - cellSideValue * CGFloat(1) + cellSideValue * 3 - 20, cellSide: cellSideValue, cellColor: UIColor.white)
-//        rightParallelogram(originX: cubeOriginX + cellSideValue * 3 + 26, originY: cubeOriginY - cellSideValue * CGFloat(2) + cellSideValue * 3 - 20, cellSide: cellSideValue, cellColor: UIColor.white)
     }
 
-    
     func drawSquare(originX: CGFloat, originY: CGFloat, cellSide: CGFloat, cellColor: UIColor) {
-        
         let leftSquare = UIBezierPath()
         
         leftSquare.move(to: CGPoint(x: originX, y: originY))
@@ -52,17 +36,14 @@ import UIKit
         leftSquare.addLine(to: CGPoint(x: originX, y: originY + cellSide))
         leftSquare.close()
         
-        leftSquare.stroke()
-        
         cellColor.setFill()
-       
         leftSquare.fill()
         
+        leftSquare.lineWidth = 0.3
+        leftSquare.stroke()
     }
     
-    
     func drawParallogram(originX: CGFloat, originY: CGFloat, cellSide: CGFloat, cellColor: UIColor) {
-       
         let parallelogram = UIBezierPath()
         
         parallelogram.move(to: CGPoint(x: originX, y: originY))
@@ -72,18 +53,14 @@ import UIKit
         parallelogram.close()
         
         cellColor.setFill()
-        
         parallelogram.fill()
         
+        parallelogram.lineWidth = 0.3
         parallelogram.stroke()
-        
     }
 
-    // TODO
-    
     
     func rightParallelogram(originX: CGFloat, originY: CGFloat, cellSide: CGFloat, cellColor: UIColor) {
-
         let parallelogram = UIBezierPath()
         
         parallelogram.move(to: CGPoint(x: originX, y: originY))
@@ -93,10 +70,10 @@ import UIKit
         parallelogram.close()
         
         cellColor.setFill()
-        
         parallelogram.fill()
         
+        parallelogram.lineWidth = 0.3
         parallelogram.stroke()
-        
     }
  }
+
