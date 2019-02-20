@@ -9,13 +9,18 @@
 import UIKit
 
 class BoardView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
-        // Drawing code
+        
+        let pencil = UIBezierPath()
+        pencil.move(to: CGPoint(x: 30, y: 100))
+        pencil.addLine(to: CGPoint(x: 80, y: 100))
+        pencil.addLine(to: CGPoint(x: 80, y: 150))
+        pencil.addLine(to: CGPoint(x: 30, y: 150))
+        pencil.addLine(to: CGPoint(x: 30, y: 100))
+        pencil.stroke()
     }
-    */
+    
+
+    
 
 }
