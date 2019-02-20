@@ -5,43 +5,22 @@ import UIKit
 
     override func draw(_ rect: CGRect) {
         
-        // squares
-        
         for i in 0..<3 {
-            drawSquare(originX: 150 + CGFloat(i) * 90, originY: 290, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        }
-        
-        for i in 0..<3 {
-            drawSquare(originX: 150 + CGFloat(i) * 90, originY: 290 + 90, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        }
-        
-        for i in 0..<3 {
-            drawSquare(originX: 150 + CGFloat(i) * 90, originY: 290 + 90 + 90, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        }
-        
-        // parallelograms
-
-        for i in 0..<3 {
-             drawParallelogram(originX: 150 + CGFloat(i) * 90, originY: 250, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        }
-        
-        for i in 0..<3 {
-             drawParallelogram(originX: 150 + 20 + CGFloat(i) * 90, originY: 250 - 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        }
-        
-        for i in 0..<3 {
-            drawParallelogram(originX: 150 + 20 + 20 + CGFloat(i) * 90, originY: 250 - 40 - 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        }
-        
-        for i in 0..<3 {
-            drawParallelogram2(originX: 150 + 3 * 90 + CGFloat(i) * 20, originY: 290 - CGFloat(i) * 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        }
-        
-        for i in 0..<3 {
-            drawParallelogram2(originX: 150 + 3 * 90 + CGFloat(i) * 20, originY: 290 + 90 - CGFloat(i) * 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        }
-        
-        for i in 0..<3 {
+            
+            // squares
+            
+            drawSquare(originX: 150 + CGFloat(i) * 90, originY: 290 + 0 * 90, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+            drawSquare(originX: 150 + CGFloat(i) * 90, originY: 290 + 1 * 90, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+            drawSquare(originX: 150 + CGFloat(i) * 90, originY: 290 + 2 * 90, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+            
+            // parallelograms
+            
+            drawParallelogram(originX: 150 + 0 * 20 + CGFloat(i) * 90, originY: 250 - 0 * 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+            drawParallelogram(originX: 150 + 1 * 20 + CGFloat(i) * 90, originY: 250 - 1 * 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+            drawParallelogram(originX: 150 + 2 * 20 + CGFloat(i) * 90, originY: 250 - 2 * 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+            
+            drawParallelogram2(originX: 150 + 3 * 90 + CGFloat(i) * 20, originY: 290 + 0 * 90 - CGFloat(i) * 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+            drawParallelogram2(originX: 150 + 3 * 90 + CGFloat(i) * 20, originY: 290 + 1 * 90 - CGFloat(i) * 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
             drawParallelogram2(originX: 150 + 3 * 90 + CGFloat(i) * 20, originY: 290 + 2 * 90 - CGFloat(i) * 40, cellSide: 90, lineWidth: 3, fillColor: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1), strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
         }
     }
