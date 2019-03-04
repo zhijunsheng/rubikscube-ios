@@ -9,11 +9,11 @@
 import UIKit
 
 class RubiksCubeView: UIView {
-    let originX: CGFloat = 90
+    let originX: CGFloat = 30
     let originY: CGFloat = 150
     let cellSide: CGFloat = 40
-    let offsetX: CGFloat = 20
-    let offsetY: CGFloat = 15
+    let offsetX: CGFloat = 10
+    let offsetY: CGFloat = 10
 
     override func draw(_ rect: CGRect) {
        
@@ -25,7 +25,12 @@ class RubiksCubeView: UIView {
             drawParallelogram(x: originX + cellSide * CGFloat(i), y: originY)
             drawParallelogram(x: originX + cellSide * CGFloat(i) + offsetX, y: originY - offsetY)
             drawParallelogram(x: originX + cellSide * CGFloat(i) + offsetX * 2, y: originY - offsetY * 2)
+            
+            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(i), y: originY - offsetY * CGFloat(i))
+            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(i), y: originY + cellSide - offsetY * CGFloat(i))
+            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(i), y: originY + 2 * cellSide - offsetY * CGFloat(i))
         }
+        
     }
 
     func drawSquare(x: CGFloat, y: CGFloat) {
@@ -54,6 +59,20 @@ class RubiksCubeView: UIView {
         pencil.stroke()
         
         UIColor.yellow.setFill()
+        pencil.fill()
+    }
+    
+    func drawParallelogram2(x: CGFloat, y:CGFloat) {
+        let pencil = UIBezierPath()
+        pencil.move(to: CGPoint(x: x, y: y))
+        pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY))
+        pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY + cellSide))
+        pencil.addLine(to: CGPoint(x: x, y: y + cellSide))
+        
+        pencil.close()
+        pencil.stroke()
+        
+        UIColor.green.setFill()
         pencil.fill()
     }
 }
