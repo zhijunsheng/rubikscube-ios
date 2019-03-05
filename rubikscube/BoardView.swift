@@ -1,6 +1,6 @@
 import UIKit
 
- class BoardView: UIView {
+class BoardView: UIView {
     let lineSide: CGFloat = 60
     let oigX: CGFloat = 85
     let oigY: CGFloat = 295
@@ -9,10 +9,15 @@ import UIKit
             for i in 0..<3 {
                 drawSquare(x: oigX + CGFloat(i) * lineSide, y: oigY - CGFloat(j) * lineSide, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
                 drawParallelogram1(x: oigX + CGFloat(i) * lineSide + CGFloat(j) * 30, y: oigY - 2 * lineSide - CGFloat(j) * 30, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
+                drawParallelogram2(x: oigX + 3 * lineSide + CGFloat(j) * 30, y: oigY - CGFloat(i) * lineSide - CGFloat(j) * 30, color: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))
             }
         }
         
-        drawParallelogram2(x: oigX + 3 * lineSide, y: oigY, color: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))
+//        for i in 0..<3 {
+//            drawParallelogram2(x: oigX + 3 * lineSide, y: oigY - CGFloat(i) * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))
+//        }
+        
+        
     }
     
     func drawSquare(x: CGFloat, y: CGFloat, color: UIColor) {
@@ -45,8 +50,8 @@ import UIKit
     func drawParallelogram2(x: CGFloat,y: CGFloat,color: UIColor) {
         let cP2 = UIBezierPath()
         cP2.move(to: CGPoint(x: x, y: y))
-        cP2.addLine(to: CGPoint(x: x + 30, y: y - 75))
-        cP2.addLine(to: CGPoint(x: x + 30, y: y + (75 + 30)))
+        cP2.addLine(to: CGPoint(x: x + 30, y: y - 30))
+        cP2.addLine(to: CGPoint(x: x + 30, y: y + lineSide - 30))
         cP2.addLine(to: CGPoint(x: x, y: y + lineSide))
         cP2.close()
         color.setFill()
@@ -54,4 +59,4 @@ import UIKit
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
         cP2.stroke()
     }
- }
+}
