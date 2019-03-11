@@ -16,7 +16,7 @@ class RubiksCubeView: UIView {
     let offsetY: CGFloat = 10
     
     var rubiksCube: RubiksCube = RubiksCube(
-        up: [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow],
+        up: [.white, .yellow, .orange, .yellow, .yellow, .yellow, .blue, .yellow, .yellow],
         front: [.yellow, .blue, .green, .red, .red, .red, .red, .red, .white],
         right: [.green, .green, .green, .green, .green, .green, .green, .green, .green,],
         down: [ .white, .white, .white, .white, .white, .white, .white, .white, .white,],
@@ -27,24 +27,26 @@ class RubiksCubeView: UIView {
         for i in 0 ..< 9 {
             let (col, row) = mapIndexToColRow(index: i)
             
-            if rubiksCube.front[i] == .green {
-                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .green)
-            } else if rubiksCube.front[i] == .red {
-                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .red)
-            } else if rubiksCube.front[i] == .blue{
-                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .blue)
-            } else if rubiksCube.front[i] == .yellow {
-                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .yellow)
-            } else if rubiksCube.front[i] == .white {
-                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .white)
-            } else if rubiksCube.front[i] == .orange {
-                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .orange)
+            drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), cellColor: rubiksCube.front[i])
+            
+            if rubiksCube.up[i] == .green {
+                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .green)
+            } else if rubiksCube.up[i] == .red {
+                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .red)
+            } else if rubiksCube.up[i] == .blue{
+                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .blue)
+            } else if rubiksCube.up[i] == .yellow {
+                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .yellow)
+            } else if rubiksCube.up[i] == .white {
+                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .white)
+            } else if rubiksCube.up[i] == .orange {
+                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .orange)
             }
 
         }
     }
 
-    func drawSquare(x: CGFloat, y: CGFloat, color: UIColor) {
+    func drawSquare(x: CGFloat, y: CGFloat, cellColor: CellColor) {
         let pen = UIBezierPath()
         
         pen.move(to: CGPoint(x: x, y: y))
@@ -55,7 +57,20 @@ class RubiksCubeView: UIView {
         pen.close()
         pen.stroke()
         
-        color.setFill()
+        if cellColor == .green {
+            UIColor.green.setFill()
+        } else if cellColor == .red {
+            UIColor.red.setFill()
+        } else if cellColor == .blue{
+            UIColor.blue.setFill()
+        } else if cellColor == .yellow {
+            UIColor.yellow.setFill()
+        } else if cellColor == .white {
+            UIColor.white.setFill()
+        } else if cellColor == .orange {
+            UIColor.orange.setFill()
+        }
+        
         pen.fill()
     }
     
