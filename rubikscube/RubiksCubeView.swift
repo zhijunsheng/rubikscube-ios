@@ -14,26 +14,37 @@ class RubiksCubeView: UIView {
     let cellSide: CGFloat = 40
     let offsetX: CGFloat = 10
     let offsetY: CGFloat = 10
+    
+    var rubiksCube: RubiksCube = RubiksCube(
+        up: [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow],
+        front: [.yellow, .blue, .green, .red, .red, .red, .red, .red, .white],
+        right: [.green, .green, .green, .green, .green, .green, .green, .green, .green,],
+        down: [ .white, .white, .white, .white, .white, .white, .white, .white, .white,],
+        left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+        back: [ .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange,])
 
     override func draw(_ rect: CGRect) {
-       
-        for i in 0 ..< 3 {
-            drawSquare(x: originX, y: originY + cellSide * CGFloat(i))
-            drawSquare(x: originX + cellSide, y: originY + cellSide * CGFloat(i))
-            drawSquare(x: originX + 2 * cellSide, y: originY + cellSide * CGFloat(i))
+        for i in 0 ..< 9 {
+            let (col, row) = mapIndexToColRow(index: i)
             
-            drawParallelogram(x: originX + cellSide * CGFloat(i), y: originY)
-            drawParallelogram(x: originX + cellSide * CGFloat(i) + offsetX, y: originY - offsetY)
-            drawParallelogram(x: originX + cellSide * CGFloat(i) + offsetX * 2, y: originY - offsetY * 2)
-            
-            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(i), y: originY - offsetY * CGFloat(i))
-            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(i), y: originY + cellSide - offsetY * CGFloat(i))
-            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(i), y: originY + 2 * cellSide - offsetY * CGFloat(i))
+            if rubiksCube.front[i] == .green {
+                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .green)
+            } else if rubiksCube.front[i] == .red {
+                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .red)
+            } else if rubiksCube.front[i] == .blue{
+                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .blue)
+            } else if rubiksCube.front[i] == .yellow {
+                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .yellow)
+            } else if rubiksCube.front[i] == .white {
+                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .white)
+            } else if rubiksCube.front[i] == .orange {
+                drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), color: .orange)
+            }
+
         }
-        
     }
 
-    func drawSquare(x: CGFloat, y: CGFloat) {
+    func drawSquare(x: CGFloat, y: CGFloat, color: UIColor) {
         let pen = UIBezierPath()
         
         pen.move(to: CGPoint(x: x, y: y))
@@ -44,11 +55,11 @@ class RubiksCubeView: UIView {
         pen.close()
         pen.stroke()
         
-        UIColor.red.setFill()
+        color.setFill()
         pen.fill()
     }
     
-    func drawParallelogram(x: CGFloat, y:CGFloat) {
+    func drawParallelogram(x: CGFloat, y: CGFloat, color: UIColor) {
         let pencil = UIBezierPath()
         pencil.move(to: CGPoint(x: x, y: y))
         pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY))
@@ -58,11 +69,11 @@ class RubiksCubeView: UIView {
         pencil.close()
         pencil.stroke()
         
-        UIColor.yellow.setFill()
+        color.setFill()
         pencil.fill()
     }
     
-    func drawParallelogram2(x: CGFloat, y:CGFloat) {
+    func drawParallelogram2(x: CGFloat, y:CGFloat, color: UIColor) {
         let pencil = UIBezierPath()
         pencil.move(to: CGPoint(x: x, y: y))
         pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY))
@@ -72,7 +83,11 @@ class RubiksCubeView: UIView {
         pencil.close()
         pencil.stroke()
         
-        UIColor.green.setFill()
+        color.setFill()
         pencil.fill()
+    }
+    
+    func mapIndexToColRow(index: Int) -> (Int, Int) {
+        return (index % 3, index / 3)
     }
 }
