@@ -18,7 +18,7 @@ class RubiksCubeView: UIView {
     var rubiksCube: RubiksCube = RubiksCube(
         up: [.white, .yellow, .orange, .yellow, .yellow, .yellow, .blue, .yellow, .yellow],
         front: [.yellow, .blue, .green, .red, .red, .red, .red, .red, .white],
-        right: [.green, .green, .green, .green, .green, .green, .green, .green, .green,],
+        right: [.green, .white, .green, .green, .orange, .blue, .green, .green, .yellow,],
         down: [ .white, .white, .white, .white, .white, .white, .white, .white, .white,],
         left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
         back: [ .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange,])
@@ -29,20 +29,9 @@ class RubiksCubeView: UIView {
             
             drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), cellColor: rubiksCube.front[i])
             
-            if rubiksCube.up[i] == .green {
-                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .green)
-            } else if rubiksCube.up[i] == .red {
-                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .red)
-            } else if rubiksCube.up[i] == .blue{
-                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .blue)
-            } else if rubiksCube.up[i] == .yellow {
-                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .yellow)
-            } else if rubiksCube.up[i] == .white {
-                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .white)
-            } else if rubiksCube.up[i] == .orange {
-                drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), color: .orange)
-            }
-
+            drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), cellColor: rubiksCube.up[i])
+            
+            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(col), y: originY + cellSide * CGFloat(row) - offsetY * CGFloat(col), cellColor: rubiksCube.right[i])
         }
     }
 
@@ -74,7 +63,7 @@ class RubiksCubeView: UIView {
         pen.fill()
     }
     
-    func drawParallelogram(x: CGFloat, y: CGFloat, color: UIColor) {
+    func drawParallelogram(x: CGFloat, y: CGFloat, cellColor: CellColor) {
         let pencil = UIBezierPath()
         pencil.move(to: CGPoint(x: x, y: y))
         pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY))
@@ -84,11 +73,24 @@ class RubiksCubeView: UIView {
         pencil.close()
         pencil.stroke()
         
-        color.setFill()
+        if cellColor == .green {
+            UIColor.green.setFill()
+        } else if cellColor == .red {
+            UIColor.red.setFill()
+        } else if cellColor == .blue{
+            UIColor.blue.setFill()
+        } else if cellColor == .yellow {
+            UIColor.yellow.setFill()
+        } else if cellColor == .white {
+            UIColor.white.setFill()
+        } else if cellColor == .orange {
+            UIColor.orange.setFill()
+        }
+        
         pencil.fill()
     }
     
-    func drawParallelogram2(x: CGFloat, y:CGFloat, color: UIColor) {
+    func drawParallelogram2(x: CGFloat, y:CGFloat, cellColor: CellColor) {
         let pencil = UIBezierPath()
         pencil.move(to: CGPoint(x: x, y: y))
         pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY))
@@ -98,7 +100,20 @@ class RubiksCubeView: UIView {
         pencil.close()
         pencil.stroke()
         
-        color.setFill()
+        if cellColor == .green {
+            UIColor.green.setFill()
+        } else if cellColor == .red {
+            UIColor.red.setFill()
+        } else if cellColor == .blue{
+            UIColor.blue.setFill()
+        } else if cellColor == .yellow {
+            UIColor.yellow.setFill()
+        } else if cellColor == .white {
+            UIColor.white.setFill()
+        } else if cellColor == .orange {
+            UIColor.orange.setFill()
+        }
+        
         pencil.fill()
     }
     
