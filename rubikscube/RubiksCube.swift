@@ -9,10 +9,29 @@
 import Foundation
 
 struct RubiksCube {
-    let up: [CellColor]
-    let front: [CellColor]
-    let right: [CellColor]
-    let down: [CellColor]
-    let left: [CellColor]
-    let back: [CellColor]
+    var up: [CellColor]
+    var front: [CellColor]
+    var right: [CellColor]
+    var down: [CellColor]
+    var left: [CellColor]
+    var back: [CellColor]
+    
+    mutating func rotateU() {
+        front[0] = right[0]
+        front[1] = right[1]
+        front[2] = right[2]
+        
+        right[0] = back[0]
+        right[1] = back[1]
+        right[2] = back[2]
+        
+        back[0] = left[0]
+        back[1] = left[1]
+        back[2] = left[2]
+        
+        left[0] = front[0]
+        left[1] = front[1]
+        left[2] = front[2]
+        
+    }
 }

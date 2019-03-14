@@ -14,15 +14,15 @@ class RubiksCubeView: UIView {
     let cellSide: CGFloat = 40
     let offsetX: CGFloat = 10
     let offsetY: CGFloat = 10
-    
+
     var rubiksCube: RubiksCube = RubiksCube(
-        up: [.white, .yellow, .orange, .yellow, .yellow, .yellow, .blue, .yellow, .yellow],
-        front: [.yellow, .blue, .green, .red, .red, .red, .red, .red, .white],
-        right: [.green, .white, .green, .green, .orange, .blue, .green, .green, .yellow,],
+        up: [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow],
+        front: [.red, .red, .red, .red, .red, .red, .red, .red, .red],
+        right: [.green, .green, .green, .green, .green, .green, .green, .green, .green,],
         down: [ .white, .white, .white, .white, .white, .white, .white, .white, .white,],
         left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
         back: [ .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange,])
-
+    
     override func draw(_ rect: CGRect) {
         for i in 0 ..< 9 {
             let (col, row) = mapIndexToColRow(index: i)
