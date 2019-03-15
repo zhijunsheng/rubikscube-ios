@@ -17,6 +17,10 @@ struct RubiksCube {
     var back: [CellColor]
     
     mutating func rotateU() {
+        let front0 = front[0]
+        let front1 = front[1]
+        let front2 = front[2]
+        
         front[0] = right[0]
         front[1] = right[1]
         front[2] = right[2]
@@ -29,9 +33,9 @@ struct RubiksCube {
         back[1] = left[1]
         back[2] = left[2]
         
-        left[0] = front[0]
-        left[1] = front[1]
-        left[2] = front[2]
+        left[0] = front0
+        left[1] = front1
+        left[2] = front2
         
     }
 }

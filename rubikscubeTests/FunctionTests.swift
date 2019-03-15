@@ -3,6 +3,20 @@ import XCTest
 
 class FunctionTests: XCTestCase {
     
+    func testSwapTwoInts() {
+        var x = 3
+        var y = 5
+        let add: Int
+        print("x = \(x), y = \(y)")
+        
+        add = x
+        
+        x = y
+        y = add
+        
+        print("x = \(x), y = \(y)")
+    }
+    
     // mapping
     // 0 is mapped to (0, 0)
     // 0 -> (0, 0)
