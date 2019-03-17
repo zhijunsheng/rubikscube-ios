@@ -24,6 +24,34 @@ struct RubiksCube {
             back[i] = left[i]
             left[i] = tmp
         }
+        let tmp0 = up[0]
+        let tmp1 = up[1]
+        let tmp2 = up[2]
+        let tmp5 = up[5]
+        
+        up[0] = up[6]
+        up[1] = up[3]
+        up[2] = tmp0
+        up[3] = up[7]
+        up[5] = tmp1
+        up[6] = up[8]
+        up[7] = tmp5
+        up[8] = tmp2
+        
+        
+        // front[0]
+        
+//        left[0] = front[0]
+//        up[0] = up[6]
+//        back[2] = left[2]
+//
+//        // front[2]
+//
+//        left[2] = front[2]
+//        up[6] = up[8]
+//        front[0] = right[0]
+        
+        
     }
     
     mutating func rotateUPrime() {
@@ -34,6 +62,19 @@ struct RubiksCube {
             back[i] = right[i]
             right[i] = tmp
         }
-        
+    }
+    
+    mutating func rotateR() {
+//        for i in 1 ..< 4 {
+//            let tmp = front[i + 3] //
+//            front[i] = down[i * 3]
+//            down[i] = back[i * 3]
+//            back[i] = up[i * 3]
+//            up[i] = tmp
+//        }
+        front[2] = down[2]
+        up[2] = front[8]
+        right[0] = right[6]
+
     }
 }

@@ -16,7 +16,7 @@ class RubiksCubeView: UIView {
     let offsetY: CGFloat = 10
 
     var rubiksCube: RubiksCube = RubiksCube(
-        up: [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow],
+        up: [.yellow, .yellow, .blue, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow],
         front: [.red, .red, .red, .red, .red, .red, .red, .red, .red],
         right: [.green, .green, .green, .green, .green, .green, .green, .green, .green,],
         down: [ .white, .white, .white, .white, .white, .white, .white, .white, .white,],
@@ -29,7 +29,20 @@ class RubiksCubeView: UIView {
             
             drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), cellColor: rubiksCube.front[i])
             
+//            drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), cellColor: rubiksCube.up[i])
+            
+//            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(col), y: originY + cellSide * CGFloat(row) - offsetY * CGFloat(col), cellColor: rubiksCube.right[i])
+        }
+        
+        for i in 0 ..< 9 {
+            let (col, row) = mapIndexToColRow(index: i)
+
             drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), cellColor: rubiksCube.up[i])
+            
+        }
+        
+        for i in 0 ..< 9 {
+            let (col, row) = mapIndexToColRow(index: i)
             
             drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(col), y: originY + cellSide * CGFloat(row) - offsetY * CGFloat(col), cellColor: rubiksCube.right[i])
         }
