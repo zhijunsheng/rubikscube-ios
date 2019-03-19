@@ -25,71 +25,19 @@ class RubiksCubeView: UIView {
     
     override func draw(_ rect: CGRect) {
         
-        // front
-        // 0 -> (0, 0)
-        // 1 -> (1, 0)
-        // 2 -> (2, 0)
-        //
-        // 3 -> (0, 1)
-        // 4 -> (1, 1)
-        // 5 -> (2, 1)
-        //
-        // 6 -> (0, 2)
-        // 7 -> (1, 2)
-        // 8 -> (2, 2)
         for i in 0 ..< 9 {
-            let (col, row) = (i % 3, i / 3)
+            let col = i % 3
+            let row = i / 3
             
+            // front
             drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), cellColor: rubiksCube.front[i])
             
-//            drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), cellColor: rubiksCube.up[i])
-            
-//            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(col), y: originY + cellSide * CGFloat(row) - offsetY * CGFloat(col), cellColor: rubiksCube.right[i])
-        }
-        
-        // up
-        
-        // x -> y
-        // 0 -> 2
-        // 1 -> 1
-        // 2 -> 0
-        
-        // 0 -> (0, 2)
-        // 1 -> (1, 2)
-        // 2 -> (2, 2)
-        //
-        // 3 -> (0, 1)
-        // 4 -> (1, 1)
-        // 5 -> (2, 1)
-        //
-        // 6 -> (0, 0)
-        // 7 -> (1, 0)
-        // 8 -> (2, 0)
-        
-//        for i in 0 ..< 9 {
-//            let (col, row) = (i % 3, i / 3)
-//
-//            drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(row), y: originY - offsetY * CGFloat(row), cellColor: rubiksCube.up[i])
-//        }
-        
-        drawParallelogram(x: originX + offsetX * 2 + cellSide * 0, y: originY - offsetY * 2, cellColor: rubiksCube.up[0])
-        drawParallelogram(x: originX + offsetX * 2 + cellSide * 1, y: originY - offsetY * 2, cellColor: rubiksCube.up[1])
-        drawParallelogram(x: originX + offsetX * 2 + cellSide * 2, y: originY - offsetY * 2, cellColor: rubiksCube.up[2])
-        
-        drawParallelogram(x: originX + offsetX * 1 + cellSide * 0, y: originY - offsetY * 1, cellColor: rubiksCube.up[3])
-        drawParallelogram(x: originX + offsetX * 1 + cellSide * 1, y: originY - offsetY * 1, cellColor: rubiksCube.up[4])
-        drawParallelogram(x: originX + offsetX * 1 + cellSide * 2, y: originY - offsetY * 1, cellColor: rubiksCube.up[5])
-        
-        drawParallelogram(x: originX + offsetX * 0 + cellSide * 0, y: originY - offsetY * 0, cellColor: rubiksCube.up[6])
-        drawParallelogram(x: originX + offsetX * 0 + cellSide * 1, y: originY - offsetY * 0, cellColor: rubiksCube.up[7])
-        drawParallelogram(x: originX + offsetX * 0 + cellSide * 2, y: originY - offsetY * 0, cellColor: rubiksCube.up[8])
-        
-        // right
-        
-        for i in 0 ..< 9 {
-            let (col, row) = (i % 3, i / 3)
-            
+            // right
             drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(col), y: originY + cellSide * CGFloat(row) - offsetY * CGFloat(col), cellColor: rubiksCube.right[i])
+            
+            // up
+            let rowForUp = 2 - i / 3
+            drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(rowForUp), y: originY - offsetY * CGFloat(rowForUp), cellColor: rubiksCube.up[i])
         }
     }
 
