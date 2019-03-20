@@ -16,9 +16,9 @@ class RubiksCubeView: UIView {
     let offsetY: CGFloat = 10
 
     var rubiksCube: RubiksCube = RubiksCube(
-        up: [.yellow, .yellow, .blue, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow],
-        front: [.red, .red, .red, .red, .red, .red, .red, .red, .red],
-        right: [.green, .green, .green, .green, .green, .green, .green, .green, .green,],
+        up: [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .blue],
+        front: [.red, .red, .orange, .red, .red, .red, .red, .red, .red],
+        right: [.white, .green, .green, .green, .green, .green, .green, .green, .green,],
         down: [ .white, .white, .white, .white, .white, .white, .white, .white, .white,],
         left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
         back: [ .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange,])
