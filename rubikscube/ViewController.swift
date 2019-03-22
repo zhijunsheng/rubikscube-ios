@@ -32,5 +32,12 @@ class ViewController: UIViewController {
         rubiksCubeView.setNeedsDisplay()
     }
     
+    @IBAction func touchRPrime(_ sender: UIButton) {
+        rubiksCubeView.rubiksCube.rotateRPrime()
+        rubiksCubeView.setNeedsDisplay()
+    }
+
+    
+    
 }
 
