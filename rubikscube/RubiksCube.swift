@@ -117,7 +117,31 @@ struct RubiksCube {
     }
     
     mutating func rotateF() {
+        let tmp6 = up[6]
+        up[6] = left[8]
+        left[8] = down[2]
+        down[2] = right[0]
+        right[0] = tmp6
         
+        let tmp7 = up[7]
+        up[7] = left[5]
+        left[5] = down[1]
+        down[1] = right[3]
+        right[3] = tmp7
+        
+        let tmp8 = up[8]
+        up[8] = left[2]
+        left[2] = down[0]
+        down[0] = right[6]
+        right[6] = tmp8
+        
+        front = rotateFace(face: front)
+    }
+    
+    mutating func rotateFPrime() {
+        rotateF()
+        rotateF()
+        rotateF()
     }
     
     private func rotateFace(face: [CellColor]) -> [CellColor] {

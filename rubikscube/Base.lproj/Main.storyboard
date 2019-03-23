@@ -94,6 +94,24 @@
                                     <action selector="touchLPrime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uL2-56-HbC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJU-tC-xJg">
+                                <rect key="frame" x="29" y="502" width="30" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="F"/>
+                                <connections>
+                                    <action selector="touchF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M34-n9-jZa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGY-7g-ypq">
+                                <rect key="frame" x="96" y="502" width="34" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="F'"/>
+                                <connections>
+                                    <action selector="touchFPrime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sh2-Ze-LpZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.79788490909999998" blue="0.46395575449999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
