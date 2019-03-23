@@ -9,12 +9,12 @@
 import Foundation
 
 struct RubiksCube {
-    var up: [CellColor]
-    var front: [CellColor]
-    var right: [CellColor]
-    var down: [CellColor]
-    var left: [CellColor]
-    var back: [CellColor]
+    var up: [CellColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
+    var front: [CellColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
+    var right: [CellColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+    var down: [CellColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
+    var left: [CellColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
+    var back: [CellColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
     
     mutating func rotateU() {
         for i in 0 ..< 3 {
@@ -116,7 +116,11 @@ struct RubiksCube {
         rotateL()
     }
     
-    func rotateFace(face: [CellColor]) -> [CellColor] {
+    mutating func rotateF() {
+        
+    }
+    
+    private func rotateFace(face: [CellColor]) -> [CellColor] {
         var newFace = face
         let tmp0 = newFace[0]
         let tmp1 = newFace[1]

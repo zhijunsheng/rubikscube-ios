@@ -15,13 +15,7 @@ class RubiksCubeView: UIView {
     let offsetX: CGFloat = 10
     let offsetY: CGFloat = 10
 
-    var rubiksCube: RubiksCube = RubiksCube(
-        up: [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow],
-        front: [.red, .red, .red, .red, .red, .red, .red, .red, .red],
-        right: [.green, .green, .green, .green, .green, .green, .green, .green, .green,],
-        down: [ .white, .white, .white, .white, .white, .white, .white, .white, .white,],
-        left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
-        back: [ .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange,])
+    var rubiksCube: RubiksCube = RubiksCube()
     
     override func draw(_ rect: CGRect) {
         
