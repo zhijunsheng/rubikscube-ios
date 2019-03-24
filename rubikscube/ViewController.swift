@@ -77,5 +77,10 @@ class ViewController: UIViewController {
         rubiksCubeView.setNeedsDisplay()
     }
     
+    @IBAction func touchShuffle(_ sender: UIButton) {
+        rubiksCubeView.rubiksCube.shuffle()
+        rubiksCubeView.setNeedsDisplay()
+    }
+    
 }
 

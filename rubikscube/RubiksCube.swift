@@ -174,6 +174,10 @@ struct RubiksCube {
         right = rotateFace(face: right)
     }
     
+    mutating func shuffle() {
+        
+    }
+    
     private func rotateFace(face: [CellColor]) -> [CellColor] {
         var newFace = face
         let tmp0 = newFace[0]
