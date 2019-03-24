@@ -144,6 +144,21 @@ struct RubiksCube {
         rotateF()
     }
     
+    mutating func rotateCubeFR() {
+        for i in 0 ..< 9 {
+            let tmp = right[i]
+            right[i] = front[i]
+            front[i] = left[i]
+            left[i] = back[i]
+            back[i] = tmp
+        }
+        
+        up = rotateFace(face: up)
+        up = rotateFace(face: up)
+        up = rotateFace(face: up)
+        down = rotateFace(face: down)
+    }
+    
     private func rotateFace(face: [CellColor]) -> [CellColor] {
         var newFace = face
         let tmp0 = newFace[0]

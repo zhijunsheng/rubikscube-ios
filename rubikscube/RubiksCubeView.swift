@@ -10,7 +10,7 @@ import UIKit
 
 class RubiksCubeView: UIView {
     let originX: CGFloat = 30
-    let originY: CGFloat = 150
+    let originY: CGFloat = 80
     let cellSide: CGFloat = 40
     let offsetX: CGFloat = 10
     let offsetY: CGFloat = 10
