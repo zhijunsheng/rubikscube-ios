@@ -12,6 +12,9 @@
 		0725AF7C2202550B00AB1E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7A2202550B00AB1E6F /* Main.storyboard */; };
 		0725AF7E2202550E00AB1E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7D2202550E00AB1E6F /* Assets.xcassets */; };
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
+		07B437C62249A50E002CFF55 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B437C52249A50E002CFF55 /* Network.swift */; };
+		07B437C82249A547002CFF55 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B437C72249A547002CFF55 /* Layer.swift */; };
+		07B437CA2249A56D002CFF55 /* Neuron.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B437C92249A56D002CFF55 /* Neuron.swift */; };
 		5B2A5245223E6EC9006ED4A2 /* RubiksCubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A5244223E6EC9006ED4A2 /* RubiksCubeTests.swift */; };
 		5B79F2BA22295ABA00BB9C06 /* RubiksCubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79F2B922295ABA00BB9C06 /* RubiksCubeView.swift */; };
 		5B8612AA222FF2D50006E27E /* CellColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8612A9222FF2D50006E27E /* CellColor.swift */; };
@@ -39,6 +42,9 @@
 		0725AF822202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07B437C52249A50E002CFF55 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		07B437C72249A547002CFF55 /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
+		07B437C92249A56D002CFF55 /* Neuron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neuron.swift; sourceTree = "<group>"; };
 		5B2A5244223E6EC9006ED4A2 /* RubiksCubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeTests.swift; sourceTree = "<group>"; };
 		5B79F2B922295ABA00BB9C06 /* RubiksCubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeView.swift; sourceTree = "<group>"; };
 		5B8612A9222FF2D50006E27E /* CellColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellColor.swift; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 		0725AF752202550B00AB1E6F /* rubikscube */ = {
 			isa = PBXGroup;
 			children = (
+				07B437C42249A4DA002CFF55 /* neural */,
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
 				5B8612AB222FF3F20006E27E /* RubiksCube.swift */,
 				5B8612A9222FF2D50006E27E /* CellColor.swift */,
@@ -106,6 +113,16 @@
 				0725AF8D2202550E00AB1E6F /* Info.plist */,
 			);
 			path = rubikscubeTests;
+			sourceTree = "<group>";
+		};
+		07B437C42249A4DA002CFF55 /* neural */ = {
+			isa = PBXGroup;
+			children = (
+				07B437C52249A50E002CFF55 /* Network.swift */,
+				07B437C72249A547002CFF55 /* Layer.swift */,
+				07B437C92249A56D002CFF55 /* Neuron.swift */,
+			);
+			path = neural;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +228,11 @@
 			files = (
 				0725AF792202550B00AB1E6F /* ViewController.swift in Sources */,
 				5B8612AA222FF2D50006E27E /* CellColor.swift in Sources */,
+				07B437C62249A50E002CFF55 /* Network.swift in Sources */,
+				07B437C82249A547002CFF55 /* Layer.swift in Sources */,
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,
 				5B8612AC222FF3F20006E27E /* RubiksCube.swift in Sources */,
+				07B437CA2249A56D002CFF55 /* Neuron.swift in Sources */,
 				5B79F2BA22295ABA00BB9C06 /* RubiksCubeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
