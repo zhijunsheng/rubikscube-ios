@@ -144,6 +144,36 @@ struct RubiksCube {
         rotateF()
     }
     
+    mutating func rotateB() {
+        rotateBPrime()
+        rotateBPrime()
+        rotateBPrime()
+    }
+    
+    mutating func rotateBPrime() {
+        let up0 = up[0]
+        let up1 = up[1]
+        let up2 = up[2]
+        up[0] = left[6]
+        left[6] = down[8]
+        down[8] = right[2]
+        right[2] = up0
+        
+        up[1] = left[3]
+        left[3] = down[7]
+        down[7] = right[5]
+        right[5] = up1
+        
+        up[2] = left[0]
+        left[0] = down[6]
+        down[6] = right[8]
+        right[8] = up2
+        
+        back = rotateFace(face: back)
+        back = rotateFace(face: back)
+        back = rotateFace(face: back)
+    }
+    
     mutating func rotateCubeFR() {
         for i in 0 ..< 9 {
             let tmp = right[i]
@@ -175,6 +205,24 @@ struct RubiksCube {
     }
     
     mutating func shuffle() {
+        let random: Int = Int(arc4random() % 4)
+        if random == 0 {
+            rotateU()
+        } else if random == 1 {
+            rotateUPrime()
+        } else if random == 2 {
+            rotateF()
+        } else if random == 3 {
+            rotateFPrime()
+        } else if random == 4 {
+            rotateR()
+        } else if random == 5 {
+            rotateRPrime()
+        } else if random == 6 {
+            rotateL()
+        }
+        
+        
         
     }
     

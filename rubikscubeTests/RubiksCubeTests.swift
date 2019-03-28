@@ -104,4 +104,22 @@ class RubiksCubeTests: XCTestCase {
         XCTAssertEqual(.white, rubiksCube.down[2])
         XCTAssertEqual(.blue, rubiksCube.down[0])
     }
+    
+    func testRotateB() {
+        var rubiksCube: RubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .white, .blue, .blue, .blue, .blue, .blue, .blue,])
+        XCTAssertEqual(.white, rubiksCube.back[2])
+        XCTAssertEqual(.blue, rubiksCube.back[8])
+        
+        rubiksCube.rotateB()
+        
+        XCTAssertEqual(.white, rubiksCube.back[8])
+        XCTAssertEqual(.blue, rubiksCube.back[2])
+    }
+
 }

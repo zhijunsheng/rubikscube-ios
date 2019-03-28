@@ -13,6 +13,7 @@
 		0725AF7E2202550E00AB1E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7D2202550E00AB1E6F /* Assets.xcassets */; };
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
 		5B2A5245223E6EC9006ED4A2 /* RubiksCubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A5244223E6EC9006ED4A2 /* RubiksCubeTests.swift */; };
+		5B646D0A2248FABF00234A21 /* ShuffleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B646D092248FABF00234A21 /* ShuffleTests.swift */; };
 		5B79F2BA22295ABA00BB9C06 /* RubiksCubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79F2B922295ABA00BB9C06 /* RubiksCubeView.swift */; };
 		5B8612AA222FF2D50006E27E /* CellColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8612A9222FF2D50006E27E /* CellColor.swift */; };
 		5B8612AC222FF3F20006E27E /* RubiksCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8612AB222FF3F20006E27E /* RubiksCube.swift */; };
@@ -40,6 +41,7 @@
 		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B2A5244223E6EC9006ED4A2 /* RubiksCubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeTests.swift; sourceTree = "<group>"; };
+		5B646D092248FABF00234A21 /* ShuffleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleTests.swift; sourceTree = "<group>"; };
 		5B79F2B922295ABA00BB9C06 /* RubiksCubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeView.swift; sourceTree = "<group>"; };
 		5B8612A9222FF2D50006E27E /* CellColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellColor.swift; sourceTree = "<group>"; };
 		5B8612AB222FF3F20006E27E /* RubiksCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCube.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		0725AF8A2202550E00AB1E6F /* rubikscubeTests */ = {
 			isa = PBXGroup;
 			children = (
+				5B646D092248FABF00234A21 /* ShuffleTests.swift */,
 				5B2A5244223E6EC9006ED4A2 /* RubiksCubeTests.swift */,
 				D169D08E2208D9A500E4A494 /* FunctionTests.swift */,
 				0725AF8D2202550E00AB1E6F /* Info.plist */,
@@ -223,6 +226,7 @@
 			files = (
 				5B2A5245223E6EC9006ED4A2 /* RubiksCubeTests.swift in Sources */,
 				D169D08F2208D9A500E4A494 /* FunctionTests.swift in Sources */,
+				5B646D0A2248FABF00234A21 /* ShuffleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -67,6 +67,16 @@ class ViewController: UIViewController {
         rubiksCubeView.setNeedsDisplay()
     }
     
+    @IBAction func touchB(_ sender: UIButton) {
+        rubiksCubeView.rubiksCube.rotateB()
+        rubiksCubeView.setNeedsDisplay()
+    }
+    
+    @IBAction func touchBPrime(_ sender: UIButton) {
+        rubiksCubeView.rubiksCube.rotateBPrime()
+        rubiksCubeView.setNeedsDisplay()
+    }
+    
     @IBAction func touchFR(_ sender: UIButton) {
         rubiksCubeView.rubiksCube.rotateCubeFR()
         rubiksCubeView.setNeedsDisplay()
