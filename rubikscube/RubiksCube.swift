@@ -205,25 +205,35 @@ struct RubiksCube {
     }
     
     mutating func shuffle() {
-        let random: Int = Int(arc4random() % 4)
-        if random == 0 {
-            rotateU()
-        } else if random == 1 {
-            rotateUPrime()
-        } else if random == 2 {
-            rotateF()
-        } else if random == 3 {
-            rotateFPrime()
-        } else if random == 4 {
-            rotateR()
-        } else if random == 5 {
-            rotateRPrime()
-        } else if random == 6 {
-            rotateL()
+        for _ in 0 ..< 10000 {
+            let random: Int = Int(arc4random() % 12)
+            
+            if random == 0 {
+                rotateU()
+            } else if random == 1 {
+                rotateUPrime()
+            } else if random == 2 {
+                rotateF()
+            } else if random == 3 {
+                rotateFPrime()
+            } else if random == 4 {
+                rotateR()
+            } else if random == 5 {
+                rotateRPrime()
+            } else if random == 6 {
+                rotateL()
+            } else if random == 7 {
+                rotateLPrime()
+            } else if random == 8 {
+                rotateD()
+            } else if random == 9 {
+                rotateDPrime()
+            } else if random == 10 {
+                rotateB()
+            } else if random == 11 {
+                rotateBPrime()
+            }
         }
-        
-        
-        
     }
     
     private func rotateFace(face: [CellColor]) -> [CellColor] {
