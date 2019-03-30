@@ -9,29 +9,34 @@
 import UIKit
 
 class RubiksCubeView: UIView {
-    let originX: CGFloat = 30
-    let originY: CGFloat = 80
-    let cellSide: CGFloat = 40
-    let offsetX: CGFloat = 10
-    let offsetY: CGFloat = 10
+    static var originX: CGFloat = 30
+    static var originY: CGFloat = 80
+    static var cellSide: CGFloat = 190
+    static let offsetX: CGFloat = cellSide * 0.25
+    static let offsetY: CGFloat = cellSide * 0.25
 
     var rubiksCube: RubiksCube = RubiksCube()
     
-    override func draw(_ rect: CGRect) {
+    override func draw(_ rect: CGRect) { //
+        RubiksCubeView.cellSide = min(bounds.width, bounds.height) * 0.9 / 4
+        
+        RubiksCubeView.originX =  (bounds.width - 3 * RubiksCubeView.cellSide - 3 * RubiksCubeView.offsetX) / 2
+        
+        RubiksCubeView.originY = (bounds.height - 3 * RubiksCubeView.cellSide - 3 * RubiksCubeView.offsetY) / 2 + 3 * RubiksCubeView.offsetY
         
         for i in 0 ..< 9 {
             let col = i % 3
             let row = i / 3
             
             // front
-            drawSquare(x: originX + cellSide * CGFloat(col), y: originY + cellSide * CGFloat(row), cellColor: rubiksCube.front[i])
+            drawSquare(x: RubiksCubeView.originX + RubiksCubeView.cellSide * CGFloat(col), y: RubiksCubeView.originY + RubiksCubeView.cellSide * CGFloat(row), cellColor: rubiksCube.front[i])
             
             // right
-            drawParallelogram2(x: originX + 3 * cellSide + offsetX * CGFloat(col), y: originY + cellSide * CGFloat(row) - offsetY * CGFloat(col), cellColor: rubiksCube.right[i])
+            drawParallelogram2(x: RubiksCubeView.originX + 3 * RubiksCubeView.cellSide + RubiksCubeView.offsetX * CGFloat(col), y: RubiksCubeView.originY + RubiksCubeView.cellSide * CGFloat(row) - RubiksCubeView.offsetY * CGFloat(col), cellColor: rubiksCube.right[i])
             
             // up
             let rowForUp = 2 - i / 3
-            drawParallelogram(x: originX + cellSide * CGFloat(col) + offsetX * CGFloat(rowForUp), y: originY - offsetY * CGFloat(rowForUp), cellColor: rubiksCube.up[i])
+            drawParallelogram(x: RubiksCubeView.originX + RubiksCubeView.cellSide * CGFloat(col) + RubiksCubeView.offsetX * CGFloat(rowForUp), y: RubiksCubeView.originY - RubiksCubeView.offsetY * CGFloat(rowForUp), cellColor: rubiksCube.up[i])
         }
     }
 
@@ -39,9 +44,9 @@ class RubiksCubeView: UIView {
         let pen = UIBezierPath()
         
         pen.move(to: CGPoint(x: x, y: y))
-        pen.addLine(to: CGPoint(x: x + cellSide, y: y))
-        pen.addLine(to: CGPoint(x: x + cellSide, y: y + cellSide))
-        pen.addLine(to: CGPoint(x: x, y: y + cellSide))
+        pen.addLine(to: CGPoint(x: x + RubiksCubeView.cellSide, y: y))
+        pen.addLine(to: CGPoint(x: x + RubiksCubeView.cellSide, y: y + RubiksCubeView.cellSide))
+        pen.addLine(to: CGPoint(x: x, y: y + RubiksCubeView.cellSide))
         
         pen.close()
         pen.stroke()
@@ -66,9 +71,9 @@ class RubiksCubeView: UIView {
     func drawParallelogram(x: CGFloat, y: CGFloat, cellColor: CellColor) {
         let pencil = UIBezierPath()
         pencil.move(to: CGPoint(x: x, y: y))
-        pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY))
-        pencil.addLine(to: CGPoint(x: x + cellSide + offsetX, y: y - offsetY))
-        pencil.addLine(to: CGPoint(x: x + cellSide, y: y))
+        pencil.addLine(to: CGPoint(x: x + RubiksCubeView.offsetX, y: y - RubiksCubeView.offsetY))
+        pencil.addLine(to: CGPoint(x: x + RubiksCubeView.cellSide + RubiksCubeView.offsetX, y: y - RubiksCubeView.offsetY))
+        pencil.addLine(to: CGPoint(x: x + RubiksCubeView.cellSide, y: y))
         
         pencil.close()
         pencil.stroke()
@@ -93,9 +98,9 @@ class RubiksCubeView: UIView {
     func drawParallelogram2(x: CGFloat, y:CGFloat, cellColor: CellColor) {
         let pencil = UIBezierPath()
         pencil.move(to: CGPoint(x: x, y: y))
-        pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY))
-        pencil.addLine(to: CGPoint(x: x + offsetX, y: y - offsetY + cellSide))
-        pencil.addLine(to: CGPoint(x: x, y: y + cellSide))
+        pencil.addLine(to: CGPoint(x: x + RubiksCubeView.offsetX, y: y - RubiksCubeView.offsetY))
+        pencil.addLine(to: CGPoint(x: x + RubiksCubeView.offsetX, y: y - RubiksCubeView.offsetY + RubiksCubeView.cellSide))
+        pencil.addLine(to: CGPoint(x: x, y: y + RubiksCubeView.cellSide))
         
         pencil.close()
         pencil.stroke()
