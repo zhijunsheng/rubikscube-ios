@@ -48,7 +48,9 @@ class RubiksCubeView: UIView {
         pen.addLine(to: CGPoint(x: x + RubiksCubeView.cellSide, y: y + RubiksCubeView.cellSide))
         pen.addLine(to: CGPoint(x: x, y: y + RubiksCubeView.cellSide))
         
+        
         pen.close()
+        pen.lineWidth = 3
         pen.stroke()
         
         if cellColor == .green {
@@ -76,6 +78,7 @@ class RubiksCubeView: UIView {
         pencil.addLine(to: CGPoint(x: x + RubiksCubeView.cellSide, y: y))
         
         pencil.close()
+        pencil.lineWidth = 3
         pencil.stroke()
         
         if cellColor == .green {
@@ -103,6 +106,7 @@ class RubiksCubeView: UIView {
         pencil.addLine(to: CGPoint(x: x, y: y + RubiksCubeView.cellSide))
         
         pencil.close()
+        pencil.lineWidth = 3
         pencil.stroke()
         
         if cellColor == .green {
