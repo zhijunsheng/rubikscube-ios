@@ -2,8 +2,30 @@ import XCTest
 @testable import rubikscube
 
 class RubiksCubeTests: XCTestCase {
-    func testRotateF() {
-        var rubiksCube = RubiksCube(
+    var rubiksCube = RubiksCube(
+        up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+        front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+        right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+        down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+        left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+        back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+    )
+    
+    func testRotateR() {
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .green,],
+            front: [.blue, .blue, .white, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.red, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        rubiksCube.rotateR()
+        XCTAssertEqual(.white, rubiksCube.up[0])
+        XCTAssertEqual(.red, rubiksCube.left[0])
+        XCTAssertEqual(.green, rubiksCube.back[2])
+        
+        rubiksCube = RubiksCube(
             up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
             front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
             right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
@@ -12,6 +34,182 @@ class RubiksCubeTests: XCTestCase {
             back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
         )
         
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+    }
+    
+    func testRotateB() {
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .red, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .white, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.green, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        rubiksCube.rotateB()
+        XCTAssertEqual(.white, rubiksCube.up[0])
+        XCTAssertEqual(.red, rubiksCube.left[0])
+        XCTAssertEqual(.green, rubiksCube.back[2])
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        
+        rubiksCube = RubiksCube(
+            up: [.red, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.green, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .white, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        rubiksCube.rotateB()
+        XCTAssertEqual(.green, rubiksCube.down[6])
+        XCTAssertEqual(.red, rubiksCube.left[6])
+        XCTAssertEqual(.white, rubiksCube.back[8])
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .green, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .red, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .white,]
+        )
+        rubiksCube.rotateB()
+        XCTAssertEqual(.green, rubiksCube.right[8])
+        XCTAssertEqual(.red, rubiksCube.down[8])
+        XCTAssertEqual(.white, rubiksCube.back[6])
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .green,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .red,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .white, .blue, .blue,]
+        )
+        rubiksCube.rotateB()
+        XCTAssertEqual(.green, rubiksCube.up[2])
+        XCTAssertEqual(.red, rubiksCube.right[2])
+        XCTAssertEqual(.white, rubiksCube.back[0])
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .red, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .green, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        rubiksCube.rotateB()
+        XCTAssertEqual(.green, rubiksCube.back[5])
+        XCTAssertEqual(.red, rubiksCube.left[3])
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .red, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .green, .blue, .blue, .blue,]
+        )
+        rubiksCube.rotateB()
+        XCTAssertEqual(.green, rubiksCube.back[7])
+        XCTAssertEqual(.red, rubiksCube.down[7])
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .red, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .green, .blue,]
+        )
+        rubiksCube.rotateB()
+        XCTAssertEqual(.green, rubiksCube.back[3])
+        XCTAssertEqual(.red, rubiksCube.right[5])
+        
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.blue, .blue, .blue, .blue, .blue, .red, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .green, .blue, .blue, .blue, .blue, .blue,]
+        )
+        rubiksCube.rotateB()
+        XCTAssertEqual(.green, rubiksCube.back[1])
+        XCTAssertEqual(.red, rubiksCube.up[1])
+    }
+    
+    func testRotateF() {
         rubiksCube = RubiksCube(
             up: [.blue, .blue, .blue, .blue, .blue, .blue, .white, .blue, .blue,],
             front: [.red, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
@@ -213,23 +411,6 @@ class RubiksCubeTests: XCTestCase {
         
         XCTAssertEqual(.white, rubiksCube.down[2])
         XCTAssertEqual(.blue, rubiksCube.down[0])
-    }
-    
-    func testRotateB() {
-        var rubiksCube: RubiksCube = RubiksCube(
-            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
-            front: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
-            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
-            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
-            left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
-            back: [.blue, .blue, .white, .blue, .blue, .blue, .blue, .blue, .blue,])
-        XCTAssertEqual(.white, rubiksCube.back[2])
-        XCTAssertEqual(.blue, rubiksCube.back[8])
-        
-        rubiksCube.rotateB()
-        
-        XCTAssertEqual(.white, rubiksCube.back[8])
-        XCTAssertEqual(.blue, rubiksCube.back[2])
     }
 
     // D
