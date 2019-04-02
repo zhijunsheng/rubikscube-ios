@@ -8,11 +8,6 @@
 
 import Foundation
 
-//F
-//D'
-//U
-//F'
-
 struct RubiksCube {
     var up: [CellColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
     var front: [CellColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
