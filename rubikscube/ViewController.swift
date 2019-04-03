@@ -114,5 +114,11 @@ class ViewController: UIViewController {
         audioPlayer.play()
     }
     
+    @IBAction func touchResetGame(_ sender: UIButton) {
+        rubiksCubeView.rubiksCube = RubiksCube()
+        rubiksCubeView.setNeedsDisplay()
+    }
+    
+    
 }
 
