@@ -30,6 +30,24 @@ class ViewController: UIViewController {
         audioPlayer.play()
     }
     
+    var beganX: CGFloat = -2
+    
+    @IBAction func panCube(_ panGestureRecognizer: UIPanGestureRecognizer) {
+        if panGestureRecognizer.state == .began {
+            beganX = panGestureRecognizer.location(in: rubiksCubeView).x
+        } else if panGestureRecognizer.state == .ended {
+            
+            if panGestureRecognizer.location(in: rubiksCubeView).x > beganX {
+                rubiksCubeView.rubiksCube.rotateUPrime()
+            } else {
+                rubiksCubeView.rubiksCube.rotateU()
+            }
+            audioPlayer.play()
+            rubiksCubeView.setNeedsDisplay()
+        }
+    }
+    
+    
     @IBAction func touchUPrime(_ sender: UIButton) {
         rubiksCubeView.rubiksCube.rotateUPrime()
         rubiksCubeView.setNeedsDisplay()
