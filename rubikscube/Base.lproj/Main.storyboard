@@ -18,11 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KIm-PY-7ZH" customClass="RubiksCubeView" customModule="rubikscube" customModuleProvider="target">
-                                <rect key="frame" x="22" y="173" width="726" height="735"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.096591360867023468" green="0.3667772114276886" blue="0.077060826122760773" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypq-TH-EFl">
                                 <rect key="frame" x="29" y="44" width="50" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -167,9 +162,21 @@
                                     <action selector="touchResetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c6b-mI-j2E"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIm-PY-7ZH" customClass="RubiksCubeView" customModule="rubikscube" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="256" width="768" height="768"/>
+                                <color key="backgroundColor" red="0.096591360867023468" green="0.3667772114276886" blue="0.077060826122760773" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KIm-PY-7ZH" secondAttribute="height" multiplier="1:1" id="RbO-ZC-DLJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.79788490909999998" blue="0.46395575449999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="KIm-PY-7ZH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8T2-hI-e7u"/>
+                            <constraint firstItem="KIm-PY-7ZH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B3Q-l2-5aJ"/>
+                            <constraint firstItem="KIm-PY-7ZH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ngX-3E-thQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ttG-Ec-gMa" appends="YES" id="pYe-rs-QiW"/>
