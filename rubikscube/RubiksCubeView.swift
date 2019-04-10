@@ -9,9 +9,9 @@
 import UIKit
 
 class RubiksCubeView: UIView {
-    static var originX: CGFloat = 30
-    static var originY: CGFloat = 80
-    static var cellSide: CGFloat = 190
+    static var originX: CGFloat = -1
+    static var originY: CGFloat = -1
+    static var cellSide: CGFloat = -1
     static let offsetX: CGFloat = cellSide * 0.25
     static let offsetY: CGFloat = cellSide * 0.25
 

@@ -36,17 +36,51 @@ class ViewController: UIViewController {
         if panGestureRecognizer.state == .began {
             beganLocation = panGestureRecognizer.location(in: rubiksCubeView)
         } else if panGestureRecognizer.state == .ended {
-            let originX: CGFloat = RubiksCubeView.originX
-            let originY: CGFloat = RubiksCubeView.originY
-            let cellSide: CGFloat = RubiksCubeView.cellSide
             let endedLocation: CGPoint = panGestureRecognizer.location(in: rubiksCubeView)
+            let began = indexOfCell(location: beganLocation)
+            let ended = indexOfCell(location: endedLocation)
             
-            if originX < beganLocation.x && originX + cellSide > beganLocation.x && originY < beganLocation.y && originY + cellSide > beganLocation.y && originX + 2 * cellSide < endedLocation.x && originX + 3 * cellSide > endedLocation.x && originY < endedLocation.y && originY + cellSide > endedLocation.y {
+            if began == 0 && ended == 2 {
                 rubiksCubeView.rubiksCube.rotateUPrime()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 2 && ended == 0 {
+                rubiksCubeView.rubiksCube.rotateU()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 0 && ended == 6 {
+                rubiksCubeView.rubiksCube.rotateL()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+                
+            } else if began == 6 && ended == 0 {
+                rubiksCubeView.rubiksCube.rotateLPrime()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 6 && ended == 8 {
+                rubiksCubeView.rubiksCube.rotateD()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 8 && ended == 6 {
+                rubiksCubeView.rubiksCube.rotateDPrime()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 8 && ended == 2 {
+                rubiksCubeView.rubiksCube.rotateR()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 2 && ended == 8 {
+                rubiksCubeView.rubiksCube.rotateRPrime()
                 audioPlayer.play()
                 rubiksCubeView.setNeedsDisplay()
             }
         }
+    }
+    
+    private func indexOfCell(location: CGPoint) -> Int {
+        let col: Int = Int(floor((location.x - RubiksCubeView.originX) / RubiksCubeView.cellSide))
+        let row: Int = Int(floor((location.y - RubiksCubeView.originY) / RubiksCubeView.cellSide))
+        return row * 3 + col
     }
     
     @IBAction func touchUPrime(_ sender: UIButton) {

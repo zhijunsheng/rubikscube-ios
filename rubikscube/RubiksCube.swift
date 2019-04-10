@@ -25,14 +25,12 @@ struct RubiksCube {
             left[i] = tmp
         }
         up = rotateFace(face: up)
-        print("U")
     }
     
     mutating func rotateUPrime() {
         rotateU()
         rotateU()
         rotateU()
-        print("U'")
     }
     
     mutating func rotateR() {
@@ -55,7 +53,6 @@ struct RubiksCube {
         down[8] = back0
         back[6] = up2
         up[8] = front8
-        print("R")
         
         right = rotateFace(face: right)
     }
@@ -64,7 +61,6 @@ struct RubiksCube {
         rotateR()
         rotateR()
         rotateR()
-        print("R'")
     }
     
     mutating func rotateD() {
@@ -75,7 +71,6 @@ struct RubiksCube {
             back[6 + i] = right[6 + i] // I see
             right[6 + i] = tmp // 还有错，uncle
         }
-        print("D")
         down = rotateFace(face: down)
     }
     
@@ -83,7 +78,6 @@ struct RubiksCube {
         rotateD()
         rotateD()
         rotateD()
-        print("D'")
     }
     
     mutating func rotateL() {
@@ -105,14 +99,12 @@ struct RubiksCube {
         back[2] = down[6]
         down[6] = front6
         
-        print("L")
         left = rotateFace(face: left)
     }
     mutating func rotateLPrime() {
         rotateL()
         rotateL()
         rotateL()
-        print("L'")
     }
     
     mutating func rotateF() {
@@ -133,7 +125,6 @@ struct RubiksCube {
         left[2] = down[0]
         down[0] = right[6]
         right[6] = tmp8
-        print("F")
         
         front = rotateFace(face: front)
     }
@@ -142,14 +133,12 @@ struct RubiksCube {
         rotateF()
         rotateF()
         rotateF()
-        print("F'")
     }
     
     mutating func rotateB() {
         rotateBPrime()
         rotateBPrime()
         rotateBPrime()
-        print("B")
     }
     
     mutating func rotateBPrime() {
@@ -171,7 +160,6 @@ struct RubiksCube {
         down[6] = right[8]
         right[8] = up2
         
-        print("B'")
         
         back = rotateFace(face: back)
         back = rotateFace(face: back)
