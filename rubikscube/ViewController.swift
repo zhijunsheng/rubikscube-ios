@@ -73,6 +73,26 @@ class ViewController: UIViewController {
                 rubiksCubeView.rubiksCube.rotateRPrime()
                 audioPlayer.play()
                 rubiksCubeView.setNeedsDisplay()
+            } else if began == 7 && ended == 1 {
+                rubiksCubeView.rubiksCube.rotateCubeFU()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 3 && ended == 5 {
+                rubiksCubeView.rubiksCube.rotateCubeFR()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 1 && ended == 7 {
+                rubiksCubeView.rubiksCube.rotateCubeFU()
+                rubiksCubeView.rubiksCube.rotateCubeFU()
+                rubiksCubeView.rubiksCube.rotateCubeFU()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 5 && ended == 3 {
+                rubiksCubeView.rubiksCube.rotateCubeFR()
+                rubiksCubeView.rubiksCube.rotateCubeFR()
+                rubiksCubeView.rubiksCube.rotateCubeFR()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
             }
         }
     }
@@ -82,49 +102,7 @@ class ViewController: UIViewController {
         let row: Int = Int(floor((location.y - RubiksCubeView.originY) / RubiksCubeView.cellSide))
         return row * 3 + col
     }
-    
-    @IBAction func touchUPrime(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateUPrime()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchR(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateR()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchRPrime(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateRPrime()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchD(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateD()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchDPrime(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateDPrime()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchL(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateL()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchLPrime(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateLPrime()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
+
     @IBAction func touchF(_ sender: UIButton) {
         rubiksCubeView.rubiksCube.rotateF()
         rubiksCubeView.setNeedsDisplay()
@@ -145,18 +123,6 @@ class ViewController: UIViewController {
     
     @IBAction func touchBPrime(_ sender: UIButton) {
         rubiksCubeView.rubiksCube.rotateBPrime()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchFR(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateCubeFR()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchFU(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateCubeFU()
         rubiksCubeView.setNeedsDisplay()
         audioPlayer.play()
     }
