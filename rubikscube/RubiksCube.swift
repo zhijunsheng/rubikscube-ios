@@ -67,9 +67,9 @@ struct RubiksCube {
         for i in 0 ..< 3 {
             let tmp = front[6 + i]
             front[6 + i] = left[6 + i]
-            left[6 + i] = back[6 + i] // 反了
-            back[6 + i] = right[6 + i] // I see
-            right[6 + i] = tmp // 还有错，uncle
+            left[6 + i] = back[6 + i]
+            back[6 + i] = right[6 + i]
+            right[6 + i] = tmp
         }
         down = rotateFace(face: down)
     }

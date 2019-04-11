@@ -19,15 +19,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let path = Bundle.main.path(forResource: "page_flip", ofType: "mp3")
+        let path = Bundle.main.path(forResource: "pick_release", ofType: "wav")
         let url = URL(fileURLWithPath: path!)
         audioPlayer = try? AVAudioPlayer(contentsOf: url)
-    }
-
-    @IBAction func touchU(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateU()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
     }
     
     var beganLocation: CGPoint = CGPoint(x: -1, y: -2)
@@ -93,6 +87,14 @@ class ViewController: UIViewController {
                 rubiksCubeView.rubiksCube.rotateCubeFR()
                 audioPlayer.play()
                 rubiksCubeView.setNeedsDisplay()
+            } else if began == 1 && ended == 5 || began == 5 && ended == 7 || began == 3 && ended == 1 || began == 7 && ended == 3 {
+                rubiksCubeView.rubiksCube.rotateF()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
+            } else if began == 5 && ended == 1 || began == 7 && ended == 5 || began == 3 && ended == 7 || began == 1 && ended == 3 {
+                rubiksCubeView.rubiksCube.rotateFPrime()
+                audioPlayer.play()
+                rubiksCubeView.setNeedsDisplay()
             }
         }
     }
@@ -101,30 +103,6 @@ class ViewController: UIViewController {
         let col: Int = Int(floor((location.x - RubiksCubeView.originX) / RubiksCubeView.cellSide))
         let row: Int = Int(floor((location.y - RubiksCubeView.originY) / RubiksCubeView.cellSide))
         return row * 3 + col
-    }
-
-    @IBAction func touchF(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateF()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchFPrime(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateFPrime()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchB(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateB()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
-    }
-    
-    @IBAction func touchBPrime(_ sender: UIButton) {
-        rubiksCubeView.rubiksCube.rotateBPrime()
-        rubiksCubeView.setNeedsDisplay()
-        audioPlayer.play()
     }
     
     @IBAction func touchShuffle(_ sender: UIButton) {
