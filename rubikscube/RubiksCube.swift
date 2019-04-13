@@ -181,6 +181,12 @@ struct RubiksCube {
         down = rotateFace(face: down)
     }
     
+    mutating func rotateCubeRF() {
+        rotateCubeFR()
+        rotateCubeFR()
+        rotateCubeFR()
+    }
+    
     mutating func rotateCubeFU() {
         for i in 0 ..< 9 {
             let tmp = front[i]
@@ -195,6 +201,12 @@ struct RubiksCube {
         left = rotateFace(face: left)
         left = rotateFace(face: left)
         right = rotateFace(face: right)
+    }
+    
+    mutating func rotateCubeUF() {
+        rotateCubeFU()
+        rotateCubeFU()
+        rotateCubeFU()
     }
     
     mutating func shuffle() {

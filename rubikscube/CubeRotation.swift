@@ -14,8 +14,14 @@ enum CubeRotation {
     case rotateRPrime
     case rotateF
     case rotateFPrime
-//    case rotateL
-//    case rotateLPrime
-//    case rotateD
-//    case rotateDPrime
+    case rotateL
+    case rotateLPrime
+    case rotateD
+    case rotateDPrime
+    case rotateU
+    case rotateUPrime
+    case rotateCubeFR
+    case rotateCubeRF
+    case rotateCubeFU
+    case rotateCubeUF
 }
