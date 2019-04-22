@@ -8,6 +8,11 @@
 
 import Foundation
 
+// R' D R D F D' F' (2nd layer)
+// F U R U' R' F' (top face cross)
+// R U R' U R U U R' (top layer cross)
+// L' U R U' L U R' (rotate 3 top corners)
+// R' D' R D
 struct RubiksCube {
     var up: [CellColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
     var front: [CellColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
@@ -15,6 +20,16 @@ struct RubiksCube {
     var down: [CellColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
     var left: [CellColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     var back: [CellColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
+    
+    mutating func handleSecondLayer() { // do, handle, rotate, corner, edge piece
+        rotateRPrime()
+        rotateD()
+        rotateR()
+        rotateD()
+        rotateF()
+        rotateDPrime()
+        rotateFPrime()
+    }
     
     mutating func rotateU() {
         for i in 0 ..< 3 {

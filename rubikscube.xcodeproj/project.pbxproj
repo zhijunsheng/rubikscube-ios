@@ -17,6 +17,7 @@
 		5B79F2BA22295ABA00BB9C06 /* RubiksCubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79F2B922295ABA00BB9C06 /* RubiksCubeView.swift */; };
 		5B8612AA222FF2D50006E27E /* CellColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8612A9222FF2D50006E27E /* CellColor.swift */; };
 		5B8612AC222FF3F20006E27E /* RubiksCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8612AB222FF3F20006E27E /* RubiksCube.swift */; };
+		5B8A809D226755AD004D8803 /* CollatzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A809C226755AD004D8803 /* CollatzTests.swift */; };
 		5B968E5A2260BA5C0043D3E3 /* CubeRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B968E592260BA5C0043D3E3 /* CubeRotation.swift */; };
 		5BD96578225F7324008204F0 /* pick_release.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD96577225F7324008204F0 /* pick_release.wav */; };
 		D169D08F2208D9A500E4A494 /* FunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D08E2208D9A500E4A494 /* FunctionTests.swift */; };
@@ -47,6 +48,7 @@
 		5B79F2B922295ABA00BB9C06 /* RubiksCubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeView.swift; sourceTree = "<group>"; };
 		5B8612A9222FF2D50006E27E /* CellColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellColor.swift; sourceTree = "<group>"; };
 		5B8612AB222FF3F20006E27E /* RubiksCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCube.swift; sourceTree = "<group>"; };
+		5B8A809C226755AD004D8803 /* CollatzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollatzTests.swift; sourceTree = "<group>"; };
 		5B968E592260BA5C0043D3E3 /* CubeRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeRotation.swift; sourceTree = "<group>"; };
 		5BD96577225F7324008204F0 /* pick_release.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pick_release.wav; sourceTree = "<group>"; };
 		D169D08E2208D9A500E4A494 /* FunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTests.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		0725AF8A2202550E00AB1E6F /* rubikscubeTests */ = {
 			isa = PBXGroup;
 			children = (
+				5B8A809C226755AD004D8803 /* CollatzTests.swift */,
 				5B646D092248FABF00234A21 /* ShuffleTests.swift */,
 				5B2A5244223E6EC9006ED4A2 /* RubiksCubeTests.swift */,
 				D169D08E2208D9A500E4A494 /* FunctionTests.swift */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B2A5245223E6EC9006ED4A2 /* RubiksCubeTests.swift in Sources */,
+				5B8A809D226755AD004D8803 /* CollatzTests.swift in Sources */,
 				D169D08F2208D9A500E4A494 /* FunctionTests.swift in Sources */,
 				5B646D0A2248FABF00234A21 /* ShuffleTests.swift in Sources */,
 			);

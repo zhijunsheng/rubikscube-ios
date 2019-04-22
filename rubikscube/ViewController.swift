@@ -174,6 +174,12 @@ class ViewController: UIViewController {
         cubeRotation = .nothing
     }
     
+    @IBAction func touchHandleScondLayer(_ sender: UIButton) {
+        rubiksCubeView.rubiksCube.handleSecondLayer()
+        rubiksCubeView.setNeedsDisplay()
+        audioPlayer.play()
+    }
+    
     
     private func indexOfCell(location: CGPoint) -> Int {
         let col: Int = Int(floor((location.x - RubiksCubeView.originX) / RubiksCubeView.cellSide))
