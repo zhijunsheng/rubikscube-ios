@@ -1,12 +1,9 @@
 import UIKit
-
 class RubiksView : UIView {
     let originX  : CGFloat = 10
     let originY  : CGFloat = 150
     let side     : CGFloat = 50
-
     override func draw(_ rect: CGRect) {
-        
         for i in 0..<3 {
             drawSquare(x: originX + side * CGFloat(i), y: originY + side * 0)
             drawSquare(x: originX + side * CGFloat(i), y: originY + side * 1)
@@ -18,9 +15,7 @@ class RubiksView : UIView {
             drawParallelogram2(bottomLeftX: originX + side / 4 + side * 3, bottomLeftY: originY + side / 2 + side * CGFloat(i))
             drawParallelogram2(bottomLeftX: originX + side / 2 + side * 3, bottomLeftY: originY + side * CGFloat(i))
         }
-        
     }
-    
     func drawParallelogram1(bottomLeftX: CGFloat, bottomLeftY: CGFloat) {
         let a = UIBezierPath()
         a.move(to: CGPoint(x: bottomLeftX, y: bottomLeftY))
@@ -30,11 +25,9 @@ class RubiksView : UIView {
         a.close()
         a.lineWidth = 1
         a.stroke()
-        #colorLiteral(red: 0.9843137255, green: 1, blue: 0, alpha: 1).setFill()
+        #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1).setFill()
         a.fill()
-        
     }
-    
     func drawParallelogram2(bottomLeftX: CGFloat, bottomLeftY: CGFloat) {
         let s = UIBezierPath()
         s.move(to: CGPoint(x: bottomLeftX, y: bottomLeftY))
@@ -44,11 +37,9 @@ class RubiksView : UIView {
         s.close()
         s.lineWidth = 1
         s.stroke()
-        #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).setFill()
+        #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).setFill()
         s.fill()
-        
     }
-    
     func drawSquare(x: CGFloat, y: CGFloat) {
         let m14 = UIBezierPath()
         m14.move(to: CGPoint(x: x, y: y))
@@ -59,8 +50,7 @@ class RubiksView : UIView {
         m14.lineWidth = 1
         m14.stroke()
         
-        #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1).setFill()
+        #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1).setFill()
         m14.fill()
     }
-    
 }
