@@ -8,8 +8,7 @@
 
 import Foundation
 
-// R' D R D F D' F' (2nd layer)
-// F U R U' R' F' (top face cross)
+
 // R U R' U R U U R' (top layer cross)
 // L' U R U' L U R' (rotate 3 top corners)
 // R' D' R D
@@ -21,13 +20,22 @@ struct RubiksCube {
     var left: [CellColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     var back: [CellColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
     
-    mutating func handleSecondLayer() { // do, handle, rotate, corner, edge piece
+    mutating func handleSecondLayer() { // R' D R D F D' F' (2nd layer)
         rotateRPrime()
         rotateD()
         rotateR()
         rotateD()
         rotateF()
         rotateDPrime()
+        rotateFPrime()
+    }
+    
+    mutating func handleTopFaceCross() { // F U R U' R' F' (top face cross)
+        rotateF()
+        rotateU()
+        rotateR()
+        rotateUPrime()
+        rotateRPrime()
         rotateFPrime()
     }
     

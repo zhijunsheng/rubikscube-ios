@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qj2-Fh-WlL">
-                                <rect key="frame" x="0.0" y="44" width="320" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Shuffle"/>
                                 <connections>
                                     <action selector="touchShuffle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L3j-NO-u8w"/>
@@ -34,27 +34,34 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9du-pK-yyB">
-                                <rect key="frame" x="0.0" y="94" width="320" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="0.0" y="82" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Reset Game"/>
                                 <connections>
                                     <action selector="touchResetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c6b-mI-j2E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNe-au-fzg">
-                                <rect key="frame" x="0.0" y="144" width="320" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="touchBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DR6-E0-MYj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UID-z3-E9C">
-                                <rect key="frame" x="38" y="194" width="245" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="38" y="158" width="245" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Finished Second Layer"/>
                                 <connections>
                                     <action selector="touchHandleScondLayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f1B-aA-uL4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM0-lX-bkW">
+                                <rect key="frame" x="108" y="196" width="106" height="30"/>
+                                <state key="normal" title="Top Face Cross"/>
+                                <connections>
+                                    <action selector="touchTopFaceCross:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3qO-O3-fJx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,15 +74,18 @@
                             <constraint firstItem="9du-pK-yyB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AAU-1t-fhO"/>
                             <constraint firstItem="KIm-PY-7ZH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B3Q-l2-5aJ"/>
                             <constraint firstItem="JNe-au-fzg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JBj-NC-5zC"/>
+                            <constraint firstItem="xM0-lX-bkW" firstAttribute="top" secondItem="UID-z3-E9C" secondAttribute="bottom" constant="8" id="OKd-GD-sPm"/>
                             <constraint firstItem="JNe-au-fzg" firstAttribute="top" secondItem="9du-pK-yyB" secondAttribute="bottom" constant="8" id="Oku-jF-V3G"/>
                             <constraint firstItem="JNe-au-fzg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Scy-2e-Rk3"/>
                             <constraint firstItem="Qj2-Fh-WlL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZQp-oa-0KS"/>
+                            <constraint firstItem="xM0-lX-bkW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="108" id="acF-G6-jtR"/>
                             <constraint firstItem="UID-z3-E9C" firstAttribute="top" secondItem="JNe-au-fzg" secondAttribute="bottom" constant="8" id="bIS-Au-yBm"/>
                             <constraint firstItem="UID-z3-E9C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="dLb-ik-s85"/>
                             <constraint firstItem="9du-pK-yyB" firstAttribute="top" secondItem="Qj2-Fh-WlL" secondAttribute="bottom" constant="8" id="jNl-67-CNb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UID-z3-E9C" secondAttribute="trailing" constant="37" id="nIK-kk-2kr"/>
                             <constraint firstItem="KIm-PY-7ZH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ngX-3E-thQ"/>
                             <constraint firstItem="Qj2-Fh-WlL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oI4-jV-kgi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xM0-lX-bkW" secondAttribute="trailing" constant="106" id="z7H-Tc-SpN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>

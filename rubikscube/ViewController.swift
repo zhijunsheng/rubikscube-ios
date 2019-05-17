@@ -180,6 +180,12 @@ class ViewController: UIViewController {
         audioPlayer.play()
     }
     
+    @IBAction func touchTopFaceCross(_ sender: UIButton) {
+        rubiksCubeView.rubiksCube.handleTopFaceCross()
+        rubiksCubeView.setNeedsDisplay()
+        audioPlayer.play()
+    }
+    
     
     private func indexOfCell(location: CGPoint) -> Int {
         let col: Int = Int(floor((location.x - RubiksCubeView.originX) / RubiksCubeView.cellSide))
