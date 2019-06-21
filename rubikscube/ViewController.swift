@@ -187,10 +187,15 @@ class ViewController: UIViewController {
     }
     
     
-    private func indexOfCell(location: CGPoint) -> Int {
-        let col: Int = Int(floor((location.x - RubiksCubeView.originX) / RubiksCubeView.cellSide))
-        let row: Int = Int(floor((location.y - RubiksCubeView.originY) / RubiksCubeView.cellSide))
+    private func indexOfCell(location: CGPoint) -> Int? {
+        guard let col = Utils.xToCol(x: location.x, orgX: RubiksCubeView.originX, cellSide: RubiksCubeView.cellSide, margin: 15), let row = Utils.xToCol(x: location.y, orgX: RubiksCubeView.originY, cellSide: RubiksCubeView.cellSide, margin: 15) else {
+            return nil
+        }
         return row * 3 + col
+        
+        //        let col: Int = Int(floor((location.x - RubiksCubeView.originX) / RubiksCubeView.cellSide))
+        //        let row: Int = Int(floor((location.y - RubiksCubeView.originY) / RubiksCubeView.cellSide))
+        //        return row * 3 + col
     }
     
     @IBAction func touchShuffle(_ sender: UIButton) {
