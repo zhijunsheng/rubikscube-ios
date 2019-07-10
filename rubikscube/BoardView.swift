@@ -2,9 +2,14 @@ import UIKit
 
 class BoardView: UIView {
     let lineSide: CGFloat = 60
-    let oigX: CGFloat = 85
-    let oigY: CGFloat = 295
+    var oigX: CGFloat = 85
+    var oigY: CGFloat = 295
+    
     override func draw(_ rect: CGRect) {
+        oigX = (bounds.width - (3 * lineSide + 3 * lineSide / 2)) / 2
+        oigY = oigX + (2 * lineSide + 3 * lineSide / 2)
+        
+        
         for j in 0..<3 {
             for i in 0..<3 {
                 drawSquare(x: oigX + CGFloat(i) * lineSide, y: oigY - CGFloat(j) * lineSide, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
