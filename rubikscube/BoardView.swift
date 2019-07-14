@@ -9,20 +9,42 @@ class BoardView: UIView {
         oigX = (bounds.width - (3 * lineSide + 3 * lineSide / 2)) / 2
         oigY = oigX + (2 * lineSide + 3 * lineSide / 2)
         
+        wrongFaceBox()
+        
         
         for j in 0..<3 {
             for i in 0..<3 {
-                drawSquare(x: oigX + CGFloat(i) * lineSide, y: oigY - CGFloat(j) * lineSide, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
-                drawParallelogram1(x: oigX + CGFloat(i) * lineSide + CGFloat(j) * 30, y: oigY - 2 * lineSide - CGFloat(j) * 30, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
+                /*    drawSquare(x: oigX + CGFloat(i) * lineSide, y: oigY - CGFloat(j) * lineSide, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+                drawParallelogram1(x: oigX + CGFloat(i) * lineSide + CGFloat(j) * 30, y: oigY - 2 * lineSide - CGFloat(j) * 30, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))     */
                 drawParallelogram2(x: oigX + 3 * lineSide + CGFloat(j) * 30, y: oigY - CGFloat(i) * lineSide - CGFloat(j) * 30, color: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))
             }
         }
         
-//        for i in 0..<3 {
-//            drawParallelogram2(x: oigX + 3 * lineSide, y: oigY - CGFloat(i) * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))
-//        }
+    }
+    
+    func wrongFaceBox() {
+        wrongFaceFront()
+    }
+    
+    func wrongFaceTop() {
+  //      drawParallelogram1(x: <#T##CGFloat#>, y: <#T##CGFloat#>, color: <#T##UIColor#>)
+    }
+    
+    func wrongFaceFront() {
+        // wrong face line 1:
+        drawSquare(x: oigX + 0 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        drawSquare(x: oigX + 1 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
+        drawSquare(x: oigX + 2 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
         
+        // wrong face line 2:
+        drawSquare(x: oigX + 0 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        drawSquare(x: oigX + 1 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
+        drawSquare(x: oigX + 2 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
         
+        // wrong face line 3:
+        drawSquare(x: oigX + 0 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        drawSquare(x: oigX + 1 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
+        drawSquare(x: oigX + 2 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
     }
     
     func drawSquare(x: CGFloat, y: CGFloat, color: UIColor) {
