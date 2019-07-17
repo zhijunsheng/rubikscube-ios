@@ -53,17 +53,17 @@ class BoardView: UIView {
     }
     
     func wrongFaceFront() {
-        drawSquare(x: oigX + 0 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-        drawSquare(x: oigX + 1 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
+        drawSquare(x: oigX + 0 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        drawSquare(x: oigX + 1 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         drawSquare(x: oigX + 2 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
         
         drawSquare(x: oigX + 0 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-        drawSquare(x: oigX + 1 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
-        drawSquare(x: oigX + 2 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
+        drawSquare(x: oigX + 1 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 0.9843137255, green: 1, blue: 0, alpha: 1))
+        drawSquare(x: oigX + 2 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         
-        drawSquare(x: oigX + 0 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-        drawSquare(x: oigX + 1 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
-        drawSquare(x: oigX + 2 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
+        drawSquare(x: oigX + 0 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+        drawSquare(x: oigX + 1 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+        drawSquare(x: oigX + 2 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
     
     func drawSquare(x: CGFloat, y: CGFloat, color: UIColor) {
@@ -75,7 +75,7 @@ class BoardView: UIView {
         cS.close()
         color.setFill()
         cS.fill()
-        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
+        #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1).setStroke()
         cS.stroke()
     }
     
