@@ -5,6 +5,7 @@ import XCTest
 class RubiksBrainTests: XCTestCase {
 
     func testRubiksBrain() {
-        
+        let rubiksBrain = RubiksBrain()
+        print(rubiksBrain)
     }
 }

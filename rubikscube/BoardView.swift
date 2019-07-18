@@ -11,15 +11,6 @@ class BoardView: UIView {
         
         wrongFaceBox()
         
-        
-        for j in 0..<3 {
-            for i in 0..<3 {
-                /*    drawSquare(x: oigX + CGFloat(i) * lineSide, y: oigY - CGFloat(j) * lineSide, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
-                drawParallelogram1(x: oigX + CGFloat(i) * lineSide + CGFloat(j) * 30, y: oigY - 2 * lineSide - CGFloat(j) * 30, color: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1))
-                drawParallelogram2(x: oigX + 3 * lineSide + CGFloat(j) * 30, y: oigY - CGFloat(i) * lineSide - CGFloat(j) * 30, color: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))  */
-            }
-        }
-        
     }
     
     func wrongFaceBox() {
@@ -36,6 +27,10 @@ class BoardView: UIView {
         drawParallelogram2(x: oigX + 3.5 * lineSide, y: oigY - 0.5 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         drawParallelogram2(x: oigX + 3.5 * lineSide, y: oigY - 1.5 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
         drawParallelogram2(x: oigX + 3.5 * lineSide, y: oigY - 2.5 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        
+        drawParallelogram2(x: oigX + 4 * lineSide, y: oigY - 1 * lineSide, color: #colorLiteral(red: 0.9647058824, green: 1, blue: 0, alpha: 1))
+        drawParallelogram2(x: oigX + 4 * lineSide, y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
+        drawParallelogram2(x: oigX + 4 * lineSide, y: oigY - 3 * lineSide, color: #colorLiteral(red: 0.9647058824, green: 1, blue: 0, alpha: 1))
     }
     
     func wrongFaceTop() {
