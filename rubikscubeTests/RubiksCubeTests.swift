@@ -11,6 +11,18 @@ class RubiksCubeTests: XCTestCase {
         back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
     )
     
+    func testRubiksCubeDescription() {
+        rubiksCube = RubiksCube(
+            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            front: [.red, .red, .blue, .white, .green, .yellow, .blue, .blue, .orange,],
+            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.orange, .green, .green, .blue, .blue, .blue, .blue, .blue, .blue,],
+            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+        )
+        print(rubiksCube)
+    }
+    
     func testRotateL() {
         rubiksCube = RubiksCube(
             up: [.white, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],

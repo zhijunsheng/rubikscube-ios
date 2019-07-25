@@ -12,7 +12,83 @@ import Foundation
 // R U R' U R U U R' (top layer cross)
 // L' U R U' L U R' (rotate 3 top corners)
 // R' D' R D
-struct RubiksCube {
+struct RubiksCube: CustomStringConvertible {
+    var description: String {
+        let spaces = "        "
+        var brdStr = ""
+        
+        brdStr += colorName(cellColor: left[0])
+        brdStr += colorName(cellColor: left[1])
+        brdStr += colorName(cellColor: left[2])
+        brdStr += " |"
+        brdStr += colorName(cellColor: front[0])
+        
+        for i in 0 ..< 9 {
+            if front[i] == .blue {
+                if i % 3 == 0 {
+                    brdStr += "\n" + spaces + "B "
+                } else {
+                    brdStr += "B "
+                }
+            } else if front[i] == .red {
+                if i % 3 == 0 {
+                    brdStr += "\n" + spaces + "R "
+                } else {
+                    brdStr += "R "
+                }
+            } else if front[i] == .green {
+                if i % 3 == 0 {
+                    brdStr += "\n" + spaces + "G "
+                } else {
+                    brdStr += "G "
+                }
+            } else if front[i] == .orange {
+                if i % 3 == 0 {
+                    brdStr += "\n" + spaces + "O "
+                } else {
+                    brdStr += "O "
+                }
+            } else if front[i] == .white {
+                if i % 3 == 0 {
+                    brdStr += "\n" + spaces + "W "
+                } else {
+                    brdStr += "W "
+                }
+            } else if front[i] == .yellow {
+                if i % 3 == 0 {
+                    brdStr += "\n" + spaces + "Y "
+                } else {
+                    brdStr += "Y "
+                }
+            }
+            
+            
+        }
+        
+        
+        return brdStr
+    }
+    
+    func colorName(cellColor: CellColor) -> String {
+        var name = ""
+        if cellColor == .green {
+            name += " G"
+        } else if cellColor == .blue {
+            name += " B"
+        } else if cellColor == .orange {
+            name += " O"
+        } else if cellColor == .red {
+            name += " R"
+        } else if cellColor == .white {
+            name += " W"
+        } else if cellColor == .yellow {
+            name += " Y"
+        }
+        
+        return name
+    }
+
+    
     var up: [CellColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
     var front: [CellColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
     var right: [CellColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
@@ -70,7 +146,7 @@ struct RubiksCube {
         down[5] = back[3]
         back[3] = up[5]
         up[5] = front5
-
+        
         let front8 = front[8]
         front[8] = down[8]
         down[8] = back0
