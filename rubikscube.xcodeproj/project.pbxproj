@@ -12,6 +12,8 @@
 		0725AF7C2202550B00AB1E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7A2202550B00AB1E6F /* Main.storyboard */; };
 		0725AF7E2202550E00AB1E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7D2202550E00AB1E6F /* Assets.xcassets */; };
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
+		75C3886322EC8AC600759845 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3886222EC8AC600759845 /* Board.swift */; };
+		75C3886522EC8BEE00759845 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3886422EC8BEE00759845 /* BoardTests.swift */; };
 		D139BD112204EB9E00DE9611 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D139BD102204EB9E00DE9611 /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		0725AF822202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75C3886222EC8AC600759845 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		75C3886422EC8BEE00759845 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 		D139BD102204EB9E00DE9611 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +84,7 @@
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
 				0725AF782202550B00AB1E6F /* ViewController.swift */,
 				D139BD102204EB9E00DE9611 /* BoardView.swift */,
+				75C3886222EC8AC600759845 /* Board.swift */,
 				0725AF7A2202550B00AB1E6F /* Main.storyboard */,
 				0725AF7D2202550E00AB1E6F /* Assets.xcassets */,
 				0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */,
@@ -91,6 +96,7 @@
 		0725AF8A2202550E00AB1E6F /* rubikscubeTests */ = {
 			isa = PBXGroup;
 			children = (
+				75C3886422EC8BEE00759845 /* BoardTests.swift */,
 				0725AF8D2202550E00AB1E6F /* Info.plist */,
 			);
 			path = rubikscubeTests;
@@ -149,6 +155,7 @@
 					};
 					0725AF862202550E00AB1E6F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = 0725AF722202550B00AB1E6F;
 					};
 				};
@@ -199,6 +206,7 @@
 			files = (
 				D139BD112204EB9E00DE9611 /* BoardView.swift in Sources */,
 				0725AF792202550B00AB1E6F /* ViewController.swift in Sources */,
+				75C3886322EC8AC600759845 /* Board.swift in Sources */,
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75C3886522EC8BEE00759845 /* BoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +408,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = rubikscubeTests/Info.plist;
@@ -409,6 +419,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.rubikscubeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rubikscube.app/rubikscube";
@@ -420,6 +431,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = rubikscubeTests/Info.plist;
