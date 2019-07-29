@@ -13,11 +13,11 @@ class RubiksCubeTests: XCTestCase {
     
     func testRubiksCubeDescription() {
         rubiksCube = RubiksCube(
-            up: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            up: [.green, .yellow, .blue, .blue, .orange, .blue, .blue, .white, .blue,],
             front: [.red, .red, .blue, .white, .green, .yellow, .blue, .blue, .orange,],
-            right: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            right: [.white, .yellow, .blue, .green, .blue, .blue, .blue, .blue, .blue,],
             down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
-            left: [.orange, .green, .green, .blue, .blue, .blue, .blue, .blue, .blue,],
+            left: [.orange, .green, .green, .blue, .orange, .green, .blue, .blue, .blue,],
             back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
         )
         print(rubiksCube)

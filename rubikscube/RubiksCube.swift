@@ -16,55 +16,58 @@ struct RubiksCube: CustomStringConvertible {
     var description: String {
         let spaces = "        "
         var brdStr = ""
+        brdStr += spaces + colorName(cellColor: up[0])
+        brdStr += colorName(cellColor: up[1])
+        brdStr += colorName(cellColor: up[2])
+        brdStr += "\n"
+        brdStr += spaces + colorName(cellColor: up[3])
+        brdStr += colorName(cellColor: up[4])
+        brdStr += colorName(cellColor: up[5])
+        brdStr += "\n"
+        brdStr += spaces + colorName(cellColor: up[6])
+        brdStr += colorName(cellColor: up[7])
+        brdStr += colorName(cellColor: up[8])
+        brdStr += "\n"
+        brdStr += spaces + "-------" 
         
+        brdStr += "\n"
         brdStr += colorName(cellColor: left[0])
         brdStr += colorName(cellColor: left[1])
         brdStr += colorName(cellColor: left[2])
         brdStr += " |"
         brdStr += colorName(cellColor: front[0])
+        brdStr += colorName(cellColor: front[1])
+        brdStr += colorName(cellColor: front[2])
+        brdStr += " |"
+        brdStr += colorName(cellColor: right[0])
+        brdStr += colorName(cellColor: right[1])
+        brdStr += colorName(cellColor: right[2])
+        brdStr += "\n"
         
-        for i in 0 ..< 9 {
-            if front[i] == .blue {
-                if i % 3 == 0 {
-                    brdStr += "\n" + spaces + "B "
-                } else {
-                    brdStr += "B "
-                }
-            } else if front[i] == .red {
-                if i % 3 == 0 {
-                    brdStr += "\n" + spaces + "R "
-                } else {
-                    brdStr += "R "
-                }
-            } else if front[i] == .green {
-                if i % 3 == 0 {
-                    brdStr += "\n" + spaces + "G "
-                } else {
-                    brdStr += "G "
-                }
-            } else if front[i] == .orange {
-                if i % 3 == 0 {
-                    brdStr += "\n" + spaces + "O "
-                } else {
-                    brdStr += "O "
-                }
-            } else if front[i] == .white {
-                if i % 3 == 0 {
-                    brdStr += "\n" + spaces + "W "
-                } else {
-                    brdStr += "W "
-                }
-            } else if front[i] == .yellow {
-                if i % 3 == 0 {
-                    brdStr += "\n" + spaces + "Y "
-                } else {
-                    brdStr += "Y "
-                }
-            }
-            
-            
-        }
+        brdStr += colorName(cellColor: left[3])
+        brdStr += colorName(cellColor: left[4])
+        brdStr += colorName(cellColor: left[5])
+        brdStr += " |"
+        brdStr += colorName(cellColor: front[3])
+        brdStr += colorName(cellColor: front[4])
+        brdStr += colorName(cellColor: front[5])
+        brdStr += " |"
+        brdStr += colorName(cellColor: right[3])
+        brdStr += colorName(cellColor: right[4])
+        brdStr += colorName(cellColor: right[5])
+        brdStr += "\n"
         
+        brdStr += colorName(cellColor: left[6])
+        brdStr += colorName(cellColor: left[7])
+        brdStr += colorName(cellColor: left[8])
+        brdStr += " |"
+        brdStr += colorName(cellColor: front[6])
+        brdStr += colorName(cellColor: front[7])
+        brdStr += colorName(cellColor: front[8])
+        brdStr += " |"
+        brdStr += colorName(cellColor: right[6])
+        brdStr += colorName(cellColor: right[7])
+        brdStr += colorName(cellColor: right[8])
         
         return brdStr
     }
