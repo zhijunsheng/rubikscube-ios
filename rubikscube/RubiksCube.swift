@@ -42,6 +42,10 @@ struct RubiksCube: CustomStringConvertible {
         brdStr += colorName(cellColor: right[0])
         brdStr += colorName(cellColor: right[1])
         brdStr += colorName(cellColor: right[2])
+        brdStr += " |"
+        brdStr += colorName(cellColor: back[0])
+        brdStr += colorName(cellColor: back[1])
+        brdStr += colorName(cellColor: back[2])
         brdStr += "\n"
         
         brdStr += colorName(cellColor: left[3])
@@ -55,6 +59,10 @@ struct RubiksCube: CustomStringConvertible {
         brdStr += colorName(cellColor: right[3])
         brdStr += colorName(cellColor: right[4])
         brdStr += colorName(cellColor: right[5])
+        brdStr += " |"
+        brdStr += colorName(cellColor: back[3])
+        brdStr += colorName(cellColor: back[4])
+        brdStr += colorName(cellColor: back[5])
         brdStr += "\n"
         
         brdStr += colorName(cellColor: left[6])
@@ -68,6 +76,25 @@ struct RubiksCube: CustomStringConvertible {
         brdStr += colorName(cellColor: right[6])
         brdStr += colorName(cellColor: right[7])
         brdStr += colorName(cellColor: right[8])
+        brdStr += " |"
+        brdStr += colorName(cellColor: back[6])
+        brdStr += colorName(cellColor: back[7])
+        brdStr += colorName(cellColor: back[8])
+        brdStr += "\n"
+        brdStr += spaces + "-------"
+        brdStr += "\n"
+        brdStr += spaces + colorName(cellColor: down[0])
+        brdStr += colorName(cellColor: down[1])
+        brdStr += colorName(cellColor: down[2])
+        brdStr += "\n"
+        brdStr += spaces + colorName(cellColor: down[3])
+        brdStr += colorName(cellColor: down[4])
+        brdStr += colorName(cellColor: down[5])
+        brdStr += "\n"
+        brdStr += spaces + colorName(cellColor: down[6])
+        brdStr += colorName(cellColor: down[7])
+        brdStr += colorName(cellColor: down[8])
+        brdStr += "\n"
         
         return brdStr
     }

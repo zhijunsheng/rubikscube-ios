@@ -16,9 +16,9 @@ class RubiksCubeTests: XCTestCase {
             up: [.green, .yellow, .blue, .blue, .orange, .blue, .blue, .white, .blue,],
             front: [.red, .red, .blue, .white, .green, .yellow, .blue, .blue, .orange,],
             right: [.white, .yellow, .blue, .green, .blue, .blue, .blue, .blue, .blue,],
-            down: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
+            down: [.yellow, .white, .blue, .green, .orange, .blue, .blue, .blue, .blue,],
             left: [.orange, .green, .green, .blue, .orange, .green, .blue, .blue, .blue,],
-            back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
+            back: [.blue, .yellow, .red, .orange, .blue, .green, .blue, .blue, .blue,]
         )
         print(rubiksCube)
     }
