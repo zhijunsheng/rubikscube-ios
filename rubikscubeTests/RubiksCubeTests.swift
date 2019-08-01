@@ -32,7 +32,9 @@ class RubiksCubeTests: XCTestCase {
             left: [.red, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
             back: [.blue, .blue, .green, .blue, .blue, .blue, .blue, .blue, .blue,]
         )
+        print(rubiksCube)
         rubiksCube.rotateL()
+        print(rubiksCube)
         XCTAssertEqual(.white, rubiksCube.front[0])
         XCTAssertEqual(.red, rubiksCube.left[2])
         XCTAssertEqual(.green, rubiksCube.up[6])
@@ -121,7 +123,9 @@ class RubiksCubeTests: XCTestCase {
             left: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,],
             back: [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue,]
         )
+        print(rubiksCube)
         rubiksCube.rotateR()
+        print(rubiksCube)
         XCTAssertEqual(.white, rubiksCube.up[2])
         XCTAssertEqual(.red, rubiksCube.right[2])
         XCTAssertEqual(.green, rubiksCube.back[0])
