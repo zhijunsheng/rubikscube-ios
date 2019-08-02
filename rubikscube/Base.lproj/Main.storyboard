@@ -88,20 +88,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xM0-lX-bkW" secondAttribute="trailing" constant="106" id="z7H-Tc-SpN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="ttG-Ec-gMa" appends="YES" id="pYe-rs-QiW"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="rubiksCubeView" destination="KIm-PY-7ZH" id="Fed-Qt-ZxT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="ttG-Ec-gMa">
-                    <connections>
-                        <action selector="panCube:" destination="BYZ-38-t0r" id="3L4-ni-40u"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-322.5" y="-386.61971830985914"/>
         </scene>

@@ -17,6 +17,28 @@ class RubiksCubeView: UIView {
 
     var rubiksCube: RubiksCube = RubiksCube()
     
+    var began: Int? = nil
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("abcdefg")
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        print(location)
+        began = Utils.indexOfCell(location: location)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        print(location)
+        let ended = Utils.indexOfCell(location: location)
+        if began == 0 && ended == 2 {
+            print("u'")
+        }
+    }
+    
+    
+    
     override func draw(_ rect: CGRect) { //
         RubiksCubeView.cellSide = min(bounds.width, bounds.height) * 0.9 / 4
         

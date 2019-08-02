@@ -21,4 +21,11 @@ struct Utils {
             return nil
         }
     }
+    
+    static func indexOfCell(location: CGPoint) -> Int? {
+        guard let col = Utils.xToCol(x: location.x, orgX: RubiksCubeView.originX, cellSide: RubiksCubeView.cellSide, margin: 15), let row = Utils.xToCol(x: location.y, orgX: RubiksCubeView.originY, cellSide: RubiksCubeView.cellSide, margin: 15) else {
+            return nil
+        }
+        return row * 3 + col
+    }
 }
