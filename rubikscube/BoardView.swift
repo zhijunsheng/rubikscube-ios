@@ -82,14 +82,7 @@ import UIKit
         } else {
             UIColor.groupTableViewBackground.setFill()
         }
-//        pencil.fill()
-        
-        let pen = UIBezierPath()
-        pen.move(to: CGPoint(x: cornerX + side * CGFloat(x), y: cornerY + side * CGFloat(y)))
-        pen.addLine(to: CGPoint(x: cornerX + side * CGFloat(x), y: cornerY + side * CGFloat(y) + side))
-        pen.addLine(to: CGPoint(x: cornerX + side * CGFloat(x) + side, y: cornerY + side * CGFloat(y) + side))
-        pen.addLine(to: CGPoint(x: cornerX + side * CGFloat(x) + side, y: cornerY + side * CGFloat(y)))
-        pen.close()
+        pencil.fill()
         
         UIColor.black.setStroke()
         
@@ -102,12 +95,12 @@ import UIKit
         
         let pencil = UIBezierPath()
         
-        pencil.move(to: CGPoint(x: cornerXP + 0.65 * side * CGFloat(x), y: cornerYP + side * CGFloat(y) - CGFloat(x) * 0.65 * side))
-        pencil.addLine(to: CGPoint(x: cornerXP + 0.65 * side * CGFloat(x), y: cornerYP + side * CGFloat(y) + 100 - CGFloat(x) * 0.65 * side))
-        pencil.addLine(to: CGPoint(x: cornerXP + 0.65 * side * CGFloat(x) + 50, y: cornerYP + side * CGFloat(y) + 25 - CGFloat(x) * 0.65 * side))
-        pencil.addLine(to: CGPoint(x: cornerXP + 0.65 * side * CGFloat(x) + 50, y: cornerYP + side * CGFloat(y) - 75 - CGFloat(x) * 0.65 * side))
+        pencil.move(to: CGPoint(x: cornerXP + 0.65 * side * CGFloat(x), y: cornerYP + side * CGFloat(y) - CGFloat(x) * 0.25 * side))
+        pencil.addLine(to: CGPoint(x: cornerXP + 0.65 * side * CGFloat(x), y: cornerYP + side * CGFloat(y) + 100 - CGFloat(x) * 0.25 * side))
+        pencil.addLine(to: CGPoint(x: cornerXP + 0.65 * side * CGFloat(x) + 50, y: cornerYP + side * CGFloat(y) + 65 - CGFloat(x) * 0.25 * side))
+        pencil.addLine(to: CGPoint(x: cornerXP + 0.65 * side * CGFloat(x) + 50, y: cornerYP + side * CGFloat(y) - 35 - CGFloat(x) * 0.25 * side))
         pencil.close()
-        
+        //hi
         if color == "W" {
             UIColor.white.setFill()
         } else if color == "R" {
@@ -133,14 +126,13 @@ import UIKit
     
     func drawPieceParallelogram(x: Int, y: Int, color: String) {
         let cornerXP: CGFloat = 335
-        let cornerYP: CGFloat = 150
-        
+        let cornerYP: CGFloat = 225
         let pencil = UIBezierPath()
         
-        pencil.move(to: CGPoint(x: cornerXP + side * CGFloat(x) - CGFloat(y * 70), y: cornerYP + side * 0.65 * CGFloat(y)))
-        pencil.addLine(to: CGPoint(x: cornerXP + side * CGFloat(x) - 70 - CGFloat(y * 70), y: cornerYP + side * 0.65 * CGFloat(y) + 75))
-        pencil.addLine(to: CGPoint(x: cornerXP + side * CGFloat(x) + 40 - CGFloat(y * 70), y: cornerYP + side * 0.65 * CGFloat(y) + 75))
-        pencil.addLine(to: CGPoint(x: cornerXP + side * CGFloat(x) + 115 - CGFloat(y * 70), y: cornerYP + side * 0.65 * CGFloat(y)))
+        pencil.move(to: CGPoint(x: cornerXP + side * CGFloat(x) - CGFloat(y * 70), y: cornerYP + side * 0.5 * CGFloat(y)))
+        pencil.addLine(to: CGPoint(x: cornerXP + side * CGFloat(x) - 70 - CGFloat(y * 70), y: cornerYP + side * 0.5 * CGFloat(y) + 50))
+        pencil.addLine(to: CGPoint(x: cornerXP + side * CGFloat(x) + 30 - CGFloat(y * 70), y: cornerYP + side * 0.5 * CGFloat(y) + 50))
+        pencil.addLine(to: CGPoint(x: cornerXP + side * CGFloat(x) + 105 - CGFloat(y * 70), y: cornerYP + side * 0.5 * CGFloat(y)))
         pencil.close()
         
         if color == "W" {
