@@ -22,6 +22,7 @@
 		5B8A809D226755AD004D8803 /* CollatzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A809C226755AD004D8803 /* CollatzTests.swift */; };
 		5B968E5A2260BA5C0043D3E3 /* CubeRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B968E592260BA5C0043D3E3 /* CubeRotation.swift */; };
 		5BD96578225F7324008204F0 /* pick_release.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD96577225F7324008204F0 /* pick_release.wav */; };
+		5BE8BA5322F7B70E0015E4D9 /* RubiksCubeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8BA5222F7B70E0015E4D9 /* RubiksCubeDelegate.swift */; };
 		D169D08F2208D9A500E4A494 /* FunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D08E2208D9A500E4A494 /* FunctionTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		5B8A809C226755AD004D8803 /* CollatzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollatzTests.swift; sourceTree = "<group>"; };
 		5B968E592260BA5C0043D3E3 /* CubeRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeRotation.swift; sourceTree = "<group>"; };
 		5BD96577225F7324008204F0 /* pick_release.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pick_release.wav; sourceTree = "<group>"; };
+		5BE8BA5222F7B70E0015E4D9 /* RubiksCubeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeDelegate.swift; sourceTree = "<group>"; };
 		D169D08E2208D9A500E4A494 /* FunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				5B22D2F522BD09FC00DDE356 /* Utils.swift */,
+				5BE8BA5222F7B70E0015E4D9 /* RubiksCubeDelegate.swift */,
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
 				5B8612AB222FF3F20006E27E /* RubiksCube.swift */,
 				5B8612A9222FF2D50006E27E /* CellColor.swift */,
@@ -233,6 +236,7 @@
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,
 				5B22D2F622BD09FC00DDE356 /* Utils.swift in Sources */,
 				5B8612AC222FF3F20006E27E /* RubiksCube.swift in Sources */,
+				5BE8BA5322F7B70E0015E4D9 /* RubiksCubeDelegate.swift in Sources */,
 				5B968E5A2260BA5C0043D3E3 /* CubeRotation.swift in Sources */,
 				5B79F2BA22295ABA00BB9C06 /* RubiksCubeView.swift in Sources */,
 			);

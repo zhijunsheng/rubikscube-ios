@@ -14,6 +14,8 @@ class RubiksCubeView: UIView {
     static var cellSide: CGFloat = -1
     static let offsetX: CGFloat = cellSide * 0.25
     static let offsetY: CGFloat = cellSide * 0.25
+    
+    var rubiksCubeDelegate: RubiksCubeDelegate?
 
     var rubiksCube: RubiksCube = RubiksCube()
     
@@ -32,9 +34,10 @@ class RubiksCubeView: UIView {
         let location = touch.location(in: self)
         print(location)
         let ended = Utils.indexOfCell(location: location)
-        if began == 0 && ended == 2 {
-            print("u'")
+        guard let actualBegan = began, let actualEnded = ended else {
+            return
         }
+        rubiksCubeDelegate?.rotateCube(began: actualBegan, ended: actualEnded)
     }
     
     
