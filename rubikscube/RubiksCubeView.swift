@@ -40,8 +40,6 @@ class RubiksCubeView: UIView {
         rubiksCubeDelegate?.rotateCube(began: actualBegan, ended: actualEnded)
     }
     
-    
-    
     override func draw(_ rect: CGRect) { //
         RubiksCubeView.cellSide = min(bounds.width, bounds.height) * 0.9 / 4
         

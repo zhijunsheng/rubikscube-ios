@@ -22,6 +22,7 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         let path = Bundle.main.path(forResource: "pick_release", ofType: "wav")
         let url = URL(fileURLWithPath: path!)
         audioPlayer = try? AVAudioPlayer(contentsOf: url)
+        rubiksCubeView.rubiksCubeDelegate = self
     }
     var cubeRotation: CubeRotation = .nothing
     
