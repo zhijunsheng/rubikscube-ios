@@ -11,10 +11,8 @@ import UIKit
  class BoardView: UIView {
     
     let side: CGFloat = 100
-//    let parallelogramSide: CGFloat = 50
-//    let parallelogramSide2: CGFloat = 75
-    let cornerX: CGFloat = 125 + 43
-    let cornerY: CGFloat = 375 + 57
+    let cornerX: CGFloat = 150
+    let cornerY: CGFloat = 275
     
     var board: Board = Board()
     
