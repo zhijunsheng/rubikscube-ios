@@ -22,17 +22,14 @@ class RubiksCubeView: UIView {
     var began: Int? = nil
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("abcdefg")
         let touch = touches.first!
         let location = touch.location(in: self)
-        print(location)
         began = Utils.indexOfCell(location: location)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self)
-        print(location)
         let ended = Utils.indexOfCell(location: location)
         guard let actualBegan = began, let actualEnded = ended else {
             return

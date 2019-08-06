@@ -109,89 +109,6 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         }
     }
     
-    @IBAction func panCube(_ panGestureRecognizer: UIPanGestureRecognizer) {
-        if panGestureRecognizer.state == .began {
-            beganLocation = panGestureRecognizer.location(in: rubiksCubeView)
-        } else if panGestureRecognizer.state == .ended {
-            let endedLocation: CGPoint = panGestureRecognizer.location(in: rubiksCubeView)
-            let began = indexOfCell(location: beganLocation)
-            let ended = indexOfCell(location: endedLocation)
-            
-            if began == 0 && ended == 2 || began == 0 && ended == 1 || began == 1 && ended == 2 {
-                rubiksCubeView.rubiksCube.rotateUPrime()
-                cubeRotation = .rotateUPrime
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 2 && ended == 0 || began == 2 && ended == 1 || began == 1 && ended == 0 {
-                rubiksCubeView.rubiksCube.rotateU()
-                cubeRotation = .rotateU
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 0 && ended == 6 || began == 0 && ended == 3 || began == 3 && ended == 6 {
-                rubiksCubeView.rubiksCube.rotateL()
-                cubeRotation = .rotateL
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-                
-            } else if began == 6 && ended == 0 || began == 6 && ended == 3 || began == 3 && ended == 0 {
-                rubiksCubeView.rubiksCube.rotateLPrime()
-                cubeRotation = .rotateLPrime
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 6 && ended == 8 || began == 6 && ended == 7 || began == 7 && ended == 8 {
-                rubiksCubeView.rubiksCube.rotateD()
-                cubeRotation = .rotateD
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 8 && ended == 6 || began == 8 && ended == 7 || began == 7 && ended == 6 {
-                rubiksCubeView.rubiksCube.rotateDPrime()
-                cubeRotation = .rotateDPrime
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 8 && ended == 2 || began == 8 && ended == 5 || began == 5 && ended == 2 {
-                rubiksCubeView.rubiksCube.rotateR()
-                cubeRotation = .rotateR
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 2 && ended == 8 || began == 5 && ended == 8 || began == 2 && ended == 5 {
-                rubiksCubeView.rubiksCube.rotateRPrime()
-                cubeRotation = .rotateRPrime
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 7 && ended == 1 || began == 7 && ended == 4 || began == 4 && ended == 1 {
-                rubiksCubeView.rubiksCube.rotateCubeFU()
-                cubeRotation = .rotateCubeFU
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 3 && ended == 5 || began == 3 && ended == 4 || began == 4 && ended == 5 {
-                rubiksCubeView.rubiksCube.rotateCubeFR()
-                cubeRotation = .rotateCubeFR
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 1 && ended == 7 || began == 1 && ended == 4 || began == 4 && ended == 7 {
-                rubiksCubeView.rubiksCube.rotateCubeUF()
-                cubeRotation = .rotateCubeUF
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 5 && ended == 3 || began == 5 && ended == 4 || began == 4 && ended == 3 {
-                rubiksCubeView.rubiksCube.rotateCubeRF()
-                cubeRotation = .rotateCubeRF
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 1 && ended == 5 || began == 5 && ended == 7 || began == 3 && ended == 1 || began == 7 && ended == 3 {
-                rubiksCubeView.rubiksCube.rotateF()
-                cubeRotation = .rotateF
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            } else if began == 5 && ended == 1 || began == 7 && ended == 5 || began == 3 && ended == 7 || began == 1 && ended == 3 {
-                rubiksCubeView.rubiksCube.rotateFPrime()
-                cubeRotation = .rotateFPrime
-                audioPlayer.play()
-                rubiksCubeView.setNeedsDisplay()
-            }
-        }
-    }
-    
     @IBAction func touchBack(_ sender: UIButton) {
         switch cubeRotation {
         case .rotateR:
@@ -266,18 +183,6 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksCubeView.rubiksCube.handleTopFaceCross()
         rubiksCubeView.setNeedsDisplay()
         audioPlayer.play()
-    }
-    
-    
-    private func indexOfCell(location: CGPoint) -> Int? {
-        guard let col = Utils.xToCol(x: location.x, orgX: RubiksCubeView.originX, cellSide: RubiksCubeView.cellSide, margin: 15), let row = Utils.xToCol(x: location.y, orgX: RubiksCubeView.originY, cellSide: RubiksCubeView.cellSide, margin: 15) else {
-            return nil
-        }
-        return row * 3 + col
-        
-        //        let col: Int = Int(floor((location.x - RubiksCubeView.originX) / RubiksCubeView.cellSide))
-        //        let row: Int = Int(floor((location.y - RubiksCubeView.originY) / RubiksCubeView.cellSide))
-        //        return row * 3 + col
     }
     
     @IBAction func touchShuffle(_ sender: UIButton) {

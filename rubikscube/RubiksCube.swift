@@ -118,7 +118,7 @@ struct RubiksCube: CustomStringConvertible {
         return name
     }
 
-    
+
     var up: [CellColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
     var front: [CellColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
     var right: [CellColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
