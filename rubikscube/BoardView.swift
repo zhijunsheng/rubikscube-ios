@@ -17,13 +17,6 @@ import UIKit
     var board: Board = Board()
     
     override func draw(_ rect: CGRect) {
-
-        board.up = ["G", "B", "O", "Y", "W", "R", "B", "G", "Y"]
-        board.front = ["R", "W", "Y", "O", "R", "B", "W", "B", "G"]
-        board.right = ["B", "O", "G", "R", "B", "Y", "R", "O", "R"]
-        board.left = ["O", "Y", "B", "W", "G", "R", "B", "G", "Y"]
-        board.down = ["G", "R", "W", "G", "Y", "W", "O", "W", "O"]
-        board.back = ["Y", "G", "R", "B", "O", "G", "Y", "B", "W"]
         
         drawPiece(x: 0, y: 0, color: board.front[0])
         drawPiece(x: 1, y: 0, color: board.front[1])
