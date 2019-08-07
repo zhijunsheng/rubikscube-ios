@@ -117,33 +117,93 @@ G G G  Y Y Y
         left[1] = front1
         left[2] = front2
     }
+    
+    mutating func turnUPrime() {
+        turnU()
+        turnU()
+        turnU()
+    }
+    
+    mutating func turnD() {
+        let down0 = down[0]
+        let down1 = down[1]
+        let down6 = down[6]
 
+        down[0] = down[2]
+        down[1] = down[5]
+        down[2] = down[8]
+        down[3] = down1
+        down[5] = down[7]
+        down[6] = down0
+        down[7] = down[3]
+        down[8] = down6
+
+        let front6 = front[6]
+        let front7 = front[7]
+        let front8 = front[8]
+
+        front[6] = left[6]
+        front[7] = left[7]
+        front[8] = left[8]
+
+        left[6] = back[6]
+        left[7] = back[7]
+        left[8] = back[8]
+
+        back[6] = right[6]
+        back[7] = right[7]
+        back[8] = right[8]
+
+        right[6] = front6
+        right[7] = front7
+        right[8] = front8
+    }
     
+    mutating func turnDPrime() {
+        turnD()
+        turnD()
+        turnD()
+    }
     
+    mutating func turnR() {
+        let right0 = right[0]
+        let right1 = right[1]
+        let right2 = right[2]
+        let right5 = right[5]
+        
+        right[0] = right[6]
+        right[1] = right[3]
+        right[2] = right0
+        right[3] = right[7]
+        right[5] = right1
+        right[6] = right[8]
+        right[7] = right5
+        right[8] = right2
+        
+        let down2 = down[2]
+        let down5 = down[5]
+        let down8 = down[8]
+        
+        down[2] = back[2]
+        down[5] = back[5]
+        down[8] = back[8]
+        
+        back[2] = up[2]
+        back[5] = up[5]
+        back[8] = up[8]
+        
+        up[2] = front[2]
+        up[5] = front[5]
+        up[8] = front[8]
+        
+        front[2] = down2
+        front[5] = down5
+        front[8] = down8
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    mutating func turnRPrime() {
+        turnR()
+        turnR()
+        turnR()
+    }
 }

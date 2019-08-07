@@ -30,5 +30,29 @@ class ViewController: UIViewController {
         boardView.setNeedsDisplay()
     }
     
+    @IBAction func turnUPrime(_ sender: UIButton) {
+        boardView.board.turnUPrime()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnD(_ sender: UIButton) {
+        boardView.board.turnD()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnDPrime(_ sender: UIButton) {
+        boardView.board.turnDPrime()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnR(_ sender: UIButton) {
+        boardView.board.turnR()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnRPrime(_ sender: UIButton) {
+        boardView.board.turnRPrime()
+        boardView.setNeedsDisplay()
+    }
 }
 
