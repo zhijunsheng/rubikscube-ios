@@ -8,14 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CubeDelegate {
+    func turnCube(startX: Int, startY: Int, endX: Int, endY: Int) {
+        print("I M     A     D E L E G A T E     !!!")
+    }
+    
     
     @IBOutlet weak var boardView: BoardView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        boardView.cubeDelagate = self
         
         boardView.board.up = ["W", "W", "W", "W", "W", "W", "W", "W", "W"]
         boardView.board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]

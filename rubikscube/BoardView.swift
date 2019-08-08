@@ -13,6 +13,8 @@ import UIKit
     let side: CGFloat = 100
     let cornerX: CGFloat = 150
     let cornerY: CGFloat = 275
+    var cubeDelagate: CubeDelegate?
+    
     
     var board: Board = Board()
     
@@ -35,6 +37,7 @@ import UIKit
         let endX = Int((loc.x - cornerX) / side)
         let endY = Int((loc.y - cornerY) / side)
         print("(\(startX), \(startY)) to (\(endX), \(endY))")
+        cubeDelagate?.turnCube(startX: startX, startY: startY, endX: endX, endY: endY)
     }
     
     override func draw(_ rect: CGRect) {

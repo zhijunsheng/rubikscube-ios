@@ -12,6 +12,7 @@
 		0725AF7C2202550B00AB1E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7A2202550B00AB1E6F /* Main.storyboard */; };
 		0725AF7E2202550E00AB1E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7D2202550E00AB1E6F /* Assets.xcassets */; };
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
+		753E3EF822FC579F0077C4E6 /* CubeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E3EF722FC579F0077C4E6 /* CubeDelegate.swift */; };
 		75C3886322EC8AC600759845 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3886222EC8AC600759845 /* Board.swift */; };
 		75C3886522EC8BEE00759845 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3886422EC8BEE00759845 /* BoardTests.swift */; };
 		D139BD112204EB9E00DE9611 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D139BD102204EB9E00DE9611 /* BoardView.swift */; };
@@ -37,6 +38,7 @@
 		0725AF822202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		753E3EF722FC579F0077C4E6 /* CubeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDelegate.swift; sourceTree = "<group>"; };
 		75C3886222EC8AC600759845 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		75C3886422EC8BEE00759845 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 		D139BD102204EB9E00DE9611 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
+				753E3EF722FC579F0077C4E6 /* CubeDelegate.swift */,
 				0725AF782202550B00AB1E6F /* ViewController.swift */,
 				D139BD102204EB9E00DE9611 /* BoardView.swift */,
 				75C3886222EC8AC600759845 /* Board.swift */,
@@ -206,6 +209,7 @@
 			files = (
 				D139BD112204EB9E00DE9611 /* BoardView.swift in Sources */,
 				0725AF792202550B00AB1E6F /* ViewController.swift in Sources */,
+				753E3EF822FC579F0077C4E6 /* CubeDelegate.swift in Sources */,
 				75C3886322EC8AC600759845 /* Board.swift in Sources */,
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,
 			);
