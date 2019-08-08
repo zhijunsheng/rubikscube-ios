@@ -54,5 +54,15 @@ class ViewController: UIViewController {
         boardView.board.turnRPrime()
         boardView.setNeedsDisplay()
     }
+    
+    @IBAction func turnL(_ sender: UIButton) {
+        boardView.board.turnL()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnLPrime(_ sender: UIButton) {
+        boardView.board.turnLPrime()
+        boardView.setNeedsDisplay()
+    }
 }
 

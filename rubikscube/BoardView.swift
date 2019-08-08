@@ -16,6 +16,27 @@ import UIKit
     
     var board: Board = Board()
     
+    var thing: CGPoint? = nil
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        thing = touch.location(in: self)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let loc = touch.location(in: self)
+        guard let realThing = thing else {
+            return
+        }
+        
+        let startX = Int((realThing.x - cornerX) / side)
+        let startY = Int((realThing.y - cornerY) / side)
+        let endX = Int((loc.x - cornerX) / side)
+        let endY = Int((loc.y - cornerY) / side)
+        print("(\(startX), \(startY)) to (\(endX), \(endY))")
+    }
+    
     override func draw(_ rect: CGRect) {
         
         drawPiece(x: 0, y: 0, color: board.front[0])
