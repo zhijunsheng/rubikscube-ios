@@ -10,7 +10,29 @@ import UIKit
 
 class ViewController: UIViewController, CubeDelegate {
     func turnCube(startX: Int, startY: Int, endX: Int, endY: Int) {
-        print("I M     A     D E L E G A T E     !!!")
+//        print("I M     A     D E L E G A T E     !!!")
+        if startX == 2 && startY == 0 && endX == 0 && endY == 0 {
+            boardView.board.turnU()
+        } else if startX == 0 && startY == 0 && endX == 2 && endY == 0 {
+            boardView.board.turnUPrime()
+        } else if startX == 0 && startY == 2 && endX == 2 && endY == 2 {
+            boardView.board.turnD()
+        } else if startX == 2 && startY == 2 && endX == 0 && endY == 2 {
+            boardView.board.turnDPrime()
+        } else if startX == 0 && startY == 0 && endX == 0 && endY == 2 {
+            boardView.board.turnL()
+        } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
+            boardView.board.turnLPrime()
+        } else if startX == 2 && startY == 0 && endX == 2 && endY == 2 {
+            boardView.board.turnR()
+        } else if startX == 2 && startY == 2 && endX == 2 && endY == 0 {
+            boardView.board.turnRPrime()
+        } else if startX == 1 && startY == 0 && endX == 2 && endY == 1 {
+            boardView.board.turnF()
+        } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
+            boardView.board.turnLPrime()
+        }
+        boardView.setNeedsDisplay()
     }
     
     
@@ -67,6 +89,16 @@ class ViewController: UIViewController, CubeDelegate {
     
     @IBAction func turnLPrime(_ sender: UIButton) {
         boardView.board.turnLPrime()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnF(_ sender: UIButton) {
+        boardView.board.turnF()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnFPrime(_ sender: UIButton) {
+        boardView.board.turnFPrime()
         boardView.setNeedsDisplay()
     }
 }

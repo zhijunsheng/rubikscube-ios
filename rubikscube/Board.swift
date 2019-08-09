@@ -248,4 +248,46 @@ G G G  Y Y Y
         turnLPrime()
         turnLPrime()
     }
+    
+    mutating func turnF() {
+        let front0 = front[0]
+        let front1 = front[1]
+        let front2 = front[2]
+        let front5 = front[5]
+        
+        front[0] = front[6]
+        front[1] = front[3]
+        front[2] = front0
+        front[3] = front[7]
+        front[5] = front1
+        front[6] = front[8]
+        front[7] = front5
+        front[8] = front2
+        
+        let down0 = down[0]
+        let down1 = down[1]
+        let down2 = down[2]
+        
+        down[0] = right[0]
+        down[1] = right[1]
+        down[2] = right[2]
+        
+        right[0] = up[0]
+        right[1] = up[1]
+        right[2] = up[2]
+        
+        up[0] = left[0]
+        up[1] = left[1]
+        up[2] = left[2]
+        
+        left[0] = down0
+        left[1] = down1
+        left[2] = down2
+    }
+    
+    mutating func turnFPrime() {
+        turnF()
+        turnF()
+        turnF()
+    }
 }
