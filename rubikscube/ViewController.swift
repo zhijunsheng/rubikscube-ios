@@ -35,7 +35,46 @@ class ViewController: UIViewController, CubeDelegate {
         boardView.setNeedsDisplay()
     }
     
-    
+    func scramble() {
+        for _ in 1...100 {
+            let randomInt = Int(arc4random()) % 12
+            if randomInt == 1 {
+                boardView.board.turnU()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 2 {
+                boardView.board.turnUPrime()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 3 {
+                boardView.board.turnD()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 4 {
+                boardView.board.turnDPrime()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 5 {
+                boardView.board.turnR()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 6 {
+                boardView.board.turnRPrime()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 7 {
+                boardView.board.turnL()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 8 {
+                boardView.board.turnLPrime()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 9 {
+                boardView.board.turnF()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 10 {
+                boardView.board.turnFPrime()
+                boardView.setNeedsDisplay()
+            } else if randomInt == 11 {
+                
+            } else if randomInt == 12 {
+                
+            }
+        }
+    }
     @IBOutlet weak var boardView: BoardView!
     
 
@@ -99,6 +138,11 @@ class ViewController: UIViewController, CubeDelegate {
     
     @IBAction func turnFPrime(_ sender: UIButton) {
         boardView.board.turnFPrime()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func Scramble(_ sender: UIButton) {
+        scramble()
         boardView.setNeedsDisplay()
     }
 }

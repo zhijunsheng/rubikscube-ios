@@ -264,25 +264,25 @@ G G G  Y Y Y
         front[7] = front5
         front[8] = front2
         
-        let down0 = down[0]
-        let down1 = down[1]
-        let down2 = down[2]
+        let down6 = down[6]
+        let down7 = down[7]
+        let down8 = down[8]
         
-        down[0] = right[0]
-        down[1] = right[1]
-        down[2] = right[2]
+        down[6] = right[0]
+        down[7] = right[3]
+        down[8] = right[6]
         
-        right[0] = up[0]
-        right[1] = up[1]
-        right[2] = up[2]
+        right[0] = up[6]
+        right[3] = up[7]
+        right[6] = up[8]
         
-        up[0] = left[0]
-        up[1] = left[1]
-        up[2] = left[2]
+        up[6] = left[0]
+        up[7] = left[3]
+        up[8] = left[6]
         
-        left[0] = down0
-        left[1] = down1
-        left[2] = down2
+        left[0] = down6
+        left[3] = down7
+        left[6] = down8
     }
     
     mutating func turnFPrime() {
@@ -290,4 +290,43 @@ G G G  Y Y Y
         turnF()
         turnF()
     }
+    mutating func turnB() {
+        let back0 = back[0]
+        let back1 = back[1]
+        let back2 = back[2]
+        let back5 = back[5]
+
+        back[0] = back[6]
+        back[1] = back[3]
+        back[2] = back0
+        back[3] = back[7]
+        back[5] = back1
+        back[6] = back[8]
+        back[7] = back5
+        back[8] = back2
+
+        let down0 = down[0]
+        let down3 = down[3]
+        let down6 = down[6]
+
+        down[0] = right[0]
+        down[3] = right[3]
+        down[6] = right[6]
+
+        right[0] = up[0]
+        right[3] = up[3]
+        right[6] = up[6]
+
+        up[0] = left[0]
+        up[3] = left[3]
+        up[6] = left[6]
+
+        left[0] = down0
+        left[3] = down3
+        left[6] = down6
+    }
+    
+    // back = front
+    
+    
 }
