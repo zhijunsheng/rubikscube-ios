@@ -75,6 +75,16 @@ class ViewController: UIViewController, CubeDelegate {
             }
         }
     }
+    
+    func reset() {
+        boardView.board.up = ["W", "W", "W", "W", "W", "W", "W", "W", "W"]
+        boardView.board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
+        boardView.board.right = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
+        boardView.board.left = ["G", "G", "G", "G", "G", "G", "G", "G", "G"]
+        boardView.board.down = ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]
+        boardView.board.back = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+        boardView.setNeedsDisplay()
+    }
     @IBOutlet weak var boardView: BoardView!
     
 
@@ -143,6 +153,11 @@ class ViewController: UIViewController, CubeDelegate {
     
     @IBAction func Scramble(_ sender: UIButton) {
         scramble()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func reset(_ sender: UIButton) {
+        reset()
         boardView.setNeedsDisplay()
     }
 }
