@@ -151,8 +151,23 @@ class ViewController: UIViewController, CubeDelegate {
         boardView.setNeedsDisplay()
     }
     
+    @IBAction func turnB(_ sender: UIButton) {
+        boardView.board.turnB()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnBPrime(_ sender: UIButton) {
+        boardView.board.turnBPrime()
+        boardView.setNeedsDisplay()
+    }
+    
     @IBAction func Scramble(_ sender: UIButton) {
         scramble()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnX(_ sender: UIButton) {
+        boardView.board.turnX()
         boardView.setNeedsDisplay()
     }
     

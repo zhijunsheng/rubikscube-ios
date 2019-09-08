@@ -326,6 +326,48 @@ G G G  Y Y Y
         left[6] = down6
     }
     
+    mutating func turnBPrime() {
+        turnB()
+        turnB()
+        turnB()
+    }
+    
+    mutating func turnX() {
+        let fronte = front
+        
+        up = front
+        front = down
+        down = back
+        back = fronte
+        
+        let right0 = right[0]
+        let right1 = right[1]
+        let right2 = right[2]
+        let right5 = right[5]
+        
+        right[0] = right[6]
+        right[1] = right[3]
+        right[2] = right0
+        right[3] = right[7]
+        right[5] = right1
+        right[6] = right[8]
+        right[7] = right5
+        right[8] = right2
+        
+        let left0 = left[0]
+        let left1 = left[1]
+        let left3 = left[3]
+        let left6 = left[6]
+        
+        left[0] = left[2]
+        left[1] = left[3]
+        left[2] = left[8]
+        left[3] = left1
+        left[5] = left[7]
+        left[6] = left0
+        left[7] = left3
+        left[8] = left6
+    }
     // back = front
 //    R' D R D F D' F' (2nd layer)
 //    F U R U' R' F' (top face cross)

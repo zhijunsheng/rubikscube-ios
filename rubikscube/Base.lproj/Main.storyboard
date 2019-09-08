@@ -122,12 +122,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="B"/>
+                                <connections>
+                                    <action selector="turnB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YgV-Ly-ExP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUL-iu-UfA">
                                 <rect key="frame" x="696" y="756" width="52" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="B'"/>
+                                <connections>
+                                    <action selector="turnBPrime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rjQ-QL-i02"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVn-FI-Ivz">
                                 <rect key="frame" x="11" y="974" width="65" height="30"/>
@@ -152,6 +158,14 @@
                                 <state key="normal" title="L'"/>
                                 <connections>
                                     <action selector="turnLPrime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TUL-ps-9M4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHT-Kr-RLa">
+                                <rect key="frame" x="20" y="851" width="51" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="turnX:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMn-in-US7"/>
                                 </connections>
                             </button>
                         </subviews>
