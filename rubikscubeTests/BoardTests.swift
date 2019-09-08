@@ -41,6 +41,8 @@ class BoardTests: XCTestCase {
         XCTAssertEqual(board.front[0], "R")
         XCTAssertEqual(board.up[0], "G")
         
+        print(board)
+        
         // _____
         
         board = Board()
