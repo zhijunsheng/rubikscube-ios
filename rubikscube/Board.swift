@@ -138,16 +138,18 @@ G G G  Y Y Y
     mutating func turnD() {
         let down0 = down[0]
         let down1 = down[1]
-        let down6 = down[6]
+        let down2 = down[2]
+        let down5 = down[5]
 
-        down[0] = down[2]
-        down[1] = down[5]
-        down[2] = down[8]
-        down[3] = down1
-        down[5] = down[7]
-        down[6] = down0
-        down[7] = down[3]
-        down[8] = down6
+        down[0] = down[6]
+        down[1] = down[3]
+        down[2] = down0
+        down[3] = down[7]
+        down[5] = down1
+        down[6] = down[8]
+        down[7] = down5
+        down[8] = down2
+        
 
         let front6 = front[6]
         let front7 = front[7]
@@ -218,7 +220,7 @@ G G G  Y Y Y
         turnR()
     }
     
-    mutating func turnLPrime() {
+    mutating func turnL() {
         let left0 = left[0]
         let left1 = left[1]
         let left2 = left[2]
@@ -237,27 +239,27 @@ G G G  Y Y Y
         let down3 = down[3]
         let down6 = down[6]
         
-        down[0] = back[0]
-        down[3] = back[3]
-        down[6] = back[6]
+        down[0] = front[0]
+        down[3] = front[3]
+        down[6] = front[6]
         
-        back[0] = up[0]
-        back[3] = up[3]
-        back[6] = up[6]
+        front[0] = up[0]
+        front[3] = up[3]
+        front[6] = up[6]
         
-        up[0] = front[0]
-        up[3] = front[3]
-        up[6] = front[6]
+        up[0] = back[0]
+        up[3] = back[3]
+        up[6] = back[6]
         
-        front[0] = down0
-        front[3] = down3
-        front[6] = down6
+        back[0] = down0
+        back[3] = down3
+        back[6] = down6
     }
     
-    mutating func turnL() {
-        turnLPrime()
-        turnLPrime()
-        turnLPrime()
+    mutating func turnLPrime() {
+        turnL()
+        turnL()
+        turnL()
     }
     
     mutating func turnF() {
@@ -275,13 +277,13 @@ G G G  Y Y Y
         front[7] = front5
         front[8] = front2
         
-        let down6 = down[6]
-        let down7 = down[7]
-        let down8 = down[8]
+        let down0 = down[0]
+        let down1 = down[1]
+        let down2 = down[2]
         
-        down[6] = right[0]
-        down[7] = right[3]
-        down[8] = right[6]
+        down[0] = right[0]
+        down[1] = right[3]
+        down[2] = right[6]
         
         right[0] = up[6]
         right[3] = up[7]
@@ -291,9 +293,9 @@ G G G  Y Y Y
         up[7] = left[3]
         up[8] = left[6]
         
-        left[0] = down6
-        left[3] = down7
-        left[6] = down8
+        left[0] = down0
+        left[3] = down1
+        left[6] = down2
     }
     
     mutating func turnFPrime() {
@@ -348,8 +350,6 @@ G G G  Y Y Y
         
         up = front
         front = down
-        down = back
-        back = upe
         
         let right0 = right[0]
         let right1 = right[1]
@@ -378,6 +378,59 @@ G G G  Y Y Y
         left[6] = left0
         left[7] = left3
         left[8] = left6
+        
+        // down ≠ back
+        down[0] = back[8]
+        down[1] = back[7]
+        down[2] = back[6] 
+        down[3] = back[5]
+        down[5] = back[3]
+        down[6] = back[2]
+        down[7] = back[1]
+        down[8] = back[0]
+        
+        // back ≠ upe
+        
+        back[0] = upe[8]
+        back[1] = upe[7]
+        back[2] = upe[6]
+        back[3] = upe[5]
+        back[5] = upe[3]
+        back[6] = upe[2]
+        back[7] = upe[1]
+        back[8] = upe[0]
+    }
+    
+    
+    mutating func scramble() {
+        for _ in 1...100 {
+            let randomInt = Int(arc4random()) % 12
+            if randomInt == 1 {
+                turnU()
+            } else if randomInt == 2 {
+                turnUPrime()
+            } else if randomInt == 3 {
+                turnD()
+            } else if randomInt == 4 {
+                turnDPrime()
+            } else if randomInt == 5 {
+                turnR()
+            } else if randomInt == 6 {
+                turnRPrime()
+            } else if randomInt == 7 {
+                turnL()
+            } else if randomInt == 8 {
+                turnLPrime()
+            } else if randomInt == 9 {
+                turnF()
+            } else if randomInt == 10 {
+                turnFPrime()
+            } else if randomInt == 11 {
+                //                turnB()
+            } else if randomInt == 12 {
+                //                turnBPrime()
+            }
+        }
     }
     // back = front
 //    R' D R D F D' F' (2nd layer)

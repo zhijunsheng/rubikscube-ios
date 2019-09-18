@@ -140,7 +140,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Scramble"/>
                                 <connections>
-                                    <action selector="Scramble:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sjg-9r-eLz"/>
+                                    <action selector="scramble:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0oA-ZD-GS8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAb-Na-UBp">

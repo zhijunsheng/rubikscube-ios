@@ -9,84 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, CubeDelegate {
-    func turnCube(startX: Int, startY: Int, endX: Int, endY: Int) {
-//        print("I M     A     D E L E G A T E     !!!")
-        if startX == 2 && startY == 0 && endX == 0 && endY == 0 {
-            boardView.board.turnU()
-        } else if startX == 0 && startY == 0 && endX == 2 && endY == 0 {
-            boardView.board.turnUPrime()
-        } else if startX == 0 && startY == 2 && endX == 2 && endY == 2 {
-            boardView.board.turnD()
-        } else if startX == 2 && startY == 2 && endX == 0 && endY == 2 {
-            boardView.board.turnDPrime()
-        } else if startX == 0 && startY == 0 && endX == 0 && endY == 2 {
-            boardView.board.turnL()
-        } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
-            boardView.board.turnLPrime()
-        } else if startX == 2 && startY == 0 && endX == 2 && endY == 2 {
-            boardView.board.turnR()
-        } else if startX == 2 && startY == 2 && endX == 2 && endY == 0 {
-            boardView.board.turnRPrime()
-        } else if startX == 1 && startY == 0 && endX == 2 && endY == 1 {
-            boardView.board.turnF()
-        } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
-            boardView.board.turnLPrime()
-        }
-        boardView.setNeedsDisplay()
-    }
-    
-    func scramble() {
-        for _ in 1...100 {
-            let randomInt = Int(arc4random()) % 12
-            if randomInt == 1 {
-                boardView.board.turnU()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 2 {
-                boardView.board.turnUPrime()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 3 {
-                boardView.board.turnD()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 4 {
-                boardView.board.turnDPrime()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 5 {
-                boardView.board.turnR()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 6 {
-                boardView.board.turnRPrime()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 7 {
-                boardView.board.turnL()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 8 {
-                boardView.board.turnLPrime()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 9 {
-                boardView.board.turnF()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 10 {
-                boardView.board.turnFPrime()
-                boardView.setNeedsDisplay()
-            } else if randomInt == 11 {
-                
-            } else if randomInt == 12 {
-                
-            }
-        }
-    }
-    
-    func reset() {
-        boardView.board.up = ["W", "W", "W", "W", "W", "W", "W", "W", "W"]
-        boardView.board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
-        boardView.board.right = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
-        boardView.board.left = ["G", "G", "G", "G", "G", "G", "G", "G", "G"]
-        boardView.board.down = ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]
-        boardView.board.back = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
-        boardView.setNeedsDisplay()
-    }
+   
     @IBOutlet weak var boardView: BoardView!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +23,13 @@ class ViewController: UIViewController, CubeDelegate {
         boardView.board.left = ["G", "G", "G", "G", "G", "G", "G", "G", "G"]
         boardView.board.down = ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]
         boardView.board.back = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+        
+//        boardView.board.up = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
+//        boardView.board.front = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
+//        boardView.board.right = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
+//        boardView.board.left = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
+//        boardView.board.down = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
+//        boardView.board.back = ["B", "B", "B", "B", "B", "B", "G", "B", "B"]
     }
 
     @IBAction func turnU(_ sender: UIButton) {
@@ -161,8 +92,8 @@ class ViewController: UIViewController, CubeDelegate {
         boardView.setNeedsDisplay()
     }
     
-    @IBAction func Scramble(_ sender: UIButton) {
-        scramble()
+    @IBAction func scramble(_ sender: UIButton) {
+        boardView.board.scramble()
         boardView.setNeedsDisplay()
     }
     
@@ -173,6 +104,44 @@ class ViewController: UIViewController, CubeDelegate {
     
     @IBAction func reset(_ sender: UIButton) {
         reset()
+        boardView.setNeedsDisplay()
+    }
+    
+    func turnCube(startX: Int, startY: Int, endX: Int, endY: Int) {
+        //        print("I M     A     D E L E G A T E     !!!")
+        if startX == 2 && startY == 0 && endX == 0 && endY == 0 {
+            boardView.board.turnU()
+        } else if startX == 0 && startY == 0 && endX == 2 && endY == 0 {
+            boardView.board.turnUPrime()
+        } else if startX == 0 && startY == 2 && endX == 2 && endY == 2 {
+            boardView.board.turnD()
+        } else if startX == 2 && startY == 2 && endX == 0 && endY == 2 {
+            boardView.board.turnDPrime()
+        } else if startX == 0 && startY == 0 && endX == 0 && endY == 2 {
+            boardView.board.turnL()
+        } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
+            boardView.board.turnL()
+        } else if startX == 2 && startY == 0 && endX == 2 && endY == 2 {
+            boardView.board.turnR()
+        } else if startX == 2 && startY == 2 && endX == 2 && endY == 0 {
+            boardView.board.turnRPrime()
+        } else if startX == 1 && startY == 0 && endX == 2 && endY == 1 {
+            boardView.board.turnF()
+        } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
+            boardView.board.turnL()
+        }
+        boardView.setNeedsDisplay()
+    }
+    
+    
+    
+    func reset() {
+        boardView.board.up = ["W", "W", "W", "W", "W", "W", "W", "W", "W"]
+        boardView.board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
+        boardView.board.right = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
+        boardView.board.left = ["G", "G", "G", "G", "G", "G", "G", "G", "G"]
+        boardView.board.down = ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]
+        boardView.board.back = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
         boardView.setNeedsDisplay()
     }
 }
