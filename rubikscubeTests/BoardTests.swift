@@ -90,9 +90,9 @@ class BoardTests: XCTestCase {
         print(board)
         
         XCTAssertEqual(board.back[6], "G") // donald's test case
-        XCTAssertEqual(board.down[6], "R")
+        XCTAssertEqual(board.down[2], "R")
         board.turnX()
-        XCTAssertEqual(board.down[6], "G")
+        XCTAssertEqual(board.down[2], "G")
         XCTAssertEqual(board.back[6], "R")
     }
     
@@ -154,24 +154,23 @@ class BoardTests: XCTestCase {
         print(board)
     }
     
+    func testF() {
+        var board: Board = Board()
+        board.up = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
+        board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
+        board.right = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
+        board.left = ["R", "R", "R", "R", "R", "G", "R", "R", "R"]
+        board.down = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
+        board.back = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
+        
+        XCTAssertEqual(board.left[5], "G")
+        XCTAssertEqual(board.up[7], "R")
+        board.turnF()
+        XCTAssertEqual(board.left[5], "R")
+        XCTAssertEqual(board.up[7], "G")
+    }
+    
     func testL() {
-        /*
-        R R R
-        R R R
-        R R R
-        
-        R R R  R R R
-        R R R  R R R
-        R R R  R R R
-        
- R G R  R R R
- R R R  R R R
- R R R  R R R
-        
-        R R R
-        R R R
-        R R R
-        */
         var board: Board = Board()
         board.up = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
         board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
@@ -188,26 +187,6 @@ class BoardTests: XCTestCase {
         XCTAssertEqual(board.left[5], "G")
         XCTAssertEqual(board.left[1], "R")
         print(board)
-        
-        // front[0]
-        
-        /*
-        R R R
-        R R R
-        R R R
-        
-        G R R  R R R
-        R R R  R R R
-        R R R  R R R
-        
- R R R  R R R
- R R R  R R R
- R R R  R R R
-        
-        R R R
-        R R R
-        R R R
-        */
         
         board = Board()
         board.up = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
@@ -226,27 +205,6 @@ class BoardTests: XCTestCase {
         XCTAssertEqual(board.front[0], "R")
         print(board)
         
-        /*
-         down[2]
-         
-         R R R
-         R R R
-         R R R
-         
-         R R R  R R R
-         R R R  R R R
-         R R R  R R R
-         
-  R R R  R R G
-  R R R  R R R
-  R R R  R R R
-         
-         R R R
-         R R R
-         R R R
- 
-        */
-        
         board = Board()
         board.up = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
         board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
@@ -261,27 +219,6 @@ class BoardTests: XCTestCase {
         XCTAssertEqual(board.down[2], "G")
 
         print(board)
-        
-        /*
-         down[6]
-         
-         R R R
-         R R R
-         R R R
-         
-         R R R  R R R
-         R R R  R R R
-         R R R  R R R
-         
-  R R R  R R R
-  R R R  R R R
-  R R R  G R R
-         
-         R R R
-         R R R
-         R R R
-         
-         */
         
         board = Board()
         board.up = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]

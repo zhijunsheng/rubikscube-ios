@@ -163,9 +163,19 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHT-Kr-RLa">
                                 <rect key="frame" x="20" y="851" width="51" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="X"/>
                                 <connections>
                                     <action selector="turnX:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMn-in-US7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVR-5k-RXf">
+                                <rect key="frame" x="79" y="851" width="54" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="X'"/>
+                                <connections>
+                                    <action selector="turnXPrime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EP0-29-0eq"/>
                                 </connections>
                             </button>
                         </subviews>

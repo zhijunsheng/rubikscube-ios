@@ -17,19 +17,16 @@ class ViewController: UIViewController, CubeDelegate {
         
         boardView.cubeDelagate = self
         
-        boardView.board.up = ["W", "W", "W", "W", "W", "W", "W", "W", "W"]
-        boardView.board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
-        boardView.board.right = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
-        boardView.board.left = ["G", "G", "G", "G", "G", "G", "G", "G", "G"]
-        boardView.board.down = ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]
-        boardView.board.back = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+        reset()
         
-//        boardView.board.up = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
-//        boardView.board.front = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
-//        boardView.board.right = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
-//        boardView.board.left = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
-//        boardView.board.down = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
-//        boardView.board.back = ["B", "B", "B", "B", "B", "B", "G", "B", "B"]
+        boardView.board.setColor(color: "O")
+        boardView.board.left[5] = "B"
+//        boardView.board.front[6] = "B"
+//        boardView.board.left[6] = "B"
+//        boardView.board.left[7] = "G"
+//        boardView.board.back[6] = "R"
+//        boardView.board.back[7] = "B"
+//        boardView.board.left[8] = "G"
     }
 
     @IBAction func turnU(_ sender: UIButton) {
@@ -99,6 +96,11 @@ class ViewController: UIViewController, CubeDelegate {
     
     @IBAction func turnX(_ sender: UIButton) {
         boardView.board.turnX()
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnXPrime(_ sender: UIButton) {
+        boardView.board.turnXPrime()
         boardView.setNeedsDisplay()
     }
     

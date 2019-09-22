@@ -197,13 +197,13 @@ G G G  Y Y Y
         let down5 = down[5]
         let down8 = down[8]
         
-        down[2] = back[2]
-        down[5] = back[5]
-        down[8] = back[8]
+        down[2] = back[6]
+        down[5] = back[3]
+        down[8] = back[0]
         
-        back[2] = up[2]
-        back[5] = up[5]
-        back[8] = up[8]
+        back[6] = up[2]
+        back[3] = up[5]
+        back[0] = up[8]
         
         up[2] = front[2]
         up[5] = front[5]
@@ -247,13 +247,13 @@ G G G  Y Y Y
         front[3] = up[3]
         front[6] = up[6]
         
-        up[0] = back[0]
-        up[3] = back[3]
-        up[6] = back[6]
+        up[0] = back[8]
+        up[3] = back[5]
+        up[6] = back[2]
         
-        back[0] = down0
-        back[3] = down3
-        back[6] = down6
+        back[2] = down6
+        back[5] = down3
+        back[8] = down0
     }
     
     mutating func turnLPrime() {
@@ -289,13 +289,13 @@ G G G  Y Y Y
         right[3] = up[7]
         right[6] = up[8]
         
-        up[6] = left[0]
-        up[7] = left[3]
-        up[8] = left[6]
+        up[6] = left[2]
+        up[7] = left[5]
+        up[8] = left[8]
         
-        left[0] = down0
-        left[3] = down1
-        left[6] = down2
+        left[2] = down0
+        left[5] = down1
+        left[8] = down2
     }
     
     mutating func turnFPrime() {
@@ -318,25 +318,25 @@ G G G  Y Y Y
         back[7] = back5
         back[8] = back2
 
-        let down0 = down[0]
-        let down3 = down[3]
         let down6 = down[6]
+        let down7 = down[7]
+        let down8 = down[8]
 
-        down[0] = right[0]
-        down[3] = right[3]
-        down[6] = right[6]
+        down[6] = left[0]
+        down[7] = left[3]
+        down[8] = left[6]
 
-        right[0] = up[0]
-        right[3] = up[3]
-        right[6] = up[6]
+        left[0] = up[2]
+        left[3] = up[1]
+        left[6] = up[0]
 
-        up[0] = left[0]
-        up[3] = left[3]
-        up[6] = left[6]
+        up[0] = right[2]
+        up[1] = right[5]
+        up[2] = right[8]
 
-        left[0] = down0
-        left[3] = down3
-        left[6] = down6
+        right[2] = down8
+        right[5] = down7
+        right[8] = down6
     }
     
     mutating func turnBPrime() {
@@ -382,8 +382,9 @@ G G G  Y Y Y
         // down ≠ back
         down[0] = back[8]
         down[1] = back[7]
-        down[2] = back[6] 
+        down[2] = back[6]
         down[3] = back[5]
+        down[4] = back[4]
         down[5] = back[3]
         down[6] = back[2]
         down[7] = back[1]
@@ -395,13 +396,18 @@ G G G  Y Y Y
         back[1] = upe[7]
         back[2] = upe[6]
         back[3] = upe[5]
+        back[4] = upe[4]
         back[5] = upe[3]
         back[6] = upe[2]
         back[7] = upe[1]
         back[8] = upe[0]
     }
     
-    
+    mutating func turnXPrime() {
+        turnX()
+        turnX()
+        turnX()
+    }
     mutating func scramble() {
         for _ in 1...100 {
             let randomInt = Int(arc4random()) % 12
@@ -422,15 +428,32 @@ G G G  Y Y Y
             } else if randomInt == 8 {
                 turnLPrime()
             } else if randomInt == 9 {
-                turnF()
+//                turnF()
             } else if randomInt == 10 {
-                turnFPrime()
+//                turnFPrime()
             } else if randomInt == 11 {
-                //                turnB()
+                turnB()
             } else if randomInt == 12 {
-                //                turnBPrime()
+                turnBPrime()
             }
         }
+    }
+    
+    mutating func setColor(color: String) {
+        for i in 0...8 {
+            up[i] = color
+            front[i] = color
+            right[i] = color
+            left[i] = color
+            down[i] = color
+            back[i] = color
+        }
+//            up = [color, color, color, color, color, color, color, color, color]
+//            front = [color, color, color, color, color, color, color, color, color]
+//            right = [color, color, color, color, color, color, color, color, color]
+//            left = [color, color, color, color, color, color, color, color, color]
+//            down = [color, color, color, color, color, color, color, color, color]
+//            back = [color, color, color, color, color, color, color, color, color]
     }
     // back = front
 //    R' D R D F D' F' (2nd layer)
