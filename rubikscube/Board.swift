@@ -281,17 +281,17 @@ G G G  Y Y Y
         let down1 = down[1]
         let down2 = down[2]
         
-        down[0] = right[0]
+        down[0] = right[6]
         down[1] = right[3]
-        down[2] = right[6]
+        down[2] = right[0]
         
         right[0] = up[6]
         right[3] = up[7]
         right[6] = up[8]
         
-        up[6] = left[2]
+        up[6] = left[8]
         up[7] = left[5]
-        up[8] = left[8]
+        up[8] = left[2]
         
         left[2] = down0
         left[5] = down1
@@ -379,7 +379,6 @@ G G G  Y Y Y
         left[7] = left3
         left[8] = left6
         
-        // down ≠ back
         down[0] = back[8]
         down[1] = back[7]
         down[2] = back[6]
@@ -389,8 +388,6 @@ G G G  Y Y Y
         down[6] = back[2]
         down[7] = back[1]
         down[8] = back[0]
-        
-        // back ≠ upe
         
         back[0] = upe[8]
         back[1] = upe[7]
@@ -409,7 +406,7 @@ G G G  Y Y Y
         turnX()
     }
     mutating func scramble() {
-        for _ in 1...100 {
+        for _ in 1...10000 {
             let randomInt = Int(arc4random()) % 12
             if randomInt == 1 {
                 turnU()
@@ -428,9 +425,9 @@ G G G  Y Y Y
             } else if randomInt == 8 {
                 turnLPrime()
             } else if randomInt == 9 {
-//                turnF()
+                turnF()
             } else if randomInt == 10 {
-//                turnFPrime()
+                turnFPrime()
             } else if randomInt == 11 {
                 turnB()
             } else if randomInt == 12 {
@@ -448,12 +445,6 @@ G G G  Y Y Y
             down[i] = color
             back[i] = color
         }
-//            up = [color, color, color, color, color, color, color, color, color]
-//            front = [color, color, color, color, color, color, color, color, color]
-//            right = [color, color, color, color, color, color, color, color, color]
-//            left = [color, color, color, color, color, color, color, color, color]
-//            down = [color, color, color, color, color, color, color, color, color]
-//            back = [color, color, color, color, color, color, color, color, color]
     }
     // back = front
 //    R' D R D F D' F' (2nd layer)
@@ -461,7 +452,5 @@ G G G  Y Y Y
 //    R U R' U R U U R' (top layer cross)
 //    L' U R U' L U R' (rotate 3 top corners)
 //    R' D' R D
-    
-    
     
 }
