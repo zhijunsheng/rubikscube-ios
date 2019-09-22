@@ -406,31 +406,31 @@ G G G  Y Y Y
         turnX()
     }
     mutating func scramble() {
-        for _ in 1...10000 {
+        for _ in 1...1200 {
             let randomInt = Int(arc4random()) % 12
-            if randomInt == 1 {
+            if randomInt == 0 {
                 turnU()
-            } else if randomInt == 2 {
+            } else if randomInt == 1 {
                 turnUPrime()
-            } else if randomInt == 3 {
+            } else if randomInt == 2 {
                 turnD()
-            } else if randomInt == 4 {
+            } else if randomInt == 3 {
                 turnDPrime()
-            } else if randomInt == 5 {
+            } else if randomInt == 4 {
                 turnR()
-            } else if randomInt == 6 {
+            } else if randomInt == 5 {
                 turnRPrime()
-            } else if randomInt == 7 {
+            } else if randomInt == 6 {
                 turnL()
-            } else if randomInt == 8 {
+            } else if randomInt == 7 {
                 turnLPrime()
-            } else if randomInt == 9 {
+            } else if randomInt == 8 {
                 turnF()
-            } else if randomInt == 10 {
+            } else if randomInt == 9 {
                 turnFPrime()
-            } else if randomInt == 11 {
+            } else if randomInt == 10 {
                 turnB()
-            } else if randomInt == 12 {
+            } else if randomInt == 11 {
                 turnBPrime()
             }
         }
