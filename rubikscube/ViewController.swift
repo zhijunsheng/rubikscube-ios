@@ -122,10 +122,10 @@ class ViewController: UIViewController, CubeDelegate {
         } else if startX == 0 && startY == 0 && endX == 0 && endY == 2 {
             boardView.board.turnL()
         } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
-            boardView.board.turnL()
-        } else if startX == 2 && startY == 0 && endX == 2 && endY == 2 {
-            boardView.board.turnR()
+            boardView.board.turnLPrime()
         } else if startX == 2 && startY == 2 && endX == 2 && endY == 0 {
+            boardView.board.turnR()
+        } else if startX == 2 && startY == 0 && endX == 2 && endY == 2 {
             boardView.board.turnRPrime()
         } else if startX == 1 && startY == 0 && endX == 2 && endY == 1 {
             boardView.board.turnF()
