@@ -12,6 +12,9 @@
 		0725AF7C2202550B00AB1E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7A2202550B00AB1E6F /* Main.storyboard */; };
 		0725AF7E2202550E00AB1E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7D2202550E00AB1E6F /* Assets.xcassets */; };
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
+		A3350E5923E3875800416539 /* RubikCubeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3350E5823E3875800416539 /* RubikCubeColor.swift */; };
+		A3350E5B23E3881A00416539 /* RubikCubeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3350E5A23E3881A00416539 /* RubikCubeModel.swift */; };
+		A3350E5D23E388AC00416539 /* CubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3350E5C23E388AC00416539 /* CubeTests.swift */; };
 		A3BE25A823DA46D00013D4AE /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BE25A723DA46D00013D4AE /* CubeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,9 @@
 		0725AF822202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3350E5823E3875800416539 /* RubikCubeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubikCubeColor.swift; sourceTree = "<group>"; };
+		A3350E5A23E3881A00416539 /* RubikCubeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubikCubeModel.swift; sourceTree = "<group>"; };
+		A3350E5C23E388AC00416539 /* CubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTests.swift; sourceTree = "<group>"; };
 		A3BE25A723DA46D00013D4AE /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				A3BE25A723DA46D00013D4AE /* CubeView.swift */,
+				A3350E5823E3875800416539 /* RubikCubeColor.swift */,
+				A3350E5A23E3881A00416539 /* RubikCubeModel.swift */,
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
 				0725AF782202550B00AB1E6F /* ViewController.swift */,
 				0725AF7A2202550B00AB1E6F /* Main.storyboard */,
@@ -92,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				0725AF8D2202550E00AB1E6F /* Info.plist */,
+				A3350E5C23E388AC00416539 /* CubeTests.swift */,
 			);
 			path = rubikscubeTests;
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 					};
 					0725AF862202550E00AB1E6F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = 0725AF722202550B00AB1E6F;
 					};
 				};
@@ -199,6 +209,8 @@
 			files = (
 				0725AF792202550B00AB1E6F /* ViewController.swift in Sources */,
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,
+				A3350E5B23E3881A00416539 /* RubikCubeModel.swift in Sources */,
+				A3350E5923E3875800416539 /* RubikCubeColor.swift in Sources */,
 				A3BE25A823DA46D00013D4AE /* CubeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3350E5D23E388AC00416539 /* CubeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +412,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = rubikscubeTests/Info.plist;
@@ -409,6 +423,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.rubikscubeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rubikscube.app/rubikscube";
@@ -420,6 +435,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = rubikscubeTests/Info.plist;
