@@ -27,6 +27,7 @@ class CubeView: UIView {
         
         drawCubeEdges()
         renderFront()
+        renderTop()
         drawFront()
         drawTop()
         drawRight()
@@ -110,11 +111,15 @@ class CubeView: UIView {
         frontSquare(col: 2, row: 2, color: realCube.frontFace[8])
     }
     
-//    func renderTop(color: RubikCubeColor, square: Int) {
-//        <#function body#>
-//    }
+    func renderTop() {
+        topSquare(col: 2, row: 2, color: .blue)
+        topSquare(col: 1, row: 1, color: .red)
+//        topSquare(col: 0, row: 0, color: .blue)
+
+        
+    }
 //
-//    func renderRight(color: RubikCubeColor, square: Int) {
+//    func renderRight() {
 //        <#function body#>
 //    }
     func frontSquare(col: Int, row: Int, color: RubikCubeColor) {
@@ -134,5 +139,30 @@ class CubeView: UIView {
             break
         }
         pen.fill()
+    }
+    func topSquare(col: Int, row: Int, color: RubikCubeColor) {
+        let path = UIBezierPath()
+        let deltaX: CGFloat = (leftPointX - originX) / 3
+        let deltaY: CGFloat = (pointY - originY) / 3
+        path.move(to: CGPoint(x: originX + squareSide * CGFloat(col), y: originY + deltaY * CGFloat(row - 2)))
+        path.addLine(to: CGPoint(x: originX + squareSide * CGFloat(col + 1), y: originY + deltaY * CGFloat(row - 2)))
+        path.addLine(to: CGPoint(x: originX + squareSide * CGFloat(col + 1) + deltaX, y: originY + deltaY * CGFloat(row - 1)))
+        path.addLine(to: CGPoint(x: originX + squareSide * CGFloat(col) + deltaX, y: originY + deltaY * CGFloat(row - 1)))
+        path.close()
+        switch color {
+        case .blue:
+            #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1).setFill()
+        case .green:
+            #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1).setFill()
+        case .red:
+            #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1).setFill()
+        case .orange:
+            break
+        case .white:
+            break
+        case .yellow:
+            break
+        }
+        path.fill()
     }
 }
