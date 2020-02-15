@@ -1,7 +1,7 @@
 import UIKit
 
 class BoardView: UIView {
-    let lineSide: CGFloat = 60
+    let lineSide: CGFloat = 120
     var oigX: CGFloat = 85
     var oigY: CGFloat = 295
     
@@ -74,12 +74,11 @@ class BoardView: UIView {
         cS.stroke()
     }
     
-    // parallelogram
     func drawParallelogram1(x: CGFloat, y: CGFloat, color: UIColor) {
         let cP1 = UIBezierPath()
         cP1.move(to: CGPoint(x: x, y: y))
-        cP1.addLine(to: CGPoint(x: x + 30, y: y - 30))
-        cP1.addLine(to: CGPoint(x: x + 30 + lineSide, y: y - 30))
+        cP1.addLine(to: CGPoint(x: x + lineSide / 2, y: y - lineSide / 2))
+        cP1.addLine(to: CGPoint(x: x + lineSide / 2 + lineSide, y: y - lineSide / 2))
         cP1.addLine(to: CGPoint(x: x + lineSide, y: y))
         cP1.close()
         color.setFill()
@@ -91,8 +90,8 @@ class BoardView: UIView {
     func drawParallelogram2(x: CGFloat,y: CGFloat,color: UIColor) {
         let cP2 = UIBezierPath()
         cP2.move(to: CGPoint(x: x, y: y))
-        cP2.addLine(to: CGPoint(x: x + 30, y: y - 30))
-        cP2.addLine(to: CGPoint(x: x + 30, y: y + lineSide - 30))
+        cP2.addLine(to: CGPoint(x: x + lineSide / 2, y: y - lineSide / 2))
+        cP2.addLine(to: CGPoint(x: x + lineSide / 2, y: y + lineSide - lineSide / 2))
         cP2.addLine(to: CGPoint(x: x, y: y + lineSide))
         cP2.close()
         color.setFill()

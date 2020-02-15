@@ -2,7 +2,10 @@ import Foundation
 
 struct RubiksBrain: CustomStringConvertible {
     var description: String {
+        var descStr = ""
         
+        descStr += "r"
+                     
         /*
          
          r r r
@@ -15,7 +18,7 @@ struct RubiksBrain: CustomStringConvertible {
  
  */
         
-        return "mf"
+        return descStr
     }
     
     
