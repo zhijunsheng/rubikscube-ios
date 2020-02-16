@@ -15,6 +15,8 @@
 		8298DE9D21BFD8CC005A95FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8298DE9B21BFD8CC005A95FF /* LaunchScreen.storyboard */; };
 		8298DEA821BFD8CC005A95FF /* RubiksCubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298DEA721BFD8CC005A95FF /* RubiksCubeTests.swift */; };
 		8298DEB521BFDB5F005A95FF /* RubiksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298DEB421BFDB5F005A95FF /* RubiksView.swift */; };
+		82BE25772273E4B600DF9B3F /* PrimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE25762273E4B600DF9B3F /* PrimeTests.swift */; };
+		82BE2579227869F400DF9B3F /* GoldbachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BE2578227869F400DF9B3F /* GoldbachTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		8298DEA721BFD8CC005A95FF /* RubiksCubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeTests.swift; sourceTree = "<group>"; };
 		8298DEA921BFD8CC005A95FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8298DEB421BFDB5F005A95FF /* RubiksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksView.swift; sourceTree = "<group>"; };
+		82BE25762273E4B600DF9B3F /* PrimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeTests.swift; sourceTree = "<group>"; };
+		82BE2578227869F400DF9B3F /* GoldbachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldbachTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				8298DEA721BFD8CC005A95FF /* RubiksCubeTests.swift */,
+				82BE25762273E4B600DF9B3F /* PrimeTests.swift */,
 				8298DEA921BFD8CC005A95FF /* Info.plist */,
 				8238C115226609CA00D6D4FF /* ReversalTests.swift */,
+				82BE2578227869F400DF9B3F /* GoldbachTests.swift */,
 			);
 			path = RubiksCubeTests;
 			sourceTree = "<group>";
@@ -214,7 +220,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8298DEA821BFD8CC005A95FF /* RubiksCubeTests.swift in Sources */,
+				82BE2579227869F400DF9B3F /* GoldbachTests.swift in Sources */,
 				8238C116226609CA00D6D4FF /* ReversalTests.swift in Sources */,
+				82BE25772273E4B600DF9B3F /* PrimeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,8 +1,10 @@
 import UIKit
 class RubiksView : UIView {
-    let originX  : CGFloat = 10
-    let originY  : CGFloat = 150
-    let side     : CGFloat = 50
+    let originX  : CGFloat = 50
+    
+    let originY  : CGFloat = 250
+    
+    let side     : CGFloat = 150
     override func draw(_ rect: CGRect) {
         for i in 0..<3 {
             drawSquare(x: originX + side * CGFloat(i), y: originY + side * 0)
