@@ -112,13 +112,19 @@ class CubeView: UIView {
     }
     
     func renderTop() {
-        topSquare(col: 2, row: 2, color: .blue)
-        topSquare(col: 1, row: 1, color: .red)
-//        topSquare(col: 0, row: 0, color: .blue)
-
+        realCube.topFace = [.blue, .green, .blue, .green, .blue, .green, .green, .green, .green]
         
+        topSquare(col: 0, row: 0, color: realCube.topFace[0])
+        topSquare(col: 1, row: 0, color: realCube.topFace[1])
+        topSquare(col: 2, row: 0, color: realCube.topFace[2])
+        topSquare(col: 0, row: 1, color: realCube.topFace[3])
+        topSquare(col: 1, row: 1, color: realCube.topFace[4])
+        topSquare(col: 2, row: 1, color: realCube.topFace[5])
+        topSquare(col: 0, row: 2, color: realCube.topFace[6])
+        topSquare(col: 1, row: 2, color: realCube.topFace[7])
+        topSquare(col: 2, row: 2, color: realCube.topFace[8])
     }
-//
+    
 //    func renderRight() {
 //        <#function body#>
 //    }
@@ -143,11 +149,20 @@ class CubeView: UIView {
     func topSquare(col: Int, row: Int, color: RubikCubeColor) {
         let path = UIBezierPath()
         let deltaX: CGFloat = (leftPointX - originX) / 3
-        let deltaY: CGFloat = (pointY - originY) / 3
-        path.move(to: CGPoint(x: originX + squareSide * CGFloat(col), y: originY + deltaY * CGFloat(row - 2)))
-        path.addLine(to: CGPoint(x: originX + squareSide * CGFloat(col + 1), y: originY + deltaY * CGFloat(row - 2)))
-        path.addLine(to: CGPoint(x: originX + squareSide * CGFloat(col + 1) + deltaX, y: originY + deltaY * CGFloat(row - 1)))
-        path.addLine(to: CGPoint(x: originX + squareSide * CGFloat(col) + deltaX, y: originY + deltaY * CGFloat(row - 1)))
+        let deltaY: CGFloat = (originY - pointY) / 3
+        let p0X = originX + deltaX * CGFloat(3 - row) + squareSide * CGFloat(col)
+        let p0Y = originY - deltaY * CGFloat(3 - row)
+        let p1X = originX + deltaX * CGFloat(3 - row) + squareSide * CGFloat(col + 1)
+        let p1Y = p0Y
+        let p2X = originX + deltaX * CGFloat(2 - row) + squareSide * CGFloat(col + 1)
+        let p2Y = originY - deltaY * CGFloat(2 - row)
+        let p3X = originX + deltaX * CGFloat(2 - row) + squareSide * CGFloat(col)
+        let p3Y = p2Y
+        
+        path.move(to: CGPoint(x: p0X, y: p0Y))
+        path.addLine(to: CGPoint(x: p1X, y: p1Y))
+        path.addLine(to: CGPoint(x: p2X, y: p2Y))
+        path.addLine(to: CGPoint(x: p3X, y: p3Y))
         path.close()
         switch color {
         case .blue:
