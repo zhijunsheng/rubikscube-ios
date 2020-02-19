@@ -5,7 +5,7 @@ class BoardView: UIView {
     var oigX: CGFloat = 85
     var oigY: CGFloat = 295
     
-    let frontFace: [CubeColor] = [.red, .yellow, .blue, .green, .orange, .white, .red, .green, .white]
+    let frontFace: [CubeColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
     let topFace: [CubeColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
     
     override func draw(_ rect: CGRect) {
@@ -111,7 +111,7 @@ class BoardView: UIView {
             acturalColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         }
         
-        drawSquare(x: oigX + CGFloat(col) * lineSide, y: oigY - CGFloat(row - 2) * lineSide, color: acturalColor)
+        drawSquare(x: oigX + CGFloat(col) * lineSide, y: oigY + CGFloat(row) * lineSide, color: acturalColor)
     }
     
     func drawSquare(x: CGFloat, y: CGFloat, color: UIColor) {
