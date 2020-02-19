@@ -14,6 +14,7 @@
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
 		D139BD112204EB9E00DE9611 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D139BD102204EB9E00DE9611 /* BoardView.swift */; };
 		D169D08F2208D9A500E4A494 /* FunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169D08E2208D9A500E4A494 /* FunctionTests.swift */; };
+		E736005B23F775600088034D /* CubeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736005A23F775600088034D /* CubeColor.swift */; };
 		E7B33CA122DEC14B00231AD0 /* RubiksBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B33CA022DEC14B00231AD0 /* RubiksBrain.swift */; };
 		E7B33CA322DEC22C00231AD0 /* RubiksBrainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B33CA222DEC22C00231AD0 /* RubiksBrainTests.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D139BD102204EB9E00DE9611 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		D169D08E2208D9A500E4A494 /* FunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTests.swift; sourceTree = "<group>"; };
+		E736005A23F775600088034D /* CubeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeColor.swift; sourceTree = "<group>"; };
 		E7B33CA022DEC14B00231AD0 /* RubiksBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksBrain.swift; sourceTree = "<group>"; };
 		E7B33CA222DEC22C00231AD0 /* RubiksBrainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksBrainTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
+				E736005A23F775600088034D /* CubeColor.swift */,
 				E7B33CA022DEC14B00231AD0 /* RubiksBrain.swift */,
 				0725AF782202550B00AB1E6F /* ViewController.swift */,
 				D139BD102204EB9E00DE9611 /* BoardView.swift */,
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B33CA122DEC14B00231AD0 /* RubiksBrain.swift in Sources */,
+				E736005B23F775600088034D /* CubeColor.swift in Sources */,
 				D139BD112204EB9E00DE9611 /* BoardView.swift in Sources */,
 				0725AF792202550B00AB1E6F /* ViewController.swift in Sources */,
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,

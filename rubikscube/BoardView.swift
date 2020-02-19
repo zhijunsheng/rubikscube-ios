@@ -5,60 +5,113 @@ class BoardView: UIView {
     var oigX: CGFloat = 85
     var oigY: CGFloat = 295
     
+    let frontFace: [CubeColor] = [.red, .yellow, .blue, .green, .orange, .white, .red, .green, .white]
+    let topFace: [CubeColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
+    
     override func draw(_ rect: CGRect) {
         oigX = (bounds.width - (3 * lineSide + 3 * lineSide / 2)) / 2
-        oigY = oigX + (2 * lineSide + 3 * lineSide / 2)
+        oigY = oigX + 3 * lineSide / 2
         
-        wrongFaceBox()
+        faceBox()
+        
+        let targetDot = UIBezierPath(arcCenter: CGPoint(x: oigX, y: oigY), radius: 10, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1).setFill()
+        targetDot.fill()
+        targetDot.stroke()
         
     }
     
-    func wrongFaceBox() {
-        wrongFaceFront()
-        wrongFaceTop()
+    func faceBox() {
+        faceFront()
+ //       wrongFaceTop()
         wrongFaceRight()
     }
     
     func wrongFaceRight() {
-        drawParallelogram2(x: oigX + 3 * lineSide, y: oigY - 0 * lineSide, color: #colorLiteral(red: 1, green: 0.9969701477, blue: 0.2513433961, alpha: 1))
-        drawParallelogram2(x: oigX + 3 * lineSide, y: oigY - 1 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
-        drawParallelogram2(x: oigX + 3 * lineSide, y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 0.9969701477, blue: 0.2513433961, alpha: 1))
+        drawParallelogram2(x: oigX + 3 * lineSide, y: oigY + 2 * lineSide, color: #colorLiteral(red: 1, green: 0.9969701477, blue: 0.2513433961, alpha: 1))
+        drawParallelogram2(x: oigX + 3 * lineSide, y: oigY + 1 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        drawParallelogram2(x: oigX + 3 * lineSide, y: oigY, color: #colorLiteral(red: 1, green: 0.9969701477, blue: 0.2513433961, alpha: 1))
         
+        drawParallelogram2(x: oigX + 3.5 * lineSide, y: oigY + 1.5 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        drawParallelogram2(x: oigX + 3.5 * lineSide, y: oigY + 0.5 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
         drawParallelogram2(x: oigX + 3.5 * lineSide, y: oigY - 0.5 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
-        drawParallelogram2(x: oigX + 3.5 * lineSide, y: oigY - 1.5 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
-        drawParallelogram2(x: oigX + 3.5 * lineSide, y: oigY - 2.5 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         
+        drawParallelogram2(x: oigX + 4 * lineSide, y: oigY + 1 * lineSide, color: #colorLiteral(red: 0.9647058824, green: 1, blue: 0, alpha: 1))
+        drawParallelogram2(x: oigX + 4 * lineSide, y: oigY, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
         drawParallelogram2(x: oigX + 4 * lineSide, y: oigY - 1 * lineSide, color: #colorLiteral(red: 0.9647058824, green: 1, blue: 0, alpha: 1))
-        drawParallelogram2(x: oigX + 4 * lineSide, y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
-        drawParallelogram2(x: oigX + 4 * lineSide, y: oigY - 3 * lineSide, color: #colorLiteral(red: 0.9647058824, green: 1, blue: 0, alpha: 1))
     }
     
     func wrongFaceTop() {
-        drawParallelogram1(x: oigX + 0 * lineSide, y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-        drawParallelogram1(x: oigX + 1 * lineSide, y: oigY - 2 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
-        drawParallelogram1(x: oigX + 2 * lineSide, y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        drawSquareTop(col: 0, row: 2, color: topFace[0])
+        drawSquareTop(col: 1, row: 2, color: topFace[1])
+        drawSquareTop(col: 2, row: 2, color: topFace[2])
         
-        drawParallelogram1(x: oigX + 0 * lineSide + lineSide / 2, y: oigY - 2 * lineSide - lineSide / 2, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
-        drawParallelogram1(x: oigX + 1 * lineSide + lineSide / 2, y: oigY - 2 * lineSide - lineSide / 2, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
-        drawParallelogram1(x: oigX + 2 * lineSide + lineSide / 2, y: oigY - 2 * lineSide - lineSide / 2, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
+        drawSquareTop(col: 0, row: 1, color: topFace[3])
+        drawSquareTop(col: 1, row: 1, color: topFace[4])
+        drawSquareTop(col: 2, row: 1, color: topFace[5])
+
         
-        drawParallelogram1(x: oigX + 0 * lineSide + lineSide, y: oigY - 2 * lineSide - lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-        drawParallelogram1(x: oigX + 1 * lineSide + lineSide, y: oigY - 2 * lineSide - lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
-        drawParallelogram1(x: oigX + 2 * lineSide + lineSide, y: oigY - 2 * lineSide - lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        drawSquareTop(col: 0, row: 0, color: topFace[6])
+        drawSquareTop(col: 1, row: 0, color: topFace[7])
+        drawSquareTop(col: 2, row: 0, color: topFace[8])
+        
+        
     }
     
-    func wrongFaceFront() {
-        drawSquare(x: oigX + 0 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
-        drawSquare(x: oigX + 1 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
-        drawSquare(x: oigX + 2 * lineSide , y: oigY - 2 * lineSide, color: #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1))
+    func drawSquareTop(col: Int, row: Int, color: CubeColor) {
+        var acturalColor: UIColor
         
-        drawSquare(x: oigX + 0 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-        drawSquare(x: oigX + 1 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 0.9843137255, green: 1, blue: 0, alpha: 1))
-        drawSquare(x: oigX + 2 * lineSide , y: oigY - 1 * lineSide, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        switch color {
+        case .red:
+            acturalColor = #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1)
+        case .yellow:
+            acturalColor = #colorLiteral(red: 1, green: 0.9969701477, blue: 0.2513433961, alpha: 1)
+        case .blue:
+            acturalColor = #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1)
+        case .green:
+            acturalColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        case .orange:
+            acturalColor = #colorLiteral(red: 0.9960784314, green: 0.4015842014, blue: 0, alpha: 1)
+        case .white:
+            acturalColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        }
         
-        drawSquare(x: oigX + 0 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        drawSquare(x: oigX + 1 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        drawSquare(x: oigX + 2 * lineSide , y: oigY - 0 * lineSide, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+        drawParallelogram1(x: oigX + CGFloat(col) * lineSide, y: oigY - CGFloat(row) * lineSide, color: acturalColor)
+    }
+    
+    func faceFront() {
+        drawSquareFront(col: 0, row: 0, color: frontFace[0])
+        drawSquareFront(col: 1, row: 0, color: frontFace[1])
+        drawSquareFront(col: 2, row: 0, color: frontFace[2])
+        
+        drawSquareFront(col: 0, row: 1, color: frontFace[3])
+        drawSquareFront(col: 1, row: 1, color: frontFace[4])
+        drawSquareFront(col: 2, row: 1, color: frontFace[5])
+        
+        drawSquareFront(col: 0, row: 2, color: frontFace[6])
+        drawSquareFront(col: 1, row: 2, color: frontFace[7])
+        drawSquareFront(col: 2, row: 2, color: frontFace[8])
+    }
+    
+    func drawSquareFront(col: Int, row: Int, color: CubeColor) {
+        var acturalColor: UIColor
+        
+        switch color {
+        case .red:
+            acturalColor = #colorLiteral(red: 1, green: 0, blue: 0.2113397249, alpha: 1)
+        case .yellow:
+            acturalColor = #colorLiteral(red: 1, green: 0.9969701477, blue: 0.2513433961, alpha: 1)
+        case .blue:
+            acturalColor = #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1)
+        case .green:
+            acturalColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        case .orange:
+            acturalColor = #colorLiteral(red: 0.9960784314, green: 0.4015842014, blue: 0, alpha: 1)
+        case .white:
+            acturalColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        }
+        
+        drawSquare(x: oigX + CGFloat(col) * lineSide, y: oigY - CGFloat(row - 2) * lineSide, color: acturalColor)
     }
     
     func drawSquare(x: CGFloat, y: CGFloat, color: UIColor) {
@@ -70,7 +123,7 @@ class BoardView: UIView {
         cS.close()
         color.setFill()
         cS.fill()
-        #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1).setStroke()
+        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
         cS.stroke()
     }
     
