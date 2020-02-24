@@ -28,6 +28,7 @@ class CubeView: UIView {
         drawCubeEdges()
         renderFront()
         renderTop()
+        renderRight()
         drawFront()
         drawTop()
         drawRight()
@@ -125,9 +126,21 @@ class CubeView: UIView {
         topSquare(col: 2, row: 2, color: realCube.topFace[8])
     }
     
-//    func renderRight() {
-//        <#function body#>
-//    }
+    func renderRight() {
+        realCube.rightFace = [.blue, .green, .blue, .green, .blue, .green, .green, .green, .green]
+        
+        rightSquare(col: 0, row: 0, color: realCube.rightFace[0])
+        rightSquare(col: 1, row: 0, color: realCube.rightFace[1])
+        rightSquare(col: 2, row: 0, color: realCube.rightFace[2])
+        rightSquare(col: 0, row: 1, color: realCube.rightFace[3])
+        rightSquare(col: 1, row: 1, color: realCube.rightFace[4])
+        rightSquare(col: 2, row: 1, color: realCube.rightFace[5])
+        rightSquare(col: 0, row: 2, color: realCube.rightFace[6])
+        rightSquare(col: 1, row: 2, color: realCube.rightFace[7])
+        rightSquare(col: 2, row: 2, color: realCube.rightFace[8])
+
+    }
+    
     func frontSquare(col: Int, row: Int, color: RubikCubeColor) {
         let pen = UIBezierPath(rect: CGRect(x: originX + CGFloat(col) * squareSide , y: originY + CGFloat(row) * squareSide, width: squareSide, height: squareSide))
         switch color {
@@ -164,6 +177,43 @@ class CubeView: UIView {
         path.addLine(to: CGPoint(x: p2X, y: p2Y))
         path.addLine(to: CGPoint(x: p3X, y: p3Y))
         path.close()
+        switch color {
+        case .blue:
+            #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1).setFill()
+        case .green:
+            #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1).setFill()
+        case .red:
+            #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1).setFill()
+        case .orange:
+            break
+        case .white:
+            break
+        case .yellow:
+            break
+        }
+        path.fill()
+    }
+    
+    func rightSquare(col: Int, row: Int, color: RubikCubeColor) {
+        let path = UIBezierPath()
+        let newOriginX = originX + squareSide * 3
+        let deltaX: CGFloat = (rightPointX - (originX + squareSide * 3)) / 3
+        let deltaY: CGFloat = (originY - pointY) / 3
+        let p0X = newOriginX + deltaX * CGFloat(col)
+        let p0Y = originY + squareSide * CGFloat(row) - deltaY * CGFloat(col)
+        let p1X = newOriginX + deltaX * CGFloat(col + 1)
+        let p1Y = originY + squareSide * CGFloat(row) - deltaY * CGFloat(col + 1)
+        let p2X = p1X
+        let p2Y = originY + squareSide * CGFloat(row + 1) - deltaY * CGFloat(col + 1)
+        let p3X = p0X
+        let p3Y = originY + squareSide * CGFloat(row + 1) - deltaY * CGFloat(col)
+        
+        path.move(to: CGPoint(x: p0X, y: p0Y))
+        path.addLine(to: CGPoint(x: p1X, y: p1Y))
+        path.addLine(to: CGPoint(x: p2X, y: p2Y))
+        path.addLine(to: CGPoint(x: p3X, y: p3Y))
+        path.close()
+        
         switch color {
         case .blue:
             #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1).setFill()
