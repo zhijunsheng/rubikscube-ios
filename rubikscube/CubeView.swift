@@ -15,15 +15,13 @@ class CubeView: UIView {
     var leftPointX: CGFloat = 2256546 - 23456789
     var rightPointX: CGFloat = 676879
     var pointY: CGFloat = 806997
-    var realCube: RubikCubeModel = RubikCubeModel()
+    var shadowCube: RubikCubeModel = RubikCubeModel()
     
     override func draw(_ rect: CGRect) {
         leftPointX = originX + 125
         rightPointX = originX + squareSide * 3 + 125
         pointY = originY - 120
         let path = UIBezierPath(rect: CGRect(x: originX, y: originY, width: squareSide * 3, height: squareSide * 3))
-        
-//        realCube.leftPrime()
         
         drawCubeEdges()
         renderFront()
@@ -98,47 +96,39 @@ class CubeView: UIView {
     }
         
     func renderFront() {
-        // tmp code for debugging
-        realCube.frontFace = [.blue, .green, .blue, .green, .blue, .green, .green, .green, .green]
-        
-        frontSquare(col: 0, row: 0, color: realCube.frontFace[0])
-        frontSquare(col: 1, row: 0, color: realCube.frontFace[1])
-        frontSquare(col: 2, row: 0, color: realCube.frontFace[2])
-        frontSquare(col: 0, row: 1, color: realCube.frontFace[3])
-        frontSquare(col: 1, row: 1, color: realCube.frontFace[4])
-        frontSquare(col: 2, row: 1, color: realCube.frontFace[5])
-        frontSquare(col: 0, row: 2, color: realCube.frontFace[6])
-        frontSquare(col: 1, row: 2, color: realCube.frontFace[7])
-        frontSquare(col: 2, row: 2, color: realCube.frontFace[8])
+        frontSquare(col: 0, row: 0, color: shadowCube.frontFace[0])
+        frontSquare(col: 1, row: 0, color: shadowCube.frontFace[1])
+        frontSquare(col: 2, row: 0, color: shadowCube.frontFace[2])
+        frontSquare(col: 0, row: 1, color: shadowCube.frontFace[3])
+        frontSquare(col: 1, row: 1, color: shadowCube.frontFace[4])
+        frontSquare(col: 2, row: 1, color: shadowCube.frontFace[5])
+        frontSquare(col: 0, row: 2, color: shadowCube.frontFace[6])
+        frontSquare(col: 1, row: 2, color: shadowCube.frontFace[7])
+        frontSquare(col: 2, row: 2, color: shadowCube.frontFace[8])
     }
     
     func renderTop() {
-        realCube.topFace = [.blue, .green, .blue, .green, .blue, .green, .green, .green, .green]
-        
-        topSquare(col: 0, row: 0, color: realCube.topFace[0])
-        topSquare(col: 1, row: 0, color: realCube.topFace[1])
-        topSquare(col: 2, row: 0, color: realCube.topFace[2])
-        topSquare(col: 0, row: 1, color: realCube.topFace[3])
-        topSquare(col: 1, row: 1, color: realCube.topFace[4])
-        topSquare(col: 2, row: 1, color: realCube.topFace[5])
-        topSquare(col: 0, row: 2, color: realCube.topFace[6])
-        topSquare(col: 1, row: 2, color: realCube.topFace[7])
-        topSquare(col: 2, row: 2, color: realCube.topFace[8])
+        topSquare(col: 0, row: 0, color: shadowCube.topFace[0])
+        topSquare(col: 1, row: 0, color: shadowCube.topFace[1])
+        topSquare(col: 2, row: 0, color: shadowCube.topFace[2])
+        topSquare(col: 0, row: 1, color: shadowCube.topFace[3])
+        topSquare(col: 1, row: 1, color: shadowCube.topFace[4])
+        topSquare(col: 2, row: 1, color: shadowCube.topFace[5])
+        topSquare(col: 0, row: 2, color: shadowCube.topFace[6])
+        topSquare(col: 1, row: 2, color: shadowCube.topFace[7])
+        topSquare(col: 2, row: 2, color: shadowCube.topFace[8])
     }
     
     func renderRight() {
-        realCube.rightFace = [.blue, .green, .blue, .green, .blue, .green, .green, .green, .green]
-        
-        rightSquare(col: 0, row: 0, color: realCube.rightFace[0])
-        rightSquare(col: 1, row: 0, color: realCube.rightFace[1])
-        rightSquare(col: 2, row: 0, color: realCube.rightFace[2])
-        rightSquare(col: 0, row: 1, color: realCube.rightFace[3])
-        rightSquare(col: 1, row: 1, color: realCube.rightFace[4])
-        rightSquare(col: 2, row: 1, color: realCube.rightFace[5])
-        rightSquare(col: 0, row: 2, color: realCube.rightFace[6])
-        rightSquare(col: 1, row: 2, color: realCube.rightFace[7])
-        rightSquare(col: 2, row: 2, color: realCube.rightFace[8])
-
+        rightSquare(col: 0, row: 0, color: shadowCube.rightFace[0])
+        rightSquare(col: 1, row: 0, color: shadowCube.rightFace[1])
+        rightSquare(col: 2, row: 0, color: shadowCube.rightFace[2])
+        rightSquare(col: 0, row: 1, color: shadowCube.rightFace[3])
+        rightSquare(col: 1, row: 1, color: shadowCube.rightFace[4])
+        rightSquare(col: 2, row: 1, color: shadowCube.rightFace[5])
+        rightSquare(col: 0, row: 2, color: shadowCube.rightFace[6])
+        rightSquare(col: 1, row: 2, color: shadowCube.rightFace[7])
+        rightSquare(col: 2, row: 2, color: shadowCube.rightFace[8])
     }
     
     func frontSquare(col: Int, row: Int, color: RubikCubeColor) {
@@ -149,13 +139,13 @@ class CubeView: UIView {
         case .green:
             #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1).setFill()
         case .red:
-            break
+            #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1).setFill()
         case .orange:
-            break
+            #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1).setFill()
         case .white:
-            break
+            #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).setFill()
         case .yellow:
-            break
+            #colorLiteral(red: 0.9968109727, green: 0.9844934344, blue: 0, alpha: 1).setFill()
         }
         pen.fill()
     }
@@ -183,13 +173,13 @@ class CubeView: UIView {
         case .green:
             #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1).setFill()
         case .red:
-            #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1).setFill()
+            #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1).setFill()
         case .orange:
-            break
+            #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1).setFill()
         case .white:
-            break
+            #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).setFill()
         case .yellow:
-            break
+            #colorLiteral(red: 0.9968109727, green: 0.9844934344, blue: 0, alpha: 1).setFill()
         }
         path.fill()
     }
@@ -220,13 +210,13 @@ class CubeView: UIView {
         case .green:
             #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1).setFill()
         case .red:
-            #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1).setFill()
+            #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1).setFill()
         case .orange:
-            break
+            #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1).setFill()
         case .white:
-            break
+            #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).setFill()
         case .yellow:
-            break
+            #colorLiteral(red: 0.9968109727, green: 0.9844934344, blue: 0, alpha: 1).setFill()
         }
         path.fill()
     }
