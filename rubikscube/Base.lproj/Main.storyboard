@@ -47,6 +47,17 @@
                                     <action selector="turnCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bf-b5-3b0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKK-Cw-rFA">
+                                <rect key="frame" x="357" y="873" width="108" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Turn up ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="turnUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E1w-QZ-8Ut"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80724914699999994" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>

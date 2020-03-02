@@ -16,10 +16,9 @@ struct RubikCubeModel {
     var leftFace: [RubikCubeColor] = [.green, .white, .yellow, .red, .green, .green, .green, .green, .green]
     var bottomFace: [RubikCubeColor] = [.orange, .green, .green, .green, .green, .green, .green, .green, .green]
     
+    
     mutating func leftPrime() {
         let saveTop0 = topFace[0]
-        let saveLeft0 = leftFace[0]
-        let saveLeft1 = leftFace[1]
         let saveTop3 = topFace[3]
         let saveTop6 = topFace[6]
 
@@ -36,23 +35,46 @@ struct RubikCubeModel {
         bottomFace[6] = backFace[2]
         backFace[2] = saveTop6
         
-        
-        leftFace[0] = leftFace[2]
-        leftFace[2] = leftFace[8]
-        leftFace[8] = leftFace[6]
-        leftFace[6] = saveLeft0
-        leftFace[1] = leftFace[5]
-        leftFace[5] = leftFace[7]
-        leftFace[7] = leftFace[3]
-        leftFace[3] = saveLeft1
+        leftFace = rotatePrime(face: leftFace)
     }
     
     mutating func turnCounterCW() {
-//        Unfinished with top and bottom
         let saveRightFace = rightFace
         rightFace = frontFace
         frontFace = leftFace
         leftFace = backFace
         backFace = saveRightFace
+        
+        topFace = rotatePrime(face: topFace)
+        bottomFace = rotatePrime(face: bottomFace)
+        bottomFace = rotatePrime(face: bottomFace)
+        bottomFace = rotatePrime(face: bottomFace)
+    }
+    mutating func turnUp() {
+        let saveFrontFace = frontFace
+        frontFace = bottomFace
+        bottomFace = backFace
+        backFace = topFace
+        topFace = saveFrontFace
+        
+        rightFace = rotatePrime(face: rightFace)
+        rightFace = rotatePrime(face: rightFace)
+        rightFace = rotatePrime(face: rightFace)
+        leftFace = rotatePrime(face: leftFace)
+    }
+    
+    mutating func rotatePrime(face: [RubikCubeColor]) -> [RubikCubeColor]{
+        var rotatingFace: [RubikCubeColor] = face
+        let saveFace0 = face[0]
+        let saveFace1 = face[1]
+        rotatingFace[0] = rotatingFace[2]
+        rotatingFace[2] = rotatingFace[8]
+        rotatingFace[8] = rotatingFace[6]
+        rotatingFace[6] = saveFace0
+        rotatingFace[1] = rotatingFace[5]
+        rotatingFace[5] = rotatingFace[7]
+        rotatingFace[7] = rotatingFace[3]
+        rotatingFace[3] = saveFace1
+        return rotatingFace
     }
 }
