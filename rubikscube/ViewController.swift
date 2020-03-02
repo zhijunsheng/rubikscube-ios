@@ -40,5 +40,16 @@ class ViewController: UIViewController {
         cubeView.setNeedsDisplay()
     }
     
+    @IBAction func leftTurn(_ sender: Any) {
+        realCube.leftTurn()
+        cubeView.shadowCube = realCube
+        cubeView.setNeedsDisplay()
+    }
+    
+    @IBAction func turnCW(_ sender: Any) {
+        realCube.turnCW()
+        cubeView.shadowCube = realCube
+        cubeView.setNeedsDisplay()
+    }
 }
 

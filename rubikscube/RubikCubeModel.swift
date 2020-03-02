@@ -38,6 +38,18 @@ struct RubikCubeModel {
         leftFace = rotatePrime(face: leftFace)
     }
     
+    mutating func leftTurn() {
+        leftPrime()
+        leftPrime()
+        leftPrime()
+    }
+    
+    mutating func turnCW() {
+        turnCounterCW()
+        turnCounterCW()
+        turnCounterCW()
+    }
+    
     mutating func turnCounterCW() {
         let saveRightFace = rightFace
         rightFace = frontFace
