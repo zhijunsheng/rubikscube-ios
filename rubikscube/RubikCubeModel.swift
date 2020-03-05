@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RubikCubeModel {
+struct RubikCubeModel { // 630
     var frontFace: [RubikCubeColor] = [.blue, .green, .green, .green, .green, .green, .green, .green, .green]
     var rightFace: [RubikCubeColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
     var topFace: [RubikCubeColor] = [.red, .green, .green, .green, .green, .green, .green, .green, .green]
@@ -79,6 +79,50 @@ struct RubikCubeModel {
         rightFace = rotatePrime(face: rightFace)
         rightFace = rotatePrime(face: rightFace)
         leftFace = rotatePrime(face: leftFace)
+    }
+    
+    mutating func rightPrime() {
+        let savefront2 = frontFace[2]
+        let savefront5 = frontFace[5]
+        let savefront8 = frontFace[8]
+
+        frontFace[2] = topFace[2]
+        topFace[2] = backFace[6]
+        backFace[6] = bottomFace[2]
+        bottomFace[2] = savefront2
+        frontFace[5] = topFace[5]
+        topFace[5] = backFace[3]
+        backFace[3] = bottomFace[5]
+        bottomFace[5] = savefront5
+        frontFace[8] = topFace[8]
+        topFace[8] = backFace[0]
+        backFace[0] = bottomFace[8]
+        bottomFace[8] = savefront8
+        
+        rightFace = rotatePrime(face: rightFace)
+    }
+    
+    mutating func rightTurn() {
+        rightPrime()
+        rightPrime()
+        rightPrime()
+    }
+    
+    mutating func facePrime() {
+        let savetop6 = topFace[6]
+        
+        topFace[6] = rightFace[0]
+        rightFace[0] = bottomFace[2]
+        bottomFace[2] = leftFace[8]
+        leftFace[8] = savetop6
+        
+//        topFace[6] = rightFace[0]
+//        rightFace[0] = bottomFace[2]
+//        bottomFace[2] = leftFace[8]
+//        leftFace[8] = savetop6
+
+        
+        frontFace = rotatePrime(face: frontFace)
     }
     
     mutating func rotatePrime(face: [RubikCubeColor]) -> [RubikCubeColor]{

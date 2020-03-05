@@ -19,43 +19,56 @@ class ViewController: UIViewController {
         
         cubeView.shadowCube = realCube
     }
-
+    func updateShadow() {
+        cubeView.shadowCube = realCube
+        cubeView.setNeedsDisplay()
+    }
 
     @IBAction func leftPrime(_ sender: Any) {
         realCube.leftPrime()
-        cubeView.shadowCube = realCube
-        cubeView.setNeedsDisplay()
-        // update the view
+        updateShadow()
     }
     
     @IBAction func turnCounter(_ sender: Any) {
         realCube.turnCounterCW()
-        cubeView.shadowCube = realCube
-        cubeView.setNeedsDisplay()
+        updateShadow()
     }
     
     @IBAction func turnUp(_ sender: Any) {
         realCube.turnUp()
-        cubeView.shadowCube = realCube
-        cubeView.setNeedsDisplay()
+        updateShadow()
     }
     
     @IBAction func leftTurn(_ sender: Any) {
         realCube.leftTurn()
-        cubeView.shadowCube = realCube
-        cubeView.setNeedsDisplay()
+        updateShadow()
     }
     
     @IBAction func turnCW(_ sender: Any) {
         realCube.turnCW()
-        cubeView.shadowCube = realCube
-        cubeView.setNeedsDisplay()
+        updateShadow()
     }
     
     @IBAction func turnDown(_ sender: Any) {
         realCube.turnDown()
-        cubeView.shadowCube = realCube
-        cubeView.setNeedsDisplay()
+        updateShadow()
     }
+    
+    @IBAction func rightPrime(_ sender: Any) {
+        realCube.rightPrime()
+        updateShadow()
+    }
+    
+    @IBAction func rightTurn(_ sender: Any) {
+        realCube.rightTurn()
+        updateShadow()
+    }
+    
+    @IBAction func facePrime(_ sender: Any) {
+        realCube.facePrime()
+        updateShadow()
+    }
+    
+    
 }
 
