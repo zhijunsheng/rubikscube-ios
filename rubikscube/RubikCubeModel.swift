@@ -50,6 +50,12 @@ struct RubikCubeModel {
         turnCounterCW()
     }
     
+    mutating func turnDown() {
+        turnUp()
+        turnUp()
+        turnUp()
+    }
+    
     mutating func turnCounterCW() {
         let saveRightFace = rightFace
         rightFace = frontFace

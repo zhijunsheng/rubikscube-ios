@@ -51,5 +51,11 @@ class ViewController: UIViewController {
         cubeView.shadowCube = realCube
         cubeView.setNeedsDisplay()
     }
+    
+    @IBAction func turnDown(_ sender: Any) {
+        realCube.turnDown()
+        cubeView.shadowCube = realCube
+        cubeView.setNeedsDisplay()
+    }
 }
 
