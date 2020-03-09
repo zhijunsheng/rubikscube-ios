@@ -33,6 +33,17 @@ class CubeView: UIView {
         path.stroke()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let fingerlocation = touch.location(in: self)
+        print("from (\(fingerlocation.x), \(fingerlocation.y))", terminator: " ")
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let fingerlocation = touch.location(in: self)
+        print("to (\(fingerlocation.x), \(fingerlocation.y))")
+    }
+    
     func drawCubeEdges() {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: originX, y: originY))
