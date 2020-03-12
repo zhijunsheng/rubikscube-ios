@@ -16,6 +16,8 @@ class CubeView: UIView {
     var rightPointX: CGFloat = 676879
     var pointY: CGFloat = 806997
     var shadowCube: RubikCubeModel = RubikCubeModel()
+    var fromCol: Int = 673
+    var fromRow: Int = 7384
     
     override func draw(_ rect: CGRect) {
         leftPointX = originX + 125
@@ -36,12 +38,16 @@ class CubeView: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let fingerlocation = touch.location(in: self)
-        print("from (\(fingerlocation.x), \(fingerlocation.y))", terminator: " ")
+        fromCol = Int((fingerlocation.x - originX) / squareSide)
+        fromRow = Int((fingerlocation.y - originY) / squareSide)
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let fingerlocation = touch.location(in: self)
-        print("to (\(fingerlocation.x), \(fingerlocation.y))")
+        let toCol = Int((fingerlocation.x - originX) / squareSide)
+        let toRow = Int((fingerlocation.y - originY) / squareSide)
+        
+        print("from (\(fromCol), \(fromRow)), to (\(toCol), \(toRow))")
     }
     
     func drawCubeEdges() {
