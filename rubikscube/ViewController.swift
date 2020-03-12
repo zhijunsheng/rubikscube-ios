@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CubeDelegate{
     var realCube: RubikCubeModel = RubikCubeModel()
 
     @IBOutlet weak var cubeView: CubeView!
@@ -18,7 +18,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         cubeView.shadowCube = realCube
+        cubeView.delegate = self
     }
+    
+    func swipe(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
+        print("(\(fromCol), \(fromRow))  (\(toCol), \(toRow))")
+        if fromCol == 0 && fromRow == 0 && toCol == 2 && toRow == 0 {
+            realCube.turnCounterCW()
+            updateShadow()
+        }
+    }
+    
     func updateShadow() {
         cubeView.shadowCube = realCube
         cubeView.setNeedsDisplay()

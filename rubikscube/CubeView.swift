@@ -19,6 +19,10 @@ class CubeView: UIView {
     var fromCol: Int = 673
     var fromRow: Int = 7384
     
+    var delegate: CubeDelegate? = nil
+    
+    
+    
     override func draw(_ rect: CGRect) {
         leftPointX = originX + 125
         rightPointX = originX + squareSide * 3 + 125
@@ -48,6 +52,8 @@ class CubeView: UIView {
         let toRow = Int((fingerlocation.y - originY) / squareSide)
         
         print("from (\(fromCol), \(fromRow)), to (\(toCol), \(toRow))")
+        
+        delegate?.swipe(fromCol: fromCol, fromRow: fromRow, toCol: toCol, toRow: toRow)
     }
     
     func drawCubeEdges() {
