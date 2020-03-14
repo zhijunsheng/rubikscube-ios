@@ -1,25 +1,30 @@
-//
-//  ViewController.swift
-//  RubiksCube
-//
-//  Created by xiaobao on 2018/12/11.
-//  Copyright © 2018 xiaobao. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
+    var rubiksEngine : RubiksEngine = RubiksEngine()
+    
+    @IBOutlet weak var rubiksView: RubiksView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        rubiksView.frontFace = rubiksEngine.frontFace
+        rubiksView.topFace = rubiksEngine.topFace
+        rubiksView.rightFace = rubiksEngine.rightFace
+        rubiksView.setNeedsDisplay()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func topLayer(_ sender: Any) {
+        rubiksEngine.topLayerRotation()
+        rubiksView.frontFace = rubiksEngine.frontFace
+        rubiksView.topFace = rubiksEngine.topFace
+        rubiksView.rightFace = rubiksEngine.rightFace
+        rubiksView.setNeedsDisplay()
     }
-
-
+    @IBAction func topLayerPrime(_ sender: Any) {
+    }
+    
+    @IBAction func leftLayer(_ sender: Any) {
+    }
+    @IBAction func leftLayerPrime(_ sender: Any) {
+    }
 }
 
