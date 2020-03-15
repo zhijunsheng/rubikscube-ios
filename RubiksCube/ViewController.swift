@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         rubiksView.setNeedsDisplay()
     }
     @IBAction func topLayerPrime(_ sender: Any) {
+        rubiksEngine.topLayerRotationPrime()
+        rubiksView.frontFace = rubiksEngine.frontFace
+        rubiksView.topFace = rubiksEngine.topFace
+        rubiksView.rightFace = rubiksEngine.rightFace
+        rubiksView.setNeedsDisplay()
     }
     
     @IBAction func leftLayer(_ sender: Any) {
