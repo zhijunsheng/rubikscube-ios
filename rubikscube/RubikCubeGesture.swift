@@ -11,6 +11,10 @@ import Foundation
 enum RubikCubeGesture {
     case turnCounter
     case faceCounter
+    case leftPrime
+    case leftTurn
+    case rightPrime
+    case rightTurn
 }
 
 
