@@ -110,16 +110,23 @@ struct RubikCubeModel { // 630
     
     mutating func facePrime() {
         let savetop6 = topFace[6]
-        
+        let savetop7 = topFace[7]
+        let savetop8 = topFace[8]
+
         topFace[6] = rightFace[0]
         rightFace[0] = bottomFace[2]
         bottomFace[2] = leftFace[8]
         leftFace[8] = savetop6
         
-//        topFace[6] = rightFace[0]
-//        rightFace[0] = bottomFace[2]
-//        bottomFace[2] = leftFace[8]
-//        leftFace[8] = savetop6
+        topFace[7] = rightFace[3]
+        rightFace[3] = bottomFace[1]
+        bottomFace[1] = leftFace[5]
+        leftFace[5] = savetop7
+        
+        topFace[8] = rightFace[6]
+        rightFace[6] = bottomFace[0]
+        bottomFace[0] = leftFace[2]
+        leftFace[2] = savetop8
 
         
         frontFace = rotatePrime(face: frontFace)

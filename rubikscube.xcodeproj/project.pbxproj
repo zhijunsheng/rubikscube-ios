@@ -16,6 +16,7 @@
 		A3350E5B23E3881A00416539 /* RubikCubeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3350E5A23E3881A00416539 /* RubikCubeModel.swift */; };
 		A3350E5D23E388AC00416539 /* CubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3350E5C23E388AC00416539 /* CubeTests.swift */; };
 		A338F017241AD7E100F2B7D8 /* CubeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A338F016241AD7E100F2B7D8 /* CubeDelegate.swift */; };
+		A338F019241F02CC00F2B7D8 /* RubikCubeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A338F018241F02CC00F2B7D8 /* RubikCubeGesture.swift */; };
 		A3BE25A823DA46D00013D4AE /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BE25A723DA46D00013D4AE /* CubeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		A3350E5A23E3881A00416539 /* RubikCubeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubikCubeModel.swift; sourceTree = "<group>"; };
 		A3350E5C23E388AC00416539 /* CubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTests.swift; sourceTree = "<group>"; };
 		A338F016241AD7E100F2B7D8 /* CubeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDelegate.swift; sourceTree = "<group>"; };
+		A338F018241F02CC00F2B7D8 /* RubikCubeGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubikCubeGesture.swift; sourceTree = "<group>"; };
 		A3BE25A723DA46D00013D4AE /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				A3BE25A723DA46D00013D4AE /* CubeView.swift */,
 				A3350E5823E3875800416539 /* RubikCubeColor.swift */,
 				A3350E5A23E3881A00416539 /* RubikCubeModel.swift */,
+				A338F018241F02CC00F2B7D8 /* RubikCubeGesture.swift */,
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
 				0725AF782202550B00AB1E6F /* ViewController.swift */,
 				A338F016241AD7E100F2B7D8 /* CubeDelegate.swift */,
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0725AF792202550B00AB1E6F /* ViewController.swift in Sources */,
+				A338F019241F02CC00F2B7D8 /* RubikCubeGesture.swift in Sources */,
 				A338F017241AD7E100F2B7D8 /* CubeDelegate.swift in Sources */,
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,
 				A3350E5B23E3881A00416539 /* RubikCubeModel.swift in Sources */,

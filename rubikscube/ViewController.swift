@@ -23,10 +23,27 @@ class ViewController: UIViewController, CubeDelegate{
     
     func swipe(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
         print("(\(fromCol), \(fromRow))  (\(toCol), \(toRow))")
-        if fromCol == 0 && fromRow == 0 && toCol == 2 && toRow == 0 {
-            realCube.turnCounterCW()
-            updateShadow()
+        guard let gesture = inputSquares(fromCol: fromCol, fromRow: fromRow, toCol: toCol, toRow: toRow) else {
+            return
         }
+        
+        switch gesture {
+        case .turnCounter:
+            realCube.turnCounterCW()
+        case .faceCounter:
+            realCube.facePrime()
+        }
+        updateShadow()
+    }
+    
+    func inputSquares(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) -> RubikCubeGesture? {
+        if fromCol == 0 && fromRow == 0 && toCol == 2 && toRow == 0 || fromCol == 0 && fromRow == 1 && toCol == 2 && toRow == 1 || fromCol == 0 && fromRow == 2 && toCol == 2 && toRow == 2 {
+            return .turnCounter
+        }
+        if  fromCol == 2 && fromRow == 1 && toCol == 1 && toRow == 0 || fromCol == 1 && fromRow == 0 && toCol == 0 && toRow == 1 || fromCol == 0 && fromRow == 1 && toCol == 1 && toRow == 2 || fromCol == 1 && fromRow == 2 && toCol == 2 && toRow == 1 {
+            return .faceCounter
+        }
+        return nil
     }
     
     func updateShadow() {

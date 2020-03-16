@@ -15,5 +15,5 @@ enum RubikCubeColor {
     case orange
     case blue
     case green
-    
+
 }
