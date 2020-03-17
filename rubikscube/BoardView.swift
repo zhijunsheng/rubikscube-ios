@@ -5,11 +5,13 @@ class BoardView: UIView {
     var oigX: CGFloat = 85
     var oigY: CGFloat = 295
     
-    let frontFace: [CubeColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
-    let rightFace: [CubeColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
-    let topFace: [CubeColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
+    var frontFace: [CubeColor] = []
+    var rightFace: [CubeColor] = []
+    var topFace: [CubeColor] = []
+    
     
     override func draw(_ rect: CGRect) {
+        
         drawFrontFace()
         drawRightFace()
         drawTopface()
