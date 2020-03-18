@@ -2,26 +2,15 @@ import Foundation
 
 struct RubiksBrain {
     
-    var frontFace: [CubeColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+    var frontFace: [CubeColor] = [.blue, .orange, .green, .green, .green, .green, .green, .green, .green]
     var rightFace: [CubeColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
-    var topFace: [CubeColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
+    var topFace: [CubeColor] = [.white, .blue, .red, .red, .yellow, .green, .red, .red, .red]
     var backFace: [CubeColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     var leftFace: [CubeColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
     var bottomface: [CubeColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
     
     mutating func rotateFront() {
-        let frontFace2 = frontFace[2]
-        let frontFace5 = frontFace[5]
-        
-        frontFace[2] = frontFace[0]
-        frontFace[0] = frontFace[6]
-        frontFace[6] = frontFace[8]
-        frontFace[8] = frontFace2
-        
-        frontFace[5] = frontFace[1]
-        frontFace[1] = frontFace[3]
-        frontFace[3] = frontFace[7]
-        frontFace[7] = frontFace5
+        frontFace = rotateFace(face: frontFace)
         
         
         let rightFace6 = rightFace[6]
@@ -40,11 +29,32 @@ struct RubiksBrain {
         leftFace[5] = bottomface[1]
         leftFace[8] = bottomface[2]
         
-        bottomface[0] = rightFace0
+        bottomface[0] = rightFace6
         bottomface[1] = rightFace3
-        bottomface[2] = rightFace6
+        bottomface[2] = rightFace0
+    }
+    
+    mutating func rotateTop() {
+        topFace = rotateFace(face: topFace)
+    }
+    
+    func rotateFace(face: [CubeColor]) -> [CubeColor] {
+        var newFace = face
         
-       
+        let face2 = newFace[2]
+        let face5 = newFace[5]
+        
+        newFace[2] = newFace[0]
+        newFace[0] = newFace[6]
+        newFace[6] = newFace[8]
+        newFace[8] = face2
+        
+        newFace[5] = newFace[1]
+        newFace[1] = newFace[3]
+        newFace[3] = newFace[7]
+        newFace[7] = face5
+        
+        return newFace
     }
     
     

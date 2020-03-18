@@ -26,7 +26,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkA-JB-7Uj">
                                 <rect key="frame" x="20" y="736" width="135" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="80"/>
                                 <state key="normal" title="F"/>
                                 <connections>
                                     <action selector="rotateFrontClockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fnl-rc-4Si"/>
@@ -35,10 +35,28 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qhu-CV-NST">
                                 <rect key="frame" x="20" y="870" width="135" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="80"/>
                                 <state key="normal" title="F'"/>
                                 <connections>
                                     <action selector="rotateFrontCounterclockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cp3-9T-2fm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzN-hw-Bjr">
+                                <rect key="frame" x="163" y="736" width="131" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="80"/>
+                                <state key="normal" title="U"/>
+                                <connections>
+                                    <action selector="rotateTopClockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wjb-RO-aQ2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULC-62-Akh">
+                                <rect key="frame" x="163" y="870" width="131" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="80"/>
+                                <state key="normal" title="U'"/>
+                                <connections>
+                                    <action selector="rotateTopCounterclockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VBk-dV-pUB"/>
                                 </connections>
                             </button>
                         </subviews>

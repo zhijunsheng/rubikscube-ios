@@ -109,7 +109,7 @@ class BoardView: UIView {
         case .green:
             realColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
         case .orange:
-            realColor = #colorLiteral(red: 0.9960784314, green: 0.4015842014, blue: 0, alpha: 1)
+            realColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
         case .white:
             realColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
