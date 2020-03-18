@@ -33,6 +33,16 @@ class ViewController: UIViewController {
         rubiksEngine.leftLayerRotation()
         update()
     }
+    @IBAction func frontLayer(_ sender: Any) {
+        rubiksEngine.frontLayerRotation()
+        update()
+    }
+    @IBAction func frontLayerPrime(_ sender: Any) {
+        rubiksEngine.frontLayerRotation()
+        rubiksEngine.frontLayerRotation()
+        rubiksEngine.frontLayerRotation()
+        update()
+    }
     func update() {
         rubiksView.frontFace = rubiksEngine.frontFace
         rubiksView.topFace = rubiksEngine.topFace

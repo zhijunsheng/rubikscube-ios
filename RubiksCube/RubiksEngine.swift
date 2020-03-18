@@ -57,6 +57,9 @@ struct RubiksEngine {
         bottomFace[6] = frontFace[6]
         frontFace[6] = tFSix
     }
+    
+    mutating func frontLayerRotation() {
+    }
  
     func rotateFace(face: [CubeColor]) -> [CubeColor] {
            var newFace = face
