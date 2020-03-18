@@ -14,22 +14,30 @@ class ViewController: UIViewController {
     }
     @IBAction func topLayer(_ sender: Any) {
         rubiksEngine.topLayerRotation()
-        rubiksView.frontFace = rubiksEngine.frontFace
-        rubiksView.topFace = rubiksEngine.topFace
-        rubiksView.rightFace = rubiksEngine.rightFace
-        rubiksView.setNeedsDisplay()
+        update()
     }
     @IBAction func topLayerPrime(_ sender: Any) {
-        rubiksEngine.topLayerRotationPrime()
-        rubiksView.frontFace = rubiksEngine.frontFace
-        rubiksView.topFace = rubiksEngine.topFace
-        rubiksView.rightFace = rubiksEngine.rightFace
-        rubiksView.setNeedsDisplay()
+        rubiksEngine.topLayerRotation()
+        rubiksEngine.topLayerRotation()
+        rubiksEngine.topLayerRotation()
+        update()
     }
     
     @IBAction func leftLayer(_ sender: Any) {
+        rubiksEngine.leftLayerRotation()
+        update()
     }
     @IBAction func leftLayerPrime(_ sender: Any) {
+        rubiksEngine.leftLayerRotation()
+        rubiksEngine.leftLayerRotation()
+        rubiksEngine.leftLayerRotation()
+        update()
+    }
+    func update() {
+        rubiksView.frontFace = rubiksEngine.frontFace
+        rubiksView.topFace = rubiksEngine.topFace
+        rubiksView.rightFace = rubiksEngine.rightFace
+        rubiksView.setNeedsDisplay()
     }
 }
 

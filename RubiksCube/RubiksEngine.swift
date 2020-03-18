@@ -1,40 +1,26 @@
 import Foundation
 
 struct RubiksEngine {
-    var frontFace : [CubeColor] = [.red, .orange, .red,
-                                   .red, .orange, .red,
-                                   .red, .orange, .red]
-    var topFace : [CubeColor] = [.blue, .blue, .blue,
-                                 .blue, .green, .blue,
-                                 .blue, .blue, .blue]
+    var frontFace : [CubeColor] = [.orange, .orange, .orange,
+                                   .orange, .orange, .orange,
+                                   .orange, .orange, .orange]
+    var topFace : [CubeColor] = [.green, .green, .green,
+                                 .green, .green, .green,
+                                 .green, .green, .green]
     var rightFace : [CubeColor] = [.yellow, .yellow, .yellow,
                                    .yellow, .yellow, .yellow,
                                    .yellow, .yellow, .yellow]
-    var backFace : [CubeColor] = [.orange, .red, .orange,
-                                  .orange, .red, .orange,
-                                  .orange, .red, .orange]
-    let bottomFace : [CubeColor] = [.green, .green, .green,
-                                    .green, .blue, .green,
-                                    .green, .green, .green]
+    var backFace : [CubeColor] = [.red, .red, .red,
+                                  .red, .red, .red,
+                                  .red, .red, .red]
+    var bottomFace : [CubeColor] = [.blue, .blue, .blue,
+                                    .blue, .blue, .blue,
+                                    .blue, .blue, .blue]
     var leftFace : [CubeColor] = [.white, .white, .white,
                                   .white, .white, .white,
                                   .white, .white, .white]
-    
-    // top: rotate the top layer clockwise
-    // topPrime   T, T'
-    // topFace[2] = topFace[0]
-    
     mutating func topLayerRotation() {
-        let tFTwo = topFace[2]
-        topFace[2] = topFace[0]
-        topFace[0] = topFace[6]
-        topFace[6] = topFace[8]
-        topFace[8] = tFTwo
-        let tFFive = topFace[5]
-        topFace[5] = topFace[1]
-        topFace[1] = topFace[3]
-        topFace[3] = topFace[7]
-        topFace[7] = tFFive
+        topFace = rotateFace(face: topFace)
         let rFTwo = rightFace[2]
         rightFace[2] = backFace[2]
         backFace[2] = leftFace[2]
@@ -52,32 +38,42 @@ struct RubiksEngine {
         frontFace[0] = rFZero
     }
     
-    mutating func topLayerRotationPrime() {
+    mutating func leftLayerRotation() {
+        leftFace = rotateFace(face: leftFace)
+        // ba0, t2, f2, bo2
+        let tFZero = topFace[0]
+        topFace[0] = backFace[8] // *
+        backFace[8] = bottomFace[0]
+        bottomFace[0] = frontFace[0]
+        frontFace[0] = tFZero
+        let tFThree = topFace[3]
+        topFace[3] = backFace[5] // *
+        backFace[5] = bottomFace[3]
+        bottomFace[3] = frontFace[3]
+        frontFace[3] = tFThree
         let tFSix = topFace[6]
-        topFace[6] = topFace[0]
-        topFace[0] = topFace[2]
-        topFace[2] = topFace[8]
-        topFace[8] = tFSix
-        let tfThree = topFace[3]
-        topFace[3] = topFace[1]
-        topFace[1] = topFace[5]
-        topFace[5] = topFace[7]
-        topFace[7] = tfThree
-        let lFTwo = leftFace[2]
-        leftFace[2] = backFace[2]
-        backFace[2] = rightFace[2]
-        rightFace[2] = frontFace[2]
-        frontFace[2] = lFTwo
-        let lFOne = leftFace[1]
-        leftFace[1] = backFace[1]
-        backFace[1] = rightFace[1]
-        rightFace[1] = frontFace[1]
-        frontFace[1] = lFOne
-        let lFZero = leftFace[0]
-        leftFace[0] = backFace[0]
-        backFace[0] = rightFace[0]
-        rightFace[0] = frontFace[0]
-        frontFace[0] = lFZero
+        topFace[6] = backFace[2] // *
+        backFace[2] = bottomFace[6]
+        bottomFace[6] = frontFace[6]
+        frontFace[6] = tFSix
     }
+ 
+    func rotateFace(face: [CubeColor]) -> [CubeColor] {
+           var newFace = face
+           
+           let lFTwo = newFace[2]
+           newFace[2] = newFace[0]
+           newFace[0] = newFace[6]
+           newFace[6] = newFace[8]
+           newFace[8] = lFTwo
+           let lFFive = newFace[5]
+           newFace[5] = newFace[1]
+           newFace[1] = newFace[3]
+           newFace[3] = newFace[7]
+           newFace[7] = lFFive
+           
+           return newFace
+           
+       }
     
 }

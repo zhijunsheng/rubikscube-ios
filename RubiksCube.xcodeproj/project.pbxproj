@@ -104,9 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				8298DEA721BFD8CC005A95FF /* RubiksCubeTests.swift */,
-				82BE25762273E4B600DF9B3F /* PrimeTests.swift */,
 				8298DEA921BFD8CC005A95FF /* Info.plist */,
 				8238C115226609CA00D6D4FF /* ReversalTests.swift */,
+				82BE25762273E4B600DF9B3F /* PrimeTests.swift */,
 			);
 			path = RubiksCubeTests;
 			sourceTree = "<group>";
