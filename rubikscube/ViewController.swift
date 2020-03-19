@@ -85,8 +85,8 @@ class ViewController: UIViewController, CubeDelegate{
         updateShadow()
     }
     
-    @IBAction func turnCounter(_ sender: Any) {
-        realCube.turnCounterCW()
+    @IBAction func resetCube(_ sender: Any) {
+        realCube.resetCube()
         updateShadow()
     }
     

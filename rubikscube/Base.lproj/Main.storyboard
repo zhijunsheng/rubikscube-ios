@@ -40,11 +40,11 @@
                                 <rect key="frame" x="163" y="865" width="125" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Turn counter">
+                                <state key="normal" title="Reset">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="turnCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bf-b5-3b0"/>
+                                    <action selector="resetCube:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bf-b5-3b0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKK-Cw-rFA">

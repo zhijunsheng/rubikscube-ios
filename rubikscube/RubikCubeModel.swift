@@ -132,6 +132,17 @@ struct RubikCubeModel { // 630
         frontFace = rotatePrime(face: frontFace)
     }
     
+    mutating func resetCube() {
+        for i in 0..<9 {
+            frontFace[i] = .white
+            rightFace[i] = .red
+            topFace[i] = .blue
+            leftFace[i] = .orange
+            bottomFace[i] = .green
+            backFace[i] = .yellow
+        }
+    }
+    
     mutating func rotatePrime(face: [RubikCubeColor]) -> [RubikCubeColor]{
         var rotatingFace: [RubikCubeColor] = face
         let saveFace0 = face[0]
