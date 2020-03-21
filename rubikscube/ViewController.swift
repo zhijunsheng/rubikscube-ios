@@ -31,6 +31,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func rotateTopCounterclockwise(_ sender: Any) {
+        brain.rotateTop()
+        brain.rotateTop()
+        brain.rotateTop()
+        update()
     }
     
     func update() {

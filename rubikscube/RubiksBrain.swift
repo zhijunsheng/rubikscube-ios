@@ -2,9 +2,9 @@ import Foundation
 
 struct RubiksBrain {
     
-    var frontFace: [CubeColor] = [.blue, .orange, .green, .green, .green, .green, .green, .green, .green]
+    var frontFace: [CubeColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
     var rightFace: [CubeColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
-    var topFace: [CubeColor] = [.white, .blue, .red, .red, .yellow, .green, .red, .red, .red]
+    var topFace: [CubeColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
     var backFace: [CubeColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     var leftFace: [CubeColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
     var bottomface: [CubeColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
@@ -36,6 +36,26 @@ struct RubiksBrain {
     
     mutating func rotateTop() {
         topFace = rotateFace(face: topFace)
+        
+        let frontFace0 = frontFace[0]
+        let frontFace1 = frontFace[1]
+        let frontFace2 = frontFace[2]
+        
+        frontFace[0] = rightFace[0]
+        frontFace[1] = rightFace[1]
+        frontFace[2] = rightFace[2]
+        
+        rightFace[0] = backFace[0]
+        rightFace[1] = backFace[1]
+        rightFace[2] = backFace[2]
+        
+        backFace[0] = leftFace[0]
+        backFace[1] = leftFace[1]
+        backFace[2] = leftFace[2]
+        
+        leftFace[0] = frontFace0
+        leftFace[1] = frontFace1
+        leftFace[2] = frontFace2
     }
     
     func rotateFace(face: [CubeColor]) -> [CubeColor] {
