@@ -1,9 +1,9 @@
 import Foundation
 
 struct RubiksEngine {
-    var frontFace : [CubeColor] = [.orange, .orange, .orange,
+    var frontFace : [CubeColor] = [.blue, .orange, .orange,
                                    .orange, .orange, .orange,
-                                   .orange, .orange, .orange]
+                                   .orange, .orange, .white]
     var topFace : [CubeColor] = [.green, .green, .green,
                                  .green, .green, .green,
                                  .green, .green, .green]
@@ -40,25 +40,40 @@ struct RubiksEngine {
     
     mutating func leftLayerRotation() {
         leftFace = rotateFace(face: leftFace)
-        // ba0, t2, f2, bo2
         let tFZero = topFace[0]
-        topFace[0] = backFace[8] // *
+        topFace[0] = backFace[8]
         backFace[8] = bottomFace[0]
         bottomFace[0] = frontFace[0]
         frontFace[0] = tFZero
         let tFThree = topFace[3]
-        topFace[3] = backFace[5] // *
+        topFace[3] = backFace[5]
         backFace[5] = bottomFace[3]
         bottomFace[3] = frontFace[3]
         frontFace[3] = tFThree
         let tFSix = topFace[6]
-        topFace[6] = backFace[2] // *
+        topFace[6] = backFace[2]
         backFace[2] = bottomFace[6]
         bottomFace[6] = frontFace[6]
         frontFace[6] = tFSix
     }
     
     mutating func frontLayerRotation() {
+        frontFace = rotateFace(face: frontFace)
+        let rFZero = rightFace[0]
+        rightFace[0] = topFace[6]
+        topFace[6] = leftFace[8]
+        leftFace[8] = bottomFace[2]
+        bottomFace[2] = rFZero
+        let rFThree = rightFace[3]
+        rightFace[3] = topFace[7]
+        topFace[7] = leftFace[5]
+        leftFace[5] = bottomFace[1]
+        bottomFace[1] = rFThree
+        let rFSix = rightFace[6]
+        rightFace[6] = topFace[8]
+        topFace[8] = leftFace[2]
+        leftFace[2] = bottomFace[0]
+        bottomFace[0] = rFSix
     }
  
     func rotateFace(face: [CubeColor]) -> [CubeColor] {
