@@ -14,7 +14,7 @@ struct RubikCubeModel { // 630
     var topFace: [RubikCubeColor] = [.red, .green, .green, .green, .green, .green, .green, .green, .green]
     var backFace: [RubikCubeColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .white]
     var leftFace: [RubikCubeColor] = [.green, .white, .yellow, .red, .green, .green, .green, .green, .green]
-    var bottomFace: [RubikCubeColor] = [.orange, .green, .green, .green, .green, .green, .green, .green, .green]
+    var downFace: [RubikCubeColor] = [.orange, .green, .green, .green, .green, .green, .green, .green, .green]
     
     
     mutating func leftPrime() {
@@ -23,16 +23,16 @@ struct RubikCubeModel { // 630
         let saveTop6 = topFace[6]
 
         topFace[0] = frontFace[0]
-        frontFace[0] = bottomFace[0]
-        bottomFace[0] = backFace[8]
+        frontFace[0] = downFace[0]
+        downFace[0] = backFace[8]
         backFace[8] = saveTop0
         topFace[3] = frontFace[3]
-        frontFace[3] = bottomFace[3]
-        bottomFace[3] = backFace[5]
+        frontFace[3] = downFace[3]
+        downFace[3] = backFace[5]
         backFace[5] = saveTop3
         topFace[6] = frontFace[6]
-        frontFace[6] = bottomFace[6]
-        bottomFace[6] = backFace[2]
+        frontFace[6] = downFace[6]
+        downFace[6] = backFace[2]
         backFace[2] = saveTop6
         
         leftFace = rotatePrime(face: leftFace)
@@ -64,14 +64,14 @@ struct RubikCubeModel { // 630
         backFace = saveRightFace
         
         topFace = rotatePrime(face: topFace)
-        bottomFace = rotatePrime(face: bottomFace)
-        bottomFace = rotatePrime(face: bottomFace)
-        bottomFace = rotatePrime(face: bottomFace)
+        downFace = rotatePrime(face: downFace)
+        downFace = rotatePrime(face: downFace)
+        downFace = rotatePrime(face: downFace)
     }
     mutating func turnUp() {
         let saveFrontFace = frontFace
-        frontFace = bottomFace
-        bottomFace = backFace
+        frontFace = downFace
+        downFace = backFace
         backFace = topFace
         topFace = saveFrontFace
         
@@ -88,16 +88,16 @@ struct RubikCubeModel { // 630
 
         frontFace[2] = topFace[2]
         topFace[2] = backFace[6]
-        backFace[6] = bottomFace[2]
-        bottomFace[2] = savefront2
+        backFace[6] = downFace[2]
+        downFace[2] = savefront2
         frontFace[5] = topFace[5]
         topFace[5] = backFace[3]
-        backFace[3] = bottomFace[5]
-        bottomFace[5] = savefront5
+        backFace[3] = downFace[5]
+        downFace[5] = savefront5
         frontFace[8] = topFace[8]
         topFace[8] = backFace[0]
-        backFace[0] = bottomFace[8]
-        bottomFace[8] = savefront8
+        backFace[0] = downFace[8]
+        downFace[8] = savefront8
         
         rightFace = rotatePrime(face: rightFace)
     }
@@ -114,18 +114,18 @@ struct RubikCubeModel { // 630
         let savetop8 = topFace[8]
 
         topFace[6] = rightFace[0]
-        rightFace[0] = bottomFace[2]
-        bottomFace[2] = leftFace[8]
+        rightFace[0] = downFace[2]
+        downFace[2] = leftFace[8]
         leftFace[8] = savetop6
         
         topFace[7] = rightFace[3]
-        rightFace[3] = bottomFace[1]
-        bottomFace[1] = leftFace[5]
+        rightFace[3] = downFace[1]
+        downFace[1] = leftFace[5]
         leftFace[5] = savetop7
         
         topFace[8] = rightFace[6]
-        rightFace[6] = bottomFace[0]
-        bottomFace[0] = leftFace[2]
+        rightFace[6] = downFace[0]
+        downFace[0] = leftFace[2]
         leftFace[2] = savetop8
 
         
@@ -138,10 +138,15 @@ struct RubikCubeModel { // 630
             rightFace[i] = .red
             topFace[i] = .blue
             leftFace[i] = .orange
-            bottomFace[i] = .green
+            downFace[i] = .green
             backFace[i] = .yellow
         }
     }
+    
+    func downTurn() {
+//        rotatePrime(face: bottomFace)
+    }
+    
     
     mutating func rotatePrime(face: [RubikCubeColor]) -> [RubikCubeColor]{
         var rotatingFace: [RubikCubeColor] = face
