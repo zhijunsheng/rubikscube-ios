@@ -58,6 +58,12 @@ struct RubiksBrain {
         leftFace[2] = frontFace2
     }
     
+    mutating func rotateRight() {
+        rightFace = rotateFace(face: rightFace)
+        
+        
+    }
+    
     func rotateFace(face: [CubeColor]) -> [CubeColor] {
         var newFace = face
         
@@ -76,6 +82,8 @@ struct RubiksBrain {
         
         return newFace
     }
+    
+    
     
     
     
