@@ -61,7 +61,25 @@ struct RubiksBrain {
     mutating func rotateRight() {
         rightFace = rotateFace(face: rightFace)
         
+        let bottomFace0 = bottomface[0]
+        let bottomFace3 = bottomface[3]
+        let bottomFace6 = bottomface[6]
         
+        bottomface[0] = backFace[0]
+        bottomface[3] = backFace[3]
+        bottomface[6] = backFace[6]
+        
+        backFace[0] = topFace[2]
+        backFace[3] = topFace[5]
+        backFace[6] = topFace[8]
+        
+        topFace[2] = frontFace[2]
+        topFace[5] = frontFace[5]
+        topFace[8] = frontFace[8]
+        
+        frontFace[2] = bottomFace6
+        frontFace[5] = bottomFace3
+        frontFace[8] = bottomFace0
     }
     
     func rotateFace(face: [CubeColor]) -> [CubeColor] {

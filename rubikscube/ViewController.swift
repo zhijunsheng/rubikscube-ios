@@ -42,6 +42,12 @@ class ViewController: UIViewController {
         update()
     }
     
+    @IBAction func rotateRightCounterclockwise(_ sender: Any) {
+        brain.rotateRight()
+        brain.rotateRight()
+        brain.rotateRight()
+        update()
+    }
     
     func update() {
         boardView.frontFace = brain.frontFace
