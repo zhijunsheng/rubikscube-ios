@@ -77,6 +77,24 @@
                                     <action selector="rotateRightCounterclockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7HZ-rk-1RB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Z-cd-ki3">
+                                <rect key="frame" x="423" y="736" width="126" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="80"/>
+                                <state key="normal" title="L"/>
+                                <connections>
+                                    <action selector="rotateLeftClockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sFj-cZ-NVO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwp-SU-eJz">
+                                <rect key="frame" x="423" y="870" width="126" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="80"/>
+                                <state key="normal" title="L'"/>
+                                <connections>
+                                    <action selector="rotateLeftCounterclockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P6j-nA-VkX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

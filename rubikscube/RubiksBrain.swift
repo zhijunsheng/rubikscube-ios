@@ -7,7 +7,7 @@ struct RubiksBrain {
     var topFace: [CubeColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
     var backFace: [CubeColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     var leftFace: [CubeColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
-    var bottomface: [CubeColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
+    var bottomFace: [CubeColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
     
     mutating func rotateFront() {
         frontFace = rotateFace(face: frontFace)
@@ -25,13 +25,13 @@ struct RubiksBrain {
         topFace[7] = leftFace[5]
         topFace[8] = leftFace[2]
         
-        leftFace[2] = bottomface[0]
-        leftFace[5] = bottomface[1]
-        leftFace[8] = bottomface[2]
+        leftFace[2] = bottomFace[0]
+        leftFace[5] = bottomFace[1]
+        leftFace[8] = bottomFace[2]
         
-        bottomface[0] = rightFace6
-        bottomface[1] = rightFace3
-        bottomface[2] = rightFace0
+        bottomFace[0] = rightFace6
+        bottomFace[1] = rightFace3
+        bottomFace[2] = rightFace0
     }
     
     mutating func rotateTop() {
@@ -61,13 +61,13 @@ struct RubiksBrain {
     mutating func rotateRight() {
         rightFace = rotateFace(face: rightFace)
         
-        let bottomFace0 = bottomface[0]
-        let bottomFace3 = bottomface[3]
-        let bottomFace6 = bottomface[6]
+        let bottomFace2 = bottomFace[2]
+        let bottomFace5 = bottomFace[5]
+        let bottomFace8 = bottomFace[8]
         
-        bottomface[0] = backFace[0]
-        bottomface[3] = backFace[3]
-        bottomface[6] = backFace[6]
+        bottomFace[2] = backFace[0]
+        bottomFace[5] = backFace[3]
+        bottomFace[8] = backFace[6]
         
         backFace[0] = topFace[2]
         backFace[3] = topFace[5]
@@ -77,9 +77,34 @@ struct RubiksBrain {
         topFace[5] = frontFace[5]
         topFace[8] = frontFace[8]
         
-        frontFace[2] = bottomFace6
-        frontFace[5] = bottomFace3
-        frontFace[8] = bottomFace0
+        frontFace[2] = bottomFace2
+        frontFace[5] = bottomFace5
+        frontFace[8] = bottomFace8
+    }
+    
+    mutating func rotateLeft() {
+        leftFace = rotateFace(face: leftFace)
+        let frontFace0 = frontFace[0]
+        let frontFace3 = frontFace[3]
+        let frontFace6 = frontFace[6]
+        
+        frontFace[0] = topFace[0]
+        frontFace[3] = topFace[3]
+        frontFace[6] = topFace[6]
+        
+        topFace[0] = backFace[2]
+        topFace[3] = backFace[5]
+        topFace[6] = backFace[8]
+        
+        backFace[2] = bottomFace[6]
+        backFace[5] = bottomFace[3]
+        backFace[8] = bottomFace[0]
+        
+       bottomFace[0] = frontFace0
+       bottomFace[3] = frontFace3
+       bottomFace[6] = frontFace6
+        
+        
     }
     
     func rotateFace(face: [CubeColor]) -> [CubeColor] {
