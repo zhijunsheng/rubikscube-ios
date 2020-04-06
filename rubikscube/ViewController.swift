@@ -46,6 +46,18 @@ class ViewController: UIViewController, CubeDelegate{
             realCube.facePrime()
             realCube.facePrime()
             realCube.facePrime()
+        case .downTurn:
+            realCube.downTurn()
+        case .downPrime:
+            realCube.downTurn()
+            realCube.downTurn()
+            realCube.downTurn()
+        case .topTurn:
+            realCube.topTurn()
+        case .topPrime:
+            realCube.topTurn()
+            realCube.topTurn()
+            realCube.topTurn()
         }
         updateShadow()
     }
@@ -76,8 +88,22 @@ class ViewController: UIViewController, CubeDelegate{
             return .rightPrime
         } else if fromCol == 2 && fromRow == 2 && toCol == 2 && toRow == 0 ||
                   fromCol == 2 && fromRow == 1 && toCol == 2 && toRow == 0{
-            return.rightTurn
+            return .rightTurn
+        } else if fromCol == 0 && fromRow == 2 && toCol == 2 && toRow == 2 ||
+                  fromCol == 0 && fromRow == 2 && toCol == 1 && toRow == 2 ||
+                  fromCol == 1 && fromRow == 2 && toCol == 2 && toRow == 2 {
+            return .downTurn
+        } else if fromCol == 2 && fromRow == 2 && toCol == 0 && toRow == 2 ||
+                  fromCol == 2 && fromRow == 2 && toCol == 1 && toRow == 2 {
+            return .downPrime
+        } else if fromCol == 2 && fromRow == 0 && toCol == 0 && toRow == 0 ||
+                  fromCol == 2 && fromRow == 0 && toCol == 1 && toRow == 0 {
+            return .topTurn
+        } else if fromCol == 0 && fromRow == 0 && toCol == 2 && toRow == 0 ||
+                  fromCol == 0 && fromRow == 0 && toCol == 1 && toRow == 0 {
+            return .topPrime
         }
+            
         return nil
     }
     

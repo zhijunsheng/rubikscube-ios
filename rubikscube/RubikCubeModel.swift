@@ -71,10 +71,16 @@ struct RubikCubeModel { // 630
     mutating func turnUp() {
         let saveFrontFace = frontFace
         frontFace = downFace
-        downFace = backFace
-        backFace = topFace
+
+        for i in 0...8 {
+            downFace[i] = backFace[8 - i]
+            backFace[8 - i] = topFace[i]
+        }
+//        downFace[5] = backFace[3]
+//        backFace[8] = topFace[0]
+//
         topFace = saveFrontFace
-        
+//
         rightFace = rotatePrime(face: rightFace)
         rightFace = rotatePrime(face: rightFace)
         rightFace = rotatePrime(face: rightFace)
@@ -143,10 +149,55 @@ struct RubikCubeModel { // 630
         }
     }
     
-    func downTurn() {
-//        rotatePrime(face: bottomFace)
+    mutating func downTurn() {
+        let saveFront6 = frontFace[6]
+        let saveFront7 = frontFace[7]
+        let saveFront8 = frontFace[8]
+
+        downFace = rotatePrime(face: downFace)
+        downFace = rotatePrime(face: downFace)
+        downFace = rotatePrime(face: downFace)
+
+        frontFace[6] = leftFace[6]
+        leftFace[6] = backFace[6]
+        backFace[6] = rightFace[6]
+        rightFace[6] = saveFront6
+        
+        frontFace[7] = leftFace[7]
+        leftFace[7] = backFace[7]
+        backFace[7] = rightFace[7]
+        rightFace[7] = saveFront7
+        
+        frontFace[8] = leftFace[8]
+        leftFace[8] = backFace[8]
+        backFace[8] = rightFace[8]
+        rightFace[8] = saveFront8
     }
     
+    mutating func topTurn() {
+        topFace = rotatePrime(face: topFace)
+        topFace = rotatePrime(face: topFace)
+        topFace = rotatePrime(face: topFace)
+        let saveFront0 = frontFace[0]
+        let saveFront1 = frontFace[1]
+        let saveFront2 = frontFace[2]
+
+        frontFace[0] = rightFace[0]
+        rightFace[0] = backFace[0]
+        backFace[0] = leftFace[0]
+        leftFace[0] = saveFront0
+        
+        frontFace[1] = rightFace[1]
+        rightFace[1] = backFace[1]
+        backFace[1] = leftFace[1]
+        leftFace[1] = saveFront1
+        
+        frontFace[2] = rightFace[2]
+        rightFace[2] = backFace[2]
+        backFace[2] = leftFace[2]
+        leftFace[2] = saveFront2
+        
+    }
     
     mutating func rotatePrime(face: [RubikCubeColor]) -> [RubikCubeColor]{
         var rotatingFace: [RubikCubeColor] = face

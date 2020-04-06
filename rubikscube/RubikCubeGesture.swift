@@ -17,6 +17,10 @@ enum RubikCubeGesture {
     case leftTurn
     case rightPrime
     case rightTurn
+    case downTurn
+    case downPrime
+    case topTurn
+    case topPrime
 }
 
 
