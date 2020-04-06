@@ -157,9 +157,7 @@ class CubeTests: XCTestCase {
         rubikCube.turnUp()
         rubikCube.turnUp()
         
-        
         XCTAssertEqual(.red, rubikCube.downFace[5])
         XCTAssertEqual(.green, rubikCube.frontFace[5])
-
     }
 }

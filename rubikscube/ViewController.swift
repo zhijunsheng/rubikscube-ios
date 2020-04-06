@@ -157,6 +157,10 @@ class ViewController: UIViewController, CubeDelegate{
         updateShadow()
     }
     
+    @IBAction func shuffleCube(_ sender: Any) {
+        realCube.shuffleCube()
+        updateShadow()
+    }
     
 }
 

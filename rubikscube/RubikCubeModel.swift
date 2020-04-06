@@ -76,11 +76,8 @@ struct RubikCubeModel { // 630
             downFace[i] = backFace[8 - i]
             backFace[8 - i] = topFace[i]
         }
-//        downFace[5] = backFace[3]
-//        backFace[8] = topFace[0]
-//
+
         topFace = saveFrontFace
-//
         rightFace = rotatePrime(face: rightFace)
         rightFace = rotatePrime(face: rightFace)
         rightFace = rotatePrime(face: rightFace)
@@ -197,6 +194,40 @@ struct RubikCubeModel { // 630
         backFace[2] = leftFace[2]
         leftFace[2] = saveFront2
         
+    }
+    
+    mutating func shuffleCube() {
+        for _ in 0..<1000 {
+            let random = arc4random() % 10
+            
+            if random == 0 {
+                rightTurn()
+            } else if random == 1 {
+                rightPrime()
+            } else if random == 2 {
+                leftTurn()
+            } else if random == 3 {
+                leftPrime()
+            } else if random == 4 {
+                downTurn()
+            } else if random == 5 {
+                downTurn()
+                downTurn()
+                downTurn()
+            } else if random == 6 {
+                topTurn()
+            } else if random == 7 {
+                topTurn()
+                topTurn()
+                topTurn()
+            } else if random == 8 {
+                facePrime()
+            } else if random == 9 {
+                facePrime()
+                facePrime()
+                facePrime()
+            }
+        }
     }
     
     mutating func rotatePrime(face: [RubikCubeColor]) -> [RubikCubeColor]{
