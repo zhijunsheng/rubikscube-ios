@@ -58,6 +58,12 @@ class ViewController: UIViewController, CubeDelegate{
             realCube.topTurn()
             realCube.topTurn()
             realCube.topTurn()
+        case .turnUp:
+            realCube.turnUp()
+        case .turnDown:
+            realCube.turnUp()
+            realCube.turnUp()
+            realCube.turnUp()
         }
         updateShadow()
     }
@@ -102,7 +108,14 @@ class ViewController: UIViewController, CubeDelegate{
         } else if fromCol == 0 && fromRow == 0 && toCol == 2 && toRow == 0 ||
                   fromCol == 0 && fromRow == 0 && toCol == 1 && toRow == 0 {
             return .topPrime
+        } else if fromCol == 1 && fromRow == 2 && toCol == 1 && toRow == 0 ||
+                  fromCol == 1 && fromRow == 1 && toCol == 1 && toRow == 0 {
+            return .turnUp
+        } else if fromCol == 1 && fromRow == 0 && toCol == 1 && toRow == 1 ||
+                  fromCol == 1 && fromRow == 0 && toCol == 1 && toRow == 2 {
+            return .turnDown
         }
+        
             
         return nil
     }
@@ -159,6 +172,36 @@ class ViewController: UIViewController, CubeDelegate{
     
     @IBAction func shuffleCube(_ sender: Any) {
         realCube.shuffleCube()
+        updateShadow()
+    }
+    
+    @IBAction func rightA(_ sender: Any) {
+        realCube.rightTurn()
+        realCube.topTurn()
+        realCube.rightPrime()
+        realCube.topTurn()
+        realCube.topTurn()
+        realCube.topTurn()
+        updateShadow()
+    }
+    
+    @IBAction func leftA(_ sender: Any) {
+        realCube.leftPrime()
+        realCube.topTurn()
+        realCube.topTurn()
+        realCube.topTurn()
+        realCube.leftTurn()
+        realCube.topTurn()
+        updateShadow()
+    }
+    
+    @IBAction func cornerA(_ sender: Any) {
+        realCube.topTurn()
+        realCube.rightPrime()
+        realCube.topTurn()
+        realCube.topTurn()
+        realCube.topTurn()
+        realCube.rightTurn()
         updateShadow()
     }
     

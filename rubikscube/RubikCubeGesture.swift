@@ -21,6 +21,8 @@ enum RubikCubeGesture {
     case downPrime
     case topTurn
     case topPrime
+    case turnUp
+    case turnDown
 }
 
 
