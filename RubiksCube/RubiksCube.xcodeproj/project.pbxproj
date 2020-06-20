@@ -20,6 +20,7 @@
 		072D83F3248C21CB00B83095 /* CubeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F2248C21CB00B83095 /* CubeColor.swift */; };
 		072D83F5248E55CA00B83095 /* RubiksCubeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */; };
 		072D83F7248E587100B83095 /* RubiksCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F6248E587100B83095 /* RubiksCube.swift */; };
+		073496E5249E999500C3AAB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 073496E4249E999500C3AAB0 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		072D83F2248C21CB00B83095 /* CubeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeColor.swift; sourceTree = "<group>"; };
 		072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeDelegate.swift; sourceTree = "<group>"; };
 		072D83F6248E587100B83095 /* RubiksCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCube.swift; sourceTree = "<group>"; };
+		073496E4249E999500C3AAB0 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				072D83D9248C18A300B83095 /* LaunchScreen.storyboard */,
 				072D83DC248C18A300B83095 /* Info.plist */,
 				0728498024930D8900B7AEBC /* CubeGesture.swift */,
+				073496E4249E999500C3AAB0 /* InfoPlist.strings */,
 			);
 			path = RubiksCube;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				0728497D2492903800B7AEBC /* drop.wav in Resources */,
 				072D83D8248C18A300B83095 /* Assets.xcassets in Resources */,
 				072D83D6248C18A200B83095 /* Main.storyboard in Resources */,
+				073496E5249E999500C3AAB0 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
