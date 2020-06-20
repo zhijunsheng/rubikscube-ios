@@ -10,7 +10,6 @@
 		0728497D2492903800B7AEBC /* drop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0728497C2492903800B7AEBC /* drop.wav */; };
 		0728498124930D8900B7AEBC /* CubeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728498024930D8900B7AEBC /* CubeGesture.swift */; };
 		072D83CF248C18A200B83095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83CE248C18A200B83095 /* AppDelegate.swift */; };
-		072D83D1248C18A200B83095 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83D0248C18A200B83095 /* SceneDelegate.swift */; };
 		072D83D3248C18A200B83095 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83D2248C18A200B83095 /* ViewController.swift */; };
 		072D83D6248C18A200B83095 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 072D83D4248C18A200B83095 /* Main.storyboard */; };
 		072D83D8248C18A300B83095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 072D83D7248C18A300B83095 /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 		0728498024930D8900B7AEBC /* CubeGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeGesture.swift; sourceTree = "<group>"; };
 		072D83CB248C18A200B83095 /* RubiksCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubiksCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		072D83CE248C18A200B83095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		072D83D0248C18A200B83095 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		072D83D2248C18A200B83095 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		072D83D5248C18A200B83095 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		072D83D7248C18A300B83095 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				072D83CE248C18A200B83095 /* AppDelegate.swift */,
-				072D83D0248C18A200B83095 /* SceneDelegate.swift */,
 				072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */,
 				072D83F6248E587100B83095 /* RubiksCube.swift */,
 				072D83F0248C18C900B83095 /* CanvasView.swift */,
@@ -230,7 +227,6 @@
 				072D83CF248C18A200B83095 /* AppDelegate.swift in Sources */,
 				072D83F5248E55CA00B83095 /* RubiksCubeDelegate.swift in Sources */,
 				072D83F1248C18C900B83095 /* CanvasView.swift in Sources */,
-				072D83D1248C18A200B83095 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -376,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
