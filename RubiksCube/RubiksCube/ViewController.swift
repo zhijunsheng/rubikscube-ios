@@ -49,6 +49,41 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         audioPlayer.play()
     }
     
+    @IBAction func handleSecondLayer(_ sender: Any) {
+        rubiksCube.handleSecondLayer()
+        updateShadow()
+        canvasView.setNeedsDisplay()
+        audioPlayer.play()
+    }
+    
+    @IBAction func handleTopFaceCross(_ sender: Any) {
+        rubiksCube.handleTopFaceCross()
+        updateShadow()
+        canvasView.setNeedsDisplay()
+        audioPlayer.play()
+    }
+    
+    @IBAction func handleTopLayerCross(_ sender: Any) {
+        rubiksCube.handleTopLayerCross()
+        updateShadow()
+        canvasView.setNeedsDisplay()
+        audioPlayer.play()
+    }
+    
+    @IBAction func rotateThreeTopCorners(_ sender: Any) {
+        rubiksCube.rotateThreeTopCorners()
+        updateShadow()
+        canvasView.setNeedsDisplay()
+        audioPlayer.play()
+    }
+    
+    @IBAction func switchTopCornerColors(_ sender: Any) {
+        rubiksCube.switchTopCornerColors()
+        updateShadow()
+        canvasView.setNeedsDisplay()
+        audioPlayer.play()
+    }
+    
     func moveFinger(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
         if fromCol == toCol && fromRow == toRow ||
             fromCol < 0 || fromCol > 2 ||

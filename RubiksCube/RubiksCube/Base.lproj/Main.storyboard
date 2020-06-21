@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,19 +24,54 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiX-Ne-9hd">
-                                <rect key="frame" x="0.0" y="403" width="375" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="403" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LlW-jI-7Oh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbS-Kw-dWO">
-                                <rect key="frame" x="0.0" y="444" width="375" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="441" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Shuffle"/>
                                 <connections>
                                     <action selector="shuffle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VgZ-vx-RGD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-95-nNA">
+                                <rect key="frame" x="0.0" y="479" width="375" height="30"/>
+                                <state key="normal" title="R' D R D F D' F' (2nd layer)"/>
+                                <connections>
+                                    <action selector="handleSecondLayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qhR-Rw-MCX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWX-ZS-xng">
+                                <rect key="frame" x="0.0" y="517" width="375" height="30"/>
+                                <state key="normal" title="F U R U' R' F' (top face cross)"/>
+                                <connections>
+                                    <action selector="handleTopFaceCross:" destination="BYZ-38-t0r" eventType="touchUpInside" id="48K-jt-zby"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofp-h5-nTk">
+                                <rect key="frame" x="0.0" y="555" width="375" height="30"/>
+                                <state key="normal" title="R U R' U R U U R' (top layer cross)"/>
+                                <connections>
+                                    <action selector="handleTopLayerCross:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mSj-UZ-2d9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-5v-v4w">
+                                <rect key="frame" x="0.0" y="593" width="375" height="30"/>
+                                <state key="normal" title="L' U R U' L U R' (rotate 3 top corners)"/>
+                                <connections>
+                                    <action selector="rotateThreeTopCorners:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H97-NH-TwQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lW-XN-T9J">
+                                <rect key="frame" x="0.0" y="631" width="375" height="30"/>
+                                <state key="normal" title="R' D' R D (top corner colors)"/>
+                                <connections>
+                                    <action selector="switchTopCornerColors:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WlI-IP-kgK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -44,12 +80,27 @@
                             <constraint firstItem="sbS-Kw-dWO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0dH-hA-F7q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7VD-je-7xq" secondAttribute="trailing" id="2uF-AH-w2t"/>
                             <constraint firstItem="PiX-Ne-9hd" firstAttribute="top" secondItem="7VD-je-7xq" secondAttribute="bottom" constant="8" symbolic="YES" id="7AL-lM-7Jh"/>
+                            <constraint firstItem="ofp-h5-nTk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8ew-zP-u79"/>
+                            <constraint firstItem="KWX-ZS-xng" firstAttribute="top" secondItem="JUv-95-nNA" secondAttribute="bottom" constant="8" symbolic="YES" id="DiO-xU-FZm"/>
                             <constraint firstItem="sbS-Kw-dWO" firstAttribute="top" secondItem="PiX-Ne-9hd" secondAttribute="bottom" constant="8" id="Gec-QA-4Qg"/>
+                            <constraint firstItem="ecf-5v-v4w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HvM-et-rJ5"/>
+                            <constraint firstItem="9lW-XN-T9J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IMZ-6o-qU4"/>
+                            <constraint firstItem="9lW-XN-T9J" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="STJ-31-YZm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JUv-95-nNA" secondAttribute="trailing" id="U9a-LA-Ewn"/>
+                            <constraint firstItem="JUv-95-nNA" firstAttribute="top" secondItem="sbS-Kw-dWO" secondAttribute="bottom" constant="8" symbolic="YES" id="Uy0-0o-gWv"/>
+                            <constraint firstItem="KWX-ZS-xng" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VO1-kh-wKp"/>
+                            <constraint firstItem="KWX-ZS-xng" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xk8-fe-T6O"/>
                             <constraint firstItem="7VD-je-7xq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ajG-EN-FKd"/>
+                            <constraint firstItem="9lW-XN-T9J" firstAttribute="top" secondItem="ecf-5v-v4w" secondAttribute="bottom" constant="8" id="exc-q3-bMm"/>
                             <constraint firstItem="7VD-je-7xq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f6o-Lv-NTa"/>
+                            <constraint firstItem="ofp-h5-nTk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gy0-b1-bbQ"/>
+                            <constraint firstItem="ofp-h5-nTk" firstAttribute="top" secondItem="KWX-ZS-xng" secondAttribute="bottom" constant="8" id="iu6-Mt-q5G"/>
+                            <constraint firstItem="ecf-5v-v4w" firstAttribute="top" secondItem="ofp-h5-nTk" secondAttribute="bottom" constant="8" symbolic="YES" id="j8v-zn-GGF"/>
                             <constraint firstItem="PiX-Ne-9hd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mDH-2W-rME"/>
                             <constraint firstItem="PiX-Ne-9hd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nPv-dW-Eyo"/>
                             <constraint firstItem="sbS-Kw-dWO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qhi-lQ-qa8"/>
+                            <constraint firstItem="JUv-95-nNA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tY0-eB-Hsq"/>
+                            <constraint firstItem="ecf-5v-v4w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wMp-zG-409"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

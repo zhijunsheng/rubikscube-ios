@@ -71,24 +71,24 @@ struct RubiksCube {
             fromCol == 1 && fromRow == 0 && toCol == 2 && toRow == 0 {
             return .UPrime
         } else if fromCol == 2 && fromRow == 0 && toCol == 0 && toRow == 0 ||
-                fromCol == 2 && fromRow == 0 && toCol == 1 && toRow == 0 ||
-                fromCol == 1 && fromRow == 0 && toCol == 0 && toRow == 0 {
+            fromCol == 2 && fromRow == 0 && toCol == 1 && toRow == 0 ||
+            fromCol == 1 && fromRow == 0 && toCol == 0 && toRow == 0 {
             return .U
         } else if fromCol == 2 && fromRow == 0 && toCol == 2 && toRow == 2 ||
-                fromCol == 2 && fromRow == 0 && toCol == 2 && toRow == 1 ||
-                fromCol == 2 && fromRow == 1 && toCol == 2 && toRow == 2 {
+            fromCol == 2 && fromRow == 0 && toCol == 2 && toRow == 1 ||
+            fromCol == 2 && fromRow == 1 && toCol == 2 && toRow == 2 {
             return .RPrime
         } else if fromCol == 2 && fromRow == 2 && toCol == 2 && toRow == 0 ||
-                fromCol == 2 && fromRow == 2 && toCol == 2 && toRow == 1 ||
-                fromCol == 2 && fromRow == 1 && toCol == 2 && toRow == 0 {
+            fromCol == 2 && fromRow == 2 && toCol == 2 && toRow == 1 ||
+            fromCol == 2 && fromRow == 1 && toCol == 2 && toRow == 0 {
             return .R
         } else if fromCol == 0 && fromRow == 2 && toCol == 0 && toRow == 0 ||
-                fromCol == 0 && fromRow == 2 && toCol == 0 && toRow == 1 ||
-                fromCol == 0 && fromRow == 1 && toCol == 0 && toRow == 0 {
+            fromCol == 0 && fromRow == 2 && toCol == 0 && toRow == 1 ||
+            fromCol == 0 && fromRow == 1 && toCol == 0 && toRow == 0 {
             return .LPrime
         } else if fromCol == 0 && fromRow == 0 && toCol == 0 && toRow == 2 ||
-                fromCol == 0 && fromRow == 0 && toCol == 0 && toRow == 1 ||
-                fromCol == 0 && fromRow == 1 && toCol == 0 && toRow == 2 {
+            fromCol == 0 && fromRow == 0 && toCol == 0 && toRow == 1 ||
+            fromCol == 0 && fromRow == 1 && toCol == 0 && toRow == 2 {
             return .L
         } else if fromCol == 2 && fromRow == 2 && toCol == 0 && toRow == 2 ||
             fromCol == 2 && fromRow == 2 && toCol == 1 && toRow == 2 ||
@@ -294,41 +294,97 @@ struct RubiksCube {
     }
     
     mutating func rotateD2U() {
-           leftFace = rotateFaceCCW(face: leftFace)
-           rightFace = rotateFaceCCW(face: rightFace)
-           rightFace = rotateFaceCCW(face: rightFace)
-           rightFace = rotateFaceCCW(face: rightFace)
-           
-           let originalFrontFace = frontFace
-           frontFace = bottomFace
-           bottomFace = backFace
-           backFace = topFace
-           topFace = originalFrontFace
-       }
-       
-       mutating func rotateU2D() {
-           rotateD2U()
-           rotateD2U()
-           rotateD2U()
-       }
-       
-       mutating func rotateL2R() {
-           topFace = rotateFaceCCW(face: topFace)
-           
-           bottomFace = rotateFaceCCW(face: bottomFace)
-           bottomFace = rotateFaceCCW(face: bottomFace)
-           bottomFace = rotateFaceCCW(face: bottomFace)
-           
-           let originalFrontFace = frontFace
-           frontFace = leftFace
-           leftFace = backFace
-           backFace = rightFace
-           rightFace = originalFrontFace
-       }
-       
-       mutating func rotateR2L() {
-           rotateL2R()
-           rotateL2R()
-           rotateL2R()
-       }
+        leftFace = rotateFaceCCW(face: leftFace)
+        rightFace = rotateFaceCCW(face: rightFace)
+        rightFace = rotateFaceCCW(face: rightFace)
+        rightFace = rotateFaceCCW(face: rightFace)
+        
+        let originalFrontFace = frontFace
+        frontFace = bottomFace
+        bottomFace = backFace
+        backFace = topFace
+        topFace = originalFrontFace
+    }
+    
+    mutating func rotateU2D() {
+        rotateD2U()
+        rotateD2U()
+        rotateD2U()
+    }
+    
+    mutating func rotateL2R() {
+        topFace = rotateFaceCCW(face: topFace)
+        
+        bottomFace = rotateFaceCCW(face: bottomFace)
+        bottomFace = rotateFaceCCW(face: bottomFace)
+        bottomFace = rotateFaceCCW(face: bottomFace)
+        
+        let originalFrontFace = frontFace
+        frontFace = leftFace
+        leftFace = backFace
+        backFace = rightFace
+        rightFace = originalFrontFace
+    }
+    
+    mutating func rotateR2L() {
+        rotateL2R()
+        rotateL2R()
+        rotateL2R()
+    }
+    
+    /*
+     
+     R' D R D F D' F' (2nd layer)
+     F U R U' R' F' (top face cross)
+     R U R' U R U U R' (top layer cross)
+     L' U R U' L U R' (rotate 3 top corners)
+     R' D' R D (top corner color)
+     
+     */
+    mutating func handleSecondLayer() { // R' D R D F D' F' (2nd layer)
+        rotateRPrime()  // R'
+        rotateD()       // D
+        rotateR()       // R
+        rotateD()       // D
+        rotateF()       // F
+        rotateDPrime()  // D'
+        rotateFPrime()  // F'
+    }
+    
+    mutating func handleTopFaceCross() { // F U R U' R' F' (top face cross)
+        rotateF()       // F
+        rotateU()       // U
+        rotateR()       // R
+        rotateUPrime()  // U'
+        rotateRPrime()  // R'
+        rotateFPrime()  // F'
+    }
+    
+    mutating func handleTopLayerCross() { // R U R' U R U U R' (top layer cross)
+        rotateR()       // R
+        rotateU()       // U
+        rotateRPrime()  // R'
+        rotateU()       // U
+        rotateR()       // R
+        rotateU()       // U
+        rotateU()       // U
+        rotateRPrime()  // R'
+    }
+    
+    mutating func rotateThreeTopCorners() { // L' U R U' L U R' (rotate 3 top corners)
+        rotateLPrime()  // L'
+        rotateU()       // U
+        rotateR()       // R
+        rotateUPrime()  // U'
+        rotateL()       // L
+        rotateU()       // U
+        rotateRPrime()  // R'
+    }
+    
+    mutating func switchTopCornerColors() { // R' D' R D (top corner colors)
+        rotateRPrime()  // R'
+        rotateDPrime()  // D'
+        rotateR()       // R
+        rotateD()       // D 
+    }
 }
