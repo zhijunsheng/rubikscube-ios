@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CanvasView: UIView {
+class BoardView: UIView {
     var originX: CGFloat = -150
     var originY: CGFloat = -300
     var squareSide: CGFloat = -100

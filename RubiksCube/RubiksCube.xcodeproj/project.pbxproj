@@ -15,7 +15,7 @@
 		072D83D8248C18A300B83095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 072D83D7248C18A300B83095 /* Assets.xcassets */; };
 		072D83DB248C18A300B83095 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 072D83D9248C18A300B83095 /* LaunchScreen.storyboard */; };
 		072D83E6248C18A300B83095 /* RubiksCubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83E5248C18A300B83095 /* RubiksCubeTests.swift */; };
-		072D83F1248C18C900B83095 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F0248C18C900B83095 /* CanvasView.swift */; };
+		072D83F1248C18C900B83095 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F0248C18C900B83095 /* BoardView.swift */; };
 		072D83F3248C21CB00B83095 /* CubeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F2248C21CB00B83095 /* CubeColor.swift */; };
 		072D83F5248E55CA00B83095 /* RubiksCubeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */; };
 		072D83F7248E587100B83095 /* RubiksCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F6248E587100B83095 /* RubiksCube.swift */; };
@@ -45,7 +45,7 @@
 		072D83E1248C18A300B83095 /* RubiksCubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RubiksCubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		072D83E5248C18A300B83095 /* RubiksCubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeTests.swift; sourceTree = "<group>"; };
 		072D83E7248C18A300B83095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		072D83F0248C18C900B83095 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		072D83F0248C18C900B83095 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		072D83F2248C21CB00B83095 /* CubeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeColor.swift; sourceTree = "<group>"; };
 		072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeDelegate.swift; sourceTree = "<group>"; };
 		072D83F6248E587100B83095 /* RubiksCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCube.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				072D83CE248C18A200B83095 /* AppDelegate.swift */,
 				072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */,
 				072D83F6248E587100B83095 /* RubiksCube.swift */,
-				072D83F0248C18C900B83095 /* CanvasView.swift */,
+				072D83F0248C18C900B83095 /* BoardView.swift */,
 				072D83F2248C21CB00B83095 /* CubeColor.swift */,
 				072D83D2248C18A200B83095 /* RubiksCubeViewController.swift */,
 				072D83D4248C18A200B83095 /* Main.storyboard */,
@@ -226,7 +226,7 @@
 				072D83F3248C21CB00B83095 /* CubeColor.swift in Sources */,
 				072D83CF248C18A200B83095 /* AppDelegate.swift in Sources */,
 				072D83F5248E55CA00B83095 /* RubiksCubeDelegate.swift in Sources */,
-				072D83F1248C18C900B83095 /* CanvasView.swift in Sources */,
+				072D83F1248C18C900B83095 /* BoardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

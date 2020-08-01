@@ -13,7 +13,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
 
     var rubiksCube: RubiksCube = RubiksCube()
     
-    @IBOutlet weak var boardView: CanvasView!
+    @IBOutlet weak var boardView: BoardView!
     
     var audioPlayer: AVAudioPlayer?
     
