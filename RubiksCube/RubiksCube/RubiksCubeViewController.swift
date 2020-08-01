@@ -53,6 +53,13 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
         present(alertController, animated: true)
     }
     
+    @IBAction func algorithm(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func info(_ sender: UIBarButtonItem) {
+    }
+    
     @IBAction func handleSecondLayer(_ sender: Any) {
         rubiksCube.handleSecondLayer()
         updateShadow()

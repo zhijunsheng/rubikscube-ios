@@ -71,6 +71,17 @@
                                             <action selector="shuffle:" destination="BYZ-38-t0r" id="Rv5-9f-mQR"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="🚀" id="2Fp-ce-wNT">
+                                        <connections>
+                                            <action selector="algorithm:" destination="BYZ-38-t0r" id="13e-lz-27H"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LXR-En-GrM"/>
+                                    <barButtonItem title="📚" id="nCR-9r-CVc">
+                                        <connections>
+                                            <action selector="info:" destination="BYZ-38-t0r" id="qlV-e2-3FJ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -106,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-689" y="-80"/>
+            <point key="canvasLocation" x="-858" y="-74"/>
         </scene>
     </scenes>
 </document>
