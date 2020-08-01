@@ -13,7 +13,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
 
     var rubiksCube: RubiksCube = RubiksCube()
     
-    @IBOutlet weak var canvasView: CanvasView!
+    @IBOutlet weak var boardView: CanvasView!
     
     var audioPlayer: AVAudioPlayer?
     
@@ -30,11 +30,11 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        canvasView.rubiksCubeDelegate = self
+        boardView.rubiksCubeDelegate = self
         rubiksCube.reset()
         
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
     }
     
     @IBAction func reset(_ sender: UIBarButtonItem) {
@@ -90,7 +90,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     private func alertActionOf(algorithm: () -> ()) {
         algorithm()
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
         #if !targetEnvironment(simulator)
         audioPlayer?.play()
         #endif
@@ -102,7 +102,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     @IBAction func handleSecondLayer(_ sender: Any) {
         rubiksCube.handleSecondLayer()
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
         #if !targetEnvironment(simulator)
         audioPlayer?.play()
         #endif
@@ -111,7 +111,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     @IBAction func handleTopFaceCross(_ sender: Any) {
         rubiksCube.handleTopFaceCross()
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
         #if !targetEnvironment(simulator)
         audioPlayer?.play()
         #endif
@@ -120,7 +120,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     @IBAction func handleTopLayerCross(_ sender: Any) {
         rubiksCube.handleTopLayerCross()
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
         #if !targetEnvironment(simulator)
         audioPlayer?.play()
         #endif
@@ -129,7 +129,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     @IBAction func rotateThreeTopCorners(_ sender: Any) {
         rubiksCube.rotateThreeTopCorners()
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
         #if !targetEnvironment(simulator)
         audioPlayer?.play()
         #endif
@@ -138,7 +138,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     @IBAction func switchTopCornerColors(_ sender: Any) {
         rubiksCube.switchTopCornerColors()
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
         #if !targetEnvironment(simulator)
         audioPlayer?.play()
         #endif
@@ -147,7 +147,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     private func shuffleLocally() {
         rubiksCube.shuffle()
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
         #if !targetEnvironment(simulator)
         audioPlayer?.play()
         #endif
@@ -156,7 +156,7 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     private func resetLocally() {
         rubiksCube.reset()
         updateShadow()
-        canvasView.setNeedsDisplay()
+        boardView.setNeedsDisplay()
         #if !targetEnvironment(simulator)
         audioPlayer?.play()
         #endif
@@ -180,10 +180,10 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     }
 
     private func updateShadow() {
-        canvasView.shadowTopFace = rubiksCube.topFace
-        canvasView.shadowFrontFace = rubiksCube.frontFace
-        canvasView.shadowRightFace = rubiksCube.rightFace
-        canvasView.setNeedsDisplay()
+        boardView.shadowTopFace = rubiksCube.topFace
+        boardView.shadowFrontFace = rubiksCube.frontFace
+        boardView.shadowRightFace = rubiksCube.rightFace
+        boardView.setNeedsDisplay()
     }
     
     private func avoidAlertCrashOnPad(alertController: UIAlertController) {
