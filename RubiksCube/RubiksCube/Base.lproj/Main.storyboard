@@ -138,6 +138,12 @@
                     </view>
                     <connections>
                         <outlet property="boardView" destination="ld6-sL-jel" id="2Sw-Nt-L1B"/>
+                        <outlet property="peerColorView" destination="akP-nZ-UaE" id="jfk-bf-ZXj"/>
+                        <outlet property="peerLabel" destination="BiZ-qo-MPK" id="Ltj-Ht-Lds"/>
+                        <outlet property="peerView" destination="xAL-Jl-NHQ" id="ycw-Av-IcU"/>
+                        <outlet property="youColorView" destination="qr3-oK-EaY" id="Ync-CM-IFz"/>
+                        <outlet property="youLabel" destination="QbQ-N8-ylg" id="t4D-gf-twb"/>
+                        <outlet property="youView" destination="Lee-Og-PVg" id="d6P-ZN-3WW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -14,6 +14,12 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     var rubiksCube: RubiksCube = RubiksCube()
     
     @IBOutlet weak var boardView: BoardView!
+    @IBOutlet weak var peerColorView: UIView!
+    @IBOutlet weak var youColorView: UIView!
+    @IBOutlet weak var peerView: UIView!
+    @IBOutlet weak var youView: UIView!
+    @IBOutlet weak var peerLabel: UILabel!
+    @IBOutlet weak var youLabel: UILabel!
     
     var audioPlayer: AVAudioPlayer?
     
@@ -35,6 +41,9 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
         
         updateShadow()
         boardView.setNeedsDisplay()
+        
+        peerLabel.text = "GT cube"
+        youLabel.text = "Welcome"
     }
     
     @IBAction func reset(_ sender: UIBarButtonItem) {
@@ -97,51 +106,12 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     }
     
     @IBAction func info(_ sender: UIBarButtonItem) {
-    }
-    
-    @IBAction func handleSecondLayer(_ sender: Any) {
-        rubiksCube.handleSecondLayer()
-        updateShadow()
-        boardView.setNeedsDisplay()
-        #if !targetEnvironment(simulator)
-        audioPlayer?.play()
-        #endif
-    }
-    
-    @IBAction func handleTopFaceCross(_ sender: Any) {
-        rubiksCube.handleTopFaceCross()
-        updateShadow()
-        boardView.setNeedsDisplay()
-        #if !targetEnvironment(simulator)
-        audioPlayer?.play()
-        #endif
-    }
-    
-    @IBAction func handleTopLayerCross(_ sender: Any) {
-        rubiksCube.handleTopLayerCross()
-        updateShadow()
-        boardView.setNeedsDisplay()
-        #if !targetEnvironment(simulator)
-        audioPlayer?.play()
-        #endif
-    }
-    
-    @IBAction func rotateThreeTopCorners(_ sender: Any) {
-        rubiksCube.rotateThreeTopCorners()
-        updateShadow()
-        boardView.setNeedsDisplay()
-        #if !targetEnvironment(simulator)
-        audioPlayer?.play()
-        #endif
-    }
-    
-    @IBAction func switchTopCornerColors(_ sender: Any) {
-        rubiksCube.switchTopCornerColors()
-        updateShadow()
-        boardView.setNeedsDisplay()
-        #if !targetEnvironment(simulator)
-        audioPlayer?.play()
-        #endif
+        let info = "Swipe on front face to play"
+        let alertController = UIAlertController(title: "\(info)", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Got it.", style: .default))
+        
+        avoidAlertCrashOnPad(alertController: alertController)
+        present(alertController, animated: true, completion: nil)
     }
     
     private func shuffleLocally() {
