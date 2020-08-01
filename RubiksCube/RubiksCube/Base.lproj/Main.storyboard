@@ -23,41 +23,6 @@
                                     <constraint firstAttribute="width" secondItem="7VD-je-7xq" secondAttribute="height" multiplier="1:1" id="lZa-ia-9A8"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-95-nNA">
-                                <rect key="frame" x="0.0" y="473" width="375" height="30"/>
-                                <state key="normal" title="R' D R D F D' F' (2nd layer)"/>
-                                <connections>
-                                    <action selector="handleSecondLayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qhR-Rw-MCX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWX-ZS-xng">
-                                <rect key="frame" x="0.0" y="503" width="375" height="30"/>
-                                <state key="normal" title="F U R U' R' F' (top face cross)"/>
-                                <connections>
-                                    <action selector="handleTopFaceCross:" destination="BYZ-38-t0r" eventType="touchUpInside" id="48K-jt-zby"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofp-h5-nTk">
-                                <rect key="frame" x="0.0" y="533" width="375" height="30"/>
-                                <state key="normal" title="R U R' U R U U R' (top layer cross)"/>
-                                <connections>
-                                    <action selector="handleTopLayerCross:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mSj-UZ-2d9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-5v-v4w">
-                                <rect key="frame" x="0.0" y="563" width="375" height="30"/>
-                                <state key="normal" title="L' U R U' L U R' (rotate 3 top corners)"/>
-                                <connections>
-                                    <action selector="rotateThreeTopCorners:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H97-NH-TwQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lW-XN-T9J">
-                                <rect key="frame" x="0.0" y="593" width="375" height="30"/>
-                                <state key="normal" title="R' D' R D (top corner colors)"/>
-                                <connections>
-                                    <action selector="switchTopCornerColors:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WlI-IP-kgK"/>
-                                </connections>
-                            </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRV-Zk-1vs">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
@@ -88,26 +53,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7VD-je-7xq" secondAttribute="trailing" id="2uF-AH-w2t"/>
-                            <constraint firstItem="ofp-h5-nTk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8ew-zP-u79"/>
-                            <constraint firstItem="KWX-ZS-xng" firstAttribute="top" secondItem="JUv-95-nNA" secondAttribute="bottom" id="DiO-xU-FZm"/>
-                            <constraint firstItem="ecf-5v-v4w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HvM-et-rJ5"/>
-                            <constraint firstItem="9lW-XN-T9J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IMZ-6o-qU4"/>
                             <constraint firstItem="lRV-Zk-1vs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MH5-lv-FOm"/>
                             <constraint firstItem="lRV-Zk-1vs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Qk3-lA-atv"/>
-                            <constraint firstItem="9lW-XN-T9J" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="STJ-31-YZm"/>
-                            <constraint firstItem="lRV-Zk-1vs" firstAttribute="top" secondItem="9lW-XN-T9J" secondAttribute="bottom" symbolic="YES" id="Tlh-DP-Pno"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JUv-95-nNA" secondAttribute="trailing" id="U9a-LA-Ewn"/>
-                            <constraint firstItem="KWX-ZS-xng" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VO1-kh-wKp"/>
-                            <constraint firstItem="KWX-ZS-xng" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xk8-fe-T6O"/>
                             <constraint firstItem="7VD-je-7xq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ajG-EN-FKd"/>
-                            <constraint firstItem="9lW-XN-T9J" firstAttribute="top" secondItem="ecf-5v-v4w" secondAttribute="bottom" id="exc-q3-bMm"/>
                             <constraint firstItem="7VD-je-7xq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f6o-Lv-NTa"/>
-                            <constraint firstItem="ofp-h5-nTk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gy0-b1-bbQ"/>
-                            <constraint firstItem="ofp-h5-nTk" firstAttribute="top" secondItem="KWX-ZS-xng" secondAttribute="bottom" id="iu6-Mt-q5G"/>
-                            <constraint firstItem="ecf-5v-v4w" firstAttribute="top" secondItem="ofp-h5-nTk" secondAttribute="bottom" id="j8v-zn-GGF"/>
-                            <constraint firstItem="JUv-95-nNA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tY0-eB-Hsq"/>
                             <constraint firstItem="lRV-Zk-1vs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vwd-LA-Stq"/>
-                            <constraint firstItem="ecf-5v-v4w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wMp-zG-409"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

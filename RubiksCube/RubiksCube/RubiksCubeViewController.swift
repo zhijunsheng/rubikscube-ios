@@ -54,7 +54,46 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     }
     
     @IBAction func algorithm(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        let handleSecondLayerAlg = UIAlertAction(title: "R' D R D F D' F' (2nd layer)", style: .default) { _ in
+            self.alertActionOf { self.rubiksCube.handleSecondLayer() }
+        }
+        alertController.addAction(handleSecondLayerAlg)
+        
+        let handleTopFaceCrossAlg = UIAlertAction(title: "F U R U' R' F' (top face cross)", style: .default) { _ in
+            self.alertActionOf { self.rubiksCube.handleTopFaceCross() }
+        }
+        alertController.addAction(handleTopFaceCrossAlg)
+        
+        let handleTopLayerCrossAlg = UIAlertAction(title: "R U R' U R U U R' (top layer cross)", style: .default) { _ in
+            self.alertActionOf { self.rubiksCube.handleTopLayerCross() }
+        }
+        alertController.addAction(handleTopLayerCrossAlg)
+        
+        let rotateThreeTopCornersAlg = UIAlertAction(title: "L' U R U' L U R' (rotate 3 top corners)", style: .default) { _ in
+            self.alertActionOf { self.rubiksCube.rotateThreeTopCorners() }
+        }
+        alertController.addAction(rotateThreeTopCornersAlg)
+        
+        let switchTopCornerColorsAlg = UIAlertAction(title: "R' D' R D (top corner colors)", style: .default) { _ in
+            self.alertActionOf { self.rubiksCube.switchTopCornerColors() }
+        }
+        alertController.addAction(switchTopCornerColorsAlg)
+        
+        avoidAlertCrashOnPad(alertController: alertController)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func alertActionOf(algorithm: () -> ()) {
+        algorithm()
+        updateShadow()
+        canvasView.setNeedsDisplay()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
     
     @IBAction func info(_ sender: UIBarButtonItem) {
