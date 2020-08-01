@@ -38,21 +38,19 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
     }
     
     @IBAction func reset(_ sender: UIBarButtonItem) {
-        rubiksCube.reset()
-        updateShadow()
-        canvasView.setNeedsDisplay()
-        #if !targetEnvironment(simulator)
-        audioPlayer?.play()
-        #endif
+        let alertController = UIAlertController(title: "Restart?", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive) {_ in self.resetLocally() })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        avoidAlertCrashOnPad(alertController: alertController)
+        present(alertController, animated: true)
     }
     
-    @IBAction func shuffle(_ sender: Any) {
-        rubiksCube.shuffle()
-        updateShadow()
-        canvasView.setNeedsDisplay()
-        #if !targetEnvironment(simulator)
-        audioPlayer?.play()
-        #endif
+    @IBAction func shuffle(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Shuffle?", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive) {_ in self.shuffleLocally() })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        avoidAlertCrashOnPad(alertController: alertController)
+        present(alertController, animated: true)
     }
     
     @IBAction func handleSecondLayer(_ sender: Any) {
@@ -100,6 +98,24 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
         #endif
     }
     
+    private func shuffleLocally() {
+        rubiksCube.shuffle()
+        updateShadow()
+        canvasView.setNeedsDisplay()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
+    }
+    
+    private func resetLocally() {
+        rubiksCube.reset()
+        updateShadow()
+        canvasView.setNeedsDisplay()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
+    }
+    
     func moveFinger(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
         if fromCol == toCol && fromRow == toRow ||
             fromCol < 0 || fromCol > 2 ||
@@ -117,11 +133,19 @@ class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
         #endif
     }
 
-    func updateShadow() {
+    private func updateShadow() {
         canvasView.shadowTopFace = rubiksCube.topFace
         canvasView.shadowFrontFace = rubiksCube.frontFace
         canvasView.shadowRightFace = rubiksCube.rightFace
         canvasView.setNeedsDisplay()
+    }
+    
+    private func avoidAlertCrashOnPad(alertController: UIAlertController) {
+        if let popoverPresentationController = alertController.popoverPresentationController {
+            popoverPresentationController.permittedArrowDirections = .init(rawValue: 0)
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        }
     }
 }
 

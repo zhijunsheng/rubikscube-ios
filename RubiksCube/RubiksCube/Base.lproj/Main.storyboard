@@ -23,14 +23,6 @@
                                     <constraint firstAttribute="width" secondItem="7VD-je-7xq" secondAttribute="height" multiplier="1:1" id="lZa-ia-9A8"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbS-Kw-dWO">
-                                <rect key="frame" x="0.0" y="443" width="375" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Shuffle"/>
-                                <connections>
-                                    <action selector="shuffle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VgZ-vx-RGD"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-95-nNA">
                                 <rect key="frame" x="0.0" y="473" width="375" height="30"/>
                                 <state key="normal" title="R' D R D F D' F' (2nd layer)"/>
@@ -74,12 +66,16 @@
                                             <action selector="reset:" destination="BYZ-38-t0r" id="WYv-Nf-9k8"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="⚔️" id="8M6-73-HIb">
+                                        <connections>
+                                            <action selector="shuffle:" destination="BYZ-38-t0r" id="Rv5-9f-mQR"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="sbS-Kw-dWO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0dH-hA-F7q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7VD-je-7xq" secondAttribute="trailing" id="2uF-AH-w2t"/>
                             <constraint firstItem="ofp-h5-nTk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8ew-zP-u79"/>
                             <constraint firstItem="KWX-ZS-xng" firstAttribute="top" secondItem="JUv-95-nNA" secondAttribute="bottom" id="DiO-xU-FZm"/>
@@ -90,7 +86,6 @@
                             <constraint firstItem="9lW-XN-T9J" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="STJ-31-YZm"/>
                             <constraint firstItem="lRV-Zk-1vs" firstAttribute="top" secondItem="9lW-XN-T9J" secondAttribute="bottom" symbolic="YES" id="Tlh-DP-Pno"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JUv-95-nNA" secondAttribute="trailing" id="U9a-LA-Ewn"/>
-                            <constraint firstItem="JUv-95-nNA" firstAttribute="top" secondItem="sbS-Kw-dWO" secondAttribute="bottom" id="Uy0-0o-gWv"/>
                             <constraint firstItem="KWX-ZS-xng" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VO1-kh-wKp"/>
                             <constraint firstItem="KWX-ZS-xng" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xk8-fe-T6O"/>
                             <constraint firstItem="7VD-je-7xq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ajG-EN-FKd"/>
@@ -99,7 +94,6 @@
                             <constraint firstItem="ofp-h5-nTk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gy0-b1-bbQ"/>
                             <constraint firstItem="ofp-h5-nTk" firstAttribute="top" secondItem="KWX-ZS-xng" secondAttribute="bottom" id="iu6-Mt-q5G"/>
                             <constraint firstItem="ecf-5v-v4w" firstAttribute="top" secondItem="ofp-h5-nTk" secondAttribute="bottom" id="j8v-zn-GGF"/>
-                            <constraint firstItem="sbS-Kw-dWO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qhi-lQ-qa8"/>
                             <constraint firstItem="JUv-95-nNA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tY0-eB-Hsq"/>
                             <constraint firstItem="lRV-Zk-1vs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vwd-LA-Stq"/>
                             <constraint firstItem="ecf-5v-v4w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wMp-zG-409"/>
