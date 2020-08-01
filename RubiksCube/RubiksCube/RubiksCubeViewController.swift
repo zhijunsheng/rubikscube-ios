@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, RubiksCubeDelegate {
+class RubiksCubeViewController: UIViewController, RubiksCubeDelegate {
 
     var rubiksCube: RubiksCube = RubiksCube()
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         canvasView.setNeedsDisplay()
     }
     
-    @IBAction func reset(_ sender: Any) {
+    @IBAction func reset(_ sender: UIBarButtonItem) {
         rubiksCube.reset()
         updateShadow()
         canvasView.setNeedsDisplay()
