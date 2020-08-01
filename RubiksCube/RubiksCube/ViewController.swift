@@ -15,13 +15,15 @@ class ViewController: UIViewController, RubiksCubeDelegate {
     
     @IBOutlet weak var canvasView: CanvasView!
     
-    var audioPlayer: AVAudioPlayer
+    var audioPlayer: AVAudioPlayer?
     
     required init?(coder: NSCoder) {
+        #if !targetEnvironment(simulator)
         let soundFilePath = Bundle.main.path(forResource: "drop", ofType: "wav")
         let url = URL(fileURLWithPath: soundFilePath!)
-        audioPlayer = try! AVAudioPlayer(contentsOf: url)
-        audioPlayer.prepareToPlay()
+        audioPlayer = try? AVAudioPlayer(contentsOf: url)
+        audioPlayer?.prepareToPlay()
+        #endif
         super.init(coder: coder)
     }
     
@@ -39,49 +41,63 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksCube.reset()
         updateShadow()
         canvasView.setNeedsDisplay()
-        audioPlayer.play()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
     
     @IBAction func shuffle(_ sender: Any) {
         rubiksCube.shuffle()
         updateShadow()
         canvasView.setNeedsDisplay()
-        audioPlayer.play()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
     
     @IBAction func handleSecondLayer(_ sender: Any) {
         rubiksCube.handleSecondLayer()
         updateShadow()
         canvasView.setNeedsDisplay()
-        audioPlayer.play()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
     
     @IBAction func handleTopFaceCross(_ sender: Any) {
         rubiksCube.handleTopFaceCross()
         updateShadow()
         canvasView.setNeedsDisplay()
-        audioPlayer.play()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
     
     @IBAction func handleTopLayerCross(_ sender: Any) {
         rubiksCube.handleTopLayerCross()
         updateShadow()
         canvasView.setNeedsDisplay()
-        audioPlayer.play()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
     
     @IBAction func rotateThreeTopCorners(_ sender: Any) {
         rubiksCube.rotateThreeTopCorners()
         updateShadow()
         canvasView.setNeedsDisplay()
-        audioPlayer.play()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
     
     @IBAction func switchTopCornerColors(_ sender: Any) {
         rubiksCube.switchTopCornerColors()
         updateShadow()
         canvasView.setNeedsDisplay()
-        audioPlayer.play()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
     
     func moveFinger(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
@@ -96,7 +112,9 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksCube.moveFinger(fromCol: fromCol, fromRow: fromRow, toCol: toCol, toRow: toRow)
         updateShadow()
         
-        audioPlayer.play()
+        #if !targetEnvironment(simulator)
+        audioPlayer?.play()
+        #endif
     }
 
     func updateShadow() {
