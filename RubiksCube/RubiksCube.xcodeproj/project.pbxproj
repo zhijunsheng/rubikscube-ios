@@ -20,6 +20,8 @@
 		072D83F5248E55CA00B83095 /* RubiksCubeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */; };
 		072D83F7248E587100B83095 /* RubiksCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D83F6248E587100B83095 /* RubiksCube.swift */; };
 		073496E5249E999500C3AAB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 073496E4249E999500C3AAB0 /* InfoPlist.strings */; };
+		0795C45824D6355800201126 /* NearbyServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0795C45724D6355800201126 /* NearbyServiceDelegate.swift */; };
+		0795C45A24D6356000201126 /* NearbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0795C45924D6356000201126 /* NearbyService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCubeDelegate.swift; sourceTree = "<group>"; };
 		072D83F6248E587100B83095 /* RubiksCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubiksCube.swift; sourceTree = "<group>"; };
 		073496E4249E999500C3AAB0 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		0795C45724D6355800201126 /* NearbyServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyServiceDelegate.swift; sourceTree = "<group>"; };
+		0795C45924D6356000201126 /* NearbyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 		072D83CD248C18A200B83095 /* RubiksCube */ = {
 			isa = PBXGroup;
 			children = (
+				0795C45724D6355800201126 /* NearbyServiceDelegate.swift */,
+				0795C45924D6356000201126 /* NearbyService.swift */,
 				072D83CE248C18A200B83095 /* AppDelegate.swift */,
 				072D83F4248E55CA00B83095 /* RubiksCubeDelegate.swift */,
 				072D83F6248E587100B83095 /* RubiksCube.swift */,
@@ -223,7 +229,9 @@
 				072D83D3248C18A200B83095 /* RubiksCubeViewController.swift in Sources */,
 				072D83F7248E587100B83095 /* RubiksCube.swift in Sources */,
 				0728498124930D8900B7AEBC /* CubeGesture.swift in Sources */,
+				0795C45824D6355800201126 /* NearbyServiceDelegate.swift in Sources */,
 				072D83F3248C21CB00B83095 /* CubeColor.swift in Sources */,
+				0795C45A24D6356000201126 /* NearbyService.swift in Sources */,
 				072D83CF248C18A200B83095 /* AppDelegate.swift in Sources */,
 				072D83F5248E55CA00B83095 /* RubiksCubeDelegate.swift in Sources */,
 				072D83F1248C18C900B83095 /* BoardView.swift in Sources */,
