@@ -54,6 +54,7 @@
 		073496E4249E999500C3AAB0 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		0795C45724D6355800201126 /* NearbyServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyServiceDelegate.swift; sourceTree = "<group>"; };
 		0795C45924D6356000201126 /* NearbyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyService.swift; sourceTree = "<group>"; };
+		0795C45B24D63AAF00201126 /* RubiksCube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RubiksCube.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +96,7 @@
 		072D83CD248C18A200B83095 /* RubiksCube */ = {
 			isa = PBXGroup;
 			children = (
+				0795C45B24D63AAF00201126 /* RubiksCube.entitlements */,
 				0795C45724D6355800201126 /* NearbyServiceDelegate.swift */,
 				0795C45924D6356000201126 /* NearbyService.swift */,
 				072D83CE248C18A200B83095 /* AppDelegate.swift */,
@@ -394,6 +396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RubiksCube/RubiksCube.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = RubiksCube/Info.plist;
@@ -412,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RubiksCube/RubiksCube.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = RubiksCube/Info.plist;
