@@ -17,14 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C0A-ki-Vtg" customClass="RBView" customModule="rubikscube" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="743"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0A-ki-Vtg" customClass="RBView" customModule="rubikscube" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="C0A-ki-Vtg" secondAttribute="height" multiplier="1:1" id="p5q-3c-0C4"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="C0A-ki-Vtg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bss-Tl-VYR"/>
+                            <constraint firstItem="C0A-ki-Vtg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DOK-QQ-GBP"/>
+                            <constraint firstItem="C0A-ki-Vtg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="piE-VI-B5b"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
