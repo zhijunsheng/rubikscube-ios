@@ -10,7 +10,8 @@ import UIKit
 
 
 class RBView: UIView {
-    var rf: [RCColor] = [.white, .red, .red, .red, .red, .yellow, .red, .red, .red]
+    var rf: [RCColor] = [.white, .red, .red, .red, .red, .yellow, .white, .red, .red]
+    var ff: [RCColor] = [.red, .green, .orange, .blue, .blue, .blue, .yellow, .blue, .green]
     
     var middle = CGPoint(x: 0, y: 0)
     let hypo: CGFloat = 200 // cube side length
@@ -21,7 +22,7 @@ class RBView: UIView {
         h = sin(30/180 * CGFloat.pi) * hypo // side corner to middle
         b = cos(30/180 * CGFloat.pi) * hypo // middle to edge
         drawCube()
-        drawRF()
+        drawFaces()
     }
     
     func drawCube() {
@@ -76,7 +77,7 @@ class RBView: UIView {
         let anchorPointX: CGFloat = middle.x + CGFloat(col) * b/3
         let anchorPointY: CGFloat = middle.y + CGFloat(row) * hypo/3 - CGFloat(col) * h/3
         
-        let anchorPoint = CGPoint(x: anchorPointX, y:anchorPointY)
+        let anchorPoint = CGPoint(x: anchorPointX, y: anchorPointY)
         
         path.move(to: anchorPoint)
         path.addLine(to: CGPoint(x: anchorPoint.x + b/3, y: anchorPoint.y - h/3))
@@ -88,9 +89,29 @@ class RBView: UIView {
         path.stroke()
     }
     
-    func drawRF() {
+    func drawFFCell(color: UIColor, index: Int) {
+        let path = UIBezierPath()
+        let col = index % 3
+        let row = index / 3
+        let anchorPointX: CGFloat = middle.x + CGFloat(col) * b/3 - 2 * b/3
+        let anchorPointY: CGFloat = middle.y + CGFloat(row) * hypo/3 + CGFloat(col) * h/3 - hypo/3
+        
+        let anchorPoint = CGPoint(x: anchorPointX, y: anchorPointY)
+        
+        path.move(to: anchorPoint)
+        path.addLine(to: CGPoint(x: anchorPoint.x - b/3, y: anchorPoint.y - h/3))
+        path.addLine(to: CGPoint(x: anchorPoint.x - b/3, y: anchorPoint.y + hypo/3 - h/3))
+        path.addLine(to: CGPoint(x: anchorPoint.x, y: anchorPoint.y + hypo/3))
+        path.close()
+        color.setFill()
+        path.fill()
+        path.stroke()
+    }
+    
+    func drawFaces() {
         for i in 0 ..< 9 {
             drawRFCell(color: findColor(color: rf[i]), index: i)
+            drawFFCell(color: findColor(color: ff[i]), index: i)
         }
     }
     
