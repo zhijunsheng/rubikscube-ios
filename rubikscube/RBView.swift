@@ -12,6 +12,7 @@ import UIKit
 class RBView: UIView {
     var rf: [RCColor] = [.white, .red, .red, .red, .red, .yellow, .white, .red, .red]
     var ff: [RCColor] = [.red, .green, .orange, .blue, .blue, .blue, .yellow, .blue, .green]
+    var tf: [RCColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
     
     var middle = CGPoint(x: 0, y: 0)
     let hypo: CGFloat = 200 // cube side length
@@ -108,11 +109,33 @@ class RBView: UIView {
         path.stroke()
     }
     
+    func drawTFCell(color: UIColor, index: Int) {
+        let anchor = CGPoint(x: middle.x - b, y: middle.y - h)
+        let path = UIBezierPath()
+        let col = index % 3
+        let row = index / 3
+        let anchorPointX: CGFloat = anchor.x + CGFloat(col) * b/3 + 2 * b/3 - CGFloat(row) * b/3
+        let anchorPointY: CGFloat = anchor.y + CGFloat(row) * hypo/6 + CGFloat(col) * hypo/6 - hypo/3
+        
+        let anchorPoint = CGPoint(x: anchorPointX, y: anchorPointY)
+        
+        path.move(to: anchorPoint)
+        path.addLine(to: CGPoint(x: anchorPoint.x + b/3, y: anchorPoint.y + hypo/6))
+        path.addLine(to: CGPoint(x: anchorPoint.x + b/3 * 2, y: anchorPoint.y))
+        path.addLine(to: CGPoint(x: anchorPoint.x + b/3, y: anchorPoint.y - hypo/6))
+        path.close()
+        color.setFill()
+        path.fill()
+        path.stroke()
+    }
+    
     func drawFaces() {
         for i in 0 ..< 9 {
             drawRFCell(color: findColor(color: rf[i]), index: i)
             drawFFCell(color: findColor(color: ff[i]), index: i)
+            drawTFCell(color: findColor(color: tf[i]), index: i)
         }
+       
     }
     
     func findColor(color: RCColor) -> UIColor {
