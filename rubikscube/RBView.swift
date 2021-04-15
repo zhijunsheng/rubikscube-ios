@@ -10,15 +10,17 @@ import UIKit
 
 
 class RBView: UIView {
-    var rf: [RCColor] = [.white, .red, .red, .red, .red, .yellow, .white, .red, .red]
-    var ff: [RCColor] = [.red, .green, .orange, .blue, .blue, .blue, .yellow, .blue, .green]
-    var tf: [RCColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
-    
+    var cube: RCGame = RCGame()
     var middle = CGPoint(x: 0, y: 0)
-    let hypo: CGFloat = 200 // cube side length
     var h: CGFloat = 0
     var b: CGFloat = 0
+    let hypo: CGFloat = 200 // cube side length
+    
     override func draw(_ rect: CGRect) {
+        
+//        cube.rotateFFC()
+        
+        
         middle = CGPoint(x: bounds.width/2, y: bounds.height/2)
         h = sin(30/180 * CGFloat.pi) * hypo // side corner to middle
         b = cos(30/180 * CGFloat.pi) * hypo // middle to edge
@@ -64,7 +66,7 @@ class RBView: UIView {
         path.stroke()
     }
     
-    func drawTFCell(color: UIColor, index: Int) {
+    func drawUFCell(color: UIColor, index: Int) {
         let anchor = CGPoint(x: middle.x - b, y: middle.y - h)
         let path = UIBezierPath()
         let col = index % 3
@@ -86,9 +88,9 @@ class RBView: UIView {
     
     func drawFaces() {
         for i in 0 ..< 9 {
-            drawRFCell(color: findColor(color: rf[i]), index: i)
-            drawFFCell(color: findColor(color: ff[i]), index: i)
-            drawTFCell(color: findColor(color: tf[i]), index: i)
+            drawRFCell(color: findColor(color: cube.rf[i]), index: i)
+            drawFFCell(color: findColor(color: cube.ff[i]), index: i)
+            drawUFCell(color: findColor(color: cube.uf[i]), index: i)
         }
        
     }

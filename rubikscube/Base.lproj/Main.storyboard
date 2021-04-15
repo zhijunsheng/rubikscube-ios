@@ -24,6 +24,15 @@
                                     <constraint firstAttribute="width" secondItem="C0A-ki-Vtg" secondAttribute="height" multiplier="1:1" id="p5q-3c-0C4"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-GH-jZC">
+                                <rect key="frame" x="95" y="776" width="467" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <state key="normal" title="Rotate FFC"/>
+                                <connections>
+                                    <action selector="rotateFFC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gle-OU-cWq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -33,6 +42,9 @@
                             <constraint firstItem="C0A-ki-Vtg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="piE-VI-B5b"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="rbView" destination="C0A-ki-Vtg" id="8PA-BX-zpP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
