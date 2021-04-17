@@ -15,6 +15,7 @@
 		1E1E88CD260F564E00420DFA /* RBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E88CC260F564E00420DFA /* RBView.swift */; };
 		1E7E3712261FAAE5000A497A /* RCGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E3711261FAAE5000A497A /* RCGame.swift */; };
 		1E7E371C261FAB4A000A497A /* RCColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E371B261FAB4A000A497A /* RCColor.swift */; };
+		1E7E3722262B0823000A497A /* RCGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E3721262B0823000A497A /* RCGameTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		1E1E88CC260F564E00420DFA /* RBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBView.swift; sourceTree = "<group>"; };
 		1E7E3711261FAAE5000A497A /* RCGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCGame.swift; sourceTree = "<group>"; };
 		1E7E371B261FAB4A000A497A /* RCColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCColor.swift; sourceTree = "<group>"; };
+		1E7E3721262B0823000A497A /* RCGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCGameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		0725AF8A2202550E00AB1E6F /* rubikscubeTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E7E3721262B0823000A497A /* RCGameTests.swift */,
 				0725AF8D2202550E00AB1E6F /* Info.plist */,
 			);
 			path = rubikscubeTests;
@@ -155,6 +158,7 @@
 					};
 					0725AF862202550E00AB1E6F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1240;
 						TestTargetID = 0725AF722202550B00AB1E6F;
 					};
 				};
@@ -215,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E7E3722262B0823000A497A /* RCGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +412,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = rubikscubeTests/Info.plist;
@@ -417,6 +423,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.rubikscubeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rubikscube.app/rubikscube";
@@ -428,6 +435,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = rubikscubeTests/Info.plist;

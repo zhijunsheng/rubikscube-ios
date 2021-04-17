@@ -17,10 +17,6 @@ class RBView: UIView {
     let hypo: CGFloat = 200 // cube side length
     
     override func draw(_ rect: CGRect) {
-        
-//        cube.rotateFFC()
-        
-        
         middle = CGPoint(x: bounds.width/2, y: bounds.height/2)
         h = sin(30/180 * CGFloat.pi) * hypo // side corner to middle
         b = cos(30/180 * CGFloat.pi) * hypo // middle to edge

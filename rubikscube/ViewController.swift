@@ -19,11 +19,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rotateFFC(_ sender: Any) {
-        print("bl")
-        
         rbView.cube.rotateFFC()
         rbView.setNeedsDisplay()
     }
     
+    @IBAction func rotateFFCC(_ sender: Any) {
+        rbView.cube.rotateFFCC()
+        rbView.setNeedsDisplay()
+    }
 }
 

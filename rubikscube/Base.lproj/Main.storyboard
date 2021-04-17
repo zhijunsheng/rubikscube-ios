@@ -25,12 +25,21 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-GH-jZC">
-                                <rect key="frame" x="95" y="776" width="467" height="132"/>
+                                <rect key="frame" x="212" y="808" width="237" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="Rotate FFC"/>
                                 <connections>
                                     <action selector="rotateFFC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gle-OU-cWq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vh-Ex-PRJ">
+                                <rect key="frame" x="200" y="896" width="272" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="Rotate FFCC"/>
+                                <connections>
+                                    <action selector="rotateFFCC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XpH-TE-j6n"/>
                                 </connections>
                             </button>
                         </subviews>
