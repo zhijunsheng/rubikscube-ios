@@ -11,11 +11,20 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var rbView: RBView!
     
+    var rcGame = RCGame()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rbView.cube.ff = [.red, .blue, .yellow, .orange, .green, .white, .red, .white, .yellow]
-        // Do any additional setup after loading the view, typically from a nib.
+//        rcGame.rf = [.white, .green, .green, .green, .green, .green, .green, .green, .green]
+//        rcGame.uf = [.green, .green, .green, .green, .green, .green, .red, .green, .green]
+//        rcGame.df = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+//        rcGame.ff = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+//        rcGame.lf = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+//        rcGame.bf = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+//        
+//        rbView.cube = rcGame
+//        
+//        rbView.setNeedsDisplay()
     }
 
     @IBAction func rotateFFC(_ sender: Any) {
