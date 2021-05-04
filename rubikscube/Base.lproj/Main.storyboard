@@ -25,21 +25,39 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-GH-jZC">
-                                <rect key="frame" x="212" y="808" width="237" height="72"/>
+                                <rect key="frame" x="1" y="792" width="89" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Rotate FFC"/>
+                                <state key="normal" title="FFC"/>
                                 <connections>
                                     <action selector="rotateFFC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gle-OU-cWq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vh-Ex-PRJ">
-                                <rect key="frame" x="200" y="896" width="272" height="72"/>
+                                <rect key="frame" x="0.0" y="872" width="123" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Rotate FFCC"/>
+                                <state key="normal" title="FFCC"/>
                                 <connections>
                                     <action selector="rotateFFCC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XpH-TE-j6n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9I-3P-ESZ">
+                                <rect key="frame" x="-2" y="952" width="92" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="RFC"/>
+                                <connections>
+                                    <action selector="rotateRFC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OCw-sG-PBd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zK-j1-5GH">
+                                <rect key="frame" x="156" y="792" width="127" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="RFCC"/>
+                                <connections>
+                                    <action selector="rotateRFCC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5bV-0C-6K1"/>
                                 </connections>
                             </button>
                         </subviews>

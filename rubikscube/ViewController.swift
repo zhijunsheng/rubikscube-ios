@@ -15,16 +15,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        rcGame.rf = [.white, .green, .green, .green, .green, .green, .green, .green, .green]
-//        rcGame.uf = [.green, .green, .green, .green, .green, .green, .red, .green, .green]
-//        rcGame.df = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
-//        rcGame.ff = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
-//        rcGame.lf = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
-//        rcGame.bf = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
-//        
-//        rbView.cube = rcGame
-//        
-//        rbView.setNeedsDisplay()
     }
 
     @IBAction func rotateFFC(_ sender: Any) {
@@ -34,6 +24,16 @@ class ViewController: UIViewController {
     
     @IBAction func rotateFFCC(_ sender: Any) {
         rbView.cube.rotateFFCC()
+        rbView.setNeedsDisplay()
+    }
+    
+    @IBAction func rotateRFC(_ sender: Any) {
+        rbView.cube.rotateRFC()
+        rbView.setNeedsDisplay()
+    }
+    
+    @IBAction func rotateRFCC(_ sender: Any) {
+        rbView.cube.rotateRFCC()
         rbView.setNeedsDisplay()
     }
 }

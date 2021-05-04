@@ -14,13 +14,13 @@ class RBView: UIView {
     var middle = CGPoint(x: 0, y: 0)
     var h: CGFloat = 0
     var b: CGFloat = 0
-    let hypo: CGFloat = 200 // cube side length
+    let hypo: CGFloat = 300
     
     override func draw(_ rect: CGRect) {
         middle = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        h = sin(30/180 * CGFloat.pi) * hypo // side corner to middle
-        b = cos(30/180 * CGFloat.pi) * hypo // middle to edge
-
+        h = sin(30/180 * CGFloat.pi) * hypo
+        b = cos(30/180 * CGFloat.pi) * hypo
+        
         drawFaces()
     }
     
@@ -88,7 +88,6 @@ class RBView: UIView {
             drawFFCell(color: findColor(color: cube.ff[i]), index: i)
             drawUFCell(color: findColor(color: cube.uf[i]), index: i)
         }
-       
     }
     
     func findColor(color: RCColor) -> UIColor {
