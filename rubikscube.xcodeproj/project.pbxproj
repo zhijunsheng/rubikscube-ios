@@ -78,12 +78,12 @@
 			isa = PBXGroup;
 			children = (
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
+				A19CE7BE26716DB200F00C47 /* GameView.swift */,
 				0725AF782202550B00AB1E6F /* ViewController.swift */,
 				0725AF7A2202550B00AB1E6F /* Main.storyboard */,
 				0725AF7D2202550E00AB1E6F /* Assets.xcassets */,
 				0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */,
 				0725AF822202550E00AB1E6F /* Info.plist */,
-				A19CE7BE26716DB200F00C47 /* GameView.swift */,
 			);
 			path = rubikscube;
 			sourceTree = "<group>";
