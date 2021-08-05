@@ -11,10 +11,10 @@ import Foundation
 struct RCGame {
     var ff: [RCColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
     var rf: [RCColor] = [.blue, .red, .red, .red, .red, .red, .red, .red, .red]
-    var uf: [RCColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
+    var uf: [RCColor] = [.red, .white, .white, .white, .white, .white, .white, .white, .white]
     var lf: [RCColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
     var df: [RCColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
-    var bf: [RCColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
+    var bf: [RCColor] = [.green, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     
     mutating func rotateFFC() {
         var a = ff[0]
@@ -62,7 +62,39 @@ struct RCGame {
         }
     }
     
-    func rotateFace(face: [RCColor]) -> [RCColor] {
+    
+    mutating func rotateUFC() {
+        uf = rotateFace(face: uf)
+        
+        var a = ff[0]
+        
+        for i in 0 ..< 3 {
+            a = ff[i]
+            ff[i] = rf[i]
+            rf[i] = bf[i]
+            bf[i] = lf[i]
+            lf[i] = a
+        }
+        
+//        a = ff[0]
+//        ff[0] = rf[0]
+//        rf[0] = bf[0]
+//        bf[0] = lf[0]
+//        lf[0] = a
+//        a = ff[1]
+//        ff[1] = rf[1]
+//        rf[1] = bf[1]
+//        bf[1] = lf[1]
+//        lf[1] = a
+//        a = ff[2]
+//        ff[2] = rf[2]
+//        rf[2] = bf[2]
+//        bf[2] = lf[2]
+//        lf[2] = a
+    }
+    
+    
+    func rotateFace(face: [RCColor]) -> [RCColor] { // rotate [faceName]
         var newFace = face
         var a = newFace[0]
         

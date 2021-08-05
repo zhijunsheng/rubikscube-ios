@@ -36,5 +36,10 @@ class ViewController: UIViewController {
         rbView.cube.rotateRFCC()
         rbView.setNeedsDisplay()
     }
+    
+    @IBAction func rotateUFC(_ sender: Any) {
+        rbView.cube.rotateUFC()
+        rbView.setNeedsDisplay()
+    }
 }
 
