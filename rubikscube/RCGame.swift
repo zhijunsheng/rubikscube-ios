@@ -28,7 +28,7 @@ struct RCGame {
         rf[0] = a
         a = uf[7]
         uf[7] = lf[5]
-        lf[5] = df[1]
+        lf[5] = df[1] 
         df[1] = rf[3]
         rf[3] = a
         a = uf[8]

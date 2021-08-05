@@ -57,4 +57,12 @@ class RCGameTests: XCTestCase {
         
         XCTAssertEqual(.red, rcGame.rf[0])
     }
+    
+    func testRotateRFC() {
+        var rcGame = RCGame()
+        rcGame.rf = [.blue, .green, .green, .green, .green, .green, .green, .green, .green]
+        rcGame.df = [.green, .green, .red, .green, .green, .green, .green, .green, .green]
+        rcGame.rotateRFC()
+        XCTAssertEqual(.blue, rcGame.rf[2])
+    }
 }
