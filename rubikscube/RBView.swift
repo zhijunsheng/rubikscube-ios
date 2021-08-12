@@ -22,6 +22,30 @@ class RBView: UIView {
         b = cos(30/180 * CGFloat.pi) * hypo
         
         drawFaces()
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let a = touches.first!
+        let location = a.location(in: self)
+        let offsetX: CGFloat = location.x - (middle.x - b)
+//        print(offsetX)
+        let gapY: CGFloat = tan(30/180 * CGFloat.pi) * offsetX // an expr depending on offsetX
+//        print(gapY)
+        
+        print(location)
+        if location.x > middle.x - b &&
+            location.x < middle.x - 2/3 * b &&
+            location.y > middle.y - h + gapY &&
+            location.y < middle.y - h + gapY + hypo/3 {
+            print("yes")
+        } else {
+            print("no")
+        }
+        
+        
+        
+        
     }
     
     func drawRFCell(color: UIColor, index: Int) {
@@ -69,6 +93,7 @@ class RBView: UIView {
         let row = index / 3
         let anchorPointX: CGFloat = anchor.x + CGFloat(col) * b/3 + 2 * b/3 - CGFloat(row) * b/3
         let anchorPointY: CGFloat = anchor.y + CGFloat(row) * hypo/6 + CGFloat(col) * hypo/6 - hypo/3
+        
         
         let anchorPoint = CGPoint(x: anchorPointX, y: anchorPointY)
         
