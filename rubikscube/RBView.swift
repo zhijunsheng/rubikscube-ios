@@ -33,16 +33,27 @@ class RBView: UIView {
         let gapY: CGFloat = tan(30/180 * CGFloat.pi) * offsetX // an expr depending on offsetX
 //        print(gapY)
         
-        print(location)
-        if location.x > middle.x - b &&
-            location.x < middle.x - 2/3 * b &&
-            location.y > middle.y - h + gapY &&
-            location.y < middle.y - h + gapY + hypo/3 {
-            print("yes")
-        } else {
-            print("no")
-        }
-        
+//        if location.x > middle.x - b &&
+//            location.x < middle.x - 2/3 * b &&
+//            location.y > middle.y - h + gapY &&
+//            location.y < middle.y - h + gapY + hypo/3 {
+            
+//            print("col = 0, row = 0")
+            
+        print("col: \(Int(offsetX/(hypo/3)))")
+        print("row: \(Int(gapY/(hypo/3)))")
+            
+//        } else if location.x > middle.x - b + hypo/3 &&
+//                    location.x < middle.x - 1/3 * b &&
+//                    location.y > middle.y - h + gapY &&
+//                    location.y < middle.y - h + gapY + hypo/3 {
+//
+//            print("col = 1, row = 0")
+//        } else {
+//
+//            print("no")
+//        }
+//
         
         
         
