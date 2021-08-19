@@ -30,7 +30,8 @@ class RBView: UIView {
         let location = a.location(in: self)
         let offsetX: CGFloat = location.x - (middle.x - b)
 //        print(offsetX)
-        let gapY: CGFloat = tan(30/180 * CGFloat.pi) * offsetX // an expr depending on offsetX
+//        let gapY: CGFloat = tan(30/180 * CGFloat.pi) * offsetX // an expr depending on offsetX
+        let gapY: CGFloat =  tan(30/180 * CGFloat.pi) * offsetX
 //        print(gapY)
         
 //        if location.x > middle.x - b &&
@@ -39,9 +40,29 @@ class RBView: UIView {
 //            location.y < middle.y - h + gapY + hypo/3 {
             
 //            print("col = 0, row = 0")
-            
-        print("col: \(Int(offsetX/(hypo/3)))")
-        print("row: \(Int(gapY/(hypo/3)))")
+        let col = Int((location.x - (middle.x - b))/(b/3))
+        let bigB = hypo/2
+        let bigA = b
+        let smallA = middle.x - location.x
+        let smallB = bigB/bigA * smallA
+        /*
+         when
+         x = middle.x - 23
+         y => middle.y - smallH
+         
+         smallH =
+         
+         
+         */
+        let row = Int((location.y - (middle.y - smallB))/(hypo/3))// this part "middle.y" depends on x location
+        print("col: \(col) row: \(row)")
+        let smallH: CGFloat = 1.23 // depends on
+        
+//        print("B \(bigB)")
+//        print("A \(bigA)")
+//        print("a \(smallA)")
+//        print("b \(smallB)")
+//        print("row: \(Int(gapY/(hypo/3)))")
             
 //        } else if location.x > middle.x - b + hypo/3 &&
 //                    location.x < middle.x - 1/3 * b &&
@@ -54,7 +75,6 @@ class RBView: UIView {
 //            print("no")
 //        }
 //
-        
         
         
     }
