@@ -16,6 +16,8 @@
 		1E7E3712261FAAE5000A497A /* RCGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E3711261FAAE5000A497A /* RCGame.swift */; };
 		1E7E371C261FAB4A000A497A /* RCColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E371B261FAB4A000A497A /* RCColor.swift */; };
 		1E7E3722262B0823000A497A /* RCGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E3721262B0823000A497A /* RCGameTests.swift */; };
+		1EC0736626D46861001D3027 /* RCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC0736526D46861001D3027 /* RCDelegate.swift */; };
+		1EC0736826D47243001D3027 /* RCFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC0736726D47243001D3027 /* RCFace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		1E7E3711261FAAE5000A497A /* RCGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCGame.swift; sourceTree = "<group>"; };
 		1E7E371B261FAB4A000A497A /* RCColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCColor.swift; sourceTree = "<group>"; };
 		1E7E3721262B0823000A497A /* RCGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCGameTests.swift; sourceTree = "<group>"; };
+		1EC0736526D46861001D3027 /* RCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCDelegate.swift; sourceTree = "<group>"; };
+		1EC0736726D47243001D3027 /* RCFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCFace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
+				1EC0736526D46861001D3027 /* RCDelegate.swift */,
 				1E7E371B261FAB4A000A497A /* RCColor.swift */,
+				1EC0736726D47243001D3027 /* RCFace.swift */,
 				1E7E3711261FAAE5000A497A /* RCGame.swift */,
 				0725AF782202550B00AB1E6F /* ViewController.swift */,
 				1E1E88CC260F564E00420DFA /* RBView.swift */,
@@ -211,8 +217,10 @@
 				1E1E88CD260F564E00420DFA /* RBView.swift in Sources */,
 				0725AF792202550B00AB1E6F /* ViewController.swift in Sources */,
 				1E7E3712261FAAE5000A497A /* RCGame.swift in Sources */,
+				1EC0736626D46861001D3027 /* RCDelegate.swift in Sources */,
 				1E7E371C261FAB4A000A497A /* RCColor.swift in Sources */,
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,
+				1EC0736826D47243001D3027 /* RCFace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

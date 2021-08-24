@@ -75,24 +75,18 @@ struct RCGame {
             bf[i] = lf[i]
             lf[i] = a
         }
-        
-//        a = ff[0]
-//        ff[0] = rf[0]
-//        rf[0] = bf[0]
-//        bf[0] = lf[0]
-//        lf[0] = a
-//        a = ff[1]
-//        ff[1] = rf[1]
-//        rf[1] = bf[1]
-//        bf[1] = lf[1]
-//        lf[1] = a
-//        a = ff[2]
-//        ff[2] = rf[2]
-//        rf[2] = bf[2]
-//        bf[2] = lf[2]
-//        lf[2] = a
     }
     
+    func abcd(index: Int, face: RCFace) -> RCColor {
+        switch face {
+        case .RF:
+            return rf[index]
+        case .FF:
+            return ff[index]
+        case .UF:
+            return uf[index]
+        }
+    }
     
     func rotateFace(face: [RCColor]) -> [RCColor] { // rotate [faceName]
         var newFace = face

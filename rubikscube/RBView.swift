@@ -10,11 +10,13 @@ import UIKit
 
 
 class RBView: UIView {
-    var cube: RCGame = RCGame()
+    var delegate: RCDelegate? = nil
     var middle = CGPoint(x: 0, y: 0)
     var h: CGFloat = 0
     var b: CGFloat = 0
     let hypo: CGFloat = 300
+    var fromCol: Int = 0
+    var fromRow: Int = 0
     
     override func draw(_ rect: CGRect) {
         middle = CGPoint(x: bounds.width/2, y: bounds.height/2)
@@ -22,61 +24,22 @@ class RBView: UIView {
         b = cos(30/180 * CGFloat.pi) * hypo
         
         drawFaces()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let a = touches.first!
         let location = a.location(in: self)
-        let offsetX: CGFloat = location.x - (middle.x - b)
-//        print(offsetX)
-//        let gapY: CGFloat = tan(30/180 * CGFloat.pi) * offsetX // an expr depending on offsetX
-        let gapY: CGFloat =  tan(30/180 * CGFloat.pi) * offsetX
-//        print(gapY)
+        fromCol = xToCol(x: location.x)
+        fromRow = yToRow(x: location.x, y: location.y)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let a = touches.first!
+        let location = a.location(in: self)
+        let col = xToCol(x: location.x)
+        let row = yToRow(x: location.x, y: location.y)
         
-//        if location.x > middle.x - b &&
-//            location.x < middle.x - 2/3 * b &&
-//            location.y > middle.y - h + gapY &&
-//            location.y < middle.y - h + gapY + hypo/3 {
-            
-//            print("col = 0, row = 0")
-        let col = Int((location.x - (middle.x - b))/(b/3))
-        let bigB = hypo/2
-        let bigA = b
-        let smallA = middle.x - location.x
-        let smallB = bigB/bigA * smallA
-        /*
-         when
-         x = middle.x - 23
-         y => middle.y - smallH
-         
-         smallH =
-         
-         
-         */
-        let row = Int((location.y - (middle.y - smallB))/(hypo/3))// this part "middle.y" depends on x location
-        print("col: \(col) row: \(row)")
-        let smallH: CGFloat = 1.23 // depends on
-        
-//        print("B \(bigB)")
-//        print("A \(bigA)")
-//        print("a \(smallA)")
-//        print("b \(smallB)")
-//        print("row: \(Int(gapY/(hypo/3)))")
-            
-//        } else if location.x > middle.x - b + hypo/3 &&
-//                    location.x < middle.x - 1/3 * b &&
-//                    location.y > middle.y - h + gapY &&
-//                    location.y < middle.y - h + gapY + hypo/3 {
-//
-//            print("col = 1, row = 0")
-//        } else {
-//
-//            print("no")
-//        }
-//
-        
-        
+        delegate?.rotate(fromCol: fromCol, fromRow: fromRow, toCol: col, toRow: row)
     }
     
     func drawRFCell(color: UIColor, index: Int) {
@@ -139,10 +102,12 @@ class RBView: UIView {
     }
     
     func drawFaces() {
+        guard let delegate = delegate else { return }
         for i in 0 ..< 9 {
-            drawRFCell(color: findColor(color: cube.rf[i]), index: i)
-            drawFFCell(color: findColor(color: cube.ff[i]), index: i)
-            drawUFCell(color: findColor(color: cube.uf[i]), index: i)
+            drawRFCell(color: findColor(color: delegate.abcd(index: i, face: .RF)), index: i)
+            drawFFCell(color: findColor(color: delegate.abcd(index: i, face: .FF)), index: i)
+            drawUFCell(color: findColor(color: delegate.abcd(index: i, face: .UF)), index: i)
+            
         }
     }
     
@@ -162,4 +127,17 @@ class RBView: UIView {
             return UIColor.yellow
         }
     }
+    
+    func xToCol(x: CGFloat) -> Int {
+        return Int((x - (middle.x - b))/(b/3))
+    }
+    
+    func yToRow(x: CGFloat, y: CGFloat) -> Int {
+        let bigB = hypo/2
+        let bigA = b
+        let smallA = middle.x - x
+        let smallB = bigB/bigA * smallA
+        return Int((y - (middle.y - smallB))/(hypo/3))
+    }
+    
 }

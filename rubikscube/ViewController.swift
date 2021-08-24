@@ -8,37 +8,53 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, RCDelegate {
+    
+    
     @IBOutlet weak var rbView: RBView!
     
     var rcGame = RCGame()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        rbView.delegate = self
+    }
+    
+    func rotate(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
+        if fromCol == 0 && fromRow == 0 &&
+            toCol == 2 && toRow == 0 {
+            rcGame.rotateFFC()
+            rbView.setNeedsDisplay()
+        }
+    }
+    
+    func abcd(index: Int, face: RCFace) -> RCColor {
+        return rcGame.abcd(index: index, face: face)
     }
 
     @IBAction func rotateFFC(_ sender: Any) {
-        rbView.cube.rotateFFC()
+        rcGame.rotateFFC()
         rbView.setNeedsDisplay()
     }
     
     @IBAction func rotateFFCC(_ sender: Any) {
-        rbView.cube.rotateFFCC()
+        rcGame.rotateFFCC()
         rbView.setNeedsDisplay()
     }
     
     @IBAction func rotateRFC(_ sender: Any) {
-        rbView.cube.rotateRFC()
+        rcGame.rotateRFC()
         rbView.setNeedsDisplay()
     }
     
     @IBAction func rotateRFCC(_ sender: Any) {
-        rbView.cube.rotateRFCC()
+        rcGame.rotateRFCC()
         rbView.setNeedsDisplay()
     }
     
     @IBAction func rotateUFC(_ sender: Any) {
-        rbView.cube.rotateUFC()
+        rcGame.rotateUFC()
         rbView.setNeedsDisplay()
     }
 }
