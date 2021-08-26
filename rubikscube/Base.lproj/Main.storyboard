@@ -19,6 +19,17 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0A-ki-Vtg" customClass="RBView" customModule="rubikscube" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d56-bs-MoJ">
+                                        <rect key="frame" x="575" y="0.0" width="193" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="Flip cube"/>
+                                        <connections>
+                                            <action selector="flipCube:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t2y-cS-dbp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="C0A-ki-Vtg" secondAttribute="height" multiplier="1:1" id="p5q-3c-0C4"/>
@@ -67,6 +78,24 @@
                                 <state key="normal" title="UFC"/>
                                 <connections>
                                     <action selector="rotateUFC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Owb-a3-yOP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVf-VH-stY">
+                                <rect key="frame" x="355" y="768" width="225" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                <state key="normal" title="Shuffle"/>
+                                <connections>
+                                    <action selector="shuffleCube:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xpv-fp-Z09"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0c-NO-toH">
+                                <rect key="frame" x="370" y="889" width="180" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetCube:" destination="BYZ-38-t0r" eventType="touchUpInside" id="riz-Ha-Rrw"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -10,11 +10,11 @@ import Foundation
 
 struct RCGame {
     var ff: [RCColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
-    var rf: [RCColor] = [.blue, .red, .red, .red, .red, .red, .red, .red, .red]
-    var uf: [RCColor] = [.red, .white, .white, .white, .white, .white, .white, .white, .white]
+    var rf: [RCColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
+    var uf: [RCColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
     var lf: [RCColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
     var df: [RCColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
-    var bf: [RCColor] = [.green, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
+    var bf: [RCColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     
     mutating func rotateFFC() {
         var a = ff[0]
@@ -42,6 +42,37 @@ struct RCGame {
         for _ in 0 ..< 3 {
             rotateFFC()
         }
+    }
+    
+    mutating func shuffleCube() {
+        for _ in 0 ..< 1000 {
+            let a = arc4random() % 6
+            switch a {
+            case 0:
+                rotateFFC()
+            case 1:
+                rotateFFCC()
+            case 2:
+                rotateRFC()
+            case 3:
+                rotateFFCC()
+            case 4:
+                rotateUFC()
+            case 5:
+                rotateUFCC()
+            default:
+                break
+            }
+        }
+    }
+    
+    mutating func reset() {
+        ff = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+        rf = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
+        uf = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
+        df = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
+        lf = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
+        bf = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     }
     
     mutating func rotateRFC() {
@@ -74,6 +105,12 @@ struct RCGame {
             rf[i] = bf[i]
             bf[i] = lf[i]
             lf[i] = a
+        }
+    }
+    
+    mutating func rotateUFCC() {
+        for i in 0 ..< 3 {
+            rotateUFC()
         }
     }
     
