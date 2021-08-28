@@ -9,13 +9,39 @@
 import UIKit
 
 class CubeView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+    
+    let sideL: CGFloat = 150
+    let startPointX: CGFloat = 450
+    let startPointY: CGFloat = 400
+    
     override func draw(_ rect: CGRect) {
-        // Drawing code
+        
+        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
+        let front = UIBezierPath()
+        front.move(to: CGPoint(x: startPointX, y: startPointY))
+        front.addLine(to: CGPoint(x: startPointX - sideL * sqrt(3), y: startPointY - sideL))
+        front.addLine(to: CGPoint(x: startPointX - sideL * sqrt(3), y: startPointY + sideL))
+        front.addLine(to: CGPoint(x: startPointX, y: startPointY + 2 * sideL))
+        front.close()
+        front.stroke()
+        
+        let right = UIBezierPath()
+        right.move(to: CGPoint(x: startPointX, y: startPointY))
+        right.addLine(to: CGPoint(x: startPointX + sideL * sqrt(3), y: startPointY - sideL))
+        right.addLine(to: CGPoint(x: startPointX + sideL * sqrt(3), y: startPointY + sideL))
+        right.addLine(to: CGPoint(x: startPointX, y: startPointY + 2 * sideL))
+        right.close()
+        right.stroke()
+        
+        let top = UIBezierPath()
+        top.move(to: CGPoint(x: startPointX + sideL * sqrt(3), y: startPointY - sideL))
+        top.addLine(to: CGPoint(x: startPointX, y: startPointY - sideL * 2))
+        top.addLine(to: CGPoint(x: startPointX - sideL * sqrt(3), y: startPointY - sideL))
+        top.stroke()
+        
+        
+        
     }
-    */
+    
 
 }
