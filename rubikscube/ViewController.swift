@@ -25,12 +25,14 @@ class ViewController: UIViewController, RCDelegate {
         if fromCol == 0 && fromRow == 0 &&
             toCol == 2 && toRow == 0 {
             rcGame.rotateFFC()
-            rbView.setNeedsDisplay()
         } else if fromCol == 0 && fromRow == 2 &&
                     toCol == 2 && toRow == 2 {
             rcGame.rotateFFCC()
-            rbView.setNeedsDisplay()
+        } else if fromCol == 1 && fromRow == 2 &&
+                    toCol == 1 && toRow == 0 {
+            rcGame.rotateUp()
         }
+        rbView.setNeedsDisplay()
     }
     
     var facingFoward = true
