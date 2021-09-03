@@ -14,7 +14,7 @@ struct RCGame {
     var uf: [RCColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
     var lf: [RCColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
     var df: [RCColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
-    var bf: [RCColor] = [.red, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
+    var bf: [RCColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     
     mutating func rotateFFC() {
         var a = ff[0]
@@ -66,13 +66,38 @@ struct RCGame {
         }
     }
     
+    mutating func rotateDFC() {
+        df = rotateFaceC(face: df)
+        var a = rf[6]
+        rf[6] = ff[6]
+        ff[6] = lf[6]
+        lf[6] = bf[6]
+        bf[6] = a
+        a = rf[7]
+        rf[7] = ff[7]
+        ff[7] = lf[7]
+        lf[7] = bf[7]
+        bf[7] = a
+        a = rf[8]
+        rf[8] = ff[8]
+        ff[8] = lf[8]
+        lf[8] = bf[8]
+        bf[8] = a
+    }
+    
+    mutating func rotateDFCC() {
+        for _ in 0 ..< 3 {
+            rotateDFC()
+        }
+    }
+    
     mutating func reset() {
         ff = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
         rf = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
         uf = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
         df = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
         lf = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
-        bf = [.red, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
+        bf = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     }
     
     mutating func rotateUp() {
@@ -96,8 +121,34 @@ struct RCGame {
     }
     
     mutating func rotateDown() {
+        for _ in 0 ..< 3 {
+            rotateUp()
+        }
+    }
+    
+    mutating func rotateRight() {
+        uf = rotateFaceCC(face: uf)
+        df = rotateFaceC(face: df)
+        
+        let oldFF = ff
+
+        ff = lf
+        
         for i in 0 ..< 9 {
-            ff[i] = uf[i]
+            lf[i] = bf[8 - i]
+        }
+
+
+        for i in 0 ..< 9 {
+            bf[i] = rf[8 - i]
+        }
+        
+        rf = oldFF
+    }
+    
+    mutating func rotateLeft() {
+        for _ in 0 ..< 3 {
+            rotateRight()
         }
     }
     

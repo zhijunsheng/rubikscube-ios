@@ -22,15 +22,30 @@ class ViewController: UIViewController, RCDelegate {
     }
     
     func rotate(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
-        if fromCol == 0 && fromRow == 0 &&
-            toCol == 2 && toRow == 0 {
+        if fromCol == 1 && fromRow == 0 &&
+            toCol == 2 && toRow == 1 {
             rcGame.rotateFFC()
-        } else if fromCol == 0 && fromRow == 2 &&
-                    toCol == 2 && toRow == 2 {
+        } else if fromCol == 2 && fromRow == 1 &&
+                    toCol == 1 && toRow == 0 {
             rcGame.rotateFFCC()
-        } else if fromCol == 1 && fromRow == 2 &&
+        } else if fromCol == 2 && fromRow == 1 &&
                     toCol == 1 && toRow == 0 {
             rcGame.rotateUp()
+        } else if fromCol == 1 && fromRow == 0 &&
+                    toCol == 1 && toRow == 2 {
+            rcGame.rotateDown()
+        } else if fromCol == 0 && fromRow == 1 &&
+                    toCol == 2 && toRow == 1 {
+            rcGame.rotateRight()
+        } else if fromCol == 2 && fromRow == 1 &&
+                    toCol == 0 && toRow == 1 {
+            rcGame.rotateLeft()
+        } else if fromCol == 0 && fromRow == 2 &&
+                    toCol == 2 && toRow == 2 {
+            rcGame.rotateDFC()
+        } else if fromCol == 2 && fromRow == 2 &&
+                    toCol == 0 && toRow == 2 {
+            rcGame.rotateDFCC()
         }
         rbView.setNeedsDisplay()
     }
