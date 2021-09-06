@@ -14,16 +14,6 @@
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0725AF882202550E00AB1E6F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0725AF6B2202550B00AB1E6F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0725AF722202550B00AB1E6F;
-			remoteInfo = rubikscube;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		0725AF732202550B00AB1E6F /* rubikscube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubikscube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF762202550B00AB1E6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,19 +22,11 @@
 		0725AF7D2202550E00AB1E6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0725AF802202550E00AB1E6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0725AF822202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0725AF702202550B00AB1E6F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0725AF842202550E00AB1E6F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				0725AF732202550B00AB1E6F /* rubikscube.app */,
-				0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,24 +94,6 @@
 			productReference = 0725AF732202550B00AB1E6F /* rubikscube.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0725AF862202550E00AB1E6F /* rubikscubeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0725AF932202550E00AB1E6F /* Build configuration list for PBXNativeTarget "rubikscubeTests" */;
-			buildPhases = (
-				0725AF832202550E00AB1E6F /* Sources */,
-				0725AF842202550E00AB1E6F /* Frameworks */,
-				0725AF852202550E00AB1E6F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0725AF892202550E00AB1E6F /* PBXTargetDependency */,
-			);
-			name = rubikscubeTests;
-			productName = rubikscubeTests;
-			productReference = 0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -138,15 +101,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Gold Thumb Inc.";
 				TargetAttributes = {
 					0725AF722202550B00AB1E6F = {
 						CreatedOnToolsVersion = 10.1;
-					};
-					0725AF862202550E00AB1E6F = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 0725AF722202550B00AB1E6F;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -164,7 +124,6 @@
 			projectRoot = "";
 			targets = (
 				0725AF722202550B00AB1E6F /* rubikscube */,
-				0725AF862202550E00AB1E6F /* rubikscubeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -180,13 +139,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0725AF852202550E00AB1E6F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -199,22 +151,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0725AF832202550E00AB1E6F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0725AF892202550E00AB1E6F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0725AF722202550B00AB1E6F /* rubikscube */;
-			targetProxy = 0725AF882202550E00AB1E6F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0725AF7A2202550B00AB1E6F /* Main.storyboard */ = {
@@ -262,6 +199,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -323,6 +261,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -359,14 +298,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = rubikscube/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.rubikscube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -378,57 +317,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = rubikscube/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.rubikscube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		0725AF942202550E00AB1E6F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8B74FCZCC;
-				INFOPLIST_FILE = rubikscubeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.rubikscubeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rubikscube.app/rubikscube";
-			};
-			name = Debug;
-		};
-		0725AF952202550E00AB1E6F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8B74FCZCC;
-				INFOPLIST_FILE = rubikscubeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.rubikscubeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rubikscube.app/rubikscube";
 			};
 			name = Release;
 		};
@@ -449,15 +346,6 @@
 			buildConfigurations = (
 				0725AF912202550E00AB1E6F /* Debug */,
 				0725AF922202550E00AB1E6F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0725AF932202550E00AB1E6F /* Build configuration list for PBXNativeTarget "rubikscubeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0725AF942202550E00AB1E6F /* Debug */,
-				0725AF952202550E00AB1E6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
