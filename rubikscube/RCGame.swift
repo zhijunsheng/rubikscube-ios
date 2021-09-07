@@ -45,8 +45,8 @@ struct RCGame {
     }
     
     mutating func shuffleCube() {
-        for _ in 0 ..< 1000 {
-            let a = arc4random() % 6
+        for _ in 0 ..< 10000 {
+            let a = arc4random() % 12
             switch a {
             case 0:
                 rotateFFC()
@@ -55,11 +55,23 @@ struct RCGame {
             case 2:
                 rotateRFC()
             case 3:
-                rotateFFCC()
+                rotateRFCC()
             case 4:
                 rotateUFC()
             case 5:
                 rotateUFCC()
+            case 6:
+                rotateDFC()
+            case 7:
+                rotateDFCC()
+            case 8:
+                rotateLFC()
+            case 9:
+                rotateLFCC()
+            case 10:
+                rotateBFC()
+            case 11:
+                rotateBFCC()
             default:
                 break
             }
@@ -146,6 +158,20 @@ struct RCGame {
         rf = oldFF
     }
     
+    mutating func rotateBFC() {
+        rotateRight()
+        rotateRight()
+        rotateFFC()
+        rotateLeft()
+        rotateLeft()
+    }
+    
+    mutating func rotateBFCC() {
+        for _ in 0 ..< 3 {
+            rotateBFC()
+        }
+    }
+    
     mutating func rotateLeft() {
         for _ in 0 ..< 3 {
             rotateRight()
@@ -161,6 +187,18 @@ struct RCGame {
             ff[i] = df[i]
             df[i] = bf[8 - i]
             bf[8 - i] = a
+        }
+    }
+    
+    mutating func rotateLFC() {
+        rotateRight()
+        rotateFFC()
+        rotateLeft()
+    }
+    
+    mutating func rotateLFCC() {
+        for _ in 0 ..< 3 {
+            rotateLFC()
         }
     }
     
@@ -191,7 +229,7 @@ struct RCGame {
         }
     }
     
-    func abcd(index: Int, face: RCFace) -> RCColor {
+    func colourAt(index: Int, face: RCFace) -> RCColor {
         switch face {
         case .RF:
             return rf[index]
@@ -199,6 +237,12 @@ struct RCGame {
             return ff[index]
         case .UF:
             return uf[index]
+        case .DF:
+            return df[index]
+        case .LF:
+            return lf[index]
+        case .BF:
+            return bf[index]
         }
     }
     

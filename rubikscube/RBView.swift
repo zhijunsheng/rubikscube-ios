@@ -104,9 +104,9 @@ class RBView: UIView {
     func drawFaces() {
         guard let delegate = delegate else { return }
         for i in 0 ..< 9 {
-            drawRFCell(color: findColor(color: delegate.abcd(index: i, face: .RF)), index: i)
-            drawFFCell(color: findColor(color: delegate.abcd(index: i, face: .FF)), index: i)
-            drawUFCell(color: findColor(color: delegate.abcd(index: i, face: .UF)), index: i)
+            drawRFCell(color: findColor(color: delegate.colourAt(index: i, face: .RF)), index: i)
+            drawFFCell(color: findColor(color: delegate.colourAt(index: i, face: .FF)), index: i)
+            drawUFCell(color: findColor(color: delegate.colourAt(index: i, face: .UF)), index: i)
             
         }
     }

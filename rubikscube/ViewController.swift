@@ -28,7 +28,7 @@ class ViewController: UIViewController, RCDelegate {
         } else if fromCol == 2 && fromRow == 1 &&
                     toCol == 1 && toRow == 0 {
             rcGame.rotateFFCC()
-        } else if fromCol == 2 && fromRow == 1 &&
+        } else if fromCol == 1 && fromRow == 2 &&
                     toCol == 1 && toRow == 0 {
             rcGame.rotateUp()
         } else if fromCol == 1 && fromRow == 0 &&
@@ -46,6 +46,18 @@ class ViewController: UIViewController, RCDelegate {
         } else if fromCol == 2 && fromRow == 2 &&
                     toCol == 0 && toRow == 2 {
             rcGame.rotateDFCC()
+        } else if fromCol == 0 && fromRow == 0 &&
+                    toCol == 2 && toRow == 0 {
+            rcGame.rotateUFCC()
+        } else if fromCol == 2 && fromRow == 0 &&
+                    toCol == 0 && toRow == 0 {
+            rcGame.rotateUFC()
+        } else if fromCol == 0 && fromRow == 0 &&
+                    toCol == 0 && toRow == 2 {
+            rcGame.rotateLFC()
+        } else if fromCol == 0 && fromRow == 2 &&
+        toCol == 0 && toRow == 0 {
+            rcGame.rotateLFCC()
         }
         rbView.setNeedsDisplay()
     }
@@ -90,8 +102,8 @@ class ViewController: UIViewController, RCDelegate {
         rbView.setNeedsDisplay()
     }
     
-    func abcd(index: Int, face: RCFace) -> RCColor {
-        return rcGame.abcd(index: index, face: face)
+    func colourAt(index: Int, face: RCFace) -> RCColor {
+        return rcGame.colourAt(index: index, face: face)
     }
 
     @IBAction func rotateFFC(_ sender: Any) {

@@ -12,4 +12,7 @@ enum RCFace {
     case FF
     case RF
     case UF
+    case DF
+    case LF
+    case BF
 }

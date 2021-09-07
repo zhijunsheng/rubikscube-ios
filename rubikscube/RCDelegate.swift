@@ -10,6 +10,6 @@ import Foundation
 
 protocol RCDelegate {
     func rotate(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int)
-    func abcd(index: Int, face: RCFace) -> RCColor
+    func colourAt(index: Int, face: RCFace) -> RCColor
     
 }
