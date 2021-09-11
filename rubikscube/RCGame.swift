@@ -13,7 +13,7 @@ struct RCGame {
     var rf: [RCColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
     var uf: [RCColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
     var lf: [RCColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
-    var df: [RCColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
+    var df: [RCColor] = [.orange, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
     var bf: [RCColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     
     mutating func rotateFFC() {
@@ -107,8 +107,8 @@ struct RCGame {
         ff = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
         rf = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
         uf = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
-        df = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
-        lf = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
+        lf = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
+        df = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
         bf = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     }
     
@@ -137,6 +137,8 @@ struct RCGame {
             rotateUp()
         }
     }
+    
+    
     
     mutating func rotateRight() {
         uf = rotateFaceCC(face: uf)
@@ -191,9 +193,22 @@ struct RCGame {
     }
     
     mutating func rotateLFC() {
-        rotateRight()
-        rotateFFC()
-        rotateLeft()
+        lf = rotateFaceC(face: lf)
+        var a = ff[0]
+        ff[0] = uf[0]
+        uf[0] = bf[8]
+        bf[8] = df[0]
+        df[0] = a
+        a = ff[3]
+        ff[3] = uf[3]
+        uf[3] = bf[5]
+        bf[5] = df[3]
+        df[3] = a
+        a = ff[6]
+        ff[6] = uf[6]
+        uf[6] = bf[2]
+        bf[2] = df[6]
+        df[6] = a
     }
     
     mutating func rotateLFCC() {
@@ -270,5 +285,33 @@ struct RCGame {
             newFace = rotateFaceC(face: newFace)
         }
         return newFace
+    }
+    
+    static func generateGame(index: Int, face: RCFace, color: RCColor) -> RCGame {
+        var rcGame = RCGame()
+        
+        rcGame.rf = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+        rcGame.uf = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+        rcGame.df = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+        rcGame.ff = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+        rcGame.lf = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+        rcGame.bf = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+        
+        switch face {
+        case .FF:
+            rcGame.ff[index] = color
+        case .RF:
+            rcGame.rf[index] = color
+        case .UF:
+            rcGame.uf[index] = color
+        case .DF:
+            rcGame.df[index] = color
+        case .LF:
+            rcGame.lf[index] = color
+        case .BF:
+            rcGame.bf[index] = color
+        }
+        
+        return rcGame
     }
 }

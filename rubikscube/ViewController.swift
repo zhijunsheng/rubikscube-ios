@@ -17,7 +17,6 @@ class ViewController: UIViewController, RCDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         rbView.delegate = self
     }
     
