@@ -15,6 +15,28 @@ class RubiksView: UIView {
     let cell: CGFloat = 100
     
     override func draw(_ rect: CGRect) {
+        drawGrid()
+        drawSquare(col: 0, row: 0, color: .red)
+        drawSquare(col: 1, row: 0, color: .green)
+        drawSquare(col: 2, row: 2, color: .cyan)
+    }
+    
+    func drawSquare(col: Int, row: Int, color: UIColor) {
+        let pencil = UIBezierPath()
+        
+        pencil.move(to: CGPoint(x: gx + cell * CGFloat(col), y: gy + cell * CGFloat(row)))
+        pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(col + 1), y: gy + cell * CGFloat(row)))
+        pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(col + 1), y: gy + cell * CGFloat(row + 1)))
+        pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(col), y: gy + cell * CGFloat(row + 1)))
+        pencil.close()
+        
+        pencil.stroke()
+        color.setFill()
+        pencil.fill()
+    }
+    
+    func drawGrid()  {
+        
         let pencil = UIBezierPath()
         
         //front face
