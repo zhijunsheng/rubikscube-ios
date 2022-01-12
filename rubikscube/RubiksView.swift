@@ -10,18 +10,45 @@ import UIKit
 
 class RubiksView: UIView {
     
-    let gx: CGFloat = 50
-    let gy: CGFloat = 200
-    let cell: CGFloat = 100
+    let gx: CGFloat = 110
+    let gy: CGFloat = 150
+    let cell: CGFloat = 150
     
     override func draw(_ rect: CGRect) {
         drawGrid()
-        drawSquare(col: 0, row: 0, color: .red)
-        drawSquare(col: 1, row: 0, color: .green)
-        drawSquare(col: 2, row: 2, color: .cyan)
+        drawFrontFace()
+        drawTopFace()
     }
     
-    func drawSquare(col: Int, row: Int, color: UIColor) {
+    func drawTopSquare(col: Int, row: Int, color: UIColor) {
+        let pencil = UIBezierPath()
+        let anchorX: CGFloat = gx + cell / 2 + cell * CGFloat(col) - cell / 6 * CGFloat(row)
+        let anchorY: CGFloat = gy - cell / 2 + cell / 6 * CGFloat(row)
+        
+        pencil.move(to: CGPoint(x: anchorX, y: anchorY))
+        pencil.addLine(to: CGPoint(x: anchorX + cell, y: anchorY))
+        pencil.addLine(to: CGPoint(x: anchorX + cell - cell / 6, y: anchorY + cell / 6))
+        pencil.addLine(to: CGPoint(x: anchorX - cell / 6 , y: anchorY + cell / 6))
+        pencil.close()
+        
+        color.setFill()
+        pencil.fill()
+    }
+    
+    func drawTopFace() {
+        drawTopSquare(col: 0, row: 0, color: .green)
+        drawTopSquare(col: 1, row: 1, color: .orange)
+        drawTopSquare(col: 2, row: 2, color: .cyan)
+    }
+    
+    func drawFrontFace() {
+        drawFrontSquare(col: 0, row: 0, color: .red)
+        drawFrontSquare(col: 1, row: 0, color: .green)
+        drawFrontSquare(col: 2, row: 2, color: .cyan)
+    }
+    
+    
+    func drawFrontSquare(col: Int, row: Int, color: UIColor) {
         let pencil = UIBezierPath()
         
         pencil.move(to: CGPoint(x: gx + cell * CGFloat(col), y: gy + cell * CGFloat(row)))
@@ -30,10 +57,10 @@ class RubiksView: UIView {
         pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(col), y: gy + cell * CGFloat(row + 1)))
         pencil.close()
         
-        pencil.stroke()
         color.setFill()
         pencil.fill()
     }
+
     
     func drawGrid()  {
         
