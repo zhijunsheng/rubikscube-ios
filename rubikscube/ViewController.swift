@@ -8,13 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, RubiksCubeDelegate {
+    
+    var game = RubiksGame()
+    
 
+    @IBOutlet weak var rubiksView: RubiksView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        rubiksView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
 
+    func colorF(col: Int, row: Int) -> CubeColor {
+        return game.colorF(col: col, row: row)
+    }
+    
+    func colorU(col: Int, row: Int) -> CubeColor {
+        return game.colorU(col: col, row: row)
+    }
 }
 
