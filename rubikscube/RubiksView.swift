@@ -75,7 +75,7 @@ class RubiksView: UIView {
     func drawTopFace() {
         for c in 0 ..< 3 {
             for r in 0 ..< 3 {
-                let color = delegate!.colorF(col: c, row: r)
+                let color = delegate!.colorU(col: c, row: r)
                 let theirColor = colorToColor(color: color)
                 
                 drawTopSquare(col: c, row: r, color: theirColor)

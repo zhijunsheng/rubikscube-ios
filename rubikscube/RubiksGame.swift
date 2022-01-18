@@ -10,8 +10,8 @@ import Foundation
 
 struct RubiksGame {
     let faceF: [CubeColor] = [.red, .yellow, .white, .orange, .orange, .blue, .yellow, .green, .white]
-    let faceU: [CubeColor] = [.yellow, .white, .blue, .red, .red, .orange, .blue, .green, .white]
-    let faceR: [CubeColor] = [.green, .blue, .red, .green, .white, .blue, .yellow, .red, .orange]
+    let faceU: [CubeColor] = [.green, .white, .blue, .red, .red, .orange, .blue, .green, .red]
+    let faceR: [CubeColor] = [.blue, .blue, .red, .green, .white, .blue, .yellow, .red, .orange]
     
     
     func colorF(col: Int, row: Int) -> CubeColor {
