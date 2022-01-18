@@ -19,7 +19,7 @@ class ViewController: UIViewController, RubiksCubeDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         rubiksView.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        game.reset()
     }
 
 

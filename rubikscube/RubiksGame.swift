@@ -9,10 +9,23 @@
 import Foundation
 
 struct RubiksGame {
-    let faceF: [CubeColor] = [.red, .yellow, .white, .orange, .orange, .blue, .yellow, .green, .white]
-    let faceU: [CubeColor] = [.green, .white, .blue, .red, .red, .orange, .blue, .green, .red]
-    let faceR: [CubeColor] = [.blue, .blue, .red, .green, .white, .blue, .yellow, .red, .orange]
+    var faceF: [CubeColor] = []
+    var faceU: [CubeColor] = []
+    var faceR: [CubeColor] = []
+    var faceL: [CubeColor] = []
+    var faceD: [CubeColor] = []
+    var faceB: [CubeColor] = []
     
+    mutating func reset() {
+        for _ in 0 ..< 9 {
+            faceF.append(.red)
+            faceU.append(.white)
+            faceR.append(.blue)
+            faceL.append(.green)
+            faceD.append(.yellow)
+            faceB.append(.orange)
+        }
+    }
     
     func colorF(col: Int, row: Int) -> CubeColor {
         return faceF[col + 3 * row]
