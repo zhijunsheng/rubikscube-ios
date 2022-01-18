@@ -27,14 +27,14 @@ class RubiksView: UIView {
     
     func drawRightSquare(col: Int, row: Int, color: UIColor) {
         let pencil = UIBezierPath()
-        let anchorX: CGFloat = gx + cell * 3
-        let anchorY: CGFloat = gy
+        let anchorX: CGFloat = gx + cell * 3 + cell / 6 * CGFloat(col)
+        let anchorY: CGFloat = gy - cell / 6 * CGFloat(col) + cell * CGFloat(row)
+
         
-        
-        pencil.move(to: CGPoint(x: anchorX + cell / 6 * CGFloat (col), y: anchorY - cell / 6 * CGFloat(col)))
-        pencil.addLine(to: CGPoint(x: anchorX + cell / 6 + cell / 6 * CGFloat(col), y: anchorY - cell / 6 - cell / 6 * CGFloat(col)))
-        pencil.addLine(to: CGPoint(x: anchorX + cell / 6 + cell / 6 * CGFloat(col), y: anchorY + cell - cell / 6 - cell / 6 * CGFloat(col)))
-        pencil.addLine(to: CGPoint(x: anchorX + cell / 6 - cell / 6 + cell / 6 * CGFloat(col), y: anchorY + cell - cell / 6 + cell / 6 - cell / 6 * CGFloat(col)))
+        pencil.move(to: CGPoint(x: anchorX, y: anchorY))
+        pencil.addLine(to: CGPoint(x: anchorX + cell / 6, y: anchorY - cell / 6))
+        pencil.addLine(to: CGPoint(x: anchorX + cell / 6, y: anchorY + cell - cell / 6))
+        pencil.addLine(to: CGPoint(x: anchorX + cell / 6 - cell / 6, y: anchorY + cell - cell / 6 + cell / 6))
         pencil.close()
     
         
@@ -60,15 +60,22 @@ class RubiksView: UIView {
     }
     
     func drawRightFace() {
-        drawRightSquare(col: 0, row: 0, color: .red)
-        drawRightSquare(col: 1, row: 0, color: .green)
-        drawRightSquare(col: 2, row: 2, color: .blue)
+        
+        for c in 0 ..< 3 {
+            for r in 0 ..< 3 {
+                let color = delegate!.colorR(col: c, row: r)
+                let theirColor = colorToColor(color: color)
+
+                drawRightSquare(col: c, row: r, color: theirColor)
+
+            }
+        }
     }
     
     func drawTopFace() {
         for c in 0 ..< 3 {
             for r in 0 ..< 3 {
-                let color = delegate!.colorU(col: c, row: r)
+                let color = delegate!.colorF(col: c, row: r)
                 let theirColor = colorToColor(color: color)
                 
                 drawTopSquare(col: c, row: r, color: theirColor)

@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, RubiksCubeDelegate {
     
+    
     var game = RubiksGame()
     
 
@@ -28,6 +29,9 @@ class ViewController: UIViewController, RubiksCubeDelegate {
     
     func colorU(col: Int, row: Int) -> CubeColor {
         return game.colorU(col: col, row: row)
+    }
+    func colorR(col: Int, row: Int) -> CubeColor {
+        return game.colorR(col: col, row: row)
     }
 }
 
