@@ -16,6 +16,8 @@ class RubiksView: UIView {
     let gx: CGFloat = 110
     let gy: CGFloat = 150
     let cell: CGFloat = 150
+    var beginCol: Int = -1
+    var beginRow: Int = -2
     
     override func draw(_ rect: CGRect) {
         drawFrontFace()
@@ -23,6 +25,25 @@ class RubiksView: UIView {
         drawRightFace()
         drawGrid()
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let finger = touch.location(in: self)
+        beginCol = Int((finger.x - gx) / cell)
+        
+        beginRow = Int((finger.y - gy) / cell)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let finger = touch.location(in: self)
+        let endCol: Int = Int((finger.x - gx) / cell)
+        let endRow: Int = Int((finger.y - gy) / cell)
+
+        if beginCol == 2 && beginRow == 0 && endCol == 0 && endRow == 0 {
+            delegate?.U()
+        }
     }
     
     func drawRightSquare(col: Int, row: Int, color: UIColor) {

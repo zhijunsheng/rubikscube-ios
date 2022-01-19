@@ -10,9 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, RubiksCubeDelegate {
     
-    
     var game = RubiksGame()
-    
 
     @IBOutlet weak var rubiksView: RubiksView!
     
@@ -21,7 +19,11 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksView.delegate = self
         game.reset()
     }
-
+    
+    func U() {
+        game.U()
+        rubiksView.setNeedsDisplay()
+    }
 
     func colorF(col: Int, row: Int) -> CubeColor {
         return game.colorF(col: col, row: row)
