@@ -20,6 +20,13 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         game.reset()
     }
     
+    
+    @IBAction func resetGame(_ sender: Any) {
+        game.reset()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    
     func U() {
         game.U()
         rubiksView.setNeedsDisplay()
@@ -27,6 +34,11 @@ class ViewController: UIViewController, RubiksCubeDelegate {
     
     func UUU() {
         game.UUU()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    func F() {
+        game.F()
         rubiksView.setNeedsDisplay()
     }
 

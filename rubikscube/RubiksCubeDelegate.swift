@@ -15,4 +15,5 @@ protocol RubiksCubeDelegate {
     
     func U()
     func UUU()
+    func F()
 }

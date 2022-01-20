@@ -16,6 +16,31 @@ struct RubiksGame {
     var faceD: [CubeColor] = []
     var faceB: [CubeColor] = []
     
+    mutating func F() {
+        
+        let saveL2 = faceL[2]
+        let saveL5 = faceL[5]
+        let saveL8 = faceL[8]
+        
+        faceL[2] = faceD[0]
+        faceL[5] = faceD[1]
+        faceL[8] = faceD[2]
+        
+        faceD[2] = faceR[0]
+        faceD[1] = faceR[3]
+        faceD[0] = faceR[6]
+        
+        faceR[0] = faceU[6]
+        faceR[3] = faceU[7]
+        faceR[6] = faceU[8]
+        
+        faceU[8] = saveL2
+        faceU[7] = saveL5
+        faceU[6] = saveL8
+        
+    }
+    
+    
     mutating func UUU() {
         
         U()
@@ -62,6 +87,14 @@ struct RubiksGame {
     }
     
     mutating func reset() {
+        
+        faceF.removeAll()
+        faceU.removeAll()
+        faceR.removeAll()
+        faceL.removeAll()
+        faceD.removeAll()
+        faceB.removeAll()
+        
         for _ in 0 ..< 9 {
             faceF.append(.red)
             faceU.append(.white)
