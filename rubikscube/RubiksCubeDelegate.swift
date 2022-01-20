@@ -14,4 +14,5 @@ protocol RubiksCubeDelegate {
     func colorR(col: Int, row: Int) -> CubeColor
     
     func U()
+    func UUU()
 }

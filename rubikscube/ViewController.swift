@@ -24,6 +24,11 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         game.U()
         rubiksView.setNeedsDisplay()
     }
+    
+    func UUU() {
+        game.UUU()
+        rubiksView.setNeedsDisplay()
+    }
 
     func colorF(col: Int, row: Int) -> CubeColor {
         return game.colorF(col: col, row: row)

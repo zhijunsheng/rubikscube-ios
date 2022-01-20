@@ -16,6 +16,13 @@ struct RubiksGame {
     var faceD: [CubeColor] = []
     var faceB: [CubeColor] = []
     
+    mutating func UUU() {
+        
+        U()
+        U()
+        U()
+    }
+    
     mutating func U() {
         
         let saveU0 = faceU[0]
