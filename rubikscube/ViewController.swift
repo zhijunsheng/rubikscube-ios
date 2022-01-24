@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, RubiksCubeDelegate {
     
+    
     var game = RubiksGame()
 
     @IBOutlet weak var rubiksView: RubiksView!
@@ -26,6 +27,10 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksView.setNeedsDisplay()
     }
     
+    func FFF() {
+        game.FFF()
+        rubiksView.setNeedsDisplay()
+    }
     
     func U() {
         game.U()
