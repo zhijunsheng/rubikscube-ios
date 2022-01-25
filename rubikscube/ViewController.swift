@@ -27,6 +27,26 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksView.setNeedsDisplay()
     }
     
+    func RRR() {
+        game.RRR()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    func R() {
+        game.R()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    func DDD() {
+        game.DDD()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    func D() {
+        game.D()
+        rubiksView.setNeedsDisplay()
+    }
+    
     func FFF() {
         game.FFF()
         rubiksView.setNeedsDisplay()
