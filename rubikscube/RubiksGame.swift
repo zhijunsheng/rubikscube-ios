@@ -16,6 +16,51 @@ struct RubiksGame {
     var faceD: [CubeColor] = []
     var faceB: [CubeColor] = []
     
+    
+    mutating func LLL() {
+        L()
+        L()
+        L()
+    }
+    
+    mutating func L() {
+        
+        let saveF0 = faceF[0]
+        let saveF3 = faceF[3]
+        let saveF6 = faceF[6]
+        
+        faceF[0] = faceU[0]
+        faceF[3] = faceU[3]
+        faceF[6] = faceU[6]
+        
+        faceU[0] = faceB[8]
+        faceU[3] = faceB[5]
+        faceU[6] = faceB[2]
+        
+        faceB[8] = faceD[0]
+        faceB[5] = faceD[3]
+        faceB[2] = faceD[6]
+        
+        faceD[0] = saveF0
+        faceD[3] = saveF3
+        faceD[6] = saveF6
+        
+        let saveL0 = faceL[0]
+        let saveL1 = faceL[1]
+        
+        faceL[0] = faceL[6]
+        faceL[6] = faceL[8]
+        faceL[8] = faceL[2]
+        faceL[2] = saveL0
+        
+        faceL[1] = faceL[3]
+        faceL[3] = faceL[7]
+        faceL[7] = faceL[5]
+        faceL[5] = saveL1
+        
+        
+    }
+    
     mutating func RRR() {
         R()
         R()

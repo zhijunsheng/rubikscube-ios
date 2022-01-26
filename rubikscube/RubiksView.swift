@@ -65,6 +65,12 @@ class RubiksView: UIView {
         if beginCol == 2 && beginRow == 0 && endCol == 2 && endRow == 2 {
             delegate?.RRR()
         }
+        if beginCol == 0 && beginRow == 0 && endCol == 0 && endRow == 2 {
+            delegate?.L()
+        }
+        if beginCol == 0 && beginRow == 2 && endCol == 0 && endRow == 0 {
+            delegate?.LLL()
+        }
     }
     
     func drawRightSquare(col: Int, row: Int, color: UIColor) {

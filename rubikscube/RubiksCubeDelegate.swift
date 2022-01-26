@@ -21,4 +21,6 @@ protocol RubiksCubeDelegate {
     func DDD()
     func R()
     func RRR()
+    func L()
+    func LLL()
 }
