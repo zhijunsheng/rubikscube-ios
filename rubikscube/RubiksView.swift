@@ -13,18 +13,21 @@ class RubiksView: UIView {
     var delegate: RubiksCubeDelegate?
     
     
-    let gx: CGFloat = 110
-    let gy: CGFloat = 150
-    let cell: CGFloat = 150
+    var gx: CGFloat = 110
+    var gy: CGFloat = 150
+    var cell: CGFloat = 150
     var beginCol: Int = -1
     var beginRow: Int = -2
     
     override func draw(_ rect: CGRect) {
+        cell = bounds.width / 4
+        gx = (bounds.width - cell * 3.5) / 2
+        gy = (bounds.height - cell * 2.5) / 2
+        
         drawFrontFace()
         drawTopFace()
         drawRightFace()
         drawGrid()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
