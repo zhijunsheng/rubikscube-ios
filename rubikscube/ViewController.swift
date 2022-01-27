@@ -19,6 +19,14 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         super.viewDidLoad()
         rubiksView.delegate = self
         game.reset()
+        
+//        for j in 0 ..< 7 {
+//            for i in 0 ..< 7 {
+//
+//                print("*", terminator: "")
+//            }
+//            print()
+//        }
     }
     
     
