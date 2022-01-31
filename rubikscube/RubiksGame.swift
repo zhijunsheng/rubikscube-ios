@@ -46,6 +46,12 @@ struct RubiksGame {
         }
     }
     
+    mutating func moveCubeUUU() {
+        moveCubeU()
+        moveCubeU()
+        moveCubeU()
+    }
+    
     mutating func moveCubeU() {
         
         let saveU0 = faceU[0]

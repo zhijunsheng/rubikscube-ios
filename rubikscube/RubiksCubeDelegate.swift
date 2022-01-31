@@ -24,4 +24,5 @@ protocol RubiksCubeDelegate {
     func L()
     func LLL()
     func moveCubeU()
+    func moveCubeUUU()
 }
