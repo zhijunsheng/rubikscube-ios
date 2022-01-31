@@ -29,6 +29,11 @@ class ViewController: UIViewController, RubiksCubeDelegate {
 //        }
     }
     
+    @IBAction func shuffleCube(_ sender: Any) {
+        game.shuffle()
+        rubiksView.setNeedsDisplay()
+    }
+    
     
     @IBAction func resetGame(_ sender: Any) {
         game.reset()

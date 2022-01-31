@@ -16,6 +16,36 @@ struct RubiksGame {
     var faceD: [CubeColor] = []
     var faceB: [CubeColor] = []
     
+    mutating func shuffle() {
+        for _ in 0 ..< 10000 {
+            let random0 = arc4random() % 10
+            switch random0 {
+            case 0:
+                U()
+            case 1:
+                UUU()
+            case 2:
+                F()
+            case 3:
+                FFF()
+            case 4:
+                D()
+            case 5:
+                DDD()
+            case 6:
+                R()
+            case 7:
+                RRR()
+            case 8:
+                L()
+            case 9:
+                LLL()
+            default:
+                break
+            }
+        }
+    }
+    
     mutating func moveCubeU() {
         
         let saveU0 = faceU[0]
