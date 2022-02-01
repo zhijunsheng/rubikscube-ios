@@ -9,6 +9,7 @@
 import Foundation
 
 struct RubiksGame {
+    
     var faceF: [CubeColor] = []
     var faceU: [CubeColor] = []
     var faceR: [CubeColor] = []
@@ -89,38 +90,12 @@ struct RubiksGame {
         faceB[1] = saveU7
         faceB[0] = saveU8
         
-        let saveR0 = faceR[0]
-        let saveR1 = faceR[1]
-    
-        faceR[0] = faceR[6]
-        faceR[6] = faceR[8]
-        faceR[8] = faceR[2]
-        faceR[2] = saveR0
-        
-        faceR[1] = faceR[3]
-        faceR[3] = faceR[7]
-        faceR[7] = faceR[5]
-        faceR[5] = saveR1
+        faceR = rotateFace(face: faceR)
         
         for _ in 0 ..< 3 {
-            
-            let saveL0 = faceL[0]
-            let saveL1 = faceL[1]
-            
-            faceL[0] = faceL[6]
-            faceL[6] = faceL[8]
-            faceL[8] = faceL[2]
-            faceL[2] = saveL0
-            
-            faceL[1] = faceL[3]
-            faceL[3] = faceL[7]
-            faceL[7] = faceL[5]
-            faceL[5] = saveL1
+            faceL = rotateFace(face: faceL)
         }
-        
-        
     }
-    
     
     mutating func LLL() {
         L()
@@ -150,20 +125,7 @@ struct RubiksGame {
         faceD[3] = saveF3
         faceD[6] = saveF6
         
-        let saveL0 = faceL[0]
-        let saveL1 = faceL[1]
-        
-        faceL[0] = faceL[6]
-        faceL[6] = faceL[8]
-        faceL[8] = faceL[2]
-        faceL[2] = saveL0
-        
-        faceL[1] = faceL[3]
-        faceL[3] = faceL[7]
-        faceL[7] = faceL[5]
-        faceL[5] = saveL1
-        
-        
+        faceL = rotateFace(face: faceL)
     }
     
     mutating func RRR() {
@@ -194,20 +156,7 @@ struct RubiksGame {
         faceU[5] = saveF5
         faceU[8] = saveF8
         
-        let saveR0 = faceR[0]
-        let saveR1 = faceR[1]
-    
-        faceR[0] = faceR[6]
-        faceR[6] = faceR[8]
-        faceR[8] = faceR[2]
-        faceR[2] = saveR0
-        
-        faceR[1] = faceR[3]
-        faceR[3] = faceR[7]
-        faceR[7] = faceR[5]
-        faceR[5] = saveR1
-        
-        
+        faceR = rotateFace(face: faceR)
     }
     
     mutating func DDD() {
@@ -236,19 +185,8 @@ struct RubiksGame {
         faceL[8] = faceB[8]
         faceB[8] = faceR[8]
         faceR[8] = saveF8
-        
-        let saved5 = faceD[5]
-        let saved2 = faceD[2]
-        
-        faceD[5] = faceD[1]
-        faceD[1] = faceD[3]
-        faceD[3] = faceD[7]
-        faceD[7] = saved5
-        
-        faceD[2] = faceD[0]
-        faceD[0] = faceD[6]
-        faceD[6] = faceD[8]
-        faceD[8] = saved2
+
+        faceD = rotateFace(face: faceD)
     }
     
     mutating func FFF() {
@@ -279,20 +217,7 @@ struct RubiksGame {
         faceU[7] = saveL5
         faceU[6] = saveL8
         
-        let saveF5 = faceF[5]
-        
-        faceF[5] = faceF[1]
-        faceF[1] = faceF[3]
-        faceF[3] = faceF[7]
-        faceF[7] = saveF5
-        
-        let saveF2 = faceF[2]
-        
-        
-        faceF[2] = faceF[0]
-        faceF[0] = faceF[6]
-        faceF[6] = faceF[8]
-        faceF[8] = saveF2
+        faceF = rotateFace(face: faceF)
         
     }
     
@@ -306,19 +231,7 @@ struct RubiksGame {
     
     mutating func U() {
         
-        let saveU0 = faceU[0]
-        let saveU1 = faceU[1]
-        
-        faceU[0] = faceU[6]
-        faceU[6] = faceU[8]
-        faceU[8] = faceU[2]
-        faceU[2] = saveU0
-        
-        faceU[1] = faceU[3]
-        faceU[3] = faceU[7]
-        faceU[7] = faceU[5]
-        faceU[5] = saveU1
-        
+        faceU = rotateFace(face: faceU)
         
         let saveF0 = faceF[0]
         let saveF1 = faceF[1]
@@ -371,5 +284,21 @@ struct RubiksGame {
     
     func colorR(col: Int, row: Int) -> CubeColor {
         return faceR[col + 3 * row]
+    }
+    
+    mutating func rotateFace(face: [CubeColor]) -> [CubeColor] {
+        var newFace = face
+        
+        newFace[0] = face[6]
+        newFace[6] = face[8]
+        newFace[8] = face[2]
+        newFace[2] = face[0]
+        
+        newFace[1] = face[3]
+        newFace[3] = face[7]
+        newFace[7] = face[5]
+        newFace[5] = face[1]
+        
+        return newFace
     }
 }
