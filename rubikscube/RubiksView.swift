@@ -80,6 +80,12 @@ class RubiksView: UIView {
         if beginCol == 1 && beginRow == 0 && endCol == 1 && endRow == 2 {
             delegate?.moveCubeUUU()
         }
+        if beginCol == 0 && beginRow == 1 && endCol == 2 && endRow == 1 {
+            delegate?.moveCubeR()
+        }
+        if beginCol == 2 && beginRow == 1 && endCol == 0 && endRow == 1 {
+            delegate?.moveCubeL()
+        }
     }
     
     func drawRightSquare(col: Int, row: Int, color: UIColor) {

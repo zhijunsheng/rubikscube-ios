@@ -47,6 +47,22 @@ struct RubiksGame {
         }
     }
     
+    mutating func moveCubeL() {
+        moveCubeR()
+        moveCubeR()
+        moveCubeR()
+    }
+    
+    mutating func moveCubeR() {
+        for i in 0 ..< 9 {
+            let save = faceR[i]
+            faceR[i] = faceF[i]
+            faceF[i] = faceL[i]
+            faceL[i] = faceB[i]
+            faceB[i] = save
+        }
+    }
+    
     mutating func moveCubeUUU() {
         moveCubeU()
         moveCubeU()

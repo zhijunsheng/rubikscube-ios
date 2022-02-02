@@ -19,14 +19,6 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         super.viewDidLoad()
         rubiksView.delegate = self
         game.reset()
-        
-//        for j in 0 ..< 7 {
-//            for i in 0 ..< 7 {
-//
-//                print("*", terminator: "")
-//            }
-//            print()
-//        }
     }
     
     @IBAction func shuffleCube(_ sender: Any) {
@@ -34,9 +26,18 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksView.setNeedsDisplay()
     }
     
-    
     @IBAction func resetGame(_ sender: Any) {
         game.reset()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    func moveCubeL() {
+        game.moveCubeL()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    func moveCubeR() {
+        game.moveCubeR()
         rubiksView.setNeedsDisplay()
     }
     
