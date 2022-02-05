@@ -9,7 +9,7 @@
 import UIKit
 
 class CubeView: UIView {
-    
+    let sideP: CGFloat = 50
     let sideL: CGFloat = 150
     let startPointX: CGFloat = 450
     let startPointY: CGFloat = 400
@@ -40,8 +40,34 @@ class CubeView: UIView {
         top.stroke()
         
         
+        drawFrontPiece(col: 0,row: 0,color: .red)
+        drawFrontPiece(col: 0,row: 1,color: .red)
+        drawFrontPiece(col: 0,row: 2,color: .red)
+        drawFrontPiece(col: 1,row: 0,color: .red)
+        drawFrontPiece(col: 1,row: 1,color: .white)
+        drawFrontPiece(col: 1,row: 2,color: .blue)
+        drawFrontPiece(col: 2,row: 0,color: .red)
+        drawFrontPiece(col: 2,row: 1,color: .red)
+        drawFrontPiece(col: 2,row: 2,color: .red)
         
+
     }
     
+    func drawFrontPiece(col: Int, row: Int,color:UIColor){
+        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
+        color.setFill()
+        let hi:CGFloat = CGFloat(col)*sideP*sqrt(3)
+        let vi:CGFloat = CGFloat(row)*sideP*2 + CGFloat(col)*sideP
+        let frontPiece = UIBezierPath()
+        frontPiece.move(to: CGPoint(x: startPointX - sideL * sqrt(3) + hi, y: startPointY - sideL+vi))
+        frontPiece.addLine(to: CGPoint(x: startPointX - sideL * sqrt(3) + sideP*sqrt(3)+hi, y: startPointY - sideL+sideP+vi))
+        frontPiece.addLine(to: CGPoint(x: startPointX - sideL * sqrt(3) + sideP*sqrt(3)+hi, y: startPointY - sideL+3*sideP + vi))
+        frontPiece.addLine(to: CGPoint(x: startPointX - sideL * sqrt(3)+hi, y: startPointY - sideL+2*sideP+vi))
+        frontPiece.close()
+        frontPiece.stroke()
+        frontPiece.fill()
+        
+        
+    }
 
 }
