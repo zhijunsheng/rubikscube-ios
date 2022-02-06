@@ -17,17 +17,7 @@ struct RCGame {
     var bf: [RCColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     
     mutating func rotateFC() {
-        let ff0 = ff[0]
-        ff[0] = ff[6]
-        ff[6] = ff[8]
-        ff[8] = ff[2]
-        ff[2] = ff0
-        
-        let ff1 = ff[1]
-        ff[1] = ff[3]
-        ff[3] = ff[7]
-        ff[7] = ff[5]
-        ff[5] = ff1
+        ff = rotateFaceC(face: ff)
         
         let rf0 = rf[0]
         let rf3 = rf[3]
@@ -50,7 +40,7 @@ struct RCGame {
         df[0] = rf6
     }
 
-    mutating func rotateFFCC() {
+    mutating func rotateFCC() {
         for _ in 0 ..< 3 {
             rotateFC()
         }
@@ -111,8 +101,27 @@ struct RCGame {
         }
     }
     
-    mutating func rotateRFC() {
+    mutating func rotateRC() {
+        rf = rotateFaceC(face: rf)
         
+        let uf2 = uf[2]
+        let uf5 = uf[5]
+        let uf8 = uf[8]
+        uf[2] = ff[2]
+        uf[5] = ff[5]
+        uf[8] = ff[8]
+        
+        ff[2] = df[2]
+        ff[5] = df[5]
+        ff[8] = df[8]
+        
+        df[8] = bf[0]
+        df[5] = bf[3]
+        df[2] = bf[6]
+        
+        bf[0] = uf8
+        bf[3] = uf5
+        bf[6] = uf2
     }
     
     mutating func rotateLFC() {
@@ -125,9 +134,9 @@ struct RCGame {
         }
     }
     
-    mutating func rotateRFCC() {
+    mutating func rotateRCC() {
         for _ in 0 ..< 3 {
-            rotateRFC()
+            rotateRC()
         }
     }
     
@@ -159,9 +168,21 @@ struct RCGame {
         }
     }
     
-    func rotateFaceC(face: [RCColor]) -> [RCColor] { // rotate [faceName]
+    func rotateFaceC(face: [RCColor]) -> [RCColor] {
+        var newFace = face
+        let newFace0 = newFace[0]
+        newFace[0] = newFace[6]
+        newFace[6] = newFace[8]
+        newFace[8] = newFace[2]
+        newFace[2] = newFace0
         
-        return face
+        let newFace1 = newFace[1]
+        newFace[1] = newFace[3]
+        newFace[3] = newFace[7]
+        newFace[7] = newFace[5]
+        newFace[5] = newFace1
+        
+        return newFace
     }
     
     func rotateFaceCC(face: [RCColor]) -> [RCColor] {
