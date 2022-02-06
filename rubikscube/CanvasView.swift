@@ -9,10 +9,17 @@
 import UIKit
 
 class CanvasView: UIView {
+    let cellSide: CGFloat = 123.145
+    
     override func draw(_ rect: CGRect) {
         let pencil = UIBezierPath()
-        pencil.move(to: CGPoint(x: 100, y: 100))
-        pencil.addLine(to: CGPoint(x: 100, y: 400))
+        for i in 0..<4 {
+            pencil.move(to: CGPoint(x: 100 + CGFloat(i) * cellSide, y: 100))
+            pencil.addLine(to: CGPoint(x: 100 + CGFloat(i) * cellSide, y: 100 + 3 * cellSide))
+            pencil.move(to: CGPoint(x: 100, y: 100 + CGFloat(i) * cellSide))
+            pencil.addLine(to: CGPoint(x: 100 + 3 * cellSide, y: 100 + CGFloat(i) * cellSide))
+        }
+
         pencil.stroke()
         
     }
