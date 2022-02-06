@@ -141,13 +141,21 @@ struct RCGame {
     }
     
     
-    mutating func rotateUFC() {
+    mutating func rotateUC() {
+        uf = rotateFaceC(face: uf)
         
+        let rf012 = [rf[0], rf[1], rf[2]]
+        for i in 0 ..< 3 {
+            rf[i] = bf[i]
+            bf[i] = lf[i]
+            lf[i] = ff[i]
+            ff[i] = rf012[i]
+        }
     }
     
-    mutating func rotateUFCC() {
+    mutating func rotateUCC() {
         for _ in 0 ..< 3 {
-            rotateUFC()
+            rotateUC()
         }
     }
     

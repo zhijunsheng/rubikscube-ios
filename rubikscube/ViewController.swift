@@ -48,10 +48,10 @@ class ViewController: UIViewController, RCDelegate {
             rcGame.rotateDFCC()
         } else if fromCol == 0 && fromRow == 0 &&
                     toCol == 2 && toRow == 0 {
-            rcGame.rotateUFCC()
+            rcGame.rotateUCC()
         } else if fromCol == 2 && fromRow == 0 &&
                     toCol == 0 && toRow == 0 {
-            rcGame.rotateUFC()
+            rcGame.rotateUC()
         } else if fromCol == 0 && fromRow == 0 &&
                     toCol == 0 && toRow == 2 {
             rcGame.rotateLFC()
@@ -127,7 +127,7 @@ class ViewController: UIViewController, RCDelegate {
     }
     
     @IBAction func rotateUFC(_ sender: Any) {
-        rcGame.rotateUFC()
+        rcGame.rotateUC()
         rbView.setNeedsDisplay()
     }
 }
