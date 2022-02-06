@@ -11,6 +11,591 @@ import XCTest
 
 class RCGameTests: XCTestCase {
     
+    func testRotateUFC() {
+        // Down face
+        
+        var rcGame = RCGame.generateGame(index: 0, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[0], .red)
+        XCTAssertEqual(rcGame.uf[2], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.uf[2], .red)
+        XCTAssertEqual(rcGame.uf[0], .green)
+        
+        rcGame = RCGame.generateGame(index: 1, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[1], .red)
+        XCTAssertEqual(rcGame.uf[5], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.uf[5], .red)
+        XCTAssertEqual(rcGame.uf[1], .green)
+        
+        rcGame = RCGame.generateGame(index: 2, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[2], .red)
+        XCTAssertEqual(rcGame.uf[8], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.uf[8], .red)
+        XCTAssertEqual(rcGame.uf[2], .green)
+        
+        rcGame = RCGame.generateGame(index: 3, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[3], .red)
+        XCTAssertEqual(rcGame.uf[1], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.uf[1], .red)
+        XCTAssertEqual(rcGame.uf[3], .green)
+        
+        rcGame = RCGame.generateGame(index: 5, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[5], .red)
+        XCTAssertEqual(rcGame.uf[7], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.uf[7], .red)
+        XCTAssertEqual(rcGame.uf[5], .green)
+        
+        rcGame = RCGame.generateGame(index: 6, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[6], .red)
+        XCTAssertEqual(rcGame.uf[0], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.uf[0], .red)
+        XCTAssertEqual(rcGame.uf[6], .green)
+        
+        rcGame = RCGame.generateGame(index: 7, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[7], .red)
+        XCTAssertEqual(rcGame.uf[3], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.uf[3], .red)
+        XCTAssertEqual(rcGame.uf[7], .green)
+        
+        rcGame = RCGame.generateGame(index: 8, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[8], .red)
+        XCTAssertEqual(rcGame.uf[6], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.uf[6], .red)
+        XCTAssertEqual(rcGame.uf[8], .green)
+        
+        // Down sides
+
+        rcGame = RCGame.generateGame(index: 0, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[0], .red)
+        XCTAssertEqual(rcGame.lf[0], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.lf[0], .red)
+        XCTAssertEqual(rcGame.ff[0], .green)
+
+        rcGame = RCGame.generateGame(index: 1, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[1], .red)
+        XCTAssertEqual(rcGame.lf[1], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.lf[1], .red)
+        XCTAssertEqual(rcGame.ff[1], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[2], .red)
+        XCTAssertEqual(rcGame.lf[2], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.lf[2], .red)
+        XCTAssertEqual(rcGame.ff[2], .green)
+
+        rcGame = RCGame.generateGame(index: 0, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[0], .red)
+        XCTAssertEqual(rcGame.bf[0], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.bf[0], .red)
+        XCTAssertEqual(rcGame.lf[0], .green)
+
+        rcGame = RCGame.generateGame(index: 1, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[1], .red)
+        XCTAssertEqual(rcGame.bf[1], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.bf[1], .red)
+        XCTAssertEqual(rcGame.lf[1], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[2], .red)
+        XCTAssertEqual(rcGame.bf[2], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.bf[2], .red)
+        XCTAssertEqual(rcGame.lf[2], .green)
+
+        rcGame = RCGame.generateGame(index: 0, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[0], .red)
+        XCTAssertEqual(rcGame.rf[0], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.rf[0], .red)
+        XCTAssertEqual(rcGame.bf[0], .green)
+
+        rcGame = RCGame.generateGame(index: 1, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[1], .red)
+        XCTAssertEqual(rcGame.rf[1], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.rf[1], .red)
+        XCTAssertEqual(rcGame.bf[1], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[2], .red)
+        XCTAssertEqual(rcGame.rf[2], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.rf[2], .red)
+        XCTAssertEqual(rcGame.bf[2], .green)
+
+        rcGame = RCGame.generateGame(index: 0, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[0], .red)
+        XCTAssertEqual(rcGame.ff[0], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.ff[0], .red)
+        XCTAssertEqual(rcGame.rf[0], .green)
+
+        rcGame = RCGame.generateGame(index: 1, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[1], .red)
+        XCTAssertEqual(rcGame.ff[1], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.ff[1], .red)
+        XCTAssertEqual(rcGame.rf[1], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[2], .red)
+        XCTAssertEqual(rcGame.ff[2], .green)
+        rcGame.rotateUFC()
+        XCTAssertEqual(rcGame.ff[2], .red)
+        XCTAssertEqual(rcGame.rf[2], .green)
+    }
+    
+    func testRotateDFC() {
+        // Down face
+        
+        var rcGame = RCGame.generateGame(index: 0, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[0], .red)
+        XCTAssertEqual(rcGame.df[2], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.df[2], .red)
+        XCTAssertEqual(rcGame.df[0], .green)
+        
+        rcGame = RCGame.generateGame(index: 1, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[1], .red)
+        XCTAssertEqual(rcGame.df[5], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.df[5], .red)
+        XCTAssertEqual(rcGame.df[1], .green)
+        
+        rcGame = RCGame.generateGame(index: 2, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[2], .red)
+        XCTAssertEqual(rcGame.df[8], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.df[8], .red)
+        XCTAssertEqual(rcGame.df[2], .green)
+        
+        rcGame = RCGame.generateGame(index: 3, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[3], .red)
+        XCTAssertEqual(rcGame.df[1], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.df[1], .red)
+        XCTAssertEqual(rcGame.df[3], .green)
+
+        
+        rcGame = RCGame.generateGame(index: 5, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[5], .red)
+        XCTAssertEqual(rcGame.df[7], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.df[7], .red)
+        XCTAssertEqual(rcGame.df[5], .green)
+        
+        rcGame = RCGame.generateGame(index: 6, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[6], .red)
+        XCTAssertEqual(rcGame.df[0], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.df[0], .red)
+        XCTAssertEqual(rcGame.df[6], .green)
+        
+        rcGame = RCGame.generateGame(index: 7, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[7], .red)
+        XCTAssertEqual(rcGame.df[3], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.df[3], .red)
+        XCTAssertEqual(rcGame.df[7], .green)
+        
+        rcGame = RCGame.generateGame(index: 8, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[8], .red)
+        XCTAssertEqual(rcGame.df[6], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.df[6], .red)
+        XCTAssertEqual(rcGame.df[8], .green)
+        
+        // Down sides
+
+        rcGame = RCGame.generateGame(index: 8, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[8], .red)
+        XCTAssertEqual(rcGame.rf[8], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.rf[8], .red)
+        XCTAssertEqual(rcGame.ff[8], .green)
+
+        rcGame = RCGame.generateGame(index: 7, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[7], .red)
+        XCTAssertEqual(rcGame.rf[7], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.rf[7], .red)
+        XCTAssertEqual(rcGame.ff[7], .green)
+
+        rcGame = RCGame.generateGame(index: 6, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[6], .red)
+        XCTAssertEqual(rcGame.rf[6], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.rf[6], .red)
+        XCTAssertEqual(rcGame.ff[6], .green)
+
+        rcGame = RCGame.generateGame(index: 6, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[6], .red)
+        XCTAssertEqual(rcGame.bf[6], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.bf[6], .red)
+        XCTAssertEqual(rcGame.rf[6], .green)
+
+        rcGame = RCGame.generateGame(index: 7, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[7], .red)
+        XCTAssertEqual(rcGame.bf[7], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.bf[7], .red)
+        XCTAssertEqual(rcGame.rf[7], .green)
+
+        rcGame = RCGame.generateGame(index: 8, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[8], .red)
+        XCTAssertEqual(rcGame.bf[8], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.bf[8], .red)
+        XCTAssertEqual(rcGame.rf[8], .green)
+
+        rcGame = RCGame.generateGame(index: 8, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[8], .red)
+        XCTAssertEqual(rcGame.lf[8], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.lf[8], .red)
+        XCTAssertEqual(rcGame.bf[8], .green)
+
+        rcGame = RCGame.generateGame(index: 7, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[7], .red)
+        XCTAssertEqual(rcGame.lf[7], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.lf[7], .red)
+        XCTAssertEqual(rcGame.bf[7], .green)
+
+        rcGame = RCGame.generateGame(index: 6, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[6], .red)
+        XCTAssertEqual(rcGame.lf[6], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.lf[6], .red)
+        XCTAssertEqual(rcGame.bf[6], .green)
+
+        rcGame = RCGame.generateGame(index: 8, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[8], .red)
+        XCTAssertEqual(rcGame.ff[8], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.ff[8], .red)
+        XCTAssertEqual(rcGame.lf[8], .green)
+
+        rcGame = RCGame.generateGame(index: 7, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[7], .red)
+        XCTAssertEqual(rcGame.ff[7], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.ff[7], .red)
+        XCTAssertEqual(rcGame.lf[7], .green)
+
+        rcGame = RCGame.generateGame(index: 6, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[6], .red)
+        XCTAssertEqual(rcGame.ff[6], .green)
+        rcGame.rotateDFC()
+        XCTAssertEqual(rcGame.ff[6], .red)
+        XCTAssertEqual(rcGame.lf[6], .green)
+    }
+    
+    func testRotateRFC() {
+        // Right face
+        
+        var rcGame = RCGame.generateGame(index: 0, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[0], .red)
+        XCTAssertEqual(rcGame.rf[2], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.rf[2], .red)
+        XCTAssertEqual(rcGame.rf[0], .green)
+        
+        rcGame = RCGame.generateGame(index: 1, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[1], .red)
+        XCTAssertEqual(rcGame.rf[5], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.rf[5], .red)
+        XCTAssertEqual(rcGame.rf[1], .green)
+        
+        rcGame = RCGame.generateGame(index: 2, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[2], .red)
+        XCTAssertEqual(rcGame.rf[8], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.rf[8], .red)
+        XCTAssertEqual(rcGame.rf[2], .green)
+        
+        rcGame = RCGame.generateGame(index: 3, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[3], .red)
+        XCTAssertEqual(rcGame.rf[1], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.rf[1], .red)
+        XCTAssertEqual(rcGame.rf[3], .green)
+        
+        rcGame = RCGame.generateGame(index: 5, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[5], .red)
+        XCTAssertEqual(rcGame.rf[7], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.rf[7], .red)
+        XCTAssertEqual(rcGame.rf[5], .green)
+        
+        rcGame = RCGame.generateGame(index: 6, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[6], .red)
+        XCTAssertEqual(rcGame.rf[0], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.rf[0], .red)
+        XCTAssertEqual(rcGame.rf[6], .green)
+        
+        rcGame = RCGame.generateGame(index: 7, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[7], .red)
+        XCTAssertEqual(rcGame.rf[3], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.rf[3], .red)
+        XCTAssertEqual(rcGame.rf[7], .green)
+        
+        rcGame = RCGame.generateGame(index: 8, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[8], .red)
+        XCTAssertEqual(rcGame.rf[6], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.rf[6], .red)
+        XCTAssertEqual(rcGame.rf[8], .green)
+        
+        // Right sides
+
+        rcGame = RCGame.generateGame(index: 8, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[8], .red)
+        XCTAssertEqual(rcGame.bf[0], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.bf[0], .red)
+        XCTAssertEqual(rcGame.uf[8], .green)
+
+        rcGame = RCGame.generateGame(index: 5, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[5], .red)
+        XCTAssertEqual(rcGame.bf[3], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.bf[3], .red)
+        XCTAssertEqual(rcGame.uf[5], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[2], .red)
+        XCTAssertEqual(rcGame.bf[6], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.bf[6], .red)
+        XCTAssertEqual(rcGame.uf[2], .green)
+
+        rcGame = RCGame.generateGame(index: 0, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[0], .red)
+        XCTAssertEqual(rcGame.df[8], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.df[8], .red)
+        XCTAssertEqual(rcGame.bf[0], .green)
+
+        rcGame = RCGame.generateGame(index: 3, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[3], .red)
+        XCTAssertEqual(rcGame.df[5], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.df[5], .red)
+        XCTAssertEqual(rcGame.bf[3], .green)
+
+        rcGame = RCGame.generateGame(index: 6, face: .BF, color: .red)
+        XCTAssertEqual(rcGame.bf[6], .red)
+        XCTAssertEqual(rcGame.df[2], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.df[2], .red)
+        XCTAssertEqual(rcGame.bf[6], .green)
+
+        rcGame = RCGame.generateGame(index: 8, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[8], .red)
+        XCTAssertEqual(rcGame.ff[8], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.ff[8], .red)
+        XCTAssertEqual(rcGame.df[8], .green)
+
+        rcGame = RCGame.generateGame(index: 5, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[5], .red)
+        XCTAssertEqual(rcGame.ff[5], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.ff[5], .red)
+        XCTAssertEqual(rcGame.df[5], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[2], .red)
+        XCTAssertEqual(rcGame.ff[2], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.ff[2], .red)
+        XCTAssertEqual(rcGame.df[2], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[2], .red)
+        XCTAssertEqual(rcGame.uf[2], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.uf[2], .red)
+        XCTAssertEqual(rcGame.ff[2], .green)
+
+        rcGame = RCGame.generateGame(index: 5, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[5], .red)
+        XCTAssertEqual(rcGame.uf[5], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.uf[5], .red)
+        XCTAssertEqual(rcGame.ff[5], .green)
+
+        rcGame = RCGame.generateGame(index: 8, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[8], .red)
+        XCTAssertEqual(rcGame.uf[8], .green)
+        rcGame.rotateRFC()
+        XCTAssertEqual(rcGame.uf[8], .red)
+        XCTAssertEqual(rcGame.ff[8], .green)
+    }
+    
+    func testRotateFFC() {
+        // Front face
+        
+        var rcGame = RCGame.generateGame(index: 0, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[0], .red)
+        XCTAssertEqual(rcGame.ff[2], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.ff[2], .red)
+        XCTAssertEqual(rcGame.ff[0], .green)
+        
+        rcGame = RCGame.generateGame(index: 1, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[1], .red)
+        XCTAssertEqual(rcGame.ff[5], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.ff[5], .red)
+        XCTAssertEqual(rcGame.ff[1], .green)
+        
+        rcGame = RCGame.generateGame(index: 2, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[2], .red)
+        XCTAssertEqual(rcGame.ff[8], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.ff[8], .red)
+        XCTAssertEqual(rcGame.ff[2], .green)
+        
+        rcGame = RCGame.generateGame(index: 3, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[3], .red)
+        XCTAssertEqual(rcGame.ff[1], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.ff[1], .red)
+        XCTAssertEqual(rcGame.ff[3], .green)
+        
+        rcGame = RCGame.generateGame(index: 5, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[5], .red)
+        XCTAssertEqual(rcGame.ff[7], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.ff[7], .red)
+        XCTAssertEqual(rcGame.ff[5], .green)
+        
+        rcGame = RCGame.generateGame(index: 6, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[6], .red)
+        XCTAssertEqual(rcGame.ff[0], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.ff[0], .red)
+        XCTAssertEqual(rcGame.ff[6], .green)
+        
+        rcGame = RCGame.generateGame(index: 7, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[7], .red)
+        XCTAssertEqual(rcGame.ff[3], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.ff[3], .red)
+        XCTAssertEqual(rcGame.ff[7], .green)
+        
+        rcGame = RCGame.generateGame(index: 8, face: .FF, color: .red)
+        XCTAssertEqual(rcGame.ff[8], .red)
+        XCTAssertEqual(rcGame.ff[6], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.ff[6], .red)
+        XCTAssertEqual(rcGame.ff[8], .green)
+        
+        // Front sides
+
+        rcGame = RCGame.generateGame(index: 6, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[6], .red)
+        XCTAssertEqual(rcGame.rf[0], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.rf[0], .red)
+        XCTAssertEqual(rcGame.uf[6], .green)
+
+        rcGame = RCGame.generateGame(index: 7, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[7], .red)
+        XCTAssertEqual(rcGame.rf[3], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.rf[3], .red)
+        XCTAssertEqual(rcGame.uf[7], .green)
+
+        rcGame = RCGame.generateGame(index: 8, face: .UF, color: .red)
+        XCTAssertEqual(rcGame.uf[8], .red)
+        XCTAssertEqual(rcGame.rf[6], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.rf[6], .red)
+        XCTAssertEqual(rcGame.uf[8], .green)
+
+        rcGame = RCGame.generateGame(index: 0, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[0], .red)
+        XCTAssertEqual(rcGame.df[2], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.df[2], .red)
+        XCTAssertEqual(rcGame.rf[0], .green)
+
+        rcGame = RCGame.generateGame(index: 3, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[3], .red)
+        XCTAssertEqual(rcGame.df[1], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.df[1], .red)
+        XCTAssertEqual(rcGame.rf[3], .green)
+
+        rcGame = RCGame.generateGame(index: 6, face: .RF, color: .red)
+        XCTAssertEqual(rcGame.rf[6], .red)
+        XCTAssertEqual(rcGame.df[0], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.df[0], .red)
+        XCTAssertEqual(rcGame.rf[6], .green)
+
+        rcGame = RCGame.generateGame(index: 0, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[0], .red)
+        XCTAssertEqual(rcGame.lf[2], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.lf[2], .red)
+        XCTAssertEqual(rcGame.df[0], .green)
+
+        rcGame = RCGame.generateGame(index: 1, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[1], .red)
+        XCTAssertEqual(rcGame.lf[5], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.lf[5], .red)
+        XCTAssertEqual(rcGame.df[1], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .DF, color: .red)
+        XCTAssertEqual(rcGame.df[2], .red)
+        XCTAssertEqual(rcGame.lf[8], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.lf[8], .red)
+        XCTAssertEqual(rcGame.df[2], .green)
+
+        rcGame = RCGame.generateGame(index: 2, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[2], .red)
+        XCTAssertEqual(rcGame.uf[8], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.uf[8], .red)
+        XCTAssertEqual(rcGame.lf[2], .green)
+
+        rcGame = RCGame.generateGame(index: 5, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[5], .red)
+        XCTAssertEqual(rcGame.uf[7], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.uf[7], .red)
+        XCTAssertEqual(rcGame.lf[5], .green)
+
+        rcGame = RCGame.generateGame(index: 8, face: .LF, color: .red)
+        XCTAssertEqual(rcGame.lf[8], .red)
+        XCTAssertEqual(rcGame.uf[6], .green)
+        rcGame.rotateFFC()
+        XCTAssertEqual(rcGame.uf[6], .red)
+        XCTAssertEqual(rcGame.lf[8], .green)
+    }
+    
     func testRotateLFC() {
         // Left face
         
@@ -41,11 +626,6 @@ class RCGameTests: XCTestCase {
         rcGame.rotateLFC()
         XCTAssertEqual(rcGame.lf[1], .red)
         XCTAssertEqual(rcGame.lf[3], .green)
-        
-        rcGame = RCGame.generateGame(index: 4, face: .LF, color: .red)
-        XCTAssertEqual(rcGame.lf[4], .red)
-        rcGame.rotateLFC()
-        XCTAssertEqual(rcGame.lf[4], .red)
         
         rcGame = RCGame.generateGame(index: 5, face: .LF, color: .red)
         XCTAssertEqual(rcGame.lf[5], .red)
@@ -202,11 +782,6 @@ class RCGameTests: XCTestCase {
         XCTAssertEqual(rcGame.bf[1], .red)
         XCTAssertEqual(rcGame.bf[3], .green)
         
-        rcGame = RCGame.generateGame(index: 4, face: .BF, color: .red)
-        XCTAssertEqual(rcGame.bf[4], .red)
-        rcGame.rotateBFC()
-        XCTAssertEqual(rcGame.bf[4], .red)
-        
         rcGame = RCGame.generateGame(index: 5, face: .BF, color: .red)
         XCTAssertEqual(rcGame.bf[5], .red)
         XCTAssertEqual(rcGame.bf[7], .green)
@@ -324,15 +899,7 @@ class RCGameTests: XCTestCase {
     
     
     
-    func testRotateFFCCc0() {
-        var rcGame = RCGame()
-        rcGame.ff = [.white, .green, .green, .green, .green, .green, .green, .green, .green]
-        XCTAssertEqual(.white, rcGame.ff[0])
-        XCTAssertEqual(.green, rcGame.ff[6])
-        rcGame.rotateFFCC()
-        XCTAssertEqual(.white, rcGame.ff[6])
-        XCTAssertEqual(.green, rcGame.ff[0])
-    }
+ 
     
     func testRotateFFCCc1() {
         var rcGame = RCGame()
@@ -387,14 +954,6 @@ class RCGameTests: XCTestCase {
         
     }
     
-    func testRotateRFC() {
-        var rcGame = RCGame()
-        rcGame.rf = [.blue, .green, .green, .green, .green, .green, .green, .green, .green]
-        rcGame.df = [.green, .green, .red, .green, .green, .green, .green, .green, .green]
-        rcGame.rotateRFC()
-        XCTAssertEqual(.blue, rcGame.rf[2])
-    }
-    
     func testRotateRFCC() {
         var rcGame = RCGame()
         rcGame.rf = [.blue, .green, .green, .green, .green, .green, .green, .green, .green]
@@ -402,15 +961,5 @@ class RCGameTests: XCTestCase {
         rcGame.rotateRFCC()
         XCTAssertEqual(.blue, rcGame.rf[6])
     }
-    
-    func testRotateUFC() {
-        var rcGame = RCGame()
-        rcGame.rf = [.blue, .green, .green, .green, .green, .green, .green, .green, .green]
-        rcGame.ff = [.green, .green, .red, .green, .green, .green, .green, .green, .green]
-        rcGame.rotateUFC()
-        XCTAssertEqual(.blue, rcGame.ff[0])
-    }
-    
-    
     
 }

@@ -18,6 +18,7 @@ class ViewController: UIViewController, RCDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         rbView.delegate = self
+        
     }
     
     func rotate(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
