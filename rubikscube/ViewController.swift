@@ -24,7 +24,7 @@ class ViewController: UIViewController, RCDelegate {
     func rotate(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
         if fromCol == 1 && fromRow == 0 &&
             toCol == 2 && toRow == 1 {
-            rcGame.rotateFFC()
+            rcGame.rotateFC()
         } else if fromCol == 2 && fromRow == 1 &&
                     toCol == 1 && toRow == 0 {
             rcGame.rotateFFCC()
@@ -107,7 +107,7 @@ class ViewController: UIViewController, RCDelegate {
     }
 
     @IBAction func rotateFFC(_ sender: Any) {
-        rcGame.rotateFFC()
+        rcGame.rotateFC()
         rbView.setNeedsDisplay()
     }
     
