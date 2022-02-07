@@ -20,14 +20,18 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksView.delegate = self
         game.reset()
     }
-    
-    @IBAction func shuffleCube(_ sender: Any) {
-        game.shuffle()
+    @IBAction func solveMiddle(_ sender: Any) {
+        game.solveMiddleLayer()
         rubiksView.setNeedsDisplay()
     }
     
-    @IBAction func resetGame(_ sender: Any) {
+    @IBAction func resetCube(_ sender: Any) {
         game.reset()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    @IBAction func shuffle(_ sender: Any) {
+        game.shuffle()
         rubiksView.setNeedsDisplay()
     }
     

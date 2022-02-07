@@ -17,6 +17,17 @@ struct RubiksGame {
     var faceD: [CubeColor] = []
     var faceB: [CubeColor] = []
     
+    mutating func solveMiddleLayer() {
+//        R' D R D F D' F'
+        RRR()
+        D()
+        R()
+        D()
+        F()
+        DDD()
+        FFF()
+    }
+    
     mutating func shuffle() {
         for _ in 0 ..< 10000 {
             let random0 = arc4random() % 10
@@ -60,6 +71,8 @@ struct RubiksGame {
             faceF[i] = faceL[i]
             faceL[i] = faceB[i]
             faceB[i] = save
+            
+             
         }
     }
     
