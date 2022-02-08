@@ -14,7 +14,7 @@ class RubiksView: UIView {
     
     
     var gx: CGFloat = 110
-    var gy: CGFloat = 150
+    var gy: CGFloat = 150 
     var cell: CGFloat = 150
     var beginCol: Int = -1
     var beginRow: Int = -2
@@ -34,15 +34,26 @@ class RubiksView: UIView {
         let touch = touches.first!
         let finger = touch.location(in: self)
         beginCol = Int((finger.x - gx) / cell)
-        
         beginRow = Int((finger.y - gy) / cell)
+        if finger.y < gy {
+            beginRow = beginRow - 1
+        }
+        if finger.x < gx {
+            beginCol = beginCol - 1
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let finger = touch.location(in: self)
-        let endCol: Int = Int((finger.x - gx) / cell)
-        let endRow: Int = Int((finger.y - gy) / cell)
+        var endCol: Int = Int((finger.x - gx) / cell)
+        var endRow: Int = Int((finger.y - gy) / cell)
+        if finger.y < gy {
+            endRow = endRow - 1
+        }
+        if finger.x < gx {
+            endCol = endCol - 1
+        }
 
         if beginCol == 2 && beginRow == 0 && endCol == 0 && endRow == 0 {
             delegate?.U()
@@ -74,17 +85,23 @@ class RubiksView: UIView {
         if beginCol == 0 && beginRow == 2 && endCol == 0 && endRow == 0 {
             delegate?.LLL()
         }
-        if beginCol == 1 && beginRow == 2 && endCol == 1 && endRow == 0 {
+        if beginCol == 1 && beginRow == 0 && endCol == 1 && endRow < 0 {
             delegate?.moveCubeU()
         }
-        if beginCol == 1 && beginRow == 0 && endCol == 1 && endRow == 2 {
-            delegate?.moveCubeUUU()
+        if beginCol == 1 && beginRow == 2 && endCol == 1 && endRow > 2 {
+            delegate?.moveCubeD()
         }
-        if beginCol == 0 && beginRow == 1 && endCol == 2 && endRow == 1 {
+        if beginCol == 2 && beginRow == 1 && endCol > 2 && endRow == 1 {
             delegate?.moveCubeR()
         }
-        if beginCol == 2 && beginRow == 1 && endCol == 0 && endRow == 1 {
+        if beginCol == 0 && beginRow == 1 && endCol < 0 && endRow == 1 {
             delegate?.moveCubeL()
+        }
+        if beginCol == 1 && beginRow == 2 && endCol == 1 && endRow == 0 {
+            delegate?.MU()
+        }
+        if beginCol == 1 && beginRow == 0 && endCol == 1 && endRow == 2 {
+            delegate?.MD()
         }
     }
     

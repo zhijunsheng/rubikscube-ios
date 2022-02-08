@@ -28,6 +28,18 @@ struct RubiksGame {
         FFF()
     }
     
+    mutating func MU() {
+        L()
+        RRR()
+        moveCubeU()
+    }
+    
+    mutating func MD() {
+        MU()
+        MU()
+        MU()
+    }
+    
     mutating func shuffle() {
         for _ in 0 ..< 10000 {
             let random0 = arc4random() % 10
@@ -71,12 +83,17 @@ struct RubiksGame {
             faceF[i] = faceL[i]
             faceL[i] = faceB[i]
             faceB[i] = save
-            
-             
         }
+        faceU = rotateFace(face: faceU)
+        faceU = rotateFace(face: faceU)
+        faceU = rotateFace(face: faceU)
+        
+//        faceD = rotateFace(face: faceD)
+//        faceD = rotateFace(face: faceD)
+//        faceD = rotateFace(face: faceD)
     }
     
-    mutating func moveCubeUUU() {
+    mutating func moveCubeD() {
         moveCubeU()
         moveCubeU()
         moveCubeU()
