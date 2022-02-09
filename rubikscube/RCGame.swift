@@ -230,7 +230,17 @@ struct RCGame {
     }
     
     mutating func rotateRight() {
+//        let tmpff = [ff[0],ff[1],ff[2],ff[3],ff[4],ff[5],ff[6],ff[7],ff[8]]
+        for i in 0 ..< 9 {
+            let ffi = ff[i]
+            ff[i] = lf[i]
+            lf[i] = bf[i]
+            bf[i] = rf[i]
+            rf[i] = ffi
+        }
         
+        df = rotateFaceC(face: df)
+        uf = rotateFaceCC(face: uf)
     }
     
     func colourAt(index: Int, face: RCFace) -> RCColor {

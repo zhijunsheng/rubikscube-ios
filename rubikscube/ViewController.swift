@@ -56,8 +56,14 @@ class ViewController: UIViewController, RCDelegate {
                     toCol == 0 && toRow == 2 {
             rcGame.rotateLC()
         } else if fromCol == 0 && fromRow == 2 &&
-        toCol == 0 && toRow == 0 {
+                    toCol == 0 && toRow == 0 {
             rcGame.rotateLCC()
+        } else if fromCol == 2 && fromRow == 2 &&
+                    toCol == 2 && toRow == 0 {
+            rcGame.rotateRC()
+        } else if fromCol == 2 && fromRow == 0 &&
+                    toCol == 2 && toRow == 2 {
+            rcGame.rotateRCC()
         }
         rbView.setNeedsDisplay()
     }
