@@ -39,7 +39,7 @@ struct RCGame {
         df[1] = rf3
         df[0] = rf6
     }
-
+    
     mutating func rotateFCC() {
         for _ in 0 ..< 3 {
             rotateFC()
@@ -47,7 +47,29 @@ struct RCGame {
     }
     
     mutating func shuffleCube() {
-        
+        for _ in 0 ..< 1000 {
+            let n = arc4random() % 8
+            switch n {
+            case 0:
+                rotateFC()
+            case 1:
+                rotateRC()
+            case 2:
+                rotateUC()
+            case 3:
+                rotateFCC()
+            case 4:
+                rotateRCC()
+            case 5:
+                rotateUCC()
+            case 6:
+                rotateLC()
+            case 7:
+                rotateLCC()
+            default:
+                break
+            }
+        }
     }
     
     mutating func rotateDFC() {
@@ -124,13 +146,32 @@ struct RCGame {
         bf[6] = uf2
     }
     
-    mutating func rotateLFC() {
+    mutating func rotateLC() {
+        lf = rotateFaceC(face: lf)
         
+        let uf0 = uf[0]
+        let uf3 = uf[3]
+        let uf6 = uf[6]
+        uf[0] = bf[8]
+        uf[3] = bf[5]
+        uf[6] = bf[2]
+        
+        bf[8] = df[0]
+        bf[5] = df[3]
+        bf[2] = df[6]
+        
+        df[0] = ff[0]
+        df[3] = ff[3]
+        df[6] = ff[6]
+        
+        ff[0] = uf0
+        ff[3] = uf3
+        ff[6] = uf6
     }
     
-    mutating func rotateLFCC() {
+    mutating func rotateLCC() {
         for _ in 0 ..< 3 {
-            rotateLFC()
+            rotateLC()
         }
     }
     
