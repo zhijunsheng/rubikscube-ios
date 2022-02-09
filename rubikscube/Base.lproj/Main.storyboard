@@ -28,6 +28,17 @@
                                 <rect key="frame" x="0.0" y="980" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
+                                    <barButtonItem title="🥞" id="6it-UN-327">
+                                        <connections>
+                                            <action selector="solveMiddle:" destination="BYZ-38-t0r" id="7cZ-kE-a6f"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="✚" id="kTA-bX-p1U">
+                                        <connections>
+                                            <action selector="solveUpCross:" destination="BYZ-38-t0r" id="tLE-f8-qpP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="mA5-kl-CIF"/>
                                     <barButtonItem title="🙂" id="vKL-4x-usb">
                                         <connections>
                                             <action selector="resetCube:" destination="BYZ-38-t0r" id="hZo-hG-21K"/>
@@ -36,11 +47,6 @@
                                     <barButtonItem title="🔀" id="Vhv-Yr-XMk">
                                         <connections>
                                             <action selector="shuffle:" destination="BYZ-38-t0r" id="yJ0-2O-XJQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="🥞" id="6it-UN-327">
-                                        <connections>
-                                            <action selector="solveMiddle:" destination="BYZ-38-t0r" id="7cZ-kE-a6f"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

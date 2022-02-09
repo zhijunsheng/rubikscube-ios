@@ -27,6 +27,15 @@ struct RubiksGame {
         FFF()
     }
     
+    mutating func solveUpCross() {
+        F()
+        U()
+        R()
+        UUU()
+        RRR()
+        FFF()
+    }
+    
     mutating func ML() {
         MR()
         MR()
