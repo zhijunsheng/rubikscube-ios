@@ -46,83 +46,6 @@ struct RCGame {
         }
     }
     
-    mutating func shuffleCube() {
-        for _ in 0 ..< 1000 {
-            let n = arc4random() % 8
-            switch n {
-            case 0:
-                rotateFC()
-            case 1:
-                rotateRC()
-            case 2:
-                rotateUC()
-            case 3:
-                rotateFCC()
-            case 4:
-                rotateRCC()
-            case 5:
-                rotateUCC()
-            case 6:
-                rotateLC()
-            case 7:
-                rotateLCC()
-            default:
-                break
-            }
-        }
-    }
-    
-    mutating func rotateDFC() {
-        
-    }
-    
-    mutating func rotateDFCC() {
-        for _ in 0 ..< 3 {
-            rotateDFC()
-        }
-    }
-    
-    mutating func reset() {
-        ff = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
-        rf = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
-        uf = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
-        lf = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
-        df = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
-        bf = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
-    }
-    
-    mutating func rotateUp() {
-        
-    }
-    
-    mutating func rotateDown() {
-        for _ in 0 ..< 3 {
-            rotateUp()
-        }
-    }
-    
-    
-    
-    mutating func rotateRight() {
-        
-    }
-    
-    mutating func rotateBFC() {
-        
-    }
-    
-    mutating func rotateBFCC() {
-        for _ in 0 ..< 3 {
-            rotateBFC()
-        }
-    }
-    
-    mutating func rotateLeft() {
-        for _ in 0 ..< 3 {
-            rotateRight()
-        }
-    }
-    
     mutating func rotateRC() {
         rf = rotateFaceC(face: rf)
         
@@ -144,6 +67,30 @@ struct RCGame {
         bf[0] = uf8
         bf[3] = uf5
         bf[6] = uf2
+    }
+    
+    mutating func rotateRCC() {
+        for _ in 0 ..< 3 {
+            rotateRC()
+        }
+    }
+    
+    mutating func rotateUC() {
+        uf = rotateFaceC(face: uf)
+        
+        let rf012 = [rf[0], rf[1], rf[2]]
+        for i in 0 ..< 3 {
+            rf[i] = bf[i]
+            bf[i] = lf[i]
+            lf[i] = ff[i]
+            ff[i] = rf012[i]
+        }
+    }
+    
+    mutating func rotateUCC() {
+        for _ in 0 ..< 3 {
+            rotateUC()
+        }
     }
     
     mutating func rotateLC() {
@@ -175,29 +122,115 @@ struct RCGame {
         }
     }
     
-    mutating func rotateRCC() {
-        for _ in 0 ..< 3 {
-            rotateRC()
-        }
-    }
-    
-    
-    mutating func rotateUC() {
-        uf = rotateFaceC(face: uf)
+    mutating func rotateDC() {
+        df = rotateFaceC(face: df)
         
-        let rf012 = [rf[0], rf[1], rf[2]]
+        let ff678 = [ff[6], ff[7], ff[8]]
+        
         for i in 0 ..< 3 {
-            rf[i] = bf[i]
-            bf[i] = lf[i]
-            lf[i] = ff[i]
-            ff[i] = rf012[i]
+            ff[i + 6] = lf[i + 6]
+            lf[i + 6] = bf[i + 6]
+            bf[i + 6] = rf[i + 6]
+            rf[i + 6] = ff678[i]
         }
     }
     
-    mutating func rotateUCC() {
+    mutating func rotateDCC() {
         for _ in 0 ..< 3 {
-            rotateUC()
+            rotateDC()
         }
+    }
+    
+    mutating func rotateBC() {
+        bf = rotateFaceC(face: bf)
+        
+        let uf0 = uf[0]
+        let uf1 = uf[1]
+        let uf2 = uf[2]
+        uf[0] = rf[2]
+        uf[1] = rf[5]
+        uf[2] = rf[8]
+        
+        rf[2] = df[8]
+        rf[5] = df[7]
+        rf[8] = df[6]
+        
+        df[8] = lf[6]
+        df[7] = lf[3]
+        df[6] = lf[0]
+        
+        lf[6] = uf0
+        lf[3] = uf1
+        lf[0] = uf2
+    }
+    
+    mutating func rotateBCC() {
+        for _ in 0 ..< 3 {
+            rotateBC()
+        }
+    }
+    
+    mutating func shuffleCube() {
+        for _ in 0 ..< 1000 {
+            let n = arc4random() % 12
+            switch n {
+            case 0:
+                rotateFC()
+            case 1:
+                rotateRC()
+            case 2:
+                rotateUC()
+            case 3:
+                rotateFCC()
+            case 4:
+                rotateRCC()
+            case 5:
+                rotateUCC()
+            case 6:
+                rotateLC()
+            case 7:
+                rotateLCC()
+            case 8:
+                rotateDC()
+            case 9:
+                rotateDCC()
+            case 10:
+                rotateBC()
+            case 11:
+                rotateBCC()
+            default:
+                break
+            }
+        }
+    }
+    
+    mutating func reset() {
+        ff = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
+        rf = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
+        uf = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
+        lf = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
+        df = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
+        bf = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
+    }
+    
+    mutating func rotateUp() {
+        
+    }
+    
+    mutating func rotateDown() {
+        for _ in 0 ..< 3 {
+            rotateUp()
+        }
+    }
+    
+    mutating func rotateLeft() {
+        for _ in 0 ..< 3 {
+            rotateRight()
+        }
+    }
+    
+    mutating func rotateRight() {
+        
     }
     
     func colourAt(index: Int, face: RCFace) -> RCColor {

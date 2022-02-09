@@ -42,10 +42,10 @@ class ViewController: UIViewController, RCDelegate {
             rcGame.rotateLeft()
         } else if fromCol == 0 && fromRow == 2 &&
                     toCol == 2 && toRow == 2 {
-            rcGame.rotateDFC()
+            rcGame.rotateDC()
         } else if fromCol == 2 && fromRow == 2 &&
                     toCol == 0 && toRow == 2 {
-            rcGame.rotateDFCC()
+            rcGame.rotateDCC()
         } else if fromCol == 0 && fromRow == 0 &&
                     toCol == 2 && toRow == 0 {
             rcGame.rotateUCC()
