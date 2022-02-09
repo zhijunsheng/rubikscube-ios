@@ -88,9 +88,7 @@ struct RubiksGame {
         faceU = rotateFace(face: faceU)
         faceU = rotateFace(face: faceU)
         
-//        faceD = rotateFace(face: faceD)
-//        faceD = rotateFace(face: faceD)
-//        faceD = rotateFace(face: faceD)
+        faceD = rotateFace(face: faceD)
     }
     
     mutating func moveCubeD() {
