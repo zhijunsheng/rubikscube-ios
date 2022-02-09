@@ -29,4 +29,6 @@ protocol RubiksCubeDelegate {
     func moveCubeL()
     func MU()
     func MD()
+    func MR()
+    func ML()
 }

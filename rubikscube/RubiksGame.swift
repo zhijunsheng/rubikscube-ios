@@ -18,7 +18,6 @@ struct RubiksGame {
     var faceB: [CubeColor] = []
     
     mutating func solveMiddleLayer() {
-//        R' D R D F D' F'
         RRR()
         D()
         R()
@@ -26,6 +25,18 @@ struct RubiksGame {
         F()
         DDD()
         FFF()
+    }
+    
+    mutating func ML() {
+        MR()
+        MR()
+        MR()
+    }
+    
+    mutating func MR() {
+        U()
+        DDD()
+        moveCubeR()
     }
     
     mutating func MU() {
@@ -84,9 +95,10 @@ struct RubiksGame {
             faceL[i] = faceB[i]
             faceB[i] = save
         }
-        faceU = rotateFace(face: faceU)
-        faceU = rotateFace(face: faceU)
-        faceU = rotateFace(face: faceU)
+        
+        for _ in 0 ..< 3 {
+            faceU = rotateFace(face: faceU)
+        }
         
         faceD = rotateFace(face: faceD)
     }

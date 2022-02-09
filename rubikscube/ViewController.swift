@@ -35,6 +35,16 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksView.setNeedsDisplay()
     }
     
+    func ML() {
+        game.ML()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    func MR() {
+        game.MR()
+        rubiksView.setNeedsDisplay()
+    }
+    
     func MD() {
         game.MD()
         rubiksView.setNeedsDisplay()
