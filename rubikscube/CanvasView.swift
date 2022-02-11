@@ -17,6 +17,27 @@ class CanvasView: UIView {
         frontFace()
         upperFace()
         rightFace()
+        
+        drawFrontFaceSquareAt(col: 0, row: 0)
+        drawFrontFaceSquareAt(col: 1, row: 2)
+        drawFrontFaceSquareAt(col: 2, row: 1)
+        drawFrontFaceSquareAt(col: 2, row: 2)
+    }
+    
+    func drawFrontFaceSquareAt(col: Int, row: Int) {
+        let pen = UIBezierPath()
+        
+        pen.move(to: CGPoint(x: gridX + CGFloat(col) * cellSide, y: gridY + CGFloat(row) * cellSide))
+        pen.addLine(to: CGPoint(x: gridX + CGFloat(col) * cellSide, y: gridY + CGFloat(row) * cellSide + cellSide))
+        pen.addLine(to: CGPoint(x: gridX + CGFloat(col) * cellSide + cellSide, y: gridY + CGFloat(row) * cellSide + cellSide))
+        pen.addLine(to: CGPoint(x: gridX + CGFloat(col) * cellSide + cellSide, y: gridY + CGFloat(row) * cellSide))
+        
+        // new code
+        
+        
+        pen.close()
+        #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).setFill()
+        pen.fill()
     }
     
     func upperFace() {
@@ -53,10 +74,9 @@ class CanvasView: UIView {
             pencil.addLine(to: CGPoint(x: gridX + 3 * cellSide, y: gridY + CGFloat(i) * cellSide))
 
         }
-    
-
         pencil.stroke()
     }
+    
     func rightFace() {
         let pencil = UIBezierPath()
         for i in 0..<3 {
