@@ -18,25 +18,21 @@ class CanvasView: UIView {
         upperFace()
         rightFace()
         
-        drawFrontFaceSquareAt(col: 0, row: 0)
-        drawFrontFaceSquareAt(col: 1, row: 2)
-        drawFrontFaceSquareAt(col: 2, row: 1)
-        drawFrontFaceSquareAt(col: 2, row: 2)
+        drawFrontFaceSquareAt(col: 0, row: 0, color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
+        drawFrontFaceSquareAt(col: 1, row: 2, color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
+        drawFrontFaceSquareAt(col: 2, row: 1, color: #colorLiteral(red: 0.9999304414, green: 0, blue: 0, alpha: 1))
+        drawFrontFaceSquareAt(col: 2, row: 2, color: #colorLiteral(red: 1, green: 0.9612814784, blue: 0, alpha: 1))
     }
     
-    func drawFrontFaceSquareAt(col: Int, row: Int) {
+    func drawFrontFaceSquareAt(col: Int, row: Int, color: UIColor) {
         let pen = UIBezierPath()
         
         pen.move(to: CGPoint(x: gridX + CGFloat(col) * cellSide, y: gridY + CGFloat(row) * cellSide))
         pen.addLine(to: CGPoint(x: gridX + CGFloat(col) * cellSide, y: gridY + CGFloat(row) * cellSide + cellSide))
         pen.addLine(to: CGPoint(x: gridX + CGFloat(col) * cellSide + cellSide, y: gridY + CGFloat(row) * cellSide + cellSide))
         pen.addLine(to: CGPoint(x: gridX + CGFloat(col) * cellSide + cellSide, y: gridY + CGFloat(row) * cellSide))
-        
-        // new code
-        
-        
         pen.close()
-        #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).setFill()
+        color.setFill()
         pen.fill()
     }
     
@@ -48,19 +44,9 @@ class CanvasView: UIView {
             pencil.addLine(to: CGPoint(x: gridX + cellSide * CGFloat(i) + cellSide/2, y:  gridY - cellSide/2))
         }
         for i in 0..<3 {
-            pencil.move(to: CGPoint(x: gridX + cellSide/2, y: gridY - cellSide/2))
-            pencil.addLine(to: CGPoint(x: gridX + cellSide * 3 + cellSide/2, y:  gridY - cellSide/2))
+            pencil.move(to: CGPoint(x: gridX + CGFloat(i + 1) * cellSide/6 , y: gridY - CGFloat(i + 1) * cellSide/6))
+            pencil.addLine(to: CGPoint(x: gridX + cellSide * 3 + cellSide/6 * CGFloat(i + 1), y:  gridY - cellSide/6 * CGFloat(i + 1)))
         }
-        
-        pencil.move(to: CGPoint(x: gridX + 3 * cellSide/6 , y: gridY - cellSide/2))
-        pencil.addLine(to: CGPoint(x: gridX + cellSide * 3 + cellSide/2, y:  gridY - cellSide/2))
-        
-        pencil.move(to: CGPoint(x: gridX + 2 * cellSide/6, y: gridY - cellSide/3))
-        pencil.addLine(to: CGPoint(x: gridX + cellSide * 3 + cellSide/3, y:  gridY - cellSide/3))
-        
-        pencil.move(to: CGPoint(x: gridX + 1 * cellSide/6, y: gridY - cellSide/6))
-        pencil.addLine(to: CGPoint(x: gridX + cellSide * 3 + cellSide/6, y:  gridY - cellSide/6))
-        
         pencil.stroke()
         
     }
