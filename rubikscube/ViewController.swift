@@ -19,14 +19,14 @@ class ViewController: UIViewController, CubeDelegate {
         
         reset()
         
-        boardView.board.setColor(color: "O")
-        boardView.board.left[5] = "B"
-//        boardView.board.front[6] = "B"
-//        boardView.board.left[6] = "B"
-//        boardView.board.left[7] = "G"
-//        boardView.board.back[6] = "R"
-//        boardView.board.back[7] = "B"
-//        boardView.board.left[8] = "G"
+//        boardView.board.setColor(color: "O")
+//        boardView.board.left[5] = "B"
+////        boardView.board.front[6] = "B"
+////        boardView.board.left[6] = "B"
+////        boardView.board.left[7] = "G"
+////        boardView.board.back[6] = "R"
+////        boardView.board.back[7] = "B"
+////        boardView.board.left[8] = "G"
     }
 
     @IBAction func turnU(_ sender: UIButton) {
