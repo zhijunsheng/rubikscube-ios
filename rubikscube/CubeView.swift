@@ -13,6 +13,8 @@ class CubeView: UIView {
     let sideL: CGFloat = 150
     let startPointX: CGFloat = 450
     let startPointY: CGFloat = 400
+    var colBegin: Int = -1
+    var rowBegin: Int = -1
     
     override func draw(_ rect: CGRect) {
         drawModel()
@@ -24,9 +26,8 @@ class CubeView: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let finger = touch.location(in: self)
-        let col = Int((finger.x-startPointX)/(sideP * sqrt(3)))
-        let row = Int(abs(finger.x - startPointX + sqrt(3) * ((finger.y-startPointY )))/180)
-        print(col," ", row)
+        colBegin = Int((finger.x-startPointX)/(sideP * sqrt(3)))
+        rowBegin = Int(abs(finger.x - startPointX + sqrt(3) * ((finger.y-startPointY )))/180)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -34,12 +35,12 @@ class CubeView: UIView {
         let finger = touch.location(in: self)
         let col = Int((finger.x-startPointX)/(sideP * sqrt(3)))
         let row = Int(abs(finger.x - startPointX + sqrt(3) * ((finger.y-startPointY )))/180)
-        print(col," ", row)
+        print("From \(colBegin) \(rowBegin) to \(col) \(row)")
     }
     
-    func drawFrontPiece(col: Int, row: Int,color:UIColor){
+    func drawFrontPiece(col: Int, row: Int,color: CubeColor){
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
-        color.setFill()
+        convertColor(color: color).setFill()
         let hi:CGFloat = CGFloat(col)*sideP*sqrt(3)
         let vi:CGFloat = CGFloat(row)*sideP*2 + CGFloat(col)*sideP
         let startPointXRight = startPointX - sideL * sqrt(3)
@@ -53,9 +54,9 @@ class CubeView: UIView {
         frontPiece.stroke()
         frontPiece.fill()
     }
-    func drawRightPiece(col: Int, row: Int,color:UIColor){
+    func drawRightPiece(col: Int, row: Int, color: CubeColor) {
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
-        color.setFill()
+        convertColor(color: color).setFill()
         let hi:CGFloat = CGFloat(col)*sideP*sqrt(3)
         let vi:CGFloat = CGFloat(row)*sideP*2 - CGFloat(col)*sideP
         let startPointXRight = startPointX
@@ -69,9 +70,9 @@ class CubeView: UIView {
         frontPiece.stroke()
         frontPiece.fill()
     }
-    func drawUpPiece(col: Int, row: Int,color:UIColor){
+    func drawUpPiece(col: Int, row: Int,color: CubeColor){
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
-        color.setFill()
+        convertColor(color: color).setFill()
         let hi:CGFloat = CGFloat(col)*sideP*sqrt(3)-CGFloat(row)*sideP*sqrt(3)
         let vi:CGFloat = CGFloat(row)*sideP + CGFloat(col)*sideP
         let startPointXRight = startPointX
@@ -84,6 +85,22 @@ class CubeView: UIView {
         frontPiece.close()
         frontPiece.stroke()
         frontPiece.fill()
+    }
+    func convertColor(color: CubeColor) -> UIColor {
+        switch color {
+        case .white:
+            return .white
+        case .red:
+            return .red
+        case .blue:
+            return .blue
+        case .orange:
+            return .orange
+        case .green:
+            return .green
+        case .yellow:
+            return .yellow
+        }
     }
     func drawModel() {
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
@@ -109,6 +126,7 @@ class CubeView: UIView {
         top.addLine(to: CGPoint(x: startPointX - sideL * sqrt(3), y: startPointY - sideL))
         top.stroke()
     }
+    
     func drawFrontFace() {
         drawFrontPiece(col: 0,row: 0,color: .red)
         drawFrontPiece(col: 0,row: 1,color: .red)
