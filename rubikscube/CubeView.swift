@@ -18,6 +18,23 @@ class CubeView: UIView {
         drawModel()
         drawFrontFace()
         drawRightFace()
+        drawUpFace()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let finger = touch.location(in: self)
+        let col = Int((finger.x-startPointX)/(sideP * sqrt(3)))
+        let row = Int(abs(finger.x - startPointX + sqrt(3) * ((finger.y-startPointY )))/180)
+        print(col," ", row)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let finger = touch.location(in: self)
+        let col = Int((finger.x-startPointX)/(sideP * sqrt(3)))
+        let row = Int(abs(finger.x - startPointX + sqrt(3) * ((finger.y-startPointY )))/180)
+        print(col," ", row)
     }
     
     func drawFrontPiece(col: Int, row: Int,color:UIColor){
@@ -48,6 +65,22 @@ class CubeView: UIView {
         frontPiece.addLine(to: CGPoint(x: startPointXRight + sideP * sqrt(3) + hi, y: startPointYRight - sideP + vi))
         frontPiece.addLine(to: CGPoint(x: startPointXRight + sideP * sqrt(3) + hi, y: startPointYRight + sideP + vi))
         frontPiece.addLine(to: CGPoint(x: startPointXRight + hi, y: startPointYRight + 2 * sideP + vi))
+        frontPiece.close()
+        frontPiece.stroke()
+        frontPiece.fill()
+    }
+    func drawUpPiece(col: Int, row: Int,color:UIColor){
+        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
+        color.setFill()
+        let hi:CGFloat = CGFloat(col)*sideP*sqrt(3)-CGFloat(row)*sideP*sqrt(3)
+        let vi:CGFloat = CGFloat(row)*sideP + CGFloat(col)*sideP
+        let startPointXRight = startPointX
+        let startPointYRight = startPointY - 6 * sideP
+        let frontPiece = UIBezierPath()
+        frontPiece.move(to: CGPoint(x: startPointXRight + hi, y: startPointYRight + vi))
+        frontPiece.addLine(to: CGPoint(x: startPointXRight + sideP * sqrt(3) + hi, y: startPointYRight + sideP + vi))
+        frontPiece.addLine(to: CGPoint(x: startPointXRight + hi, y: startPointYRight + 2 * sideP + vi))
+        frontPiece.addLine(to: CGPoint(x: startPointXRight - sideP * sqrt(3) + hi, y: startPointYRight + sideP + vi))
         frontPiece.close()
         frontPiece.stroke()
         frontPiece.fill()
@@ -97,5 +130,16 @@ class CubeView: UIView {
         drawRightPiece(col: 2,row: 0,color: .red)
         drawRightPiece(col: 2,row: 1,color: .red)
         drawRightPiece(col: 2,row: 2,color: .red)
+    }
+    func drawUpFace() {
+        drawUpPiece(col: 0,row: 0,color: .red)
+        drawUpPiece(col: 0,row: 1,color: .red)
+        drawUpPiece(col: 0,row: 2,color: .red)
+        drawUpPiece(col: 1,row: 0,color: .red)
+        drawUpPiece(col: 1,row: 1,color: .white)
+        drawUpPiece(col: 1,row: 2,color: .blue)
+        drawUpPiece(col: 2,row: 0,color: .red)
+        drawUpPiece(col: 2,row: 1,color: .red)
+        drawUpPiece(col: 2,row: 2,color: .red)
     }
 }
