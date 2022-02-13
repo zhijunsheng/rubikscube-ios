@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController, CubeDelegate {
    
     @IBOutlet weak var boardView: BoardView!
-
+    var board: Board = Board()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,77 +31,77 @@ class ViewController: UIViewController, CubeDelegate {
     }
 
     @IBAction func turnU(_ sender: UIButton) {
-        boardView.board.turnU()
+        board.turnU()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnUPrime(_ sender: UIButton) {
-        boardView.board.turnUPrime()
+        board.turnUPrime()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnD(_ sender: UIButton) {
-        boardView.board.turnD()
+        board.turnD()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnDPrime(_ sender: UIButton) {
-        boardView.board.turnDPrime()
+        board.turnDPrime()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnR(_ sender: UIButton) {
-        boardView.board.turnR()
+        board.turnR()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnRPrime(_ sender: UIButton) {
-        boardView.board.turnRPrime()
+        board.turnRPrime()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnL(_ sender: UIButton) {
-        boardView.board.turnL()
+        board.turnL()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnLPrime(_ sender: UIButton) {
-        boardView.board.turnLPrime()
+        board.turnLPrime()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnF(_ sender: UIButton) {
-        boardView.board.turnF()
+        board.turnF()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnFPrime(_ sender: UIButton) {
-        boardView.board.turnFPrime()
+        board.turnFPrime()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnB(_ sender: UIButton) {
-        boardView.board.turnB()
+        board.turnB()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnBPrime(_ sender: UIButton) {
-        boardView.board.turnBPrime()
+        board.turnBPrime()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func scramble(_ sender: UIButton) {
-        boardView.board.scramble()
+        board.scramble()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnX(_ sender: UIButton) {
-        boardView.board.turnX()
+        board.turnX()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnXPrime(_ sender: UIButton) {
-        boardView.board.turnXPrime()
+        board.turnXPrime()
         boardView.setNeedsDisplay()
     }
     
@@ -112,38 +113,45 @@ class ViewController: UIViewController, CubeDelegate {
     func turnCube(startX: Int, startY: Int, endX: Int, endY: Int) {
         //        print("I M     A     D E L E G A T E     !!!")
         if startX == 2 && startY == 0 && endX == 0 && endY == 0 {
-            boardView.board.turnU()
+            board.turnU()
         } else if startX == 0 && startY == 0 && endX == 2 && endY == 0 {
-            boardView.board.turnUPrime()
+            board.turnUPrime()
         } else if startX == 0 && startY == 2 && endX == 2 && endY == 2 {
-            boardView.board.turnD()
+            board.turnD()
         } else if startX == 2 && startY == 2 && endX == 0 && endY == 2 {
-            boardView.board.turnDPrime()
+            board.turnDPrime()
         } else if startX == 0 && startY == 0 && endX == 0 && endY == 2 {
-            boardView.board.turnL()
+            board.turnL()
         } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
-            boardView.board.turnLPrime()
+            board.turnLPrime()
         } else if startX == 2 && startY == 2 && endX == 2 && endY == 0 {
-            boardView.board.turnR()
+            board.turnR()
         } else if startX == 2 && startY == 0 && endX == 2 && endY == 2 {
-            boardView.board.turnRPrime()
+            board.turnRPrime()
         } else if startX == 1 && startY == 0 && endX == 2 && endY == 1 {
-            boardView.board.turnF()
+            board.turnF()
+        } else if startX == 2 && startY == 1 && endX == 1 && endY == 0 {
+            board.turnFPrime()
         } else if startX == 0 && startY == 2 && endX == 0 && endY == 0 {
-            boardView.board.turnL()
+            board.turnL()
         }
         boardView.setNeedsDisplay()
     }
     
+    func front(index: Int) -> CubeColor {
+        return board.front[index]
+    }
     
+    func top(index: Int) -> CubeColor {
+        return board.up[index]
+    }
+    
+    func right(index: Int) -> CubeColor {
+        return board.right[index]
+    }
     
     func reset() {
-        boardView.board.up = ["W", "W", "W", "W", "W", "W", "W", "W", "W"]
-        boardView.board.front = ["R", "R", "R", "R", "R", "R", "R", "R", "R"]
-        boardView.board.right = ["B", "B", "B", "B", "B", "B", "B", "B", "B"]
-        boardView.board.left = ["G", "G", "G", "G", "G", "G", "G", "G", "G"]
-        boardView.board.down = ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]
-        boardView.board.back = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+        board.reset()
         boardView.setNeedsDisplay()
     }
 }

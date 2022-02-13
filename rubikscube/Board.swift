@@ -9,12 +9,12 @@
 import Foundation
 
 struct Board: CustomStringConvertible {
-    var up: [String] = []
-    var front: [String] = []
-    var right: [String] = []
-    var left: [String] = []
-    var down: [String] = []
-    var back: [String] = []
+    var up: [CubeColor] = []
+    var front: [CubeColor] = []
+    var right: [CubeColor] = []
+    var left: [CubeColor] = []
+    var down: [CubeColor] = []
+    var back: [CubeColor] = []
     
     // [0, 1, 2, 3, 4, 5, 6]
     // ["M", "T", ...]
@@ -406,7 +406,7 @@ G G G  Y Y Y
         turnX()
     }
     mutating func scramble() {
-        for _ in 1...1200 {
+        for _ in 1...120 {
             let randomInt = Int(arc4random()) % 12
             if randomInt == 0 {
                 turnU()
@@ -436,7 +436,16 @@ G G G  Y Y Y
         }
     }
     
-    mutating func setColor(color: String) {
+    mutating func reset() {
+        up = [.W, .W, .W, .W, .W, .W, .W, .W, .W]
+        front = [.R, .R, .R, .R, .R, .R, .R, .R, .R]
+        right = [.B, .B, .B, .B, .B, .B, .B, .B, .B]
+        left = [.G, .G, .G, .G, .G, .G, .G, .G, .G]
+        down = [.Y, .Y, .Y, .Y, .Y, .Y, .Y, .Y, .Y]
+        back = [.O, .O, .O, .O, .O, .O, .O, .O, .O]
+    }
+    
+    mutating func setColor(color: CubeColor) {
         for i in 0...8 {
             up[i] = color
             front[i] = color

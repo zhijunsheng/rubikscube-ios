@@ -9,5 +9,8 @@
 import Foundation
 
 protocol CubeDelegate {
-    func turnCube(startX: Int, startY: Int, endX: Int, endY: Int) 
+    func turnCube(startX: Int, startY: Int, endX: Int, endY: Int)
+    func front(index: Int) -> CubeColor
+    func top(index: Int) -> CubeColor
+    func right(index: Int) -> CubeColor
 }
