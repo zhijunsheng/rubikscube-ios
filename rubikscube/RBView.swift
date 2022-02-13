@@ -129,7 +129,11 @@ class RBView: UIView {
     }
     
     func xToCol(x: CGFloat) -> Int {
-        return Int((x - (middle.x - b))/(b/3))
+        let col = Int((x - (middle.x - b))/(b/3))
+        if x < middle.x - b {
+            return col - 1
+        }
+        return col
     }
     
     func yToRow(x: CGFloat, y: CGFloat) -> Int {

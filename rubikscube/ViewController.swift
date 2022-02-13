@@ -34,11 +34,11 @@ class ViewController: UIViewController, RCDelegate {
         } else if fromCol == 1 && fromRow == 0 &&
                     toCol == 1 && toRow == 2 {
             rcGame.rotateDown()
-        } else if fromCol == 0 && fromRow == 1 &&
-                    toCol == 2 && toRow == 1 {
-            rcGame.rotateRight()
         } else if fromCol == 2 && fromRow == 1 &&
-                    toCol == 0 && toRow == 1 {
+                    toCol == 3 && toRow == 1 {
+            rcGame.rotateRight()
+        } else if fromCol == 0 && fromRow == 1 &&
+                    toCol == -1 && toRow == 1 {
             rcGame.rotateLeft()
         } else if fromCol == 0 && fromRow == 2 &&
                     toCol == 2 && toRow == 2 {

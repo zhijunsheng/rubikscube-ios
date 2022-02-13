@@ -170,6 +170,9 @@ struct RCGame {
         }
     }
     
+    mutating func rotateFMR() {
+    }
+    
     mutating func shuffleCube() {
         for _ in 0 ..< 1000 {
             let n = arc4random() % 12
@@ -214,7 +217,16 @@ struct RCGame {
     }
     
     mutating func rotateUp() {
+        for i in 0 ..< 9 {
+            let ufi = uf[i]
+            uf[i] = ff[i]
+            ff[i] = df[i]
+            df[i] = bf[i]
+            bf[i] = ufi
+        }
         
+        rf = rotateFaceC(face: rf)
+        lf = rotateFaceCC(face: lf)
     }
     
     mutating func rotateDown() {
@@ -230,7 +242,6 @@ struct RCGame {
     }
     
     mutating func rotateRight() {
-//        let tmpff = [ff[0],ff[1],ff[2],ff[3],ff[4],ff[5],ff[6],ff[7],ff[8]]
         for i in 0 ..< 9 {
             let ffi = ff[i]
             ff[i] = lf[i]
