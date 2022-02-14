@@ -38,6 +38,21 @@
                                             <action selector="solveUpCross:" destination="BYZ-38-t0r" id="tLE-f8-qpP"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="✅" id="GHY-Rc-hXX">
+                                        <connections>
+                                            <action selector="solveLayerCross:" destination="BYZ-38-t0r" id="rGl-WN-0x4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="🎶" id="yDd-iY-dov">
+                                        <connections>
+                                            <action selector="cycleCorner3:" destination="BYZ-38-t0r" id="ZP9-uh-SYh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="🧊" id="Ghf-Ne-2vn">
+                                        <connections>
+                                            <action selector="cycleCube3:" destination="BYZ-38-t0r" id="zdJ-Dt-yan"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mA5-kl-CIF"/>
                                     <barButtonItem title="🙂" id="vKL-4x-usb">
                                         <connections>

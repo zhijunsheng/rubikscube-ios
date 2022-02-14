@@ -17,6 +17,34 @@ struct RubiksGame {
     var faceD: [CubeColor] = []
     var faceB: [CubeColor] = []
     
+    mutating func cycleCube3() {
+        RRR()
+        DDD()
+        R()
+        D()
+    }
+    
+    mutating func cycleCorner3() {
+        LLL()
+        U()
+        R()
+        UUU()
+        L()
+        U()
+        RRR()
+    }
+    
+    mutating func solveLayerCross() {
+        R()
+        U()
+        RRR()
+        U()
+        R()
+        U()
+        U()
+        RRR()
+    }
+    
     mutating func solveMiddleLayer() {
         RRR()
         D()

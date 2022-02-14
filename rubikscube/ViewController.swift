@@ -20,6 +20,21 @@ class ViewController: UIViewController, RubiksCubeDelegate {
         rubiksView.delegate = self
         game.reset()
     }
+    @IBAction func cycleCube3(_ sender: Any) {
+        game.cycleCube3()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    @IBAction func cycleCorner3(_ sender: Any) {
+        game.cycleCorner3()
+        rubiksView.setNeedsDisplay()
+    }
+    
+    @IBAction func solveLayerCross(_ sender: Any) {
+        game.solveLayerCross()
+        rubiksView.setNeedsDisplay()
+    }
+    
     
     @IBAction func solveUpCross(_ sender: Any) {
         game.solveUpCross()
