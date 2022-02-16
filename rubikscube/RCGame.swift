@@ -171,6 +171,9 @@ struct RCGame {
     }
     
     mutating func rotateFMR() {
+        rotateUC()
+        rotateDCC()
+        rotateRight()
     }
     
     mutating func shuffleCube() {
