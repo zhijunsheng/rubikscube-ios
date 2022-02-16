@@ -28,11 +28,11 @@ class ViewController: UIViewController, RCDelegate {
         } else if fromCol == 2 && fromRow == 1 &&
                     toCol == 1 && toRow == 0 {
             rcGame.rotateFCC()
-        } else if fromCol == 1 && fromRow == 2 &&
-                    toCol == 1 && toRow == 0 {
-            rcGame.rotateUp()
         } else if fromCol == 1 && fromRow == 0 &&
-                    toCol == 1 && toRow == 2 {
+                    toCol == 1 && toRow == -1 {
+            rcGame.rotateUp()
+        } else if fromCol == 1 && fromRow == 2 &&
+                    toCol == 1 && toRow == 3 {
             rcGame.rotateDown()
         } else if fromCol == 2 && fromRow == 1 &&
                     toCol == 3 && toRow == 1 {
@@ -66,8 +66,13 @@ class ViewController: UIViewController, RCDelegate {
             rcGame.rotateRCC()
         } else if fromCol == 0 && fromRow == 1 &&
                     toCol == 2 && toRow == 1 {
-            print("1")
             rcGame.rotateFMR()
+        } else if fromCol == 1 && fromRow == 0 &&
+                    toCol == 1 && toRow == 2 {
+            rcGame.rotateFMD()
+        } else if fromCol == 1 && fromRow == 2 &&
+                    toCol == 1 && toRow == 0 {
+            rcGame.rotateFMU()
         }
         rbView.setNeedsDisplay()
     }

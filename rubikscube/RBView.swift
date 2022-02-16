@@ -141,7 +141,11 @@ class RBView: UIView {
         let bigA = b
         let smallA = middle.x - x
         let smallB = bigB/bigA * smallA
-        return Int((y - (middle.y - smallB))/(hypo/3))
+        let row = Int((y - (middle.y - smallB))/(hypo/3))
+        if y < middle.y - smallB {
+            return row - 1
+        }
+        return row
     }
     
 }

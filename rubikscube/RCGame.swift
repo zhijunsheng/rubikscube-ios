@@ -176,6 +176,24 @@ struct RCGame {
         rotateRight()
     }
     
+    mutating func rotateFML() {
+        for _ in 0 ..< 3 {
+            rotateFMR()
+        }
+    }
+    
+    mutating func rotateFMU() {
+        rotateRCC()
+        rotateLC()
+        rotateUp()
+    }
+    
+    mutating func rotateFMD() {
+        for _ in 0 ..< 3 {
+            rotateFMU()
+        }
+    }
+    
     mutating func shuffleCube() {
         for _ in 0 ..< 1000 {
             let n = arc4random() % 12
