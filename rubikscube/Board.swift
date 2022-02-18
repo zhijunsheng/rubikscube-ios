@@ -49,6 +49,16 @@ G G G  Y Y Y
        O O O
      
     */
+    
+    /*
+     
+     0 1 2
+     3 4 5
+     6 7 8
+     
+     
+     
+     */
     var description: String {
         var desc: String = ""
         desc +=
@@ -72,6 +82,7 @@ G G G  Y Y Y
         \(back[6]) \(back[7]) \(back[8])
         _____
 """
+        print(desc)
         return desc
 //"""
 //        W W W
@@ -94,19 +105,7 @@ G G G  Y Y Y
     
     // U, U', F, F', L, L', R, R'
     mutating func turnU() {
-        let up0 = up[0]
-        let up1 = up[1]
-        let up2 = up[2]
-        let up5 = up[5]
-        
-        up[0] = up[6]
-        up[1] = up[3]
-        up[2] = up0
-        up[3] = up[7]
-        up[5] = up1
-        up[6] = up[8]
-        up[7] = up5
-        up[8] = up2
+        up = cl(d: up)
         
         let front0 = front[0]
         let front1 = front[1]
@@ -136,19 +135,7 @@ G G G  Y Y Y
     }
     
     mutating func turnD() {
-        let down0 = down[0]
-        let down1 = down[1]
-        let down2 = down[2]
-        let down5 = down[5]
-
-        down[0] = down[6]
-        down[1] = down[3]
-        down[2] = down0
-        down[3] = down[7]
-        down[5] = down1
-        down[6] = down[8]
-        down[7] = down5
-        down[8] = down2
+        down = cl(d: down)
         
 
         let front6 = front[6]
@@ -179,19 +166,7 @@ G G G  Y Y Y
     }
     
     mutating func turnR() {
-        let right0 = right[0]
-        let right1 = right[1]
-        let right2 = right[2]
-        let right5 = right[5]
-        
-        right[0] = right[6]
-        right[1] = right[3]
-        right[2] = right0
-        right[3] = right[7]
-        right[5] = right1
-        right[6] = right[8]
-        right[7] = right5
-        right[8] = right2
+        right = cl(d: right)
         
         let down2 = down[2]
         let down5 = down[5]
@@ -221,19 +196,7 @@ G G G  Y Y Y
     }
     
     mutating func turnL() {
-        let left0 = left[0]
-        let left1 = left[1]
-        let left2 = left[2]
-        let left5 = left[5]
-        
-        left[0] = left[6]
-        left[1] = left[3]
-        left[2] = left0
-        left[3] = left[7]
-        left[5] = left1
-        left[6] = left[8]
-        left[7] = left5
-        left[8] = left2
+        left = cl(d: left)
         
         let down0 = down[0]
         let down3 = down[3]
@@ -263,19 +226,7 @@ G G G  Y Y Y
     }
     
     mutating func turnF() {
-        let front0 = front[0]
-        let front1 = front[1]
-        let front2 = front[2]
-        let front5 = front[5]
-        
-        front[0] = front[6]
-        front[1] = front[3]
-        front[2] = front0
-        front[3] = front[7]
-        front[5] = front1
-        front[6] = front[8]
-        front[7] = front5
-        front[8] = front2
+        front = cl(d: front)
         
         let down0 = down[0]
         let down1 = down[1]
@@ -304,19 +255,7 @@ G G G  Y Y Y
         turnF()
     }
     mutating func turnB() {
-        let back0 = back[0]
-        let back1 = back[1]
-        let back2 = back[2]
-        let back5 = back[5]
-
-        back[0] = back[6]
-        back[1] = back[3]
-        back[2] = back0
-        back[3] = back[7]
-        back[5] = back1
-        back[6] = back[8]
-        back[7] = back5
-        back[8] = back2
+        back = cl(d: back)
 
         let down6 = down[6]
         let down7 = down[7]
@@ -351,19 +290,7 @@ G G G  Y Y Y
         up = front
         front = down
         
-        let right0 = right[0]
-        let right1 = right[1]
-        let right2 = right[2]
-        let right5 = right[5]
-        
-        right[0] = right[6]
-        right[1] = right[3]
-        right[2] = right0
-        right[3] = right[7]
-        right[5] = right1
-        right[6] = right[8]
-        right[7] = right5
-        right[8] = right2
+        right = cl(d: right)
         
         let left0 = left[0]
         let left1 = left[1]
@@ -405,6 +332,70 @@ G G G  Y Y Y
         turnX()
         turnX()
     }
+    
+    mutating func turnUD() {
+        let fronte = front
+        for i in 0..<9 {
+            front[i] = left[i]
+        }
+        for i in 0..<9 {
+            left[i] = back[i]
+        }
+        for i in 0..<9 {
+            back[i] = right[i]
+        }
+        for i in 0..<9 {
+            right[i] = fronte[i]
+        }
+        for _ in 0..<3 {
+            up = cl(d: up)
+        }
+        down = cl(d: down)
+    }
+    
+    mutating func turnLR() {
+        let fronte = front
+        for i in 0..<9 {
+            front[i] = down[i]
+        }
+        for i in 0..<9 {
+            down[8-i] = back[i]
+        }
+        for i in 0..<9 {
+            back[i] = up[8-i]
+        }
+        for i in 0..<9 {
+            up[i] = fronte[i]
+        }
+        for _ in 0..<3 {
+            left = cl(d: left)
+        }
+        right = cl(d: right)
+    }
+    
+    mutating func turnFB() {
+        
+    }
+    
+    mutating func cl(d: [CubeColor]) -> [CubeColor] {
+        var dd = d
+        let dd0 = dd[0]
+        let dd1 = dd[1]
+        let dd2 = dd[2]
+        let dd5 = dd[5]
+        
+        dd[0] = dd[6]
+        dd[1] = dd[3]
+        dd[2] = dd0
+        dd[3] = dd[7]
+        dd[5] = dd1
+        dd[6] = dd[8]
+        dd[7] = dd5
+        dd[8] = dd2
+        
+        return dd
+    }
+    
     mutating func scramble() {
         for _ in 1...120 {
             let randomInt = Int(arc4random()) % 12
@@ -435,6 +426,7 @@ G G G  Y Y Y
             }
         }
     }
+    
     
     mutating func reset() {
         up = [.W, .W, .W, .W, .W, .W, .W, .W, .W]
