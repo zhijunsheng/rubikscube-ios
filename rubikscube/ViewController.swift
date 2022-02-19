@@ -8,12 +8,37 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController,CubeDelegate {
+    
+    var gameManager = GameManager()
+    @IBOutlet weak var cubeView: CubeView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        cubeView.delegate = self
+        gameManager.reset()
     }
+    
+    func reset() {
+        gameManager.reset()
+    }
+    
+    func getPieceColorFrontFace(col: Int, row: Int) -> CubeColor {
+        return gameManager.getPieceColorFrontFace(col: col, row: row)
+    }
+    func getPieceColorRightFace(col: Int, row: Int) -> CubeColor {
+        return gameManager.getPieceColorRightFace(col: col, row: row)
+    }
+    func getPieceColorUpFace(col: Int, row: Int) -> CubeColor {
+        return gameManager.getPieceColorUpFace(col: col, row: row)
+    }
+    func topRowTurn(clockwise: Bool) {
+        gameManager.topRowTurn(clockwise: clockwise)
+    }
+    func test(){
+        gameManager.test()
+    }
+    
 
 
 }

@@ -12,6 +12,8 @@
 		0725AF7C2202550B00AB1E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7A2202550B00AB1E6F /* Main.storyboard */; };
 		0725AF7E2202550E00AB1E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7D2202550E00AB1E6F /* Assets.xcassets */; };
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
+		E728194B27B8719900230FA8 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E728194A27B8719900230FA8 /* GameManager.swift */; };
+		E728194D27B875F200230FA8 /* CubeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E728194C27B875F200230FA8 /* CubeDelegate.swift */; };
 		E729858B27B86E68005DE374 /* CubeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E729858A27B86E68005DE374 /* CubeColor.swift */; };
 		E74FB85D26DAE97D00ED687E /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74FB85C26DAE97D00ED687E /* CubeView.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		0725AF822202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E728194A27B8719900230FA8 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		E728194C27B875F200230FA8 /* CubeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDelegate.swift; sourceTree = "<group>"; };
 		E729858A27B86E68005DE374 /* CubeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeColor.swift; sourceTree = "<group>"; };
 		E74FB85C26DAE97D00ED687E /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				E74FB85C26DAE97D00ED687E /* CubeView.swift */,
+				E728194A27B8719900230FA8 /* GameManager.swift */,
+				E728194C27B875F200230FA8 /* CubeDelegate.swift */,
 				0725AF762202550B00AB1E6F /* AppDelegate.swift */,
 				E729858A27B86E68005DE374 /* CubeColor.swift */,
 				0725AF782202550B00AB1E6F /* ViewController.swift */,
@@ -201,9 +207,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E729858B27B86E68005DE374 /* CubeColor.swift in Sources */,
+				E728194D27B875F200230FA8 /* CubeDelegate.swift in Sources */,
 				0725AF792202550B00AB1E6F /* ViewController.swift in Sources */,
 				0725AF772202550B00AB1E6F /* AppDelegate.swift in Sources */,
 				E74FB85D26DAE97D00ED687E /* CubeView.swift in Sources */,
+				E728194B27B8719900230FA8 /* GameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

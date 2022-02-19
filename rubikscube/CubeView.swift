@@ -15,12 +15,23 @@ class CubeView: UIView {
     let startPointY: CGFloat = 400
     var colBegin: Int = -1
     var rowBegin: Int = -1
+    var delegate: CubeDelegate? = nil
     
     override func draw(_ rect: CGRect) {
+        test()
+        turn(clockwise: true)
         drawModel()
         drawFrontFace()
         drawRightFace()
         drawUpFace()
+    }
+    
+    func turn(clockwise: Bool) {
+        delegate?.topRowTurn(clockwise: clockwise)
+    }
+    
+    func test() {
+        delegate?.test()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -128,36 +139,32 @@ class CubeView: UIView {
     }
     
     func drawFrontFace() {
-        drawFrontPiece(col: 0,row: 0,color: .red)
-        drawFrontPiece(col: 0,row: 1,color: .red)
-        drawFrontPiece(col: 0,row: 2,color: .red)
-        drawFrontPiece(col: 1,row: 0,color: .red)
-        drawFrontPiece(col: 1,row: 1,color: .white)
-        drawFrontPiece(col: 1,row: 2,color: .blue)
-        drawFrontPiece(col: 2,row: 0,color: .red)
-        drawFrontPiece(col: 2,row: 1,color: .red)
-        drawFrontPiece(col: 2,row: 2,color: .red)
+        for col in 0..<3 {
+            for row in 0..<3 {
+                if let color = delegate?.getPieceColorFrontFace(col: col, row: row) {
+                    drawFrontPiece(col: col, row: row, color: color)
+                }
+                
+            }
+        }
     }
     func drawRightFace() {
-        drawRightPiece(col: 0,row: 0,color: .red)
-        drawRightPiece(col: 0,row: 1,color: .red)
-        drawRightPiece(col: 0,row: 2,color: .red)
-        drawRightPiece(col: 1,row: 0,color: .red)
-        drawRightPiece(col: 1,row: 1,color: .red)
-        drawRightPiece(col: 1,row: 2,color: .red)
-        drawRightPiece(col: 2,row: 0,color: .red)
-        drawRightPiece(col: 2,row: 1,color: .red)
-        drawRightPiece(col: 2,row: 2,color: .red)
+        for col in 0..<3 {
+            for row in 0..<3 {
+                if let color = delegate?.getPieceColorRightFace(col: col, row: row) {
+                    drawRightPiece(col: col, row: row, color: color)
+                }
+                
+            }
+        }
     }
     func drawUpFace() {
-        drawUpPiece(col: 0,row: 0,color: .red)
-        drawUpPiece(col: 0,row: 1,color: .red)
-        drawUpPiece(col: 0,row: 2,color: .red)
-        drawUpPiece(col: 1,row: 0,color: .red)
-        drawUpPiece(col: 1,row: 1,color: .white)
-        drawUpPiece(col: 1,row: 2,color: .blue)
-        drawUpPiece(col: 2,row: 0,color: .red)
-        drawUpPiece(col: 2,row: 1,color: .red)
-        drawUpPiece(col: 2,row: 2,color: .red)
+        for col in 0..<3 {
+            for row in 0..<3 {
+                if let color = delegate?.getPieceColorUpFace(col: col, row: row) {
+                    drawUpPiece(col: col, row: row, color: color)
+                }
+            }
+        }
     }
 }
