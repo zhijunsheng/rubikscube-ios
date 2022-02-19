@@ -34,6 +34,7 @@ class ViewController: UIViewController,CubeDelegate {
     }
     func topRowTurn(clockwise: Bool) {
         gameManager.topRowTurn(clockwise: clockwise)
+        cubeView.setNeedsDisplay()
     }
     func test(){
         gameManager.test()

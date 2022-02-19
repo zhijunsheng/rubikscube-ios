@@ -18,8 +18,8 @@ class CubeView: UIView {
     var delegate: CubeDelegate? = nil
     
     override func draw(_ rect: CGRect) {
-        test()
-        turn(clockwise: true)
+        //test()
+        //turn(clockwise: true)
         drawModel()
         drawFrontFace()
         drawRightFace()
@@ -46,7 +46,18 @@ class CubeView: UIView {
         let finger = touch.location(in: self)
         let col = Int((finger.x-startPointX)/(sideP * sqrt(3)))
         let row = Int(abs(finger.x - startPointX + sqrt(3) * ((finger.y-startPointY )))/180)
+        //delegate?.topRowTurn(clockwise: <#T##Bool#>)
+        if(row-rowBegin == 0){
+            if col-colBegin>0 {
+                delegate?.topRowTurn(clockwise: false)
+            }
+            else{
+                delegate?.topRowTurn(clockwise: true)
+            }
+        }
         print("From \(colBegin) \(rowBegin) to \(col) \(row)")
+        
+        // (((((3 + 19) / (100 * 23) % ))))
     }
     
     func drawFrontPiece(col: Int, row: Int,color: CubeColor){
