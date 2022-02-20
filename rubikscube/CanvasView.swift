@@ -31,6 +31,44 @@ class CanvasView: UIView {
         drawFrontFaceSquareAt(col: 2, row: 2, color: #colorLiteral(red: 1, green: 0, blue: 0.01270750538, alpha: 1))
         
         drawUpperFaceSquareAt(col: 0, row: 0, color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+        drawUpperFaceSquareAt(col: 1, row: 0, color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        drawUpperFaceSquareAt(col: 2, row: 0, color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1))
+        
+        drawUpperFaceSquareAt(col: 0, row: 1, color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+        drawUpperFaceSquareAt(col: 1, row: 1, color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
+        drawUpperFaceSquareAt(col: 2, row: 1, color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+        
+        drawUpperFaceSquareAt(col: 0, row: 2, color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+        drawUpperFaceSquareAt(col: 1, row: 2, color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+        drawUpperFaceSquareAt(col: 2, row: 2, color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+        
+        drawRightFaceSquareAt(col: 0, row: 0, color: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
+        drawRightFaceSquareAt(col: 0, row: 1, color: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1))
+        drawRightFaceSquareAt(col: 0, row: 2, color: #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1))
+        
+        drawRightFaceSquareAt(col: 1, row: 0, color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+        drawRightFaceSquareAt(col: 1, row: 1, color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+        drawRightFaceSquareAt(col: 1, row: 2, color: #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1))
+        
+        drawRightFaceSquareAt(col: 2, row: 0, color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+        drawRightFaceSquareAt(col: 2, row: 1, color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1))
+        drawRightFaceSquareAt(col: 2, row: 2, color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))
+        
+        
+    }
+    
+    func drawRightFaceSquareAt(col: Int, row: Int, color: UIColor) {
+        let x = gridX + 3 * cellSide + cellSide/6 * CGFloat(col + 1)
+        let y = gridY - CGFloat(col + 1) * cellSide/6 + CGFloat(row) * cellSide
+        
+        let pencil = UIBezierPath()
+        pencil.move(to: CGPoint(x: x, y: y))
+        pencil.addLine(to: CGPoint(x: x - cellSide/6, y: y + cellSide/6))
+        pencil.addLine(to: CGPoint(x: x - cellSide/6 , y: y + cellSide/6 + cellSide))
+        pencil.addLine(to: CGPoint(x: x, y: y + cellSide))
+        pencil.close()
+        color.setFill()
+        pencil.fill()
     }
     
     func drawUpperFaceSquareAt(col: Int, row: Int, color: UIColor) {
@@ -46,7 +84,6 @@ class CanvasView: UIView {
         color.setFill()
         pencil.fill()
         pencil.stroke()
-        
     }
     
     func drawFrontFaceSquareAt(col: Int, row: Int, color: UIColor) {
@@ -62,7 +99,6 @@ class CanvasView: UIView {
     }
     
     func upperFace() {
-
         let pencil = UIBezierPath()
         for i in 0..<4 {
             pencil.move(to: CGPoint(x: gridX + cellSide * CGFloat(i), y: gridY))
