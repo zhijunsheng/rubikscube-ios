@@ -238,12 +238,12 @@ struct RCGame {
     }
     
     mutating func rotateUp() {
+        let tmpUF = uf
         for i in 0 ..< 9 {
-            let ufi = uf[i]
             uf[i] = ff[i]
             ff[i] = df[i]
-            df[i] = bf[i]
-            bf[i] = ufi
+            df[i] = bf[8 - i]
+            bf[8 - i] = tmpUF[i]
         }
         
         rf = rotateFaceC(face: rf)
@@ -263,12 +263,12 @@ struct RCGame {
     }
     
     mutating func rotateRight() {
+        let tmpFF = ff
         for i in 0 ..< 9 {
-            let ffi = ff[i]
             ff[i] = lf[i]
             lf[i] = bf[i]
             bf[i] = rf[i]
-            rf[i] = ffi
+            rf[i] = tmpFF[i]
         }
         
         df = rotateFaceC(face: df)

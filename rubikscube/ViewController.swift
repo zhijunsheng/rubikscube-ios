@@ -22,57 +22,42 @@ class ViewController: UIViewController, RCDelegate {
     }
     
     func rotate(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
-        if fromCol == 1 && fromRow == 0 &&
-            toCol == 2 && toRow == 1 {
+        if fromCol == 1 && fromRow == 0 && toCol == 2 && toRow == 1 {
             rcGame.rotateFC()
-        } else if fromCol == 2 && fromRow == 1 &&
-                    toCol == 1 && toRow == 0 {
+        } else if fromCol == 2 && fromRow == 1 && toCol == 1 && toRow == 0 {
             rcGame.rotateFCC()
-        } else if fromCol == 1 && fromRow == 0 &&
-                    toCol == 1 && toRow == -1 {
+        } else if fromCol == 1 && fromRow == 0 && toCol == 1 && toRow == -1 {
             rcGame.rotateUp()
-        } else if fromCol == 1 && fromRow == 2 &&
-                    toCol == 1 && toRow == 3 {
+        } else if fromCol == 1 && fromRow == 2 && toCol == 1 && toRow == 3 {
             rcGame.rotateDown()
-        } else if fromCol == 2 && fromRow == 1 &&
-                    toCol == 3 && toRow == 1 {
+        } else if fromCol == 2 && fromRow == 1 && toCol == 3 && toRow == 1 {
             rcGame.rotateRight()
-        } else if fromCol == 0 && fromRow == 1 &&
-                    toCol == -1 && toRow == 1 {
+        } else if fromCol == 0 && fromRow == 1 && toCol == -1 && toRow == 1 {
             rcGame.rotateLeft()
-        } else if fromCol == 0 && fromRow == 2 &&
-                    toCol == 2 && toRow == 2 {
+        } else if fromCol == 0 && fromRow == 2 && toCol == 2 && toRow == 2 {
             rcGame.rotateDC()
-        } else if fromCol == 2 && fromRow == 2 &&
-                    toCol == 0 && toRow == 2 {
+        } else if fromCol == 2 && fromRow == 2 && toCol == 0 && toRow == 2 {
             rcGame.rotateDCC()
-        } else if fromCol == 0 && fromRow == 0 &&
-                    toCol == 2 && toRow == 0 {
+        } else if fromCol == 0 && fromRow == 0 && toCol == 2 && toRow == 0 {
             rcGame.rotateUCC()
-        } else if fromCol == 2 && fromRow == 0 &&
-                    toCol == 0 && toRow == 0 {
+        } else if fromCol == 2 && fromRow == 0 && toCol == 0 && toRow == 0 {
             rcGame.rotateUC()
-        } else if fromCol == 0 && fromRow == 0 &&
-                    toCol == 0 && toRow == 2 {
+        } else if fromCol == 0 && fromRow == 0 && toCol == 0 && toRow == 2 {
             rcGame.rotateLC()
-        } else if fromCol == 0 && fromRow == 2 &&
-                    toCol == 0 && toRow == 0 {
+        } else if fromCol == 0 && fromRow == 2 && toCol == 0 && toRow == 0 {
             rcGame.rotateLCC()
-        } else if fromCol == 2 && fromRow == 2 &&
-                    toCol == 2 && toRow == 0 {
+        } else if fromCol == 2 && fromRow == 2 && toCol == 2 && toRow == 0 {
             rcGame.rotateRC()
-        } else if fromCol == 2 && fromRow == 0 &&
-                    toCol == 2 && toRow == 2 {
+        } else if fromCol == 2 && fromRow == 0 && toCol == 2 && toRow == 2 {
             rcGame.rotateRCC()
-        } else if fromCol == 0 && fromRow == 1 &&
-                    toCol == 2 && toRow == 1 {
+        } else if fromCol == 0 && fromRow == 1 && toCol == 2 && toRow == 1 {
             rcGame.rotateFMR()
-        } else if fromCol == 1 && fromRow == 0 &&
-                    toCol == 1 && toRow == 2 {
+        } else if fromCol == 1 && fromRow == 0 && toCol == 1 && toRow == 2 {
             rcGame.rotateFMD()
-        } else if fromCol == 1 && fromRow == 2 &&
-                    toCol == 1 && toRow == 0 {
+        } else if fromCol == 1 && fromRow == 2 && toCol == 1 && toRow == 0 {
             rcGame.rotateFMU()
+        } else if fromCol == 2 && fromRow == 1 && toCol == 0 && toRow == 1 {
+            rcGame.rotateFML()
         }
         rbView.setNeedsDisplay()
     }
