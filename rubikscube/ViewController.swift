@@ -12,13 +12,25 @@ class ViewController: UIViewController, CubeDelegate {
    
     @IBOutlet weak var boardView: BoardView!
     var board: Board = Board()
-    
+    var s = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
         boardView.cubeDelagate = self
         
         reset()
+        
+        
+        //thgn
+//        if board.cn == true {
+//            s = board.checkPls()
+//            if s {
+//                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+//                self.present(alert, animated: true)
+//                s = false
+//            }
+//        }
         
 //        boardView.board.setColor(color: "O")
 //        boardView.board.left[5] = "B"
@@ -29,64 +41,172 @@ class ViewController: UIViewController, CubeDelegate {
 ////        boardView.board.back[7] = "B"
 ////        boardView.board.left[8] = "G"
     }
-
+    
     @IBAction func turnU(_ sender: UIButton) {
         board.turnU()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnUPrime(_ sender: UIButton) {
         board.turnUPrime()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnD(_ sender: UIButton) {
         board.turnD()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnDPrime(_ sender: UIButton) {
         board.turnDPrime()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnR(_ sender: UIButton) {
         board.turnR()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnRPrime(_ sender: UIButton) {
         board.turnRPrime()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnL(_ sender: UIButton) {
         board.turnL()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnLPrime(_ sender: UIButton) {
         board.turnLPrime()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnF(_ sender: UIButton) {
         board.turnF()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnFPrime(_ sender: UIButton) {
         board.turnFPrime()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnB(_ sender: UIButton) {
         board.turnB()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnBPrime(_ sender: UIButton) {
         board.turnBPrime()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
@@ -97,11 +217,29 @@ class ViewController: UIViewController, CubeDelegate {
     
     @IBAction func turnX(_ sender: UIButton) {
         board.turnX()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func turnXPrime(_ sender: UIButton) {
         board.turnXPrime()
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
+        }
         boardView.setNeedsDisplay()
     }
     
@@ -138,6 +276,15 @@ class ViewController: UIViewController, CubeDelegate {
             board.turnUD()
         } else if startX == 2 && startY == 2 && endX == 2 && endY == 2 {
             board.turnLR()
+        }
+        if board.cn == true {
+            s = board.checkPls()
+            if s {
+                let alert = UIAlertController(title: "Yay", message: "You solved the cube", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                s = false
+            }
         }
         boardView.setNeedsDisplay()
     }

@@ -15,6 +15,7 @@ struct Board: CustomStringConvertible {
     var left: [CubeColor] = []
     var down: [CubeColor] = []
     var back: [CubeColor] = []
+    var cn = false
     
     // [0, 1, 2, 3, 4, 5, 6]
     // ["M", "T", ...]
@@ -373,8 +374,20 @@ G G G  Y Y Y
         right = cl(d: right)
     }
     
-    mutating func turnFB() {
-        
+    mutating func checkPls() -> Bool {
+        let arar = [up, down, left, right, front, back]
+        for f in arar {
+            var t = f[0]
+            for i in 1..<9 {
+                if f[i] == t {
+                    t = f[i]
+                } else {
+                    return false
+                }
+            }
+        }
+        cn = false
+        return true
     }
     
     mutating func cl(d: [CubeColor]) -> [CubeColor] {
@@ -397,6 +410,7 @@ G G G  Y Y Y
     }
     
     mutating func scramble() {
+        cn = true
         for _ in 1...120 {
             let randomInt = Int(arc4random()) % 12
             if randomInt == 0 {
@@ -429,6 +443,7 @@ G G G  Y Y Y
     
     
     mutating func reset() {
+        cn = false
         up = [.W, .W, .W, .W, .W, .W, .W, .W, .W]
         front = [.R, .R, .R, .R, .R, .R, .R, .R, .R]
         right = [.B, .B, .B, .B, .B, .B, .B, .B, .B]
