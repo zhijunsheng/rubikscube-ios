@@ -12,15 +12,31 @@ class CanvasView: UIView {
     let cellSide: CGFloat = 170
     let gridX: CGFloat = 70
     let gridY: CGFloat = 151
+    var fromCol: Int = -1
+    var fromRow: Int = -1
     
     override func draw(_ rect: CGRect) {
         drawFrontFace()
         drawUpperFace()
         drawRightFace()
         drawGrid()
-
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let finger = touch.location(in: self)
+        fromCol = Int((finger.x - gridX)/cellSide)
+        fromRow = Int((finger.y - gridY)/cellSide)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let finger = touch.location(in: self)
+        let toCol: Int = Int((finger.x - gridX)/cellSide)
+        let toRow: Int = Int((finger.y - gridY)/cellSide)
+        print("from (\(fromCol),\(fromRow)) to (\(toCol),\(toRow))")
+    }
+
     func drawFrontFace() {
         drawFrontFaceSquareAt(col: 0, row: 0, color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
         drawFrontFaceSquareAt(col: 0, row: 1, color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
