@@ -8,6 +8,18 @@
 
 import Foundation
 
+/*
+ 
+ 1, 2, 3 Int
+ "he", "hi" String
+ RubiksCubeColor.red, RubiksCubeColor.yellow RubiksCubeColor
+ 
+ let arr0: [Int] = [1, 2, 3]
+ let arr1: [String] = ["he", "hi"]
+ let ???: [] = []
+ 
+ */
+
 enum RubiksCubeColor {
     case red
     case yellow

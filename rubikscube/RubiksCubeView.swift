@@ -10,22 +10,23 @@ import UIKit
 
 class RubiksCubeView: UIView {
     
-    var cellSide: CGFloat = 100
-    var gridX: CGFloat = 200
-    var gridY: CGFloat = 300
+    var cellSide: CGFloat = 130
+    var gridX: CGFloat = 100
+    var gridY: CGFloat = 250
     
+    var frontFace: [RubiksCubeColor] = [.green, .white, .green, .blue, .orange, .blue, .yellow, .white, .red]
+
     override func draw(_ rect: CGRect) {
-        
-        drawFrontFaceSquare(col: 0, row: 0, color: .red)
-        drawFrontFaceSquare(col: 0, row: 1, color: .blue)
-        drawFrontFaceSquare(col: 0, row: 2, color: .yellow)
-        drawFrontFaceSquare(col: 1, row: 0, color: .white)
-        drawFrontFaceSquare(col: 1, row: 1, color: .orange)
-        drawFrontFaceSquare(col: 1, row: 2, color: .white)
-        drawFrontFaceSquare(col: 2, row: 0, color: .green)
-        drawFrontFaceSquare(col: 2, row: 1, color: .blue)
-        drawFrontFaceSquare(col: 2, row: 2, color: .red)
+        drawFrontFace()
         drawGrid()
+    }
+    
+    func drawFrontFace() {
+        for col in 0 ..< 3 {
+            for row in 0 ..< 3 {
+                drawFrontFaceSquare(col: col, row: row, color: frontFace[col + row * 3])
+            }
+        }
     }
     
     func drawFrontFaceSquare(col: Int, row: Int, color: RubiksCubeColor) {
@@ -64,7 +65,7 @@ class RubiksCubeView: UIView {
             grid.move(to: CGPoint(x: gridX + cellSide * 3, y: gridY + cellSide * CGFloat(i + 1)))
             grid.addLine(to: CGPoint(x: gridX + cellSide * 4, y: gridY + cellSide * CGFloat(i)))
         }
-        
+        grid.lineWidth = 4
         grid.stroke()
     }
 }
