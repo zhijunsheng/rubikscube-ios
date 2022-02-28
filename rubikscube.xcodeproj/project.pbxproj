@@ -13,6 +13,7 @@
 		0725AF7E2202550E00AB1E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7D2202550E00AB1E6F /* Assets.xcassets */; };
 		0725AF812202550E00AB1E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0725AF7F2202550E00AB1E6F /* LaunchScreen.storyboard */; };
 		0725AF8C2202550E00AB1E6F /* rubikscubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725AF8B2202550E00AB1E6F /* rubikscubeTests.swift */; };
+		7313DCE72226A82A00B28962 /* LoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7313DCE62226A82A00B28962 /* LoopTests.swift */; };
 		D139BD112204EB9E00DE9611 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D139BD102204EB9E00DE9611 /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		0725AF872202550E00AB1E6F /* rubikscubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubikscubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0725AF8B2202550E00AB1E6F /* rubikscubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rubikscubeTests.swift; sourceTree = "<group>"; };
 		0725AF8D2202550E00AB1E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7313DCE62226A82A00B28962 /* LoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopTests.swift; sourceTree = "<group>"; };
 		D139BD102204EB9E00DE9611 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 			children = (
 				0725AF8B2202550E00AB1E6F /* rubikscubeTests.swift */,
 				0725AF8D2202550E00AB1E6F /* Info.plist */,
+				7313DCE62226A82A00B28962 /* LoopTests.swift */,
 			);
 			path = rubikscubeTests;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0725AF8C2202550E00AB1E6F /* rubikscubeTests.swift in Sources */,
+				7313DCE72226A82A00B28962 /* LoopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
