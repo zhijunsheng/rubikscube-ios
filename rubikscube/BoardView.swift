@@ -9,6 +9,10 @@
 import UIKit
 
  class BoardView: UIView {
+//J'aime le pop parce que la musique est energique
+//Je trouve la musique de
+//J
+//J'aime le chanson parce que la melodie est compliquee
     
     let side: CGFloat = 100
     let cornerX: CGFloat = 150
@@ -28,13 +32,28 @@ import UIKit
         guard let realThing = thing else {
             return
         }
-        
-        let startX = Int((realThing.x - cornerX) / side)
-        let startY = Int((realThing.y - cornerY) / side)
-        let endX = Int((loc.x - cornerX) / side)
-        let endY = Int((loc.y - cornerY) / side)
-        print("(\(startX), \(startY)) to (\(endX), \(endY))")
-        cubeDelagate?.turnCube(startX: startX, startY: startY, endX: endX, endY: endY)
+        if Int((realThing.x - cornerX) / side) < 3 && realThing.y - cornerY >= 0 {
+            let startX = Int((realThing.x - cornerX) / side)
+            let startY = Int((realThing.y - cornerY) / side)
+            let endX = Int((loc.x - cornerX) / side)
+            let endY = Int((loc.y - cornerY) / side)
+            print("front (\(startX), \(startY)) to (\(endX), \(endY))")
+            cubeDelagate?.turnCube(startX: startX, startY: startY, endX: endX, endY: endY)
+        } else if Int(((realThing.x - cornerX) + (realThing.y - cornerY)) / side) < 3 && realThing.y - cornerY < 0 {
+            let startX = Int(((realThing.x - cornerX) + (realThing.y - cornerY)) / side)
+            let startY = Int((realThing.y - (cornerY - (side * 0.5) * 3)) / (side / 2)) - 3
+            let endX = Int(((loc.x - cornerX) + (loc.y - cornerY)) / side)
+            let endY = Int((loc.y - (cornerY - (side * 0.5) * 3)) / (side / 2)) - 3
+            print("top (\(startX), \(startY)) to (\(endX), \(endY))")
+            cubeDelagate?.turnCube(startX: startX, startY: startY, endX: endX, endY: endY)
+        } else if Int((realThing.x - cornerX) / side) >= 3 && Int((realThing.y - cornerY) / side) >= 0 {
+            let startX = 3 + Int(((realThing.x - cornerX) - side * 3) / side * 2)
+            let startY = Int(((realThing.y - cornerY) + ((realThing.x - cornerX) - side * 3)) / side)
+            let endX = 3 + Int(((loc.x - cornerX) - side * 3) / side * 2)
+            let endY = Int(((loc.y - cornerY) + ((loc.x - cornerX) - side * 3)) / side)
+            print("right (\(startX), \(startY)) to (\(endX), \(endY))")
+            cubeDelagate?.turnCube(startX: startX, startY: startY, endX: endX, endY: endY)
+        }
     }
     
     override func draw(_ rect: CGRect) {
