@@ -14,10 +14,13 @@ class RubiksCubeView: UIView {
     var gridX: CGFloat = 100
     var gridY: CGFloat = 250
     
-    var frontFace: [RubiksCubeColor] = [.green, .white, .green, .blue, .orange, .blue, .yellow, .white, .red]
+    var frontFace: [RubiksCubeColor] = [.green, .white, .orange, .blue, .orange, .blue, .yellow, .white, .red]
+    
+    var upFace: [RubiksCubeColor] = [.green, .white, .orange, .blue, .orange, .blue, .yellow, .white, .red]
 
     override func draw(_ rect: CGRect) {
         drawFrontFace()
+        drawUpFace()
         drawGrid()
     }
     
@@ -29,11 +32,47 @@ class RubiksCubeView: UIView {
         }
     }
     
+    func drawUpFace() {
+        for col in 0 ..< 3 {
+            for row in 0 ..< 3 {
+                drawUpFaceSquare(col: col, row: row, color: upFace[col + row * 3])
+            }
+        }
+    }
+    
+    func drawUpFaceSquare(col: Int, row: Int, color: RubiksCubeColor) {
+        switch color {
+        case .green:
+            UIColor.green.setFill()
+        case .red:
+            UIColor.red.setFill()
+        case .yellow:
+            UIColor.yellow.setFill()
+        case .blue:
+            UIColor.blue.setFill()
+        case .white:
+            UIColor.white.setFill()
+        case .orange:
+            UIColor.orange.setFill()
+        }
+        
+        let anchorX = gridX + cellSide - CGFloat(row) * cellSide / 3  + CGFloat(col) * cellSide
+        let anchorY = gridY - cellSide + CGFloat(row) * cellSide / 3
+     
+        let line = UIBezierPath()
+        line.move(to: CGPoint(x: anchorX, y: anchorY))
+        line.addLine(to: CGPoint(x: anchorX + cellSide, y: anchorY))
+        line.addLine(to: CGPoint(x: anchorX + cellSide * 2 / 3, y: anchorY + cellSide / 3))
+        line.addLine(to: CGPoint(x: anchorX - cellSide / 3, y: anchorY + cellSide / 3))
+        line.close()
+        line.fill()
+    }
+    
     func drawFrontFaceSquare(col: Int, row: Int, color: RubiksCubeColor) {
         switch color {
         case .green: UIColor.green.setFill()
         case .red: UIColor.red.setFill()
-        case .yellow: UIColor.yellow.setFill()
+        case .yellow:UIColor.yellow.setFill()
         case .blue: UIColor.blue.setFill()
         case .white: UIColor.white.setFill()
         case .orange: UIColor.orange.setFill()
