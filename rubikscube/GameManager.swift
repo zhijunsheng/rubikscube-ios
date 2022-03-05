@@ -62,19 +62,108 @@ struct GameManager {
                 leftFace[i] = frontFace[i]
                 frontFace[i] = temp
             }
-            let tempTop1 = upFace[0]
-            upFace[0] = upFace[6]
-            upFace[6] = upFace[8]
-            upFace[8] = upFace[2]
-            upFace[2] = tempTop1
-            let tempTop2 = upFace[1]
-            upFace[1] = upFace[3]
-            upFace[3] = upFace[7]
-            upFace[7] = upFace[5]
-            upFace[5] = tempTop2
+            upFace = rotateFace(face: upFace)
             if clockwise {
                 break
             }
+            count += 1
+        }
+    }
+    mutating func middleRowTurn(clockwise: Bool){
+        var count: Int = 0
+        while(count<3){
+            for i in 0..<3 {
+                let temp = rightFace[3 + i]
+                rightFace[3 + i] = backFace[3 + i]
+                backFace[3 + i] = leftFace[3 + i]
+                leftFace[3 + i] = frontFace[3 + i]
+                frontFace[3 + i] = temp
+            }
+            if clockwise {
+                break
+            }
+            count += 1
+        }
+    }
+    mutating func bottomRowTurn(clockwise: Bool){
+        var count: Int = 0
+        while(count<3){
+            for i in 0..<3 {
+                let temp = rightFace[6 + i]
+                rightFace[6 + i] = backFace[6 + i]
+                backFace[6 + i] = leftFace[6 + i]
+                leftFace[6 + i] = frontFace[6 + i]
+                frontFace[6 + i] = temp
+            }
+            downFace = rotateFace(face: downFace)
+            if clockwise {
+                break
+            }
+            count += 1
+        }
+    }
+    func rotateFace(face: [CubeColor]) -> [CubeColor] {
+        var temp = face
+        let tempTop1 = temp[0]
+        temp[0] = temp[6]
+        temp[6] = temp[8]
+        temp[8] = temp[2]
+        temp[2] = tempTop1
+        let tempTop2 = temp[1]
+        temp[1] = temp[3]
+        temp[3] = temp[7]
+        temp[7] = temp[5]
+        temp[5] = tempTop2
+        return temp
+    }
+    mutating func rightFaceLeftColumnTurn(clockwise: Bool){
+        var count: Int = 0
+        while(count<3){
+            for i in 0..<3 {
+                let temp = upFace[6+i]
+                upFace[6+i] = rightFace[3*i]
+                rightFace[3*i] = downFace[3*i]
+                downFace[3*i] = leftFace[8-3*i]
+                leftFace[8-3*i] = temp
+            }
+            frontFace = rotateFace(face: frontFace)
+            if clockwise {
+                break
+            }
+            count += 1
+        }
+    }
+    mutating func rightFaceMidColumnTurn(clockwise: Bool){
+        var count: Int = 0
+        while(count<3){
+            for i in 0..<3 {
+                let temp = upFace[3+i]
+                upFace[3+i] = rightFace[3*i+1]
+                rightFace[3*i+1] = downFace[3*i+1]
+                downFace[3*i+1] = leftFace[7-3*i]
+                leftFace[7-3*i] = temp
+            }
+            if clockwise {
+                break
+            }
+            count += 1
+        }
+    }
+    mutating func rightFaceRightColumnTurn(clockwise: Bool){
+        var count: Int = 0
+        while(count<3){
+            for i in 0..<3 {
+                let temp = upFace[i]
+                upFace[i] = rightFace[3*i+2]
+                rightFace[3*i+2] = downFace[3*i+2]
+                downFace[3*i+2] = leftFace[6-3*i]
+                leftFace[6-3*i] = temp
+            }
+            backFace=rotateFace(face: backFace)
+            if clockwise {
+                break
+            }
+            
             count += 1
         }
     }

@@ -36,6 +36,26 @@ class ViewController: UIViewController,CubeDelegate {
         gameManager.topRowTurn(clockwise: clockwise)
         cubeView.setNeedsDisplay()
     }
+    func middleRowTurn(clockwise: Bool) {
+        gameManager.middleRowTurn(clockwise: clockwise)
+        cubeView.setNeedsDisplay()
+    }
+    func bottomRowTurn(clockwise: Bool) {
+        gameManager.bottomRowTurn(clockwise: clockwise)
+        cubeView.setNeedsDisplay()
+    }
+    func rightFaceLeftColumnTurn(clockwise: Bool) {
+        gameManager.rightFaceLeftColumnTurn(clockwise: clockwise)
+        cubeView.setNeedsDisplay()
+    }
+    func rightFaceMidColumnTurn(clockwise: Bool) {
+        gameManager.rightFaceMidColumnTurn(clockwise: clockwise)
+        cubeView.setNeedsDisplay()
+    }
+    func rightFaceRightColumnTurn(clockwise: Bool) {
+        gameManager.rightFaceRightColumnTurn(clockwise: clockwise)
+        cubeView.setNeedsDisplay()
+    }
     func test(){
         gameManager.test()
     }

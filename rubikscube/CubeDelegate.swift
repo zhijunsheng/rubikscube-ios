@@ -13,5 +13,10 @@ protocol CubeDelegate {
     func getPieceColorRightFace(col: Int, row: Int) -> CubeColor
     func getPieceColorUpFace(col: Int, row: Int) -> CubeColor
     mutating func topRowTurn(clockwise: Bool)
+    mutating func middleRowTurn(clockwise: Bool)
+    mutating func bottomRowTurn(clockwise: Bool)
+    mutating func rightFaceLeftColumnTurn(clockwise: Bool)
+    mutating func rightFaceMidColumnTurn(clockwise: Bool)
+    mutating func rightFaceRightColumnTurn(clockwise: Bool)
     func test()
 }

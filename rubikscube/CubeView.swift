@@ -19,17 +19,12 @@ class CubeView: UIView {
     
     override func draw(_ rect: CGRect) {
         //test()
-        //turn(clockwise: true)
         drawModel()
         drawFrontFace()
         drawRightFace()
         drawUpFace()
     }
-    
-    func turn(clockwise: Bool) {
-        delegate?.topRowTurn(clockwise: clockwise)
-    }
-    
+        
     func test() {
         delegate?.test()
     }
@@ -38,21 +33,35 @@ class CubeView: UIView {
         let touch = touches.first!
         let finger = touch.location(in: self)
         colBegin = Int((finger.x-startPointX)/(sideP * sqrt(3)))
-        rowBegin = Int(abs(finger.x - startPointX + sqrt(3) * ((finger.y-startPointY )))/180)
+        rowBegin = Int(abs(finger.x - startPointX + sqrt(3) * (finger.y-startPointY ))/180)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let finger = touch.location(in: self)
         let col = Int((finger.x-startPointX)/(sideP * sqrt(3)))
-        let row = Int(abs(finger.x - startPointX + sqrt(3) * ((finger.y-startPointY )))/180)
+        let row = Int(abs(finger.x - startPointX + sqrt(3) * (finger.y-startPointY ))/180)
         //delegate?.topRowTurn(clockwise: <#T##Bool#>)
-        if(row-rowBegin == 0){
-            if col-colBegin>0 {
-                delegate?.topRowTurn(clockwise: false)
+        if(row == rowBegin && col != colBegin){
+            if(row == 0){
+                delegate?.topRowTurn(clockwise: col<colBegin)
             }
-            else{
-                delegate?.topRowTurn(clockwise: true)
+            if(row == 1){
+                delegate?.middleRowTurn(clockwise: col<colBegin)
+            }
+            if(row == 2){
+                delegate?.bottomRowTurn(clockwise:col<colBegin)
+            }
+        }
+        if(row != rowBegin && col == colBegin){
+            if(col == 0){
+                delegate?.rightFaceLeftColumnTurn(clockwise: row<rowBegin)
+            }
+            if(col == 1){
+                delegate?.rightFaceMidColumnTurn(clockwise: row<rowBegin)
+            }
+            if(col == 2){
+                delegate?.rightFaceRightColumnTurn(clockwise:row<rowBegin)
             }
         }
         print("From \(colBegin) \(rowBegin) to \(col) \(row)")
