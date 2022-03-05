@@ -14,13 +14,16 @@ class RubiksCubeView: UIView {
     var gridX: CGFloat = 100
     var gridY: CGFloat = 250
     
-    var frontFace: [RubiksCubeColor] = [.green, .white, .orange, .blue, .orange, .blue, .yellow, .white, .red]
+    var frontFace: [RubiksCubeColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
     
-    var upFace: [RubiksCubeColor] = [.green, .white, .orange, .blue, .orange, .blue, .yellow, .white, .red]
-
+    var upFace: [RubiksCubeColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
+    
+    var rightFace: [RubiksCubeColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
+    
     override func draw(_ rect: CGRect) {
         drawFrontFace()
         drawUpFace()
+        drawRightFace()
         drawGrid()
     }
     
@@ -40,25 +43,25 @@ class RubiksCubeView: UIView {
         }
     }
     
-    func drawUpFaceSquare(col: Int, row: Int, color: RubiksCubeColor) {
-        switch color {
-        case .green:
-            UIColor.green.setFill()
-        case .red:
-            UIColor.red.setFill()
-        case .yellow:
-            UIColor.yellow.setFill()
-        case .blue:
-            UIColor.blue.setFill()
-        case .white:
-            UIColor.white.setFill()
-        case .orange:
-            UIColor.orange.setFill()
+    func drawRightFace() {
+        for col in 0 ..< 3 {
+            for row in 0 ..< 3 {
+                drawRightFaceSquare(col: col, row: row, color: rightFace[col + row * 3])
+            }
         }
+    }
+    
+    func drawFrontFaceSquare(col: Int, row: Int, color: RubiksCubeColor) {
+        convertColor(color: color).setFill()
+        UIBezierPath(rect: CGRect(x: gridX + cellSide * CGFloat(col), y: gridY + cellSide * CGFloat(row), width: cellSide, height: cellSide)).fill()
+    }
+    
+    func drawUpFaceSquare(col: Int, row: Int, color: RubiksCubeColor) {
+        convertColor(color: color).setFill()
         
         let anchorX = gridX + cellSide - CGFloat(row) * cellSide / 3  + CGFloat(col) * cellSide
         let anchorY = gridY - cellSide + CGFloat(row) * cellSide / 3
-     
+        
         let line = UIBezierPath()
         line.move(to: CGPoint(x: anchorX, y: anchorY))
         line.addLine(to: CGPoint(x: anchorX + cellSide, y: anchorY))
@@ -68,16 +71,20 @@ class RubiksCubeView: UIView {
         line.fill()
     }
     
-    func drawFrontFaceSquare(col: Int, row: Int, color: RubiksCubeColor) {
-        switch color {
-        case .green: UIColor.green.setFill()
-        case .red: UIColor.red.setFill()
-        case .yellow:UIColor.yellow.setFill()
-        case .blue: UIColor.blue.setFill()
-        case .white: UIColor.white.setFill()
-        case .orange: UIColor.orange.setFill()
-        }
-        UIBezierPath(rect: CGRect(x: gridX + cellSide * CGFloat(col), y: gridY + cellSide * CGFloat(row), width: cellSide, height: cellSide)).fill()
+    func drawRightFaceSquare(col: Int, row: Int, color: RubiksCubeColor) {
+        convertColor(color: color).setFill()
+        
+        let anchorX = gridX + cellSide * 3 + CGFloat(col) * cellSide / 3
+        let anchorY = gridY - CGFloat(col) * cellSide / 3 + CGFloat(row) * cellSide
+        
+        let line = UIBezierPath()
+        line.move(to: CGPoint(x: anchorX, y: anchorY))
+        line.addLine(to: CGPoint(x: anchorX + cellSide / 3, y: anchorY - cellSide / 3))
+        line.addLine(to: CGPoint(x: anchorX + cellSide / 3, y: anchorY - cellSide / 3 + cellSide))
+        line.addLine(to: CGPoint(x: anchorX, y: anchorY + cellSide))
+        line.close()
+        line.fill()
+        
     }
     
     func drawGrid()  {
@@ -106,5 +113,24 @@ class RubiksCubeView: UIView {
         }
         grid.lineWidth = 4
         grid.stroke()
+    }
+    
+    func convertColor(color: RubiksCubeColor) -> UIColor {
+        let finalColor: UIColor
+        switch color {
+        case .green:
+            finalColor = UIColor.green
+        case .red:
+            finalColor = UIColor.red
+        case .yellow:
+            finalColor = UIColor.yellow
+        case .blue:
+            finalColor = UIColor.blue
+        case .white:
+            finalColor = UIColor.white
+        case .orange:
+            finalColor = UIColor.orange
+        }
+        return finalColor
     }
 }
