@@ -61,14 +61,14 @@ class ViewController: UIViewController, RubiksDelegate {
     }
     
     @IBAction func rotateDownClockwise(_ sender: Any) {
-        brain.rotateDown()
+        brain.rotateBack()
         update()
     }
     
     @IBAction func rotateDownCounterclockwise(_ sender: Any) {
-        brain.rotateDown()
-        brain.rotateDown()
-        brain.rotateDown()
+        brain.rotateBack()
+        brain.rotateBack()
+        brain.rotateBack()
         update()
     }
     
