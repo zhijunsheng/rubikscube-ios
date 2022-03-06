@@ -39,7 +39,7 @@ class ViewController: UIViewController, RubiksDelegate {
             brain.rotateRight()
         } else if fbX == 0 && fbY == 2 && tbX == 2 && tbY == 2{
             brain.rotateDown()
-        } else if fbX == 2 && fbY == 0 && tbX == 2 && tbY == 2{
+        } else if fbX == 2 && fbY == 2 && tbX == 0 && tbY == 2{
             brain.rotateDown()
             brain.rotateDown()
             brain.rotateDown()
