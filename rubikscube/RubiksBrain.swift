@@ -126,8 +126,27 @@ struct RubiksBrain {
         return newFace
     }
     
-    
-    
-    
-    
+    mutating func rotateDown() {
+        bottomFace = rotateFace(face: bottomFace)
+        let face6 = frontFace[6]
+        let face7 = frontFace[7]
+        let face8 = frontFace[8]
+        
+        frontFace[6] = leftFace[6]
+        frontFace[7] = leftFace[7]
+        frontFace[8] = leftFace[8]
+        
+        leftFace[6] = backFace[6]
+        leftFace[7] = backFace[7]
+        leftFace[8] = backFace[8]
+        
+        backFace[6] = rightFace[6]
+        backFace[7] = rightFace[7]
+        backFace[8] = rightFace[8]
+        
+        rightFace[6] = face6
+        rightFace[7] = face7
+        rightFace[8] = face8
+        
+    }
 }

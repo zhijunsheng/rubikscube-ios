@@ -8,7 +8,29 @@ class BoardView: UIView {
     var frontFace: [CubeColor] = []
     var rightFace: [CubeColor] = []
     var topFace: [CubeColor] = []
+    var hlpCgpoint: [Int] = [97, 997]
+    var delegate: RubiksDelegate? = nil
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let firstTouch = touches.first!
+        let fstTouchLocation = firstTouch.location(in: self)
+        if  fstTouchLocation.x > oigX &&
+            fstTouchLocation.y > oigY &&
+            fstTouchLocation.x < oigX + 3 * lineSide &&
+            fstTouchLocation.y < oigY + 3 * lineSide {
+            print("\(Int((fstTouchLocation.x - oigX) / lineSide)), \(Int((fstTouchLocation.y - oigY) / lineSide))")
+        }
+        
+        hlpCgpoint[0] = Int(fstTouchLocation.x)
+        hlpCgpoint[1] = Int(fstTouchLocation.y)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let firstTouch = touches.first!
+        let fstTouchLocation = firstTouch.location(in: self)
+            delegate?.moveLayer(fbX: Int((CGFloat(hlpCgpoint[0]) - oigX) / lineSide), fbY: Int((CGFloat(hlpCgpoint[1]) - oigY) / lineSide), tbX: Int((fstTouchLocation.x - oigX) / lineSide), tbY: Int((fstTouchLocation.y - oigY) / lineSide))
+        print("(\(Int((CGFloat(hlpCgpoint[0]) - oigX) / lineSide)), \(Int((CGFloat(hlpCgpoint[1]) - oigY) / lineSide))) -> (\(Int((fstTouchLocation.x - oigX) / lineSide)), \(Int((fstTouchLocation.y - oigY) / lineSide)))")
+    }
     
     override func draw(_ rect: CGRect) {
         
@@ -116,5 +138,4 @@ class BoardView: UIView {
         
         return realColor
     }
-
 }
