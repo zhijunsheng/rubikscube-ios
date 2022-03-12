@@ -11,18 +11,21 @@ import UIKit
 class CubeView: UIView {
     let sideP: CGFloat = 50
     let sideL: CGFloat = 150
-    let startPointX: CGFloat = 450
-    let startPointY: CGFloat = 400
+    var startPointX: CGFloat = 0
+    var startPointY: CGFloat = 0
     var colBegin: Int = -1
     var rowBegin: Int = -1
     var delegate: CubeDelegate? = nil
     
     override func draw(_ rect: CGRect) {
         //test()
-        drawModel()
+        startPointX = bounds.width/2
+        startPointY = bounds.width/2
+        
         drawFrontFace()
         drawRightFace()
         drawUpFace()
+        drawModel()
     }
         
     func test() {
@@ -82,8 +85,8 @@ class CubeView: UIView {
         frontPiece.addLine(to: CGPoint(x: startPointXRight + sideP * sqrt(3) + hi, y: startPointYRight + 3 * sideP + vi))
         frontPiece.addLine(to: CGPoint(x: startPointXRight + hi, y: startPointYRight + 2 * sideP + vi))
         frontPiece.close()
-        frontPiece.stroke()
         frontPiece.fill()
+        frontPiece.stroke()
     }
     func drawRightPiece(col: Int, row: Int, color: CubeColor) {
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
@@ -98,8 +101,8 @@ class CubeView: UIView {
         frontPiece.addLine(to: CGPoint(x: startPointXRight + sideP * sqrt(3) + hi, y: startPointYRight + sideP + vi))
         frontPiece.addLine(to: CGPoint(x: startPointXRight + hi, y: startPointYRight + 2 * sideP + vi))
         frontPiece.close()
-        frontPiece.stroke()
         frontPiece.fill()
+        frontPiece.stroke()
     }
     func drawUpPiece(col: Int, row: Int,color: CubeColor){
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
@@ -114,8 +117,8 @@ class CubeView: UIView {
         frontPiece.addLine(to: CGPoint(x: startPointXRight + hi, y: startPointYRight + 2 * sideP + vi))
         frontPiece.addLine(to: CGPoint(x: startPointXRight - sideP * sqrt(3) + hi, y: startPointYRight + sideP + vi))
         frontPiece.close()
-        frontPiece.stroke()
         frontPiece.fill()
+        frontPiece.stroke()
     }
     func convertColor(color: CubeColor) -> UIColor {
         switch color {
