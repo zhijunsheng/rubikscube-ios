@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController,CubeDelegate {
     
+    
     var gameManager = GameManager()
     @IBOutlet weak var cubeView: CubeView!
     
@@ -18,11 +19,15 @@ class ViewController: UIViewController,CubeDelegate {
         cubeView.delegate = self
         gameManager.reset()
     }
-    
-    func reset() {
-        gameManager.reset()
+    @IBAction func testButton(_ sender: Any) {
+        gameManager.shuffle()
+        cubeView.setNeedsDisplay()
     }
-    
+    @IBAction func resetButton(_ sender: Any) {
+        gameManager.reset()
+        cubeView.setNeedsDisplay()
+    }
+
     func getPieceColorFrontFace(col: Int, row: Int) -> CubeColor {
         return gameManager.getPieceColorFrontFace(col: col, row: row)
     }

@@ -8,7 +8,6 @@
 
 import Foundation
 protocol CubeDelegate {
-    func reset()
     func getPieceColorFrontFace(col: Int, row: Int) -> CubeColor
     func getPieceColorRightFace(col: Int, row: Int) -> CubeColor
     func getPieceColorUpFace(col: Int, row: Int) -> CubeColor

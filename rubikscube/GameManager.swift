@@ -96,6 +96,8 @@ struct GameManager {
                 frontFace[6 + i] = temp
             }
             downFace = rotateFace(face: downFace)
+            downFace = rotateFace(face: downFace)
+            downFace = rotateFace(face: downFace)
             if clockwise {
                 break
             }
@@ -116,7 +118,8 @@ struct GameManager {
         temp[5] = tempTop2
         return temp
     }
-    mutating func rightFaceLeftColumnTurn(clockwise: Bool){
+    // F, F', U, U', R, R', ...
+    mutating func rightFaceLeftColumnTurn(clockwise: Bool){ // F, F'
         var count: Int = 0
         while(count<3){
             for i in 0..<3 {
@@ -126,6 +129,8 @@ struct GameManager {
                 downFace[3*i] = leftFace[8-3*i]
                 leftFace[8-3*i] = temp
             }
+            frontFace = rotateFace(face: frontFace)
+            frontFace = rotateFace(face: frontFace)
             frontFace = rotateFace(face: frontFace)
             if clockwise {
                 break
@@ -167,4 +172,30 @@ struct GameManager {
             count += 1
         }
     }
+    mutating func shuffle(){
+        for j in 0..<1000{
+            let i = arc4random()%6
+            if i%6 == 0{
+                topRowTurn(clockwise: true)
+            }
+             
+            if i%6 == 1{
+                middleRowTurn(clockwise: true)
+            }
+            if i%6 == 2{
+                bottomRowTurn(clockwise: true)
+            }
+            if i%6 == 3{
+                rightFaceLeftColumnTurn(clockwise: true)
+            }
+            if i%6 == 4{
+                rightFaceMidColumnTurn(clockwise: true)
+            }
+            if i%6 == 5{
+                rightFaceRightColumnTurn(clockwise: true)
+            }
+            
+        }
+    }
+    
 }
