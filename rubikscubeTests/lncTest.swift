@@ -11,6 +11,10 @@ import XCTest
 class lncTest: XCTestCase {
 
     func testLnc1() {
+        let a = 1
+        let b = 4
+        let c = 5
+        let d = 6
         
     }
 

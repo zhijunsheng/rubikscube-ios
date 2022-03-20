@@ -4,10 +4,44 @@ struct RubiksBrain {
     
     var frontFace: [CubeColor] = [.green, .green, .green, .green, .green, .green, .green, .green, .green]
     var rightFace: [CubeColor] = [.yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow, .yellow]
-    var topFace: [CubeColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
+    var upFace: [CubeColor] = [.red, .red, .red, .red, .red, .red, .red, .red, .red]
     var backFace: [CubeColor] = [.blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue, .blue]
     var leftFace: [CubeColor] = [.white, .white, .white, .white, .white, .white, .white, .white, .white]
-    var bottomFace: [CubeColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
+    var downFace: [CubeColor] = [.orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange, .orange]
+    
+    mutating func reset() {
+        for i in 0..<9 {
+            frontFace[i] = .green
+            rightFace[i] = .yellow
+            upFace[i] = .red
+            backFace[i] = .blue
+            leftFace[i] = .white
+            downFace[i] = .orange
+        }
+    }
+    
+    mutating func shuffle(){
+        var n: Int
+        for _ in 0..<2400 {
+            n = Int(arc4random() % 6)
+            switch n {
+            case 0:
+                rotateFront()
+            case 1:
+                rotateRight()
+            case 2:
+                rotateTop()
+            case 3:
+                rotateBack()
+            case 4:
+                rotateLeft()
+            case 5:
+                rotateDown()
+            default:
+                break
+            }
+        }
+    }
     
     mutating func rotateFront() {
         frontFace = rotateFace(face: frontFace)
@@ -17,25 +51,25 @@ struct RubiksBrain {
         let rightFace3 = rightFace[3]
         let rightFace0 = rightFace[0]
         
-        rightFace[0] = topFace[6]
-        rightFace[3] = topFace[7]
-        rightFace[6] = topFace[8]
+        rightFace[0] = upFace[6]
+        rightFace[3] = upFace[7]
+        rightFace[6] = upFace[8]
         
-        topFace[6] = leftFace[8]
-        topFace[7] = leftFace[5]
-        topFace[8] = leftFace[2]
+        upFace[6] = leftFace[8]
+        upFace[7] = leftFace[5]
+        upFace[8] = leftFace[2]
         
-        leftFace[2] = bottomFace[0]
-        leftFace[5] = bottomFace[1]
-        leftFace[8] = bottomFace[2]
+        leftFace[2] = downFace[0]
+        leftFace[5] = downFace[1]
+        leftFace[8] = downFace[2]
         
-        bottomFace[0] = rightFace6
-        bottomFace[1] = rightFace3
-        bottomFace[2] = rightFace0
+        downFace[0] = rightFace6
+        downFace[1] = rightFace3
+        downFace[2] = rightFace0
     }
     
     mutating func rotateTop() {
-        topFace = rotateFace(face: topFace)
+        upFace = rotateFace(face: upFace)
         
         let frontFace0 = frontFace[0]
         let frontFace1 = frontFace[1]
@@ -61,21 +95,21 @@ struct RubiksBrain {
     mutating func rotateRight() {
         rightFace = rotateFace(face: rightFace)
         
-        let bottomFace2 = bottomFace[2]
-        let bottomFace5 = bottomFace[5]
-        let bottomFace8 = bottomFace[8]
+        let bottomFace2 = downFace[2]
+        let bottomFace5 = downFace[5]
+        let bottomFace8 = downFace[8]
         
-        bottomFace[2] = backFace[0]
-        bottomFace[5] = backFace[3]
-        bottomFace[8] = backFace[6]
+        downFace[2] = backFace[6]
+        downFace[5] = backFace[3]
+        downFace[8] = backFace[0]
         
-        backFace[0] = topFace[2]
-        backFace[3] = topFace[5]
-        backFace[6] = topFace[8]
+        backFace[6] = upFace[2]
+        backFace[3] = upFace[5]
+        backFace[0] = upFace[8]
         
-        topFace[2] = frontFace[2]
-        topFace[5] = frontFace[5]
-        topFace[8] = frontFace[8]
+        upFace[2] = frontFace[2]
+        upFace[5] = frontFace[5]
+        upFace[8] = frontFace[8]
         
         frontFace[2] = bottomFace2
         frontFace[5] = bottomFace5
@@ -88,21 +122,21 @@ struct RubiksBrain {
         let frontFace3 = frontFace[3]
         let frontFace6 = frontFace[6]
         
-        frontFace[0] = topFace[0]
-        frontFace[3] = topFace[3]
-        frontFace[6] = topFace[6]
+        frontFace[0] = upFace[0]
+        frontFace[3] = upFace[3]
+        frontFace[6] = upFace[6]
         
-        topFace[0] = backFace[2]
-        topFace[3] = backFace[5]
-        topFace[6] = backFace[8]
+        upFace[0] = backFace[8]
+        upFace[3] = backFace[5]
+        upFace[6] = backFace[2]
         
-        backFace[2] = bottomFace[6]
-        backFace[5] = bottomFace[3]
-        backFace[8] = bottomFace[0]
+        backFace[8] = downFace[0]
+        backFace[5] = downFace[3]
+        backFace[2] = downFace[6]
         
-       bottomFace[0] = frontFace0
-       bottomFace[3] = frontFace3
-       bottomFace[6] = frontFace6
+       downFace[0] = frontFace0
+       downFace[3] = frontFace3
+       downFace[6] = frontFace6
         
         
     }
@@ -127,7 +161,7 @@ struct RubiksBrain {
     }
     
     mutating func rotateDown() {
-        bottomFace = rotateFace(face: bottomFace)
+        downFace = rotateFace(face: downFace)
         let face6 = frontFace[6]
         let face7 = frontFace[7]
         let face8 = frontFace[8]
@@ -151,20 +185,20 @@ struct RubiksBrain {
     
     mutating func rotateBack() {
         backFace = rotateFace(face: backFace)
-        let face0 = topFace[0]
-        let face1 = topFace[1]
-        let face2 = topFace[2]
-        topFace[0] = rightFace[2]
-        topFace[1] = rightFace[5]
-        topFace[2] = rightFace[8]
+        let face0 = upFace[0]
+        let face1 = upFace[1]
+        let face2 = upFace[2]
+        upFace[0] = rightFace[2]
+        upFace[1] = rightFace[5]
+        upFace[2] = rightFace[8]
         
-        rightFace[2] = bottomFace[8]
-        rightFace[5] = bottomFace[7]
-        rightFace[8] = bottomFace[6]
+        rightFace[2] = downFace[8]
+        rightFace[5] = downFace[7]
+        rightFace[8] = downFace[6]
         
-        bottomFace[8] = leftFace[6]
-        bottomFace[7] = leftFace[3]
-        bottomFace[6] = leftFace[0]
+        downFace[8] = leftFace[6]
+        downFace[7] = leftFace[3]
+        downFace[6] = leftFace[0]
         
         leftFace[0] = face2
         leftFace[3] = face1

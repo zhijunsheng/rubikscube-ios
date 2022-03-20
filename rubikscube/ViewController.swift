@@ -13,7 +13,7 @@ class ViewController: UIViewController, RubiksDelegate {
         super.viewDidLoad()
         boardView.frontFace = brain.frontFace
         boardView.rightFace = brain.rightFace
-        boardView.topFace = brain.topFace
+        boardView.topFace = brain.upFace
         boardView.setNeedsDisplay()
         boardView.delegate = self
     } // read the msg in WeChat plz!
@@ -74,14 +74,12 @@ class ViewController: UIViewController, RubiksDelegate {
     
     
     @IBAction func rotateFrontClockwise(_ sender: Any) {
-        brain.rotateFront()
+        brain.shuffle()
         update()
     }
     
     @IBAction func rotateFrontCounterclockwise(_ sender: Any) {
-        brain.rotateFront()
-        brain.rotateFront()
-        brain.rotateFront()
+        brain.reset()
         update()
     }
     
@@ -124,7 +122,7 @@ class ViewController: UIViewController, RubiksDelegate {
     func update() {
         boardView.frontFace = brain.frontFace
         boardView.rightFace = brain.rightFace
-        boardView.topFace = brain.topFace
+        boardView.topFace = brain.upFace
         boardView.setNeedsDisplay()
     }
 }
